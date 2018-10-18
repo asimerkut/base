@@ -1,0 +1,36 @@
+{
+    "name": "DefPivot",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pvtSql",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "pvtVal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pvtCol",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pvtRow",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181018182635",
+    "entityTableName": "def_pivot",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
