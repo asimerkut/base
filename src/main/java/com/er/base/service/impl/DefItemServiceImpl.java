@@ -1,5 +1,6 @@
 package com.er.base.service.impl;
 
+import com.er.base.domain.enumeration.EnmType;
 import com.er.base.service.DefItemService;
 import com.er.base.domain.DefItem;
 import com.er.base.repository.DefItemRepository;
@@ -100,5 +101,12 @@ public class DefItemServiceImpl implements DefItemService {
         return StreamSupport
             .stream(defItemSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<DefItem> findAllByTypeId(EnmType enmType) {
+        log.debug("Request to get all DefItems");
+        return defItemRepository.findAllByTypeCodeOrderByCode(enmType);
     }
 }

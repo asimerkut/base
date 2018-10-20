@@ -11,6 +11,8 @@ import { PerCompanyService } from 'app/entities/per-company';
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from 'app/entities/def-item';
 import { IUser, UserService } from 'app/core';
+import { CommonService } from 'app/entities/common';
+import { EnmType } from 'app/shared/model/def-type.model';
 
 @Component({
     selector: 'jhi-per-person-update',
@@ -22,7 +24,13 @@ export class PerPersonUpdateComponent implements OnInit {
 
     percompanies: IPerCompany[];
 
-    defitems: IDefItem[];
+    //defitems: IDefItem[];
+    hizmtItemList: IDefItem[];
+    bransItemList: IDefItem[];
+    unvanItemList: IDefItem[];
+    kadroItemList: IDefItem[];
+    karyrItemList: IDefItem[];
+    konumItemList: IDefItem[];
 
     users: IUser[];
 
@@ -32,7 +40,8 @@ export class PerPersonUpdateComponent implements OnInit {
         private perCompanyService: PerCompanyService,
         private defItemService: DefItemService,
         private userService: UserService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private commonService: CommonService
     ) {}
 
     ngOnInit() {
@@ -46,15 +55,59 @@ export class PerPersonUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        */
         this.userService.query().subscribe(
             (res: HttpResponse<IUser[]>) => {
                 this.users = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
+        this.commonService.findAllByTypeId(EnmType.HIZMT).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.hizmtItemList = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
+        this.commonService.findAllByTypeId(EnmType.BRANS).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.bransItemList = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
+        this.commonService.findAllByTypeId(EnmType.UNVAN).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.unvanItemList = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
+        this.commonService.findAllByTypeId(EnmType.KADRO).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.kadroItemList = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
+        this.commonService.findAllByTypeId(EnmType.KARYR).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.karyrItemList = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
+        this.commonService.findAllByTypeId(EnmType.KONUM).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.konumItemList = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

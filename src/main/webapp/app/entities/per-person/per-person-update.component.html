@@ -102,42 +102,42 @@
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.hizmt" for="field_hizmt">Hizmt</label>
                     <select class="form-control" id="field_hizmt" name="hizmt" [(ngModel)]="perPerson.hizmt" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.hizmt?.id ? perPerson.hizmt : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perPerson.hizmt?.id ? perPerson.hizmt : defItemOption" *ngFor="let defItemOption of hizmtItemList; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.brans" for="field_brans">Brans</label>
                     <select class="form-control" id="field_brans" name="brans" [(ngModel)]="perPerson.brans" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.brans?.id ? perPerson.brans : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perPerson.brans?.id ? perPerson.brans : defItemOption" *ngFor="let defItemOption of bransItemList; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.unvan" for="field_unvan">Unvan</label>
                     <select class="form-control" id="field_unvan" name="unvan" [(ngModel)]="perPerson.unvan" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.unvan?.id ? perPerson.unvan : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perPerson.unvan?.id ? perPerson.unvan : defItemOption" *ngFor="let defItemOption of unvanItemList; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.kadro" for="field_kadro">Kadro</label>
                     <select class="form-control" id="field_kadro" name="kadro" [(ngModel)]="perPerson.kadro" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.kadro?.id ? perPerson.kadro : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perPerson.kadro?.id ? perPerson.kadro : defItemOption" *ngFor="let defItemOption of kadroItemList; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.karyr" for="field_karyr">Karyr</label>
                     <select class="form-control" id="field_karyr" name="karyr" [(ngModel)]="perPerson.karyr" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.karyr?.id ? perPerson.karyr : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perPerson.karyr?.id ? perPerson.karyr : defItemOption" *ngFor="let defItemOption of karyrItemList; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.konum" for="field_konum">Konum</label>
                     <select class="form-control" id="field_konum" name="konum" [(ngModel)]="perPerson.konum" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.konum?.id ? perPerson.konum : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perPerson.konum?.id ? perPerson.konum : defItemOption" *ngFor="let defItemOption of konumItemList; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
                 <div class="form-group">
