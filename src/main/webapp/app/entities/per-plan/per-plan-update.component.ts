@@ -11,6 +11,8 @@ import { IPerPerson } from 'app/shared/model/per-person.model';
 import { PerPersonService } from 'app/entities/per-person';
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from 'app/entities/def-item';
+import { CommonService } from 'app/entities/common';
+import { EnmType } from 'app/shared/model/def-type.model';
 
 @Component({
     selector: 'jhi-per-plan-update',
@@ -22,7 +24,8 @@ export class PerPlanUpdateComponent implements OnInit {
 
     perpeople: IPerPerson[];
 
-    defitems: IDefItem[];
+    dersItemList: IDefItem[];
+    //defitems: IDefItem[];
     startDateDp: any;
 
     constructor(
@@ -30,7 +33,8 @@ export class PerPlanUpdateComponent implements OnInit {
         private perPlanService: PerPlanService,
         private perPersonService: PerPersonService,
         private defItemService: DefItemService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private commonService: CommonService
     ) {}
 
     ngOnInit() {
@@ -44,9 +48,17 @@ export class PerPlanUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        */
+        this.commonService.findAllByTypeId(EnmType.DERS).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.dersItemList = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

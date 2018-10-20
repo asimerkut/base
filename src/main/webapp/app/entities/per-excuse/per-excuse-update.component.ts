@@ -13,6 +13,8 @@ import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from 'app/entities/def-item';
 import { IFiscalPeriod } from 'app/shared/model/fiscal-period.model';
 import { FiscalPeriodService } from 'app/entities/fiscal-period';
+import { CommonService } from 'app/entities/common';
+import { EnmType } from 'app/shared/model/def-type.model';
 
 @Component({
     selector: 'jhi-per-excuse-update',
@@ -24,7 +26,8 @@ export class PerExcuseUpdateComponent implements OnInit {
 
     perpeople: IPerPerson[];
 
-    defitems: IDefItem[];
+    //defitems: IDefItem[];
+    izinItemList: IDefItem[];
 
     fiscalperiods: IFiscalPeriod[];
     startDateDp: any;
@@ -36,7 +39,8 @@ export class PerExcuseUpdateComponent implements OnInit {
         private perPersonService: PerPersonService,
         private defItemService: DefItemService,
         private fiscalPeriodService: FiscalPeriodService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private commonService: CommonService
     ) {}
 
     ngOnInit() {
@@ -50,15 +54,24 @@ export class PerExcuseUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        */
         this.fiscalPeriodService.query().subscribe(
             (res: HttpResponse<IFiscalPeriod[]>) => {
                 this.fiscalperiods = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
+        this.commonService.findAllByTypeId(EnmType.IZIN).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.izinItemList = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

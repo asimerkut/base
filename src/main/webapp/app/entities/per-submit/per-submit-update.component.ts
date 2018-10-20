@@ -15,6 +15,8 @@ import { IPerExcuse } from 'app/shared/model/per-excuse.model';
 import { PerExcuseService } from 'app/entities/per-excuse';
 import { IFiscalPeriod } from 'app/shared/model/fiscal-period.model';
 import { FiscalPeriodService } from 'app/entities/fiscal-period';
+import { CommonService } from 'app/entities/common';
+import { EnmType } from 'app/shared/model/def-type.model';
 
 @Component({
     selector: 'jhi-per-submit-update',
@@ -26,7 +28,8 @@ export class PerSubmitUpdateComponent implements OnInit {
 
     perpeople: IPerPerson[];
 
-    defitems: IDefItem[];
+    //defitems: IDefItem[];
+    dersItemList: IDefItem[];
 
     perexcuses: IPerExcuse[];
 
@@ -40,7 +43,8 @@ export class PerSubmitUpdateComponent implements OnInit {
         private defItemService: DefItemService,
         private perExcuseService: PerExcuseService,
         private fiscalPeriodService: FiscalPeriodService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private commonService: CommonService
     ) {}
 
     ngOnInit() {
@@ -54,12 +58,14 @@ export class PerSubmitUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        */
         this.perExcuseService.query().subscribe(
             (res: HttpResponse<IPerExcuse[]>) => {
                 this.perexcuses = res.body;
@@ -69,6 +75,12 @@ export class PerSubmitUpdateComponent implements OnInit {
         this.fiscalPeriodService.query().subscribe(
             (res: HttpResponse<IFiscalPeriod[]>) => {
                 this.fiscalperiods = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.commonService.findAllByTypeId(EnmType.DERS).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.dersItemList = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

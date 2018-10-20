@@ -89,14 +89,14 @@
                     <label class="form-control-label" jhiTranslate="baseApp.perCompany.sehir" for="field_sehir">Sehir</label>
                     <select class="form-control" id="field_sehir" name="sehir" [(ngModel)]="perCompany.sehir" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perCompany.sehir?.id ? perCompany.sehir : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perCompany.sehir?.id ? perCompany.sehir : defItemOption" *ngFor="let defItemOption of sehirItemList; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perCompany.tipi" for="field_tipi">Tipi</label>
                     <select class="form-control" id="field_tipi" name="tipi" [(ngModel)]="perCompany.tipi" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perCompany.tipi?.id ? perCompany.tipi : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perCompany.tipi?.id ? perCompany.tipi : defItemOption" *ngFor="let defItemOption of okulItemList; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
             </div>

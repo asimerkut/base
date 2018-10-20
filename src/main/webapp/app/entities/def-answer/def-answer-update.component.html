@@ -51,7 +51,7 @@
                     <label class="form-control-label" jhiTranslate="baseApp.defAnswer.itemTarget" for="field_itemTarget">Item Target</label>
                     <select class="form-control" id="field_itemTarget" name="itemTarget" [(ngModel)]="defAnswer.itemTarget" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === defAnswer.itemTarget?.id ? defAnswer.itemTarget : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === defAnswer.itemTarget?.id ? defAnswer.itemTarget : defItemOption" *ngFor="let defItemOption of defTargetItems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
             </div>

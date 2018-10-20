@@ -10,6 +10,7 @@ import { IDefRelation } from 'app/shared/model/def-relation.model';
 import { DefRelationService } from 'app/entities/def-relation';
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from 'app/entities/def-item';
+import { CommonService } from 'app/entities/common';
 
 @Component({
     selector: 'jhi-def-answer-update',
@@ -21,14 +22,16 @@ export class DefAnswerUpdateComponent implements OnInit {
 
     defrelations: IDefRelation[];
 
-    defitems: IDefItem[];
+    //defitems: IDefItem[];
+    defTargetItems: IDefItem[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private defAnswerService: DefAnswerService,
         private defRelationService: DefRelationService,
         private defItemService: DefItemService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private commonService: CommonService
     ) {}
 
     ngOnInit() {
@@ -42,12 +45,25 @@ export class DefAnswerUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        */
+        if (this.defAnswer.relation != null) {
+            const rel: IDefRelation = this.defAnswer.relation;
+            this.commonService.findAllByTypeId(rel.typeTarget.code).subscribe(
+                (res: HttpResponse<IDefItem[]>) => {
+                    this.defTargetItems = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+        } else {
+            this.defTargetItems = null;
+        }
     }
 
     previousState() {

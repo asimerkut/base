@@ -95,7 +95,7 @@
                     <label class="form-control-label" jhiTranslate="baseApp.perSubmit.ders" for="field_ders">Ders</label>
                     <select class="form-control" id="field_ders" name="ders" [(ngModel)]="perSubmit.ders"  required>
                         <option *ngIf="!editForm.value.ders" [ngValue]="null" selected></option>
-                        <option [ngValue]="defItemOption.id === perSubmit.ders?.id ? perSubmit.ders : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perSubmit.ders?.id ? perSubmit.ders : defItemOption" *ngFor="let defItemOption of dersItemList; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
                 <div [hidden]="!(editForm.controls.ders?.dirty && editForm.controls.ders?.invalid)">
