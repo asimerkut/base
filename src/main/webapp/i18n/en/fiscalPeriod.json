@@ -1,0 +1,28 @@
+
+{
+    "baseApp": {
+        "fiscalPeriod" : {
+            "home": {
+                "title": "Fiscal Periods",
+                "createLabel": "Create a new Fiscal Period",
+                "createOrEditLabel": "Create or edit a Fiscal Period",
+                "search": "Search for Fiscal Period"
+            },
+            "created": "A new Fiscal Period is created with identifier {{ param }}",
+            "updated": "A Fiscal Period is updated with identifier {{ param }}",
+            "deleted": "A Fiscal Period is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Fiscal Period {{ id }}?"
+            },
+            "detail": {
+                "title": "Fiscal Period"
+            },
+            "code": "Code",
+            "dateStart": "Date Start",
+            "dateFinish": "Date Finish",
+            "state": "State",
+            "person": "Person",
+            "fiscalYear": "Fiscal Year"
+        }
+    }
+}

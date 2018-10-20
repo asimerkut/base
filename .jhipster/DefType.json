@@ -1,0 +1,32 @@
+{
+    "name": "DefType",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "EnmType",
+            "fieldValues": "BANKA,BRANS,DERS,DONEM,DURUM,GGOKL,GYERI,HIZMT,IZIN,KADRO,KARYR,KONUM,MESLK,OKUL,SEHIR,SENDK,TATIL,UNVAN,YBDIL",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181020094112",
+    "entityTableName": "def_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

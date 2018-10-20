@@ -1,0 +1,26 @@
+{
+    "baseApp": {
+        "EnmType" : {
+            "null": "",
+            "BANKA": "BANKA",
+            "BRANS": "BRANS",
+            "DERS": "DERS",
+            "DONEM": "DONEM",
+            "DURUM": "DURUM",
+            "GGOKL": "GGOKL",
+            "GYERI": "GYERI",
+            "HIZMT": "HIZMT",
+            "IZIN": "IZIN",
+            "KADRO": "KADRO",
+            "KARYR": "KARYR",
+            "KONUM": "KONUM",
+            "MESLK": "MESLK",
+            "OKUL": "OKUL",
+            "SEHIR": "SEHIR",
+            "SENDK": "SENDK",
+            "TATIL": "TATIL",
+            "UNVAN": "UNVAN",
+            "YBDIL": "YBDIL"
+        }
+    }
+}

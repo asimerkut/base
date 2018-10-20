@@ -1,5 +1,6 @@
 package com.er.base.domain;
 
+import com.er.fin.domain.IEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -16,7 +17,7 @@ import java.util.Objects;
 @Table(name = "def_pivot")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "defpivot")
-public class DefPivot implements Serializable {
+public class DefPivot implements IEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -146,5 +147,10 @@ public class DefPivot implements Serializable {
             ", pvtCol='" + getPvtCol() + "'" +
             ", pvtRow='" + getPvtRow() + "'" +
             "}";
+    }
+
+    @Override
+    public String getLabel() {
+        return code;
     }
 }

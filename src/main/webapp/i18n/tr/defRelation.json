@@ -1,0 +1,25 @@
+
+{
+    "baseApp": {
+        "defRelation" : {
+            "home": {
+                "title": "Def Relations",
+                "createLabel": "Create a new Def Relation",
+                "createOrEditLabel": "Create or edit a Def Relation",
+                "search": "Search for Def Relation"
+            },
+            "created": "A new Def Relation is created with identifier {{ param }}",
+            "updated": "A Def Relation is updated with identifier {{ param }}",
+            "deleted": "A Def Relation is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Def Relation {{ id }}?"
+            },
+            "detail": {
+                "title": "Def Relation"
+            },
+            "parameter": "Parameter",
+            "typeSource": "Type Source",
+            "typeTarget": "Type Target"
+        }
+    }
+}

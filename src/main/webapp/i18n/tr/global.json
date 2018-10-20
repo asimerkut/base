@@ -94,6 +94,17 @@
             "entities": {
                 "main": "Varlıklar",
                 "defPivot": "Def Pivot",
+                "fiscalYear": "Fiscal Year",
+                "defType": "Def Type",
+                "defItem": "Def Item",
+                "defRelation": "Def Relation",
+                "defAnswer": "Def Answer",
+                "perCompany": "Per Company",
+                "perPerson": "Per Person",
+                "fiscalPeriod": "Fiscal Period",
+                "perPlan": "Per Plan",
+                "perExcuse": "Per Excuse",
+                "perSubmit": "Per Submit",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="defType">
+            <h2><span jhiTranslate="baseApp.defType.detail.title">Def Type</span> {{defType.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="baseApp.defType.code">Code</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'baseApp.EnmType.' + defType.code}}">{{defType.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.defType.name">Name</span></dt>
+                <dd>
+                    <span>{{defType.name}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/def-type', defType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

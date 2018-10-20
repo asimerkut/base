@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="perSubmit">
+            <h2><span jhiTranslate="baseApp.perSubmit.detail.title">Per Submit</span> {{perSubmit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="baseApp.perSubmit.submitDate">Submit Date</span></dt>
+                <dd>
+                    <span>{{perSubmit.submitDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perSubmit.dersGrup">Ders Grup</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'baseApp.EnmDersGrup.' + perSubmit.dersGrup}}">{{perSubmit.dersGrup}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perSubmit.dersSira">Ders Sira</span></dt>
+                <dd>
+                    <span>{{perSubmit.dersSira}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perSubmit.dersAdet">Ders Adet</span></dt>
+                <dd>
+                    <span>{{perSubmit.dersAdet}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perSubmit.person">Person</span></dt>
+                <dd>
+                    <div *ngIf="perSubmit.person">
+                        <a [routerLink]="['/per-person', perSubmit.person?.id, 'view']">{{perSubmit.person?.code}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perSubmit.ders">Ders</span></dt>
+                <dd>
+                    <div *ngIf="perSubmit.ders">
+                        <a [routerLink]="['/def-item', perSubmit.ders?.id, 'view']">{{perSubmit.ders?.code}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perSubmit.excuse">Excuse</span></dt>
+                <dd>
+                    <div *ngIf="perSubmit.excuse">
+                        <a [routerLink]="['/per-excuse', perSubmit.excuse?.id, 'view']">{{perSubmit.excuse?.code}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perSubmit.fiscalPeriod">Fiscal Period</span></dt>
+                <dd>
+                    <div *ngIf="perSubmit.fiscalPeriod">
+                        <a [routerLink]="['/fiscal-period', perSubmit.fiscalPeriod?.id, 'view']">{{perSubmit.fiscalPeriod?.code}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/per-submit', perSubmit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

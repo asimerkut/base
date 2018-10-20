@@ -1,0 +1,18 @@
+{
+    "baseApp": {
+        "EnmParam" : {
+            "null": "",
+            "GORV_MA_KAR": "GORV_MA_KAR",
+            "GORV_EK_ZOR": "GORV_EK_ZOR",
+            "GORV_EK_IST": "GORV_EK_IST",
+            "DERS_MA_KAR": "DERS_MA_KAR",
+            "DERS_EK_ZOR": "DERS_EK_ZOR",
+            "DERS_EK_IST": "DERS_EK_IST",
+            "KATSAYI": "KATSAYI",
+            "DAYANAK_GOR": "DAYANAK_GOR",
+            "DAYANAK_UNV": "DAYANAK_UNV",
+            "GOSTERGE_GOR": "GOSTERGE_GOR",
+            "TARIFE_GOR": "TARIFE_GOR"
+        }
+    }
+}

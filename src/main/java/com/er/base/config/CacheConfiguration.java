@@ -42,6 +42,17 @@ public class CacheConfiguration {
             cm.createCache(com.er.base.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.er.base.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.er.base.domain.DefPivot.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.FiscalYear.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.DefType.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.DefItem.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.DefRelation.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.DefAnswer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.PerCompany.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.PerPerson.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.FiscalPeriod.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.PerPlan.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.PerExcuse.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.PerSubmit.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

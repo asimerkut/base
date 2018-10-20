@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-def-relation-heading" jhiTranslate="baseApp.defRelation.home.createOrEditLabel">Create or edit a Def Relation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!defRelation.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="defRelation.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.defRelation.parameter" for="field_parameter">Parameter</label>
+                    <select class="form-control" name="parameter" [(ngModel)]="defRelation.parameter" id="field_parameter" >
+                        <option value="GORV_MA_KAR">{{'baseApp.EnmParam.GORV_MA_KAR' | translate}}</option>
+                        <option value="GORV_EK_ZOR">{{'baseApp.EnmParam.GORV_EK_ZOR' | translate}}</option>
+                        <option value="GORV_EK_IST">{{'baseApp.EnmParam.GORV_EK_IST' | translate}}</option>
+                        <option value="DERS_MA_KAR">{{'baseApp.EnmParam.DERS_MA_KAR' | translate}}</option>
+                        <option value="DERS_EK_ZOR">{{'baseApp.EnmParam.DERS_EK_ZOR' | translate}}</option>
+                        <option value="DERS_EK_IST">{{'baseApp.EnmParam.DERS_EK_IST' | translate}}</option>
+                        <option value="KATSAYI">{{'baseApp.EnmParam.KATSAYI' | translate}}</option>
+                        <option value="DAYANAK_GOR">{{'baseApp.EnmParam.DAYANAK_GOR' | translate}}</option>
+                        <option value="DAYANAK_UNV">{{'baseApp.EnmParam.DAYANAK_UNV' | translate}}</option>
+                        <option value="GOSTERGE_GOR">{{'baseApp.EnmParam.GOSTERGE_GOR' | translate}}</option>
+                        <option value="TARIFE_GOR">{{'baseApp.EnmParam.TARIFE_GOR' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.defRelation.typeSource" for="field_typeSource">Type Source</label>
+                    <select class="form-control" id="field_typeSource" name="typeSource" [(ngModel)]="defRelation.typeSource"  required>
+                        <option *ngIf="!editForm.value.typeSource" [ngValue]="null" selected></option>
+                        <option [ngValue]="defTypeOption.id === defRelation.typeSource?.id ? defRelation.typeSource : defTypeOption" *ngFor="let defTypeOption of deftypes; trackBy: trackDefTypeById">{{defTypeOption.code}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.typeSource?.dirty && editForm.controls.typeSource?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.typeSource?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.defRelation.typeTarget" for="field_typeTarget">Type Target</label>
+                    <select class="form-control" id="field_typeTarget" name="typeTarget" [(ngModel)]="defRelation.typeTarget" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="defTypeOption.id === defRelation.typeTarget?.id ? defRelation.typeTarget : defTypeOption" *ngFor="let defTypeOption of deftypes; trackBy: trackDefTypeById">{{defTypeOption.code}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

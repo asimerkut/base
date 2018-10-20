@@ -1,0 +1,132 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-per-submit-heading" jhiTranslate="baseApp.perSubmit.home.createOrEditLabel">Create or edit a Per Submit</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!perSubmit.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="perSubmit.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perSubmit.submitDate" for="field_submitDate">Submit Date</label>
+                    <div class="input-group">
+                        <input id="field_submitDate" type="text" class="form-control" name="submitDate" ngbDatepicker  #submitDateDp="ngbDatepicker" [(ngModel)]="perSubmit.submitDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="submitDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.submitDate?.dirty && editForm.controls.submitDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.submitDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perSubmit.dersGrup" for="field_dersGrup">Ders Grup</label>
+                    <select class="form-control" name="dersGrup" [(ngModel)]="perSubmit.dersGrup" id="field_dersGrup"  required>
+                        <option value="D_GS">{{'baseApp.EnmDersGrup.D_GS' | translate}}</option>
+                        <option value="GG">{{'baseApp.EnmDersGrup.GG' | translate}}</option>
+                        <option value="GY">{{'baseApp.EnmDersGrup.GY' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.dersGrup?.dirty && editForm.controls.dersGrup?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dersGrup?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perSubmit.dersSira" for="field_dersSira">Ders Sira</label>
+                    <input type="number" class="form-control" name="dersSira" id="field_dersSira"
+                        [(ngModel)]="perSubmit.dersSira" required max="15" jhiMax="15"/>
+                    <div [hidden]="!(editForm.controls.dersSira?.dirty && editForm.controls.dersSira?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dersSira?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.dersSira?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 15 }">
+                            This field cannot be more than 15.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.dersSira?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perSubmit.dersAdet" for="field_dersAdet">Ders Adet</label>
+                    <input type="number" class="form-control" name="dersAdet" id="field_dersAdet"
+                        [(ngModel)]="perSubmit.dersAdet" required max="15" jhiMax="15"/>
+                    <div [hidden]="!(editForm.controls.dersAdet?.dirty && editForm.controls.dersAdet?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dersAdet?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.dersAdet?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 15 }">
+                            This field cannot be more than 15.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.dersAdet?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perSubmit.person" for="field_person">Person</label>
+                    <select class="form-control" id="field_person" name="person" [(ngModel)]="perSubmit.person"  required>
+                        <option *ngIf="!editForm.value.person" [ngValue]="null" selected></option>
+                        <option [ngValue]="perPersonOption.id === perSubmit.person?.id ? perSubmit.person : perPersonOption" *ngFor="let perPersonOption of perpeople; trackBy: trackPerPersonById">{{perPersonOption.code}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.person?.dirty && editForm.controls.person?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.person?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perSubmit.ders" for="field_ders">Ders</label>
+                    <select class="form-control" id="field_ders" name="ders" [(ngModel)]="perSubmit.ders"  required>
+                        <option *ngIf="!editForm.value.ders" [ngValue]="null" selected></option>
+                        <option [ngValue]="defItemOption.id === perSubmit.ders?.id ? perSubmit.ders : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.ders?.dirty && editForm.controls.ders?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.ders?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perSubmit.excuse" for="field_excuse">Excuse</label>
+                    <select class="form-control" id="field_excuse" name="excuse" [(ngModel)]="perSubmit.excuse" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="perExcuseOption.id === perSubmit.excuse?.id ? perSubmit.excuse : perExcuseOption" *ngFor="let perExcuseOption of perexcuses; trackBy: trackPerExcuseById">{{perExcuseOption.code}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perSubmit.fiscalPeriod" for="field_fiscalPeriod">Fiscal Period</label>
+                    <select class="form-control" id="field_fiscalPeriod" name="fiscalPeriod" [(ngModel)]="perSubmit.fiscalPeriod" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="fiscalPeriodOption.id === perSubmit.fiscalPeriod?.id ? perSubmit.fiscalPeriod : fiscalPeriodOption" *ngFor="let fiscalPeriodOption of fiscalperiods; trackBy: trackFiscalPeriodById">{{fiscalPeriodOption.code}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
