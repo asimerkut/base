@@ -1,3 +1,9 @@
+entity FiscalYear {
+	code String required maxlength(100),
+    dateStart LocalDate required,
+    dateFinish LocalDate required
+}
+
 entity DefType {
 	code EnmType required,
     name String required maxlength(100)
@@ -19,37 +25,6 @@ entity DefAnswer {
 	answer String maxlength(20)
 }
 
-enum EnmType {
-    BANKA,	BRANS,	DERS,	DONEM,	DURUM,
-	GGOKL,	GYERI,  HIZMT,  IZIN,   KADRO,
-    KARYR,  KONUM,  MESLK,  OKUL,   SEHIR,
-    SENDK,  TATIL,  UNVAN,  YBDIL
-}
-
-enum EnmParam {
-    GORV_MA_KAR,   GORV_EK_ZOR,
-    GORV_EK_IST,   DERS_MA_KAR,
-    DERS_EK_ZOR,   DERS_EK_IST,
-
-    KATSAYI,
-    DAYANAK_GOR,   DAYANAK_UNV,
-    GOSTERGE_GOR,  TARIFE_GOR
-}
-
-
-relationship ManyToOne {
-    DefItem{type(code) required} to DefType,
-    DefItem{parent(code)} to DefItem,
-
-    DefRelation{typeSource(code) required} to DefType,
-    DefRelation{typeTarget(code)} to DefType
-
-    DefAnswer{relation(code) required} to DefRelation,
-    DefAnswer{itemSource(code) required} to DefItem,
-    DefAnswer{itemTarget(code)} to DefItem
-
-}
-
 entity PerCompany {
     code String required maxlength(20),
     name String required maxlength(100),
@@ -67,6 +42,13 @@ entity PerPerson {
     phone String,
     cins  EnmCins,
     medeni EnmMedeni
+}
+
+entity FiscalPeriod {
+	code String required,
+    dateStart LocalDate required,
+    dateFinish LocalDate required,
+    state Integer required
 }
 
 entity PerPlan {
@@ -93,6 +75,18 @@ entity PerSubmit {
 }
 
 relationship ManyToOne {
+
+    DefItem{type(code) required} to DefType,
+    DefItem{parent(code)} to DefItem,
+
+    DefRelation{typeSource(code) required} to DefType,
+    DefRelation{typeTarget(code)} to DefType
+
+    DefAnswer{relation(code) required} to DefRelation,
+    DefAnswer{itemSource(code) required} to DefItem,
+    DefAnswer{itemTarget(code)} to DefItem
+
+
     PerCompany{sehir(code)} to DefItem,
     PerCompany{tipi(code)} to DefItem,
 
@@ -103,18 +97,22 @@ relationship ManyToOne {
     PerPerson{kadro(code)} to DefItem,
     PerPerson{karyr(code)} to DefItem,
     PerPerson{konum(code)} to DefItem,
-
     PerPerson{user(login)} to User,
+
+    FiscalPeriod{person(code)} to PerPerson,
+    FiscalPeriod{fiscalYear(code)} to FiscalYear,
 
     PerPlan{person(code) required} to PerPerson,
     PerPlan{ders(code) required} to DefItem
 
     PerExcuse{person(code) required} to PerPerson,
     PerExcuse{izin(code) required} to DefItem,
+    PerExcuse{fiscalPeriod(code)} to FiscalPeriod,
 
     PerSubmit{person(code) required} to PerPerson,
     PerSubmit{ders(code) required} to DefItem,
-    PerSubmit{excuse(code)} to PerExcuse
+    PerSubmit{excuse(code)} to PerExcuse,
+    PerSubmit{fiscalPeriod(code)} to FiscalPeriod
 
 }
 
@@ -123,5 +121,22 @@ enum EnmCins {E,K}
 enum EnmMedeni {BEK,EVL,DUL,BOS}
 enum EnmDersGrup {D_GS,GG,GY}
 enum EnmSozlesme {KADRO,SOZ4B,UCRET}
+
+enum EnmType {
+    BANKA,	BRANS,	DERS,	DONEM,	DURUM,
+	GGOKL,	GYERI,  HIZMT,  IZIN,   KADRO,
+    KARYR,  KONUM,  MESLK,  OKUL,   SEHIR,
+    SENDK,  TATIL,  UNVAN,  YBDIL
+}
+
+enum EnmParam {
+    GORV_MA_KAR,   GORV_EK_ZOR,
+    GORV_EK_IST,   DERS_MA_KAR,
+    DERS_EK_ZOR,   DERS_EK_IST,
+
+    KATSAYI,
+    DAYANAK_GOR,   DAYANAK_UNV,
+    GOSTERGE_GOR,  TARIFE_GOR
+}
 
 service all with serviceImpl
