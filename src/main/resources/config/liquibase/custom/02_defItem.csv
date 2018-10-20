@@ -1,0 +1,1452 @@
+id;code;name;item_level;is_select;is_const;type_id;parent_id
+1133;001;Ziraat Barkası;1;true;false;101;null
+1134;001.01;......... Şubesi;2;true;false;101;1133
+1135;002;İş Bankası;1;true;false;101;null
+1136;002.01;........  Şubesi;2;true;false;101;1135
+2171;1119;Bilgisayar;1;true;true;102;null
+2172;1123;Biyoloji;1;true;true;102;null
+2275;1142;Tekstil-B.B.D Boya Apre;1;true;true;102;null
+2177;1207;Coğrafya;1;true;true;102;null
+2208;1230;İHL. Meslek Dersleri;1;true;true;102;null
+2182;1245;Din Kültürü ve Ahlak Bilgisi;1;true;true;102;null
+2184;1264;Döküm /Endüstriyel Döküm;1;true;true;102;null
+2273;1279;Tekstil;1;true;true;102;null
+2282;1283;Türk Dili ve Ed./ Dil ve Anlatım /Türk Edb.;1;true;true;102;null
+2186;1314;Elektrik;1;true;true;102;null
+2187;1333;Elektronik/ Telekomünikasyon;1;true;true;102;null
+2188;1371;Felsefe;1;true;true;102;null
+2189;1386;Fen Bilgisi / Fen ve Teknoloji;1;true;true;102;null
+2190;1390;Fizik;1;true;true;102;null
+2194;1417;Fransızca;1;true;true;102;null
+2201;1455;Giyim/Hazır Giyim/Moda Tasar.;1;true;true;102;null
+2203;1489;Güverte;1;true;true;102;null
+2204;1493;Güverte Avlama;1;true;true;102;null
+2206;1505;Harita Kadastro;1;true;true;102;null
+2211;1524;İngilizce;1;true;true;102;null
+2221;1611;Klasik Ciltçilik;1;true;true;102;null
+2216;1612;Kalıpçılık;1;true;true;102;null
+2217;1627;Kimya;1;true;true;102;null
+2222;1631;Kuaförlük/Cilt Bakımı;1;true;true;102;null
+2224;1650;Kütüphanecilik;1;true;true;102;null
+2229;1684;Makine /Tesviye /Kalıp;1;true;true;102;null
+2228;1699;Makine Ressamlığı;1;true;true;102;null
+2230;1700;Matbaa;1;true;true;102;null
+2210;1715;İlköğretim Matematik Öğret.;1;true;true;102;null
+2238;1768;Milli Tarih, Milli Coğrafya, Vatandaşlık Bilgisi;1;true;true;102;null
+2239;1772;Mobilya ve Dekor. (Ağaç İşleri);1;true;true;102;null
+2240;1787;Model;1;true;true;102;null
+2241;1791;Motor;1;true;true;102;null
+2242;1818;Muhasebe Grubu;1;true;true;102;null
+2243;1822;Müzik;1;true;true;102;null
+2244;1837;Nakış;1;true;true;102;null
+2247;1860;Öğretmenlik Meslek Bilgisi Dersi;1;true;true;102;null
+2255;1894;Rehber Öğretmen;1;true;true;102;null
+2257;1906;Resim-Grafik;1;true;true;102;null
+2256;1925;Resim-İş/Resim/Görsel Sanatlar;1;true;true;102;null
+2260;1944;Sağlık Meslek Lisesi Meslek Dersleri;1;true;true;102;null
+2261;1959;Sanat Tarihi;1;true;true;102;null
+2176;1963;Büro Yönetimi ve Sekreterlik Grubu;1;true;true;102;null
+2262;1978;Seramik;1;true;true;102;null
+2277;1997;Tesisat Teknolojisi;1;true;true;102;null
+2265;2017;Su Ürünleri;1;true;true;102;null
+2271;2036;Tarih;1;true;true;102;null
+2276;2089;Telekominikasyon;1;true;true;102;null
+2278;2105;Tesviye;1;true;true;102;null
+2280;2139;Trikotaj;1;true;true;102;null
+2284;2143;Türkçe;1;true;true;102;null
+2287;2177;Yapı/Yapı Ressamlığı/Harita ve Kadastro;1;true;true;102;null
+2166;2246;Almanca;1;true;true;102;null
+2169;2265;Beden Eğitimi;1;true;true;102;null
+2170;2299;Bes/Gıda Tek.Ev Y.ve Bes.;1;true;true;102;null
+2185;2315;ElSan. Dekoratif San-Dok.;1;true;true;102;null
+2231;2353;Matematik;1;true;true;102;null
+2251;2363;Psikoloji;1;true;true;102;null
+2263;2403;Sınıf Öğretmenliği;1;true;true;102;null
+2274;2456;Testil İplik;1;true;true;102;null
+2205;2494;Halıcılık Kursu;1;true;true;102;null
+2264;2510;Sosyal Bilgiler;1;true;true;102;null
+2236;2525;Metal İşleri;1;true;true;102;null
+2223;2544;Kurs Öğretmeni;1;true;true;102;null
+2248;2563;Özel Eğitim Öğretmenliği;1;true;true;102;null
+2288;2632;Zihin Engelliler Sınıf Öğret.;1;true;true;102;null
+2202;2647;Görme Engelliler Sınıf Öğretmenliği;1;true;true;102;null
+2213;2651;İşitme Engelliler Sınıf Öğret.;1;true;true;102;null
+2207;2773;Hollandaca;1;true;true;102;null
+2266;2804;Süs Bitkileri;1;true;true;102;null
+2283;2823;Türk Halk Oyunları (Yaygın Egitim);1;true;true;102;null
+2252;2838;Radyo-Televizyon;1;true;true;102;null
+2267;2861;Takı Tasarımı Kuyumculuk;1;true;true;102;null
+2197;2895;Gemi İnşaa;1;true;true;102;null
+2285;2907;Uçak Bakım Teknik Gövde Motor;1;true;true;102;null
+2227;2926;Mahalli İdareler Grubu;1;true;true;102;null
+2183;2930;Diş Protez;1;true;true;102;null
+2181;3000;Devredilen Personelin Branşı;1;true;true;102;null
+2254;3039;Rehabilitasyon;1;true;true;102;null
+2245;4439;Okul Önc. Öğret./ Çocuk Gelişimi ve Eğit. Öğret.;1;true;true;102;null
+2180;4440;Çocuk Gelişimi Öğretmenliği.;1;true;true;102;null
+2214;4599;İtalyanca;1;true;true;102;null
+2196;4600;Gazetecilik/Halkla İlişkiler;1;true;true;102;null
+2234;4615;Matematik (İngilizce);1;true;true;102;null
+2233;4634;Matematik (Fransızca);1;true;true;102;null
+2232;4649;Matematik (Almanca);1;true;true;102;null
+2193;4687;Fizik (İngilizce);1;true;true;102;null
+2192;4691;Fizik (Fransızca);1;true;true;102;null
+2191;4703;Fizik (Almanca);1;true;true;102;null
+2220;4718;Kimya (İngilizce);1;true;true;102;null
+2219;4722;Kimya (Fransızca);1;true;true;102;null
+2218;4737;Kimya (Almanca);1;true;true;102;null
+2175;4741;Biyoloji (İngilizce);1;true;true;102;null
+2174;4756;Biyoloji (Fransızca);1;true;true;102;null
+2173;4760;Biyoloji (Almanca);1;true;true;102;null
+2281;4810;Turizm ve Otelcilik Grubu;1;true;true;102;null
+2215;4882;Japonca;1;true;true;102;null
+2258;4883;Rusça;1;true;true;102;null
+2209;4897;İHL Meslek Dersleri (Arapça);1;true;true;102;null
+2212;4899;İspanyolca;1;true;true;102;null
+2272;4900;Teknoloji ve Tasarım;1;true;true;102;null
+2259;4901;Sağlık Bilgisi;1;true;true;102;null
+2199;4902;Gıda Kontrol ve Analizleri;1;true;true;102;null
+2225;4903;Laborantlık;1;true;true;102;null
+2286;4904;Veteriner Sağlık;1;true;true;102;null
+2200;4905;Gıda Teknolojisi;1;true;true;102;null
+2198;4906;Genel Ziraat;1;true;true;102;null
+2249;4907;Peyzaj;1;true;true;102;null
+2269;4908;Tarım Makineleri;1;true;true;102;null
+2270;4909;Tarım Teknolojisi;1;true;true;102;null
+2178;4910;Çevre Sağlık;1;true;true;102;null
+2235;4911;Medikal Bakım;1;true;true;102;null
+2167;4912;Ana Çocuk Sağlığı;1;true;true;102;null
+2253;4913;Radyoloji;1;true;true;102;null
+2226;4914;Laboratuvar;1;true;true;102;null
+2279;4915;Tıbbi Sekreterlik;1;true;true;102;null
+2164;4916;Acil Tıp Teknisyenliği;1;true;true;102;null
+2168;4918;Anestezi;1;true;true;102;null
+2246;4919;Ortopedi;1;true;true;102;null
+2165;4921;Adalet M.L. Meslek Dersleri;1;true;true;102;null
+2268;4922;Tapu kadastro M.L. Meslek Dersleri;1;true;true;102;null
+2237;4923;Meteroloji M.L.Meslek Dersleri;1;true;true;102;null
+2179;4927;Çince;1;true;true;102;null
+2250;4928;Plastik İşleme/Plastik Teknolojisi;1;true;true;102;null
+2195;4929;Fotoğrafçılık;1;true;true;102;null
+2466;5929;Milli Güvenlik Bilgisi;1;true;true;102;null
+1055;D;DERS;1;true;true;103;null
+1057;D.1;Kültür;2;true;true;103;1055
+1058;D.2;Atelye;2;true;true;103;1055
+2157;D.3;Meslek;2;true;true;103;1055
+2482;D.4;  İdari Çlş.;2;true;true;103;1055
+1056;GG;GÖREV-GÜNLÜK;1;true;true;103;null
+1059;GG.1;Yönetim;2;true;true;103;1056
+1062;GG.4;İşletme;2;true;true;103;1056
+2425;GG.5;Bakım;2;true;true;103;1056
+2559;GS;GÖREV-SAATLİK;1;true;true;103;null
+1060;GS.2;Rehber.;2;true;false;103;2559
+1061;GS.3;Sos.Etk.;2;true;false;103;2559
+2448;GS.6;Ücretli Ders;2;true;false;103;2559
+2478;GS.7;Rehber.2;2;true;false;103;2559
+2533;GS.8;Sos.Etk.2;2;true;false;103;2559
+2346;GY;GÖREV-YILLIK;1;true;true;103;null
+2159;GY.01;DD.Eğt.Çlş.;2;true;true;103;2346
+2160;GY.02;Belleticilik;2;true;true;103;2346
+2161;GY.03;Sın.Kom.Ü;2;true;true;103;2346
+2162;GY.04;Sın.Gözcü;2;true;true;103;2346
+2333;GY.05;Eğit.Gezi;2;true;true;103;2346
+2390;GY.06;Kurs-Günd.;2;true;true;103;2346
+2391;GY.07;Konferans;2;true;true;103;2346
+2392;GY.08;Tercüman.;2;true;true;103;2346
+2393;GY.09;Staj;2;true;true;103;2346
+2394;GY.10;Diğer;2;true;true;103;2346
+2395;GY.11;S.Baş.Sem.;2;true;true;103;2346
+2396;GY.12;S.Son.Sem;2;true;true;103;2346
+2439;GY.13;Hiz.İçi Eğit.;2;true;true;103;2346
+2440;GY.14;Seminer;2;true;true;103;2346
+2441;GY.15;TmG.-TmY;2;true;true;103;2346
+2442;GY.16;Kurs-Gece;2;true;true;103;2346
+2449;GY.17;Telafi Dersi;2;true;true;103;2346
+2335;GD;Görev Dönemi;1;true;true;104;null
+2336;GD.OY;Öğretim Yılı;2;true;true;104;2335
+2337;GD.OY.1D;1. Dönem;3;true;true;104;2336
+2338;GD.OY.2D;2. Dönem;3;true;true;104;2336
+2339;GD.SB;Sene Başı Seminer;2;true;true;104;2335
+2340;GD.SS;Sene Sonu Seminer;2;true;true;104;2335
+2357;GD.YT;Yaz Tatili;2;true;true;104;2335
+2341;GD.YY;Yarı Yıl Tatili;2;true;true;104;2335
+2366;01;Bu bölüm şimdilik kullanımıyor;1;true;true;105;null
+2534;001;ŞŞY  Şair Şeyhi İlköğretim Okulu;1;true;false;106;null
+2535;002;ŞKR  Şeker  İlköğretim Okulu;1;true;false;106;null
+2536;003;Drv  Derviş Paşa  Kurtuluş İlköğretim Okulu;1;true;false;106;null
+2537;004;LNY  Linyit  İlköğretim Okulu;1;true;false;106;null
+2538;005;BYL  Başaran Yıldız  İlköğretim Okulu;1;true;false;106;null
+2541;006;VKF  Vakıfbank  İlköğretim Okulu;1;true;false;106;null
+2548;007;SİMAV ENDÜSTRİ MESLEK LİSESİ;1;true;false;106;null
+2549;008;SİMAV ANADOLU Ö–RETMEN LİSTESİ;1;true;false;106;null
+2550;009;SİMAV TİCARET MESLEK LİSESİ;1;true;false;106;null
+2551;010;SİMAV SA–LIK MESLEK LİSESİ;1;true;false;106;null
+2552;011;SİMAV NURULLAH KOYUNCUO–LU ANADOLU LİSESİ;1;true;false;106;null
+2553;012;SİMAV OSMANBEY İLKÖ–RETİM OKULU;1;true;false;106;null
+1131;001;Kendi Personelimiz;1;true;true;107;null
+2539;002;Altıntaş Beşkarış  İlköğretim Okulu;1;true;false;107;null
+2540;003;Kütahya Halk Eğitim Merkezi Md.;1;true;false;107;null
+1132;099;Yok;1;true;true;107;null
+2354;H1;Eğitim - Öğretim;1;true;true;108;null
+2355;H2;Genel İdare Hizmetleri;1;true;true;108;null
+2356;H3;Yardımcı Hizmetler;1;true;true;108;null
+2400;H4;Sağlık Hizmetleri;1;true;true;108;null
+2414;H5;Diğer Hizmet Sınıfları;1;true;true;108;null
+2371;01;Sağlık;1;true;true;109;null
+2377;01.01;Sevk  Ayakta;2;true;true;109;2371
+2378;01.02;Rapor - Tek Hek.;2;true;true;109;2371
+2379;01.03;Rapor - Heyet;2;true;true;109;2371
+2408;01.04;Refakat;2;true;true;109;2371
+2542;01.09;Doğum İzni;2;true;false;109;2371
+2372;02;Mazeret;1;true;true;109;null
+2385;02.01;Mazeret;2;true;true;109;2372
+2386;02.02;Eşinin Doğumu;2;true;true;109;2372
+2387;02.03;Evlilik;2;true;true;109;2372
+2388;02.04;Ölüm;2;true;true;109;2372
+2373;03;Görevli;1;true;true;109;null
+2409;03.01;Görevli;2;true;true;109;2373
+2374;04;Yıllık İzin;1;true;true;109;null
+2410;04.01;Yıllık İzin;2;true;true;109;2374
+2375;05;Aylıksız;1;true;true;109;null
+2380;05.01;Asker - Yurt İçi;2;true;true;109;2375
+2381;05.02;Asker - Yurt Dışı;2;true;true;109;2375
+2382;05.03;Doğum İzni;2;true;true;109;2375
+2383;05.04;İsteğe Bağlı;2;true;true;109;2375
+2384;05.05;Zorunlu Ayrılma;2;true;true;109;2375
+2423;05.06;Aylıksız;2;true;true;109;2375
+2447;06;Özel Durum;1;true;true;109;null
+2450;06.01;Tümünü Alır;2;true;true;109;2447
+2451;06.02;Tümünü Almaz;2;true;true;109;2447
+2452;06.03;Sadece Saate Bağlı Alır;2;true;true;109;2447
+2453;06.04;Sadece Sabit Görev Alır;2;true;true;109;2447
+2454;06.05;Sadece Değişken Görev Alır;2;true;true;109;2447
+2455;06.06;Saate Bağlı ve Sabit Görev Alır;2;true;true;109;2447
+2456;06.07;Saate Bağlı ve Değ.Görev Alır;2;true;true;109;2447
+2457;06.08;Sabit ve Değişken Görev Alır;2;true;true;109;2447
+2370;99;Özürsüz;1;true;true;109;null
+2411;99.01;Özürsüz;2;true;true;109;2370
+2415;001;Müdür;1;true;true;110;null
+2443;002;Müdür Başyardımcısı;1;true;true;110;null
+2444;003;Müdür Yardımcısı;1;true;true;110;null
+2445;004;Şube Müdürü;1;true;true;110;null
+2311;005;Öğretmen;1;true;true;110;null
+2483;006;Şef;1;true;true;110;null
+2484;007;Tekniker;1;true;true;110;null
+2485;008;Teknisyen;1;true;true;110;null
+2308;009;VHKİ;1;true;true;110;null
+2486;010;Daktilograf;1;true;true;110;null
+2487;011;Memur;1;true;true;110;null
+2488;012;Hizmetli;1;true;true;110;null
+2489;013;Şoför;1;true;true;110;null
+2490;014;Bekçi;1;true;true;110;null
+2491;015;Aşçı;1;true;true;110;null
+2343;016;Hizmetli;1;true;true;110;null
+2492;017;Diğer;1;true;false;110;null
+2493;018;Vekil Öğretmen;1;true;false;110;null
+2543;030;Uzman Öğretmen;1;true;false;110;null
+2474;051;4.b  Sözleşmeli;1;true;true;110;null
+2479;052;Usta Öğretici;1;true;true;110;null
+2480;053;Ücretli Öğretmen;1;true;true;110;null
+2481;054;Geçici  -  4.c;1;true;true;110;null
+2360;0;†-;1;true;true;111;null
+2312;1;Öğretmen;1;true;true;111;null
+2313;2;Uzman;1;true;true;111;null
+2314;3;Başöğretmen;1;true;true;111;null
+2363;01;Yönetici;1;true;true;112;null
+2364;02;Yönetici Değil;1;true;true;112;null
+2365;03;Rehber Öğretmen;1;true;true;112;null
+2418;04;Yönetici Vekili;1;true;true;112;null
+2419;05;Dışardan - Ücreti Okulundan;1;true;true;112;null
+2420;06;Dışardan - Ücreti Bizden;1;true;true;112;null
+2427;08;Formatör Öğretmen;1;true;true;112;null
+1125;01;Öğretmen;1;true;true;113;null
+1126;02;Memur;1;true;true;113;null
+1127;03;Hizmetli;1;true;true;113;null
+2010;01;Okul Öncesi Eğitim Kurumları;1;true;true;114;null
+2081;01.0101;Okul Öncesi Eğitim Kurumları;2;true;true;114;2010
+2011;02;İlköğretim Okulu;1;true;true;114;null
+2080;02.0201;İlköğretim Okulu -Gündüzlü;2;true;true;114;2011
+2082;02.0202;Yatılı İlköğretim Bölge Okulu;2;true;true;114;2011
+2083;02.0203;Pansiyonlu İlköğretim Okulu;2;true;true;114;2011
+2014;03;Özel Eğitim Okul ve Kurumları;1;true;true;114;null
+2118;03.0301;Özel Eğitim Okulu;2;true;false;114;2014
+2015;04;Lise ve Dengi Okullar;1;true;true;114;null
+2120;04.0401;Lise;2;true;false;114;2015
+2117;04.0402;Lise - Yatılı / Pansiyonlu;2;true;false;114;2015
+2119;04.0403;Çok Proğramlı Lise;2;true;false;114;2015
+2123;04.0404;Çok Proğramlı Lise - Yatılı / Pansiyonlu;2;true;false;114;2015
+2124;04.0405;Sağlık Meslek Lisesi;2;true;false;114;2015
+2125;04.0406;Sağlık Meslek Lisesi - Yatılı / Pansiyonlu;2;true;false;114;2015
+2127;04.0407;İmam Hatip Lisesi;2;true;false;114;2015
+2128;04.0408;İmam Hatip Lisesi - Yatılı / Pansiyonlu;2;true;false;114;2015
+2131;04.0409;Anadolu Öğretmen Lisesi;2;true;false;114;2015
+2132;04.0410;Anadolu Öğretmen Lisesi - Yatılı / Pansiyonlu;2;true;false;114;2015
+2016;05;Kız ve Erkek Teknik Öğretim;1;true;true;114;null
+2133;05.0501;KML -  Anadolu ve Teknik Dahil;2;true;true;114;2016
+2134;05.0502;KML -  Anadolu ve Teknik Dahil  - Yatılı / Pansiyonlu;2;true;true;114;2016
+2135;05.0503;EML -  Anadolu ve Teknik Dahil;2;true;true;114;2016
+2136;05.0504;KML -  Anadolu ve Teknik Dahil  - Yatılı / Pansiyonlu;2;true;true;114;2016
+2017;06;Anadolu - Fen - Sosyal Bilim;1;true;true;114;null
+2137;06.0601;Anadolu Lisesi;2;true;true;114;2017
+2138;06.0602;Anadolu Lisesi - Yatılı / Pansiyonlu;2;true;true;114;2017
+2139;06.0603;Fen Lisesi;2;true;true;114;2017
+2140;06.0604;Fen Lisesi - Yatılı / Pasiyonlu;2;true;true;114;2017
+2141;06.0605;Sosyal Bilimler Lisesi;2;true;true;114;2017
+2142;06.0606;Sosyal Bilimler Lisesi - Yatılı / Pansiyonlu;2;true;true;114;2017
+2143;06.0607;Spor Lisesi;2;true;true;114;2017
+2144;06.0608;Spor Lisesi - Yatılı / Pansiyonlu;2;true;true;114;2017
+2018;07;Ana. Kız/Erk. Tekn. Otel Turizm;1;true;true;114;null
+2145;07.0701;Erkek Teknk Otel Turizim;2;true;true;114;2018
+2146;07.0702;K - E Teknik Aşçılık;2;true;true;114;2018
+2147;07.0703;Otelcilik Turizim Meslek Lisesi;2;true;true;114;2018
+2148;07.0704;Aşçılık Meslek Lisesi;2;true;true;114;2018
+2019;08;Halk Eğitim Merkezi ve Akşam Sanat Okulu;1;true;true;114;null
+2156;08.0801;Halk Eğitim Merkezi;2;true;true;114;2019
+2149;08.0802;Akşam Sanat Okulu;2;true;true;114;2019
+2020;09;Meslek Eğitim Merkezi;1;true;true;114;null
+2150;09.0901;Çıraklık Eğitimi Merkezi;2;true;true;114;2020
+2022;10;Hizm. İçi Eğt. Ens. ve Ararştırma Merkezi;1;true;true;114;null
+2151;10.1001;Hizmet İçi Eğitim Entitüsü;2;true;true;114;2022
+2023;11;Rehberlik ve Araştırma Merkezi;1;true;true;114;null
+2152;11.1101;Rehberlik ve Araştırma Merkezi;2;true;true;114;2023
+2024;12;Olgunlaştırma Enstitüsü;1;true;true;114;null
+2153;12.1201;Olgunlaşma Enstitüsü;2;true;true;114;2024
+2025;13;Bakanlık Merkez - Taşra Personeli;1;true;true;114;null
+2154;13.1301;Bakanlık Merkez Teşkilatı;2;true;true;114;2025
+2155;13.1302;Bakanlık Taşra Teşkilatı;2;true;true;114;2025
+1;01;Adana;1;true;true;115;null
+101;01.01;Adana / Merkez;2;true;true;115;1
+102;01.02;Aladağ;2;true;true;115;1
+103;01.03;Ceyhan;2;true;true;115;1
+104;01.04;Feke;2;true;true;115;1
+105;01.05;İmamoğlu;2;true;true;115;1
+106;01.06;Karaisalı;2;true;true;115;1
+107;01.07;Karataş;2;true;true;115;1
+108;01.08;Kozan;2;true;true;115;1
+109;01.09;Pozantı;2;true;true;115;1
+110;01.10;Saimbeyli;2;true;true;115;1
+111;01.11;Seyhan;2;true;true;115;1
+112;01.12;Tufanbeyli;2;true;true;115;1
+113;01.13;Yumurtalık;2;true;true;115;1
+114;01.14;Yureğir;2;true;true;115;1
+1048;01.15;Bolaman;2;true;true;115;1
+2;02;Adıyaman;1;true;true;115;null
+115;02.01;Adıyaman / Merkez;2;true;true;115;2
+116;02.02;Besni;2;true;true;115;2
+117;02.03;Çelikhan;2;true;true;115;2
+118;02.04;Gerger;2;true;true;115;2
+119;02.05;Gölbaşı;2;true;true;115;2
+120;02.06;Kahta;2;true;true;115;2
+121;02.07;Samsat;2;true;true;115;2
+122;02.08;Sincik;2;true;true;115;2
+123;02.09;Tut;2;true;true;115;2
+3;03;Afyon;1;true;true;115;null
+124;03.01;Afyon / Merkez;2;true;true;115;3
+125;03.02;Basmakçı;2;true;true;115;3
+126;03.03;Bayat;2;true;true;115;3
+127;03.04;Bolvadin;2;true;true;115;3
+128;03.05;Çobanlar;2;true;true;115;3
+129;03.06;Çay;2;true;true;115;3
+130;03.07;Dazkırı;2;true;true;115;3
+131;03.08;Dinar;2;true;true;115;3
+132;03.09;Emirdağ;2;true;true;115;3
+133;03.10;Evciler;2;true;true;115;3
+134;03.11;Hocalar;2;true;true;115;3
+135;03.12;İhsaniye;2;true;true;115;3
+136;03.13;İsçehisar;2;true;true;115;3
+137;03.14;Kızılören;2;true;true;115;3
+138;03.15;Sandıklı;2;true;true;115;3
+139;03.16;Sincanlı;2;true;true;115;3
+140;03.17;Sultandağı;2;true;true;115;3
+141;03.18;Suhut;2;true;true;115;3
+4;04;Ağrı;1;true;true;115;null
+142;04.01;Ağrı / Merkez;2;true;true;115;4
+143;04.02;Diyadin;2;true;true;115;4
+144;04.03;Doğubeyazıt;2;true;true;115;4
+145;04.04;Eleşkirt;2;true;true;115;4
+146;04.05;Hamur;2;true;true;115;4
+147;04.06;Patnos;2;true;true;115;4
+148;04.07;Taşlıçay;2;true;true;115;4
+149;04.08;Tutak;2;true;true;115;4
+5;05;Amasya;1;true;true;115;null
+150;05.01;Amasya / Merkez;2;true;true;115;5
+151;05.02;Göynücek;2;true;true;115;5
+152;05.03;Gümüşhacıköy;2;true;true;115;5
+153;05.04;Hamamözü;2;true;true;115;5
+154;05.05;Merzifon;2;true;true;115;5
+155;05.06;Suluova;2;true;true;115;5
+156;05.07;Taşova;2;true;true;115;5
+1050;05.08;Gökhöyük;2;true;true;115;5
+6;06;Ankara;1;true;true;115;null
+157;06.01;Ankara / Merkez;2;true;true;115;6
+158;06.02;Akyurt;2;true;true;115;6
+159;06.03;Altındağ;2;true;true;115;6
+160;06.04;Ayaş;2;true;true;115;6
+161;06.05;Bala;2;true;true;115;6
+162;06.06;Beypazarı;2;true;true;115;6
+163;06.07;Çamlıdere;2;true;true;115;6
+164;06.08;Çankaya;2;true;true;115;6
+165;06.09;Çubuk;2;true;true;115;6
+166;06.10;Elmadağ;2;true;true;115;6
+167;06.11;Etimesgut;2;true;true;115;6
+168;06.12;Evren;2;true;true;115;6
+169;06.13;Gölbaşı;2;true;true;115;6
+170;06.14;Güdül;2;true;true;115;6
+171;06.15;Haymana;2;true;true;115;6
+172;06.16;Kalecik;2;true;true;115;6
+173;06.17;Kazan;2;true;true;115;6
+174;06.18;Keçiören;2;true;true;115;6
+175;06.19;Kızılcahamam;2;true;true;115;6
+176;06.20;Mamak;2;true;true;115;6
+177;06.21;Nallıhan;2;true;true;115;6
+178;06.22;Polatlı;2;true;true;115;6
+179;06.23;Sincan;2;true;true;115;6
+180;06.24;Şereflikoçhisar;2;true;true;115;6
+181;06.25;Yenimahalle;2;true;true;115;6
+7;07;Antalya;1;true;true;115;null
+182;07.01;Antalya / Merkez;2;true;true;115;7
+183;07.02;Akseki;2;true;true;115;7
+184;07.03;Alanya;2;true;true;115;7
+185;07.04;Demre;2;true;true;115;7
+186;07.05;Elmalı;2;true;true;115;7
+187;07.06;Finike;2;true;true;115;7
+188;07.07;Gazipaşa;2;true;true;115;7
+189;07.08;Gündoğmuş;2;true;true;115;7
+190;07.09;İbradi;2;true;true;115;7
+191;07.10;Kale;2;true;true;115;7
+192;07.11;Kaş;2;true;true;115;7
+193;07.12;Kemer;2;true;true;115;7
+194;07.13;Korkuteli;2;true;true;115;7
+195;07.14;Kumluca;2;true;true;115;7
+196;07.15;Manavgat;2;true;true;115;7
+197;07.16;Serik;2;true;true;115;7
+8;08;Artvin;1;true;true;115;null
+198;08.01;Artvin / Merkez;2;true;true;115;8
+199;08.02;Ardanuç;2;true;true;115;8
+200;08.03;Arhavi;2;true;true;115;8
+201;08.04;Borçka;2;true;true;115;8
+202;08.05;Hopa;2;true;true;115;8
+203;08.06;Murgul;2;true;true;115;8
+204;08.07;Şavşat;2;true;true;115;8
+205;08.08;Yusufeli;2;true;true;115;8
+9;09;Aydın;1;true;true;115;null
+206;09.01;Aydın / Merkez;2;true;true;115;9
+207;09.02;Bozdoğan;2;true;true;115;9
+208;09.03;Buharkent;2;true;true;115;9
+209;09.04;Cine;2;true;true;115;9
+210;09.05;Germencik;2;true;true;115;9
+211;09.06;İncirliova;2;true;true;115;9
+212;09.07;Karacasu;2;true;true;115;9
+213;09.08;Karpuzlu;2;true;true;115;9
+214;09.09;Kocarlı;2;true;true;115;9
+215;09.10;Köşk;2;true;true;115;9
+216;09.11;Kuşadası;2;true;true;115;9
+217;09.12;Kuyucak;2;true;true;115;9
+218;09.13;Nazilli;2;true;true;115;9
+219;09.14;Söke;2;true;true;115;9
+220;09.15;Sultanhisar;2;true;true;115;9
+221;09.16;Yenihisar;2;true;true;115;9
+222;09.17;Yenipazar;2;true;true;115;9
+10;10;Balıkesir;1;true;true;115;null
+223;10.01;Balıkesir / Merkez;2;true;true;115;10
+224;10.02;Ayvalık;2;true;true;115;10
+225;10.03;Akçay;2;true;true;115;10
+226;10.04;Balya;2;true;true;115;10
+227;10.05;Bandırma;2;true;true;115;10
+228;10.06;Bigadiç;2;true;true;115;10
+229;10.07;Burhaniye;2;true;true;115;10
+230;10.08;Dursunbey;2;true;true;115;10
+231;10.09;Edremit;2;true;true;115;10
+232;10.10;Erdek;2;true;true;115;10
+233;10.11;Gönen;2;true;true;115;10
+234;10.12;Gömeç;2;true;true;115;10
+235;10.13;Havran;2;true;true;115;10
+236;10.14;İvrindi;2;true;true;115;10
+237;10.15;Kepsut;2;true;true;115;10
+238;10.16;Manyas;2;true;true;115;10
+239;10.17;Marmara;2;true;true;115;10
+240;10.18;Savaştepe;2;true;true;115;10
+241;10.19;Sındırgı;2;true;true;115;10
+242;10.20;Susurluk;2;true;true;115;10
+11;11;Bilecik;1;true;true;115;null
+243;11.01;Bilecik / Merkez;2;true;true;115;11
+244;11.02;Bozhöyük;2;true;true;115;11
+245;11.03;Gölpazarı;2;true;true;115;11
+246;11.04;İnhisar;2;true;true;115;11
+247;11.05;Osmaneli;2;true;true;115;11
+248;11.06;Pazaryeri;2;true;true;115;11
+249;11.07;Söğüt;2;true;true;115;11
+250;11.08;Yenipazar;2;true;true;115;11
+12;12;Bingol;1;true;true;115;null
+251;12.01;Bingol / Merkez;2;true;true;115;12
+252;12.02;Adaklı;2;true;true;115;12
+253;12.03;Genç;2;true;true;115;12
+254;12.04;Karlıova;2;true;true;115;12
+255;12.05;Kığı;2;true;true;115;12
+256;12.06;Solhan;2;true;true;115;12
+257;12.07;Yayladere;2;true;true;115;12
+258;12.08;Yedisu;2;true;true;115;12
+13;13;Bitlis;1;true;true;115;null
+259;13.01;Bitlis / Merkez;2;true;true;115;13
+260;13.02;Adevaz;2;true;true;115;13
+261;13.03;Ahlat;2;true;true;115;13
+262;13.04;Güroymak;2;true;true;115;13
+263;13.05;Hizan;2;true;true;115;13
+264;13.06;Mutki;2;true;true;115;13
+265;13.07;Tatvan;2;true;true;115;13
+14;14;Bolu;1;true;true;115;null
+266;14.01;Bolu / Merkez;2;true;true;115;14
+267;14.02;Dörtdivan;2;true;true;115;14
+268;14.03;Gerede;2;true;true;115;14
+269;14.04;Göynük;2;true;true;115;14
+270;14.05;Kıbrıscık;2;true;true;115;14
+271;14.06;Mengen;2;true;true;115;14
+272;14.07;Mudurnu;2;true;true;115;14
+273;14.08;Seben;2;true;true;115;14
+274;14.09;Yenicağa;2;true;true;115;14
+15;15;Burdur;1;true;true;115;null
+275;15.01;Burdur / Merkez;2;true;true;115;15
+276;15.02;Altınyayla;2;true;true;115;15
+277;15.03;Ağlasun;2;true;true;115;15
+278;15.04;Bucak;2;true;true;115;15
+279;15.05;Çavdır;2;true;true;115;15
+280;15.06;Çeltikçi;2;true;true;115;15
+281;15.07;Gölhisar;2;true;true;115;15
+282;15.08;Karamanlı;2;true;true;115;15
+283;15.09;Kemer;2;true;true;115;15
+284;15.10;Tefenni;2;true;true;115;15
+285;15.11;Yeşilova;2;true;true;115;15
+16;16;Bursa;1;true;true;115;null
+286;16.01;Bursa / Merkez;2;true;true;115;16
+287;16.02;Büyükorhan;2;true;true;115;16
+288;16.03;Gemlik;2;true;true;115;16
+289;16.04;Gürsu;2;true;true;115;16
+290;16.05;Harmancık;2;true;true;115;16
+291;16.06;İnegöl;2;true;true;115;16
+292;16.07;İznik;2;true;true;115;16
+293;16.08;Karacabey;2;true;true;115;16
+294;16.09;Keleş;2;true;true;115;16
+295;16.10;Kestel;2;true;true;115;16
+296;16.11;Mudanya;2;true;true;115;16
+297;16.12;Mustafakemal;2;true;true;115;16
+298;16.13;Nilüfer;2;true;true;115;16
+299;16.14;Orhaneli;2;true;true;115;16
+300;16.15;Orhangazi;2;true;true;115;16
+301;16.16;Osmangazi;2;true;true;115;16
+302;16.17;Yenişehir;2;true;true;115;16
+303;16.18;Yıldırım;2;true;true;115;16
+17;17;Çanakkale;1;true;true;115;null
+304;17.01;Çanakkale / Merkez;2;true;true;115;17
+305;17.02;Ayvacık;2;true;true;115;17
+306;17.03;Bayramiç;2;true;true;115;17
+307;17.04;Bozcaada;2;true;true;115;17
+308;17.05;Biga;2;true;true;115;17
+309;17.06;Can;2;true;true;115;17
+310;17.07;Eceabat;2;true;true;115;17
+311;17.08;Ezine;2;true;true;115;17
+312;17.09;Gelibolu;2;true;true;115;17
+313;17.10;Gökçeada;2;true;true;115;17
+314;17.11;Lapseki;2;true;true;115;17
+315;17.12;Yenice;2;true;true;115;17
+18;18;Çankırı;1;true;true;115;null
+316;18.01;Çankırı / Merkez;2;true;true;115;18
+317;18.02;Atkaracalar;2;true;true;115;18
+318;18.03;Bayramören;2;true;true;115;18
+319;18.04;Çerkeş;2;true;true;115;18
+320;18.05;Eldivan;2;true;true;115;18
+321;18.06;İlgaz;2;true;true;115;18
+322;18.07;Kızılırmak;2;true;true;115;18
+323;18.08;Korgun;2;true;true;115;18
+324;18.09;Kurşunlu;2;true;true;115;18
+325;18.10;Orta;2;true;true;115;18
+326;18.11;Ovacık;2;true;true;115;18
+327;18.12;Şabanözü;2;true;true;115;18
+328;18.13;Yapraklı;2;true;true;115;18
+19;19;Çorum;1;true;true;115;null
+329;19.01;Çorum / Merkez;2;true;true;115;19
+330;19.02;Alaca;2;true;true;115;19
+331;19.03;Bayat;2;true;true;115;19
+332;19.04;Bogazkale;2;true;true;115;19
+333;19.05;Dodurga;2;true;true;115;19
+334;19.06;İskilip;2;true;true;115;19
+335;19.07;Kargı;2;true;true;115;19
+336;19.08;Laçin;2;true;true;115;19
+337;19.09;Mecitözü;2;true;true;115;19
+338;19.10;Oğuzlar;2;true;true;115;19
+339;19.11;Ortaköy;2;true;true;115;19
+340;19.12;Osmancık;2;true;true;115;19
+341;19.13;Sungurlu;2;true;true;115;19
+342;19.14;Uğurludağ;2;true;true;115;19
+20;20;Denizli;1;true;true;115;null
+343;20.01;Denizli / Merkez;2;true;true;115;20
+344;20.02;Acıpayam;2;true;true;115;20
+345;20.03;Akköy;2;true;true;115;20
+346;20.04;Babadağ;2;true;true;115;20
+347;20.05;Baklan;2;true;true;115;20
+348;20.06;Bekilli;2;true;true;115;20
+349;20.07;Beyağaç;2;true;true;115;20
+350;20.08;Buldan;2;true;true;115;20
+351;20.09;Bozkurt;2;true;true;115;20
+352;20.10;Çal;2;true;true;115;20
+353;20.11;Çameli;2;true;true;115;20
+354;20.12;Çardak;2;true;true;115;20
+355;20.13;Çivril;2;true;true;115;20
+356;20.14;Güney;2;true;true;115;20
+357;20.15;Honaz;2;true;true;115;20
+358;20.16;Kale;2;true;true;115;20
+359;20.17;Sarayköy;2;true;true;115;20
+360;20.18;Serinhisar;2;true;false;115;20
+361;20.19;Tavaş;2;true;false;115;20
+21;21;Diyarbakır;1;true;true;115;null
+362;21.01;Diyarbakır / Merkez;2;true;true;115;21
+375;21.02;Silvan;2;true;true;115;21
+374;21.03;Lice;2;true;true;115;21
+373;21.04;Kulp;2;true;true;115;21
+372;21.05;Kocaköy;2;true;true;115;21
+371;21.06;Hazro;2;true;true;115;21
+370;21.07;Hani;2;true;true;115;21
+369;21.08;Ergani;2;true;true;115;21
+368;21.09;Eğil;2;true;true;115;21
+367;21.10;Dicle;2;true;true;115;21
+366;21.11;Çunguş;2;true;true;115;21
+365;21.12;Çınar;2;true;true;115;21
+364;21.13;Çermik;2;true;true;115;21
+363;21.14;Bismil;2;true;true;115;21
+22;22;Edirne;1;true;true;115;null
+376;22.01;Edirne / Merkez;2;true;true;115;22
+377;22.02;Enez;2;true;true;115;22
+378;22.03;Havsa;2;true;true;115;22
+379;22.04;İpsala;2;true;true;115;22
+380;22.05;Keşan;2;true;true;115;22
+381;22.06;Lalapaşa;2;true;true;115;22
+382;22.07;Meriç;2;true;true;115;22
+383;22.08;Süloğlu;2;true;true;115;22
+384;22.09;Uzunköprü;2;true;true;115;22
+23;23;Elazığ;1;true;true;115;null
+385;23.01;Elazığ / Merkez;2;true;true;115;23
+386;23.02;Ağın;2;true;true;115;23
+387;23.03;Alacakaya;2;true;true;115;23
+388;23.04;Arıcak;2;true;true;115;23
+389;23.05;Başkil;2;true;true;115;23
+390;23.06;Karakoçan;2;true;true;115;23
+391;23.07;Keban;2;true;true;115;23
+392;23.08;Kovancılar;2;true;true;115;23
+393;23.09;Maden;2;true;true;115;23
+394;23.10;Palu;2;true;true;115;23
+395;23.11;Sivrice;2;true;true;115;23
+24;24;Erzincan;1;true;true;115;null
+396;24.01;Erzincan / Merkez;2;true;true;115;24
+397;24.02;Çayırlı;2;true;true;115;24
+398;24.03;İliç;2;true;true;115;24
+399;24.04;Kemah;2;true;true;115;24
+400;24.05;Kemaliye;2;true;true;115;24
+401;24.06;Otlukbeli;2;true;true;115;24
+402;24.07;Refahiye;2;true;true;115;24
+403;24.08;Tercan;2;true;true;115;24
+404;24.09;Üzümlü;2;true;true;115;24
+25;25;Erzurum;1;true;true;115;null
+405;25.01;Erzurum / Merkez;2;true;true;115;25
+406;25.02;Aşkale;2;true;true;115;25
+407;25.03;Çat;2;true;true;115;25
+408;25.04;Hinis;2;true;true;115;25
+409;25.05;Horasan;2;true;true;115;25
+410;25.06;İlıca;2;true;true;115;25
+411;25.07;İspir;2;true;true;115;25
+412;25.08;Karaçoban;2;true;true;115;25
+413;25.09;Karayazı;2;true;true;115;25
+414;25.10;Köprüköy;2;true;true;115;25
+415;25.11;Narman;2;true;true;115;25
+416;25.12;Oltu;2;true;true;115;25
+417;25.13;Olur;2;true;true;115;25
+418;25.14;Pasinler;2;true;true;115;25
+419;25.15;Pazaryolu;2;true;true;115;25
+420;25.16;Şenkaya;2;true;true;115;25
+421;25.17;Tekman;2;true;true;115;25
+422;25.18;Tortum;2;true;true;115;25
+423;25.19;Uzundere;2;true;true;115;25
+26;26;Eskişehir;1;true;true;115;null
+424;26.01;Eskişehir / Merkez;2;true;true;115;26
+425;26.02;Alpu;2;true;true;115;26
+426;26.03;Beylikova;2;true;true;115;26
+427;26.04;Çiftlik;2;true;true;115;26
+428;26.05;Günyüzü;2;true;true;115;26
+429;26.06;Han;2;true;true;115;26
+430;26.07;İnönü;2;true;true;115;26
+431;26.08;Mahmudiye;2;true;true;115;26
+432;26.09;Mihalgazi;2;true;true;115;26
+433;26.10;Mihaliçcik;2;true;true;115;26
+434;26.11;Sarıcakaya;2;true;true;115;26
+435;26.12;Seyitgazi;2;true;true;115;26
+436;26.13;Sivrihisar;2;true;true;115;26
+27;27;Gaziantep;1;true;true;115;null
+437;27.01;Gaziantep / Merkez;2;true;true;115;27
+438;27.02;Araban;2;true;true;115;27
+439;27.03;İslahiye;2;true;true;115;27
+440;27.04;Kilis;2;true;true;115;27
+441;27.05;Kargamış;2;true;true;115;27
+442;27.06;Nizip;2;true;true;115;27
+443;27.07;Nurdağı;2;true;true;115;27
+444;27.08;Oğuzeli;2;true;true;115;27
+445;27.09;Şahinbey;2;true;true;115;27
+446;27.10;Şehitkamil;2;true;true;115;27
+447;27.11;Yavuzeli;2;true;true;115;27
+28;28;Giresun;1;true;true;115;null
+448;28.01;Giresun / Merkez;2;true;true;115;28
+449;28.02;Alucra;2;true;true;115;28
+450;28.03;Bulancak;2;true;true;115;28
+451;28.04;Çamoluk;2;true;true;115;28
+452;28.05;Çanakcı;2;true;true;115;28
+453;28.06;Dereli;2;true;true;115;28
+454;28.07;Doğankent;2;true;true;115;28
+455;28.08;Espiye;2;true;true;115;28
+456;28.09;Eynesil;2;true;true;115;28
+457;28.10;Görele;2;true;true;115;28
+458;28.11;Güce;2;true;true;115;28
+459;28.12;Keşap;2;true;true;115;28
+460;28.13;Piraziz;2;true;true;115;28
+461;28.14;Şebinkarahisar;2;true;true;115;28
+462;28.15;Tirebolu;2;true;true;115;28
+463;28.16;Yağlıdere;2;true;true;115;28
+29;29;Gümüşhane;1;true;true;115;null
+464;29.01;Gümüşhane / Merkez;2;true;true;115;29
+465;29.02;Kelkit;2;true;true;115;29
+466;29.03;Köse;2;true;true;115;29
+467;29.04;Kürtün;2;true;true;115;29
+468;29.05;Siran;2;true;true;115;29
+469;29.06;Torul;2;true;true;115;29
+30;30;Hakkari;1;true;true;115;null
+470;30.01;Hakkari / Merkez;2;true;true;115;30
+471;30.02;Çukurca;2;true;true;115;30
+472;30.03;Şemdinli;2;true;true;115;30
+473;30.04;Yüksekova;2;true;true;115;30
+31;31;Hatay;1;true;true;115;null
+474;31.01;Hatay / Merkez;2;true;true;115;31
+475;31.02;Altınözü;2;true;true;115;31
+476;31.03;Belen;2;true;true;115;31
+477;31.04;Dörtyol;2;true;true;115;31
+478;31.05;Erzin;2;true;true;115;31
+479;31.06;Hassa;2;true;true;115;31
+480;31.07;İskenderun;2;true;true;115;31
+481;31.08;Kırıkhan;2;true;true;115;31
+482;31.09;Kumlu;2;true;true;115;31
+483;31.10;Reyhanlı;2;true;true;115;31
+484;31.11;Samandağı;2;true;true;115;31
+485;31.12;Yayladağı;2;true;true;115;31
+32;32;Isparta;1;true;true;115;null
+486;32.01;Isparta / Merkez;2;true;true;115;32
+487;32.02;Aksu;2;true;true;115;32
+488;32.03;Atabey;2;true;true;115;32
+489;32.04;Eğirdir;2;true;true;115;32
+490;32.05;Gelendost;2;true;true;115;32
+491;32.06;Gönen;2;true;true;115;32
+492;32.07;Keçiborlu;2;true;true;115;32
+493;32.08;Senirkent;2;true;true;115;32
+494;32.09;Sütçüler;2;true;true;115;32
+495;32.10;Sarkıkaraağ;2;true;true;115;32
+496;32.11;Uluborlu;2;true;true;115;32
+497;32.12;Yenişarbade;2;true;true;115;32
+498;32.13;Yalvaç;2;true;true;115;32
+33;33;İçel;1;true;true;115;null
+499;33.01;Içel / Merkez;2;true;true;115;33
+500;33.02;Anamur;2;true;true;115;33
+501;33.03;Aydıncık;2;true;true;115;33
+502;33.04;Bozyazı;2;true;true;115;33
+503;33.05;Çamlıyayla;2;true;true;115;33
+504;33.06;Erdemli;2;true;true;115;33
+505;33.07;Gülnar;2;true;true;115;33
+506;33.08;Mut;2;true;true;115;33
+507;33.09;Silifke;2;true;true;115;33
+508;33.10;Tarsus;2;true;true;115;33
+34;34;İstanbul;1;true;true;115;null
+509;34.00;Istanbul / Merkez;2;true;true;115;34
+1046;34.01;Taksim;2;true;true;115;34
+510;34.03;Adalar;2;true;true;115;34
+511;34.04;Avcılar;2;true;true;115;34
+512;34.05;Bağcılar;2;true;true;115;34
+513;34.06;Bakırköy;2;true;true;115;34
+514;34.07;Bahçelievler;2;true;true;115;34
+515;34.08;Bayrampaşa;2;true;true;115;34
+516;34.09;Beşiktaş;2;true;true;115;34
+517;34.10;Beykoz;2;true;true;115;34
+518;34.11;Beyoğlu;2;true;true;115;34
+519;34.12;Büyükçekmece;2;true;true;115;34
+520;34.13;Çatalca;2;true;true;115;34
+521;34.14;Eminönü;2;true;true;115;34
+522;34.15;Eyüp;2;true;true;115;34
+523;34.16;Esenler;2;true;true;115;34
+524;34.17;Fatih;2;true;true;115;34
+525;34.18;Gaziosmanpaşa;2;true;true;115;34
+526;34.19;Güngören;2;true;true;115;34
+527;34.20;Kadıköy;2;true;true;115;34
+528;34.21;Kağıthane;2;true;true;115;34
+529;34.22;Kartal;2;true;true;115;34
+530;34.23;Küçükçekmece;2;true;true;115;34
+531;34.24;Maltepe;2;true;true;115;34
+532;34.25;Pendik;2;true;true;115;34
+533;34.26;Sarıyer;2;true;true;115;34
+534;34.27;Silivri;2;true;true;115;34
+535;34.28;Sultanbeyli;2;true;true;115;34
+536;34.29;Şile;2;true;true;115;34
+537;34.30;Şişli;2;true;true;115;34
+538;34.31;Tuzla;2;true;true;115;34
+539;34.32;Ümraniye;2;true;true;115;34
+540;34.33;Üsküdar;2;true;true;115;34
+541;34.34;Yalova;2;true;true;115;34
+542;34.35;Zeytinburnu;2;true;true;115;34
+35;35;İzmir;1;true;true;115;null
+543;35.01;İzmir / Merkez;2;true;true;115;35
+544;35.02;Aliağa;2;true;true;115;35
+545;35.03;Bayındır;2;true;true;115;35
+546;35.04;Balçova;2;true;true;115;35
+547;35.05;Bergama;2;true;true;115;35
+548;35.06;Beydağ;2;true;true;115;35
+549;35.07;Bornova;2;true;true;115;35
+550;35.08;Buca;2;true;true;115;35
+551;35.09;Çeşme;2;true;true;115;35
+552;35.10;Çiğli;2;true;true;115;35
+553;35.11;Dikili;2;true;true;115;35
+554;35.12;Foca;2;true;true;115;35
+555;35.13;Gaziemir;2;true;true;115;35
+556;35.14;Güzelbahçe;2;true;true;115;35
+557;35.15;Karaburun;2;true;true;115;35
+558;35.16;Karşıyaka;2;true;true;115;35
+559;35.17;Kemalpaşa;2;true;true;115;35
+560;35.18;Kınık;2;true;true;115;35
+561;35.19;Kiraz;2;true;true;115;35
+562;35.20;Konak;2;true;true;115;35
+563;35.21;Menderes;2;true;true;115;35
+564;35.22;Menemen;2;true;true;115;35
+565;35.23;Narlıdere;2;true;true;115;35
+566;35.24;Ödemiş;2;true;true;115;35
+567;35.25;Seferihisar;2;true;true;115;35
+568;35.26;Selçuk;2;true;true;115;35
+569;35.27;Tire;2;true;true;115;35
+570;35.28;Torbalı;2;true;true;115;35
+571;35.29;Urla;2;true;true;115;35
+36;36;Kars;1;true;true;115;null
+572;36.01;Kars / Merkez;2;true;true;115;36
+573;36.02;Akyaka;2;true;true;115;36
+574;36.03;Arpaçay;2;true;true;115;36
+575;36.04;Digor;2;true;true;115;36
+576;36.05;Kağızman;2;true;true;115;36
+577;36.06;Sarıkamış;2;true;true;115;36
+578;36.07;Selim;2;true;true;115;36
+579;36.08;Susuz;2;true;true;115;36
+37;37;Kastamonu;1;true;true;115;null
+580;37.01;Kastamonu / Merkez;2;true;true;115;37
+581;37.02;Abana;2;true;true;115;37
+582;37.03;Ağlı;2;true;true;115;37
+583;37.04;Araç;2;true;true;115;37
+584;37.05;Azdavay;2;true;true;115;37
+585;37.06;Bozkurt;2;true;true;115;37
+586;37.07;Cide;2;true;true;115;37
+587;37.08;Çatalzeytin;2;true;true;115;37
+588;37.09;Daday;2;true;true;115;37
+589;37.10;Devrekanı;2;true;true;115;37
+590;37.11;Doğanyurt;2;true;true;115;37
+591;37.12;Hanönü;2;true;true;115;37
+592;37.13;İhsangazi;2;true;true;115;37
+593;37.14;İnebolu;2;true;true;115;37
+594;37.15;Küre;2;true;true;115;37
+595;37.16;Pınarbaşı;2;true;true;115;37
+596;37.17;Seydiler;2;true;true;115;37
+597;37.18;Şenpazar;2;true;true;115;37
+598;37.19;Taşköprü;2;true;true;115;37
+599;37.20;Tosya;2;true;true;115;37
+38;38;Kayseri;1;true;true;115;null
+600;38.01;Kayseri / Merkez;2;true;true;115;38
+601;38.02;Akkışla;2;true;true;115;38
+602;38.03;Bünyan;2;true;true;115;38
+603;38.04;Develi;2;true;true;115;38
+604;38.05;Felahiye;2;true;true;115;38
+605;38.06;Hacılar;2;true;true;115;38
+606;38.07;İncesu;2;true;true;115;38
+607;38.08;Kocasinan;2;true;true;115;38
+608;38.09;Melikgazi;2;true;true;115;38
+609;38.10;Özvatan;2;true;true;115;38
+610;38.11;Pınarbaşı;2;true;true;115;38
+611;38.12;Sarıoğlan;2;true;true;115;38
+612;38.13;Sariz;2;true;true;115;38
+613;38.14;Talas;2;true;true;115;38
+614;38.15;Tomarza;2;true;true;115;38
+615;38.16;Yahyalı;2;true;true;115;38
+616;38.17;Yeşilhisar;2;true;true;115;38
+39;39;Kırklareli;1;true;true;115;null
+617;39.01;Kırklareli / Merkez;2;true;true;115;39
+618;39.02;Babaeski;2;true;true;115;39
+619;39.03;Demirköy;2;true;true;115;39
+620;39.04;Kofcaz;2;true;true;115;39
+621;39.05;Lüleburgaz;2;true;true;115;39
+622;39.06;Pehlivanköy;2;true;true;115;39
+623;39.07;Pınarhisar;2;true;true;115;39
+624;39.08;Vize;2;true;true;115;39
+40;40;Kırşehir;1;true;true;115;null
+625;40.01;Kırşehir / Merkez;2;true;true;115;40
+626;40.02;Akçakent;2;true;true;115;40
+627;40.03;Akpınar;2;true;true;115;40
+628;40.04;Boztepe;2;true;true;115;40
+629;40.05;Çiçekdağı;2;true;true;115;40
+630;40.06;Kaman;2;true;true;115;40
+631;40.07;Mucur;2;true;true;115;40
+41;41;Kocaeli;1;true;true;115;null
+632;41.01;Kocaeli / Merkez;2;true;true;115;41
+633;41.02;Darıca;2;true;true;115;41
+634;41.03;Gebze;2;true;true;115;41
+635;41.04;Gölcük;2;true;true;115;41
+636;41.05;Kandıra;2;true;true;115;41
+637;41.06;Karamürsel;2;true;true;115;41
+638;41.07;Körfez;2;true;true;115;41
+42;42;Konya;1;true;true;115;null
+639;42.01;Konya / Merkez;2;true;true;115;42
+640;42.02;Ahirli;2;true;true;115;42
+641;42.03;Akören;2;true;true;115;42
+642;42.04;Akşehir;2;true;true;115;42
+643;42.05;Altınekin;2;true;true;115;42
+644;42.06;Beyşehir;2;true;true;115;42
+645;42.07;Bozkır;2;true;true;115;42
+646;42.08;Derebucak;2;true;true;115;42
+647;42.09;Cihanbeyli;2;true;true;115;42
+648;42.10;Cumra;2;true;true;115;42
+649;42.11;Çeltik;2;true;true;115;42
+650;42.12;Derbent;2;true;true;115;42
+651;42.13;Doğanhisar;2;true;true;115;42
+652;42.14;Emirgazi;2;true;true;115;42
+653;42.15;Ereğli;2;true;true;115;42
+654;42.16;Güneysinir;2;true;true;115;42
+655;42.17;Halkapınar;2;true;true;115;42
+656;42.18;Hadım;2;true;true;115;42
+657;42.19;Halkapınar;2;true;true;115;42
+658;42.20;Huyuk;2;true;true;115;42
+659;42.21;İlgin;2;true;true;115;42
+660;42.22;Kadınhanı;2;true;true;115;42
+661;42.23;Karapınar;2;true;true;115;42
+662;42.24;Karatay;2;true;true;115;42
+663;42.25;Kulu;2;true;true;115;42
+664;42.26;Meram;2;true;true;115;42
+665;42.27;Sarayönü;2;true;true;115;42
+666;42.28;Selçuklu;2;true;true;115;42
+667;42.29;Seydişehir;2;true;true;115;42
+668;42.30;Taşkent;2;true;true;115;42
+669;42.31;Tuzlukcu;2;true;true;115;42
+670;42.32;Yalıhöyük;2;true;true;115;42
+671;42.33;Yunak;2;true;true;115;42
+43;43;Kütahya;1;true;true;115;null
+672;43.01;Kütahya / Merkez;2;true;true;115;43
+673;43.02;Altıntaş;2;true;true;115;43
+674;43.03;Aslanapa;2;true;true;115;43
+675;43.04;Çavdarhisar;2;true;true;115;43
+676;43.05;Domaniç;2;true;true;115;43
+677;43.06;Dumlupınar;2;true;true;115;43
+678;43.07;Emet;2;true;true;115;43
+679;43.08;Gediz;2;true;true;115;43
+680;43.09;Hisarcık;2;true;true;115;43
+681;43.10;Pazarlar;2;true;true;115;43
+682;43.11;Simav;2;true;true;115;43
+683;43.12;Saphane;2;true;true;115;43
+684;43.13;Tavşanlı;2;true;true;115;43
+44;44;Malatya;1;true;true;115;null
+685;44.01;Malatya / Merkez;2;true;true;115;44
+686;44.02;Akçadağ;2;true;true;115;44
+687;44.03;Arapgir;2;true;true;115;44
+688;44.04;Arguvan;2;true;true;115;44
+689;44.05;Battalgazi;2;true;true;115;44
+690;44.06;Darende;2;true;true;115;44
+691;44.07;Doğanşehir;2;true;true;115;44
+692;44.08;Doğanyol;2;true;true;115;44
+693;44.09;Hekimhan;2;true;true;115;44
+694;44.10;Kale;2;true;true;115;44
+695;44.11;Kuluncak;2;true;true;115;44
+696;44.12;Pötürge;2;true;true;115;44
+697;44.13;Yazıhan;2;true;true;115;44
+698;44.14;Yeşilyurt;2;true;true;115;44
+45;45;Manisa;1;true;true;115;null
+699;45.01;Manisa / Merkez;2;true;true;115;45
+700;45.02;Ahmetli;2;true;true;115;45
+701;45.03;Akhisar;2;true;true;115;45
+702;45.04;Alaşehir;2;true;true;115;45
+703;45.05;Demirci;2;true;true;115;45
+704;45.06;Gölmarmara;2;true;true;115;45
+705;45.07;Gordeş;2;true;true;115;45
+706;45.08;Kırkağaç;2;true;true;115;45
+707;45.09;Köprübaşı;2;true;true;115;45
+708;45.10;Kula;2;true;true;115;45
+709;45.11;Salihli;2;true;true;115;45
+710;45.12;Sarıgöl;2;true;true;115;45
+711;45.13;Saruhanlı;2;true;true;115;45
+712;45.14;Selendi;2;true;true;115;45
+713;45.15;Soma;2;true;true;115;45
+714;45.16;Turgutlu;2;true;true;115;45
+46;46;Kahramanmaraş;1;true;true;115;null
+715;46.01;Kahramanmaraş / Merkez;2;true;true;115;46
+716;46.02;Afşin;2;true;true;115;46
+717;46.03;Andırın;2;true;true;115;46
+718;46.04;Çağlayancer;2;true;true;115;46
+719;46.05;Ekinözü;2;true;true;115;46
+720;46.06;Elbistan;2;true;true;115;46
+721;46.07;Göksun;2;true;true;115;46
+722;46.08;Nurhak;2;true;true;115;46
+723;46.09;Pazarcık;2;true;true;115;46
+724;46.10;Türkoğlu;2;true;true;115;46
+47;47;Mardin;1;true;true;115;null
+725;47.01;Mardin / Merkez;2;true;true;115;47
+726;47.02;Dargeçit;2;true;true;115;47
+727;47.03;Derik;2;true;true;115;47
+728;47.04;Kızıltepe;2;true;true;115;47
+729;47.05;Mazıdağı;2;true;true;115;47
+730;47.06;Midyat;2;true;true;115;47
+731;47.07;Nusaybin;2;true;true;115;47
+732;47.08;Ömerli;2;true;true;115;47
+733;47.09;Savur;2;true;true;115;47
+734;47.10;Yeşilli;2;true;true;115;47
+48;48;Muğla;1;true;true;115;null
+735;48.01;Muğla / Merkez;2;true;true;115;48
+736;48.02;Bodrum;2;true;true;115;48
+737;48.03;Dalaman;2;true;true;115;48
+738;48.04;Datça;2;true;true;115;48
+739;48.05;Fethiye;2;true;true;115;48
+740;48.06;Kavaklıdere;2;true;true;115;48
+741;48.07;Köyceğiz;2;true;true;115;48
+742;48.08;Marmaris;2;true;true;115;48
+743;48.09;Milas;2;true;true;115;48
+744;48.10;Ortaca;2;true;true;115;48
+745;48.11;Ula;2;true;true;115;48
+746;48.12;Yatağan;2;true;true;115;48
+49;49;Muş;1;true;true;115;null
+747;49.01;Muş / Merkez;2;true;true;115;49
+748;49.02;Bulanık;2;true;true;115;49
+749;49.03;Hasköy;2;true;true;115;49
+750;49.04;Korkut;2;true;true;115;49
+751;49.05;Malazgirt;2;true;true;115;49
+752;49.06;Varto;2;true;true;115;49
+50;50;Nevşehir;1;true;true;115;null
+753;50.01;Nevşehir / Merkez;2;true;true;115;50
+754;50.02;Acıgöl;2;true;true;115;50
+755;50.03;Avanos;2;true;true;115;50
+756;50.04;Derinkuyu;2;true;true;115;50
+757;50.05;Gülşehir;2;true;true;115;50
+758;50.06;Hacıbektaş;2;true;true;115;50
+759;50.07;Kozakı;2;true;true;115;50
+760;50.08;Ürgüp;2;true;true;115;50
+51;51;Niğde;1;true;true;115;null
+761;51.01;Niğde / Merkez;2;true;true;115;51
+762;51.02;Altunhisar;2;true;true;115;51
+763;51.03;Bor;2;true;true;115;51
+764;51.04;Çamardı;2;true;true;115;51
+765;51.05;Çiftlik;2;true;true;115;51
+766;51.06;Ulukışla;2;true;true;115;51
+52;52;Ordu;1;true;true;115;null
+767;52.01;Ordu / Merkez;2;true;true;115;52
+768;52.02;Akkuş;2;true;true;115;52
+769;52.03;Aybastı;2;true;true;115;52
+1047;52.04;Boztepe;2;true;true;115;52
+1049;52.05;Bolaman;2;true;true;115;52
+770;52.06;Çamaş;2;true;true;115;52
+771;52.07;Çatalpınar;2;true;true;115;52
+772;52.08;Çaybaşı;2;true;true;115;52
+773;52.09;Fatsa;2;true;true;115;52
+774;52.10;Gölköy;2;true;true;115;52
+775;52.11;Gölyalı;2;true;true;115;52
+776;52.12;Gürgentepe;2;true;true;115;52
+777;52.13;İkizce;2;true;true;115;52
+778;52.14;Korgan;2;true;true;115;52
+779;52.15;Kabadüz;2;true;true;115;52
+780;52.16;Kabataş;2;true;true;115;52
+781;52.17;Kumru;2;true;true;115;52
+782;52.18;Mesudiye;2;true;true;115;52
+783;52.19;Perşembe;2;true;true;115;52
+784;52.20;Ulubey;2;true;true;115;52
+785;52.21;Ünye;2;true;true;115;52
+786;52.22;Gülyalı;2;true;true;115;52
+53;53;Rize;1;true;true;115;null
+787;53.01;Rize / Merkez;2;true;true;115;53
+788;53.02;Ardeşen;2;true;true;115;53
+789;53.03;Çamlıhemşin;2;true;true;115;53
+790;53.04;Çayeli;2;true;true;115;53
+791;53.05;Derepazarı;2;true;true;115;53
+792;53.06;Fındıklı;2;true;true;115;53
+793;53.07;Güneysu;2;true;true;115;53
+794;53.08;Hemşin;2;true;true;115;53
+795;53.09;İkizdere;2;true;true;115;53
+796;53.10;İyidere;2;true;true;115;53
+797;53.11;Kalkandere;2;true;true;115;53
+798;53.12;Pazar;2;true;true;115;53
+54;54;Sakarya;1;true;true;115;null
+799;54.01;Sakarya / Merkez;2;true;true;115;54
+800;54.02;Akyazı;2;true;true;115;54
+801;54.03;Ferizli;2;true;true;115;54
+802;54.04;Geyve;2;true;true;115;54
+803;54.05;Hendek;2;true;true;115;54
+804;54.06;Karapürçek;2;true;true;115;54
+805;54.07;Karasu;2;true;true;115;54
+806;54.08;Kaynarca;2;true;true;115;54
+807;54.09;Kocaali;2;true;true;115;54
+808;54.10;Pamukova;2;true;true;115;54
+809;54.11;Sapanca;2;true;true;115;54
+810;54.12;Soğütlü;2;true;true;115;54
+811;54.13;Taraklı;2;true;true;115;54
+55;55;Samsun;1;true;true;115;null
+812;55.00;Samsun / Merkez;2;true;true;115;55
+1045;55.01;Kurupelit;2;true;true;115;55
+1044;55.02;Dereköy;2;true;true;115;55
+1043;55.03;Taflan;2;true;true;115;55
+1042;55.04;Kutlukent;2;true;true;115;55
+813;55.06;Alaçam;2;true;true;115;55
+814;55.07;Asarcık;2;true;true;115;55
+815;55.08;Ayvacık;2;true;true;115;55
+816;55.09;Bafra;2;true;true;115;55
+817;55.10;Çarşamba;2;true;true;115;55
+818;55.11;Havza;2;true;true;115;55
+819;55.12;Kavak;2;true;true;115;55
+820;55.13;Ladik;2;true;true;115;55
+821;55.14;Ondokuzmayıs;2;true;true;115;55
+822;55.15;Salıpazarı;2;true;true;115;55
+823;55.16;Tekkeköy;2;true;true;115;55
+824;55.17;Terme;2;true;true;115;55
+825;55.18;Vezirköprü;2;true;true;115;55
+826;55.19;Yakakent;2;true;true;115;55
+56;56;Siirt;1;true;true;115;null
+827;56.01;Siirt / Merkez;2;true;true;115;56
+828;56.02;Aydınlar;2;true;true;115;56
+829;56.03;Baykan;2;true;true;115;56
+830;56.04;Eruh;2;true;true;115;56
+831;56.05;Kozluk;2;true;true;115;56
+832;56.06;Kurtalan;2;true;true;115;56
+833;56.07;Pervari;2;true;true;115;56
+834;56.08;Şirvan;2;true;true;115;56
+57;57;Sinop;1;true;true;115;null
+835;57.01;Sinop / Merkez;2;true;true;115;57
+836;57.02;Ayancık;2;true;true;115;57
+837;57.03;Boyabat;2;true;true;115;57
+838;57.04;Dikmen;2;true;true;115;57
+839;57.05;Durağan;2;true;true;115;57
+840;57.06;Erfelek;2;true;true;115;57
+841;57.07;Gerze;2;true;true;115;57
+842;57.08;Saraydüzü;2;true;true;115;57
+843;57.09;Türkeli;2;true;true;115;57
+58;58;Sivas;1;true;true;115;null
+844;58.01;Sivas / Merkez;2;true;true;115;58
+845;58.02;Akıncılar;2;true;true;115;58
+846;58.03;Altınyayla;2;true;true;115;58
+847;58.04;Divriği;2;true;true;115;58
+848;58.05;Doğansar;2;true;true;115;58
+849;58.06;Gemerek;2;true;true;115;58
+850;58.07;Gölova;2;true;true;115;58
+851;58.08;Gürun;2;true;true;115;58
+852;58.09;Hafik;2;true;true;115;58
+853;58.10;İmranlı;2;true;true;115;58
+854;58.11;Kangal;2;true;true;115;58
+855;58.12;Koyulhisar;2;true;true;115;58
+856;58.13;Suşehri;2;true;true;115;58
+857;58.14;Şarkışla;2;true;true;115;58
+858;58.15;Ulaş;2;true;true;115;58
+859;58.16;Yıldızeli;2;true;true;115;58
+860;58.17;Zara;2;true;true;115;58
+59;59;Tekirdağ;1;true;true;115;null
+861;59.01;Tekirdağ / Merkez;2;true;true;115;59
+862;59.02;Çerkezköy;2;true;true;115;59
+863;59.03;Çorlu;2;true;true;115;59
+864;59.04;Hayrabolu;2;true;true;115;59
+865;59.05;Malkara;2;true;true;115;59
+866;59.06;Marmaraereğli;2;true;true;115;59
+867;59.07;Muratlı;2;true;true;115;59
+868;59.08;Saray;2;true;true;115;59
+869;59.09;Şarköy;2;true;true;115;59
+60;60;Tokat;1;true;true;115;null
+870;60.01;Tokat / Merkez;2;true;true;115;60
+871;60.02;Almuş;2;true;true;115;60
+872;60.03;Artova;2;true;true;115;60
+873;60.04;Başçiftlik;2;true;true;115;60
+874;60.05;Erbaa;2;true;true;115;60
+875;60.06;Niksar;2;true;true;115;60
+876;60.07;Pazar;2;true;true;115;60
+877;60.08;Reşadiye;2;true;true;115;60
+878;60.09;Sulusaray;2;true;true;115;60
+879;60.10;Turhal;2;true;true;115;60
+880;60.11;Yeşilyurt;2;true;true;115;60
+881;60.12;Zile;2;true;true;115;60
+61;61;Trabzon;1;true;true;115;null
+882;61.01;Trabzon / Merkez;2;true;true;115;61
+1052;61.02;Esiroğlu;2;true;true;115;61
+1051;61.03;Kavala;2;true;true;115;61
+883;61.04;Akçaabat;2;true;true;115;61
+884;61.05;Araklı;2;true;true;115;61
+885;61.06;Arsin;2;true;true;115;61
+886;61.07;Beşikdüzü;2;true;true;115;61
+887;61.08;Çarşıbaşı;2;true;true;115;61
+888;61.09;Çaykara;2;true;true;115;61
+889;61.10;Dernekpazar;2;true;true;115;61
+890;61.11;Düzköy;2;true;true;115;61
+891;61.12;Hayrat;2;true;true;115;61
+892;61.13;Köprübaşı;2;true;true;115;61
+893;61.14;Maçka;2;true;true;115;61
+894;61.15;Of;2;true;true;115;61
+895;61.16;Sürmene;2;true;true;115;61
+896;61.17;Salıpazarı;2;true;true;115;61
+897;61.18;Tonya;2;true;true;115;61
+898;61.19;Vakfıkebir;2;true;true;115;61
+899;61.20;Yomra;2;true;true;115;61
+62;62;Tunceli;1;true;true;115;null
+900;62.01;Tunceli / Merkez;2;true;true;115;62
+901;62.02;Çemişgezek;2;true;true;115;62
+902;62.03;Hozat;2;true;true;115;62
+903;62.04;Malazgirt;2;true;true;115;62
+904;62.05;Nazımiye;2;true;true;115;62
+905;62.06;Ovacık;2;true;true;115;62
+906;62.07;Pertek;2;true;true;115;62
+907;62.08;Pülümür;2;true;true;115;62
+63;63;Şanlıurfa;1;true;true;115;null
+908;63.01;Şanlıurfa / Merkez;2;true;true;115;63
+909;63.02;Akçakale;2;true;true;115;63
+910;63.03;Birecik;2;true;true;115;63
+911;63.04;Bozova;2;true;true;115;63
+912;63.05;Ceylanpınar;2;true;true;115;63
+913;63.06;Halfeti;2;true;true;115;63
+914;63.07;Harran;2;true;true;115;63
+915;63.08;Hilvan;2;true;true;115;63
+916;63.09;Siverek;2;true;true;115;63
+917;63.10;Suruç;2;true;true;115;63
+918;63.11;Viranşehir;2;true;true;115;63
+64;64;Uşak;1;true;true;115;null
+919;64.01;Uşak / Merkez;2;true;true;115;64
+920;64.02;Banaz;2;true;true;115;64
+921;64.03;Eşme;2;true;true;115;64
+922;64.04;Karahallı;2;true;true;115;64
+923;64.05;Sivaslı;2;true;true;115;64
+924;64.06;Ulubey;2;true;true;115;64
+65;65;Van;1;true;true;115;null
+925;65.01;Van / Merkez;2;true;true;115;65
+926;65.02;Bahçesaray;2;true;true;115;65
+927;65.03;Başkale;2;true;true;115;65
+928;65.04;Çaldıran;2;true;true;115;65
+929;65.05;Çatak;2;true;true;115;65
+930;65.06;Edremit;2;true;true;115;65
+931;65.07;Erciş;2;true;true;115;65
+932;65.08;Gevaş;2;true;true;115;65
+933;65.09;Gürpınar;2;true;true;115;65
+934;65.10;Muradiye;2;true;true;115;65
+935;65.11;Özalp;2;true;true;115;65
+936;65.12;Saray;2;true;true;115;65
+66;66;Yozgat;1;true;true;115;null
+937;66.01;Yozgat / Merkez;2;true;true;115;66
+938;66.02;Akdağmadeni;2;true;true;115;66
+939;66.03;Aydıncık;2;true;true;115;66
+940;66.04;Boğazlıyan;2;true;true;115;66
+941;66.05;Çandır;2;true;true;115;66
+942;66.06;Çayıralan;2;true;true;115;66
+943;66.07;Çekerek;2;true;true;115;66
+944;66.08;Kadirşehri;2;true;true;115;66
+945;66.09;Sarıkaya;2;true;true;115;66
+946;66.10;Saraykent;2;true;true;115;66
+947;66.11;Sorgun;2;true;true;115;66
+948;66.12;Şefaatli;2;true;true;115;66
+949;66.13;Yenifakılı;2;true;true;115;66
+950;66.14;Yerköy;2;true;true;115;66
+67;67;Zonguldak;1;true;true;115;null
+951;67.01;Zonguldak / Merkez;2;true;true;115;67
+952;67.02;Alaplı;2;true;true;115;67
+953;67.03;Çamoluk;2;true;true;115;67
+954;67.04;Çaycuma;2;true;true;115;67
+955;67.05;Devrek;2;true;true;115;67
+956;67.06;Eflani;2;true;true;115;67
+957;67.07;Ereğli;2;true;true;115;67
+958;67.08;Gökçebey;2;true;true;115;67
+68;68;Aksaray;1;true;true;115;null
+959;68.01;Aksaray / Merkez;2;true;true;115;68
+960;68.02;Ağaçören;2;true;true;115;68
+961;68.03;Eskil;2;true;true;115;68
+962;68.04;Gülağaç;2;true;true;115;68
+963;68.05;Güzelyurt;2;true;true;115;68
+964;68.06;Ortaköy;2;true;true;115;68
+965;68.07;Sarıyahşi;2;true;true;115;68
+69;69;Bayburt;1;true;true;115;null
+966;69.01;Bayburt / Merkez;2;true;true;115;69
+967;69.02;Aydıntepe;2;true;true;115;69
+968;69.03;Demirözü;2;true;true;115;69
+70;70;Karaman;1;true;true;115;null
+969;70.01;Karaman / Merkez;2;true;true;115;70
+970;70.02;Ayrancı;2;true;true;115;70
+971;70.03;Başyayla;2;true;true;115;70
+972;70.04;Ermenek;2;true;true;115;70
+973;70.05;Kazımkarabekir;2;true;true;115;70
+974;70.06;Sarıveliler;2;true;true;115;70
+71;71;Kırıkkale;1;true;true;115;null
+975;71.01;Kırıkkale / Merkez;2;true;true;115;71
+976;71.02;Bahşili;2;true;true;115;71
+977;71.03;Bağlişeyh;2;true;true;115;71
+978;71.04;Çelebi;2;true;true;115;71
+979;71.05;Delice;2;true;true;115;71
+980;71.06;Karakeçili;2;true;true;115;71
+981;71.07;Keskin;2;true;true;115;71
+982;71.08;Sulakyurt;2;true;true;115;71
+983;71.09;Yahşihan;2;true;true;115;71
+72;72;Batman;1;true;true;115;null
+984;72.01;Batman / Merkez;2;true;true;115;72
+985;72.02;Gerçüş;2;true;true;115;72
+986;72.03;Hasankeyf;2;true;true;115;72
+987;72.04;Beşiri;2;true;true;115;72
+988;72.05;Kozluk;2;true;true;115;72
+989;72.06;Sason;2;true;true;115;72
+73;73;Şırnak;1;true;true;115;null
+990;73.01;Şırnak / Merkez;2;true;true;115;73
+991;73.02;Beytuşşeba;2;true;true;115;73
+992;73.03;Uludere;2;true;true;115;73
+993;73.04;Cizre;2;true;true;115;73
+994;73.05;İdil;2;true;true;115;73
+995;73.06;Silopi;2;true;true;115;73
+996;73.07;Güçlükonak;2;true;true;115;73
+74;74;Bartın;1;true;true;115;null
+997;74.01;Bartın / Merkez;2;true;true;115;74
+998;74.02;Amasra;2;true;true;115;74
+999;74.03;Kurucasile;2;true;true;115;74
+1000;74.04;Ulus;2;true;true;115;74
+75;75;Ardahan;1;true;true;115;null
+1001;75.01;Ardahan / Merkez;2;true;true;115;75
+1002;75.02;Çıldır;2;true;true;115;75
+1003;75.03;Damal;2;true;true;115;75
+1004;75.04;Göle;2;true;true;115;75
+1005;75.05;Hanak;2;true;true;115;75
+1006;75.06;Posof;2;true;true;115;75
+76;76;Iğdır;1;true;true;115;null
+1007;76.01;Iğdır / Merkez;2;true;true;115;76
+1008;76.02;Aralık;2;true;true;115;76
+1009;76.03;Karakoyunlu;2;true;true;115;76
+1010;76.04;Tuzluca;2;true;true;115;76
+77;77;Yalova;1;true;true;115;null
+1011;77.01;Yalova / Merkez;2;true;true;115;77
+1012;77.02;Altınova;2;true;true;115;77
+1013;77.03;Armutlu;2;true;true;115;77
+1014;77.04;Çınarcık;2;true;true;115;77
+1015;77.05;Çiftlikköy;2;true;true;115;77
+1016;77.06;Termal;2;true;true;115;77
+78;78;Karabük;1;true;true;115;null
+1017;78.01;Karabük / Merkez;2;true;true;115;78
+1018;78.02;Eflani;2;true;true;115;78
+1019;78.03;Eskipazar;2;true;true;115;78
+1020;78.04;Ovacık;2;true;true;115;78
+1021;78.05;Safranbolu;2;true;true;115;78
+1022;78.06;Yenice;2;true;true;115;78
+79;79;Kilis;1;true;true;115;null
+1023;79.01;Kilis / Merkez;2;true;true;115;79
+1024;79.02;Elbeyli;2;true;true;115;79
+1025;79.03;Musabeyli;2;true;true;115;79
+1026;79.04;Polateli;2;true;true;115;79
+80;80;Osmaniye;1;true;true;115;null
+1027;80.01;Osmaniye / Merkez;2;true;true;115;80
+1028;80.02;Bahçe;2;true;true;115;80
+1029;80.03;Hasanbeyli;2;true;true;115;80
+1030;80.04;Duziçi;2;true;true;115;80
+1031;80.05;Kadirli;2;true;true;115;80
+1032;80.06;Sunbaş;2;true;true;115;80
+1033;80.07;Toprakkale;2;true;true;115;80
+81;81;Düzce;1;true;true;115;null
+1034;81.01;Düzce / Merkez;2;true;true;115;81
+1035;81.02;Akçakoca;2;true;true;115;81
+1036;81.03;Cumayeri;2;true;true;115;81
+1037;81.04;Cilimli;2;true;true;115;81
+1038;81.05;Gölyaka;2;true;true;115;81
+1039;81.06;Gümüşova;2;true;true;115;81
+1040;81.07;Kaynaşlı;2;true;true;115;81
+1041;81.08;Yiga;2;true;true;115;81
+1122;01;Eğitim Sen;1;true;true;116;null
+1123;02;Türk Eğitim Sen;1;true;true;116;null
+1124;03;Eğitim Bir Sen;1;true;true;116;null
+2347;01;Yıl Başı;1;true;true;117;null
+2554;02;Cumhuriyet Bayramı;1;true;true;117;null
+2555;03;Ulusal Egemenlik ve Çocuk Bayramı;1;true;true;117;null
+2544;04;Emek ve Dayanışma Günü;1;true;true;117;null
+2556;05;Atatürkü Anma Gençlik Spor Bay.;1;true;true;117;null
+2557;06;Zafer Bayramı;1;true;true;117;null
+2545;07;Ramazan Bay. Arifesi;1;true;true;117;null
+2389;08;Ramazan Bayramı;1;true;false;117;null
+2546;09;Kurban Bay. Arifesi;1;true;true;117;null
+2406;10;Kurban Bayramı;1;true;true;117;null
+2558;11;Mahalli Kurtuluş Günü;1;true;true;117;null
+2429;12;Sağlık - Aşı Tatili;1;true;true;117;null
+2430;13;Soğuk - Kar Tatili;1;true;true;117;null
+2428;14;Doğal Afet Tatili;1;true;true;117;null
+2446;15;Diğer İdari Tatiller;1;true;true;117;null
+2547;16;Sel Tatili;1;true;true;117;null
+1065;0101;Müdür;1;true;true;118;null
+1066;0102;Müdür Başyardımcısı;1;true;true;118;null
+1067;0103;Müdür Yardımcısı;1;true;true;118;null
+1068;0104;...;1;true;true;118;null
+1069;0105;Rehber Öğretmen;1;true;true;118;null
+1070;0106;Müdür Yetkili Öğret.;1;true;true;118;null
+1071;0107;Sınıf Öğretmeni;1;true;true;118;null
+1072;0108;Gez. Engelli Sın.Öğr.;1;true;true;118;null
+1073;0109;Genel Bilgi Öğret.;1;true;true;118;null
+1074;0110;Atöl.ve Lab.Öğret.;1;true;true;118;null
+1075;0111;Oku. Yaz. Kurs Öğret.;1;true;true;118;null
+1076;0112;Şef;1;true;true;118;null
+1077;0113;Memur;1;true;true;118;null
+1078;0114;Hizmetli;1;true;true;118;null
+1079;0115;Araştırma Görevlisi;1;true;true;118;null
+1080;0116;Tanıtım Öğretmeni;1;true;true;118;null
+1081;0117;Pazarlama Öğret.;1;true;true;118;null
+1082;0118;Tasarım Öğretmeni;1;true;true;118;null
+1083;0119;Doktor;1;true;true;118;null
+1084;0120;Veteriner Hekim;1;true;true;118;null
+1085;0121;Biyolog;1;true;true;118;null
+1086;0122;Mühendis;1;true;true;118;null
+1087;0123;Ev Ekonomisti;1;true;true;118;null
+1088;0124;İl Milli Eğitim Md.;1;true;true;118;null
+1089;0125;İlçe Milli Eğitimi Md.;1;true;true;118;null
+1090;0126;Şube Müdürü;1;true;true;118;null
+1091;0127;Öğretmen TGTY/MTE;1;true;true;118;null
+1092;0128;Şoför;1;true;true;118;null
+2297;0129;Tesis Müdürü;1;true;true;118;null
+2298;0130;Sivil Sav.Uzmanı;1;true;true;118;null
+2299;0131;Uzman;1;true;true;118;null
+2300;0132;İlköğretim Müfettişi;1;true;true;118;null
+2301;0133;İlköğretim Müfet.Yrd.;1;true;true;118;null
+2302;0134;Seminer Öğretmeni;1;true;true;118;null
+2417;0135;Okul Öncesi Öğret.;1;true;true;118;null
+2433;0136;Çocuk Geliş.Öğret.;1;true;true;118;null
+2303;0137;...;1;true;true;118;null
+2304;0138;....;1;true;true;118;null
+2434;0199;Diğer;1;true;true;118;null
+2494;2001;Müdür - 4.b  Söz.;1;true;true;118;null
+2495;2002;Müdür - Usta Öğr;1;true;true;118;null
+2496;2003;Müdür - Ücretli;1;true;true;118;null
+2497;2004;Müdür BaşYrd. - 4.b Söz.;1;true;true;118;null
+2498;2005;Müdür BaşYrd. - Usta Öğ.;1;true;true;118;null
+2499;2006;Müdür BaşYrd - Ücretli;1;true;true;118;null
+2500;2007;Müdür Yrd. - 4.b Söz.;1;true;true;118;null
+2501;2008;Müdür Yrd. - Usta Öğr.;1;true;true;118;null
+2502;2009;Müdür Yrd. Ücretli;1;true;true;118;null
+2503;2010;Rehber Öğr. - 4b Söz.;1;true;true;118;null
+2504;2011;Rehber Öğr. - Usta Öğr.;1;true;true;118;null
+2505;2012;Rehber Öğr. - Ücretli;1;true;true;118;null
+2506;2013;Müd.Yet.Öğr. - 4.b Söz.;1;true;true;118;null
+2507;2014;Müd.Yet.Öğr. - Usta Öğr.;1;true;true;118;null
+2508;2015;Müd.Yet.Öğr. - Ücretli;1;true;true;118;null
+2509;2016;Sınıf Öğr. - 4.b Söz.;1;true;true;118;null
+2510;2017;Sınıf Öğr. -  Usta Öğr.;1;true;true;118;null
+2511;2018;Sınıf Öğr. - Ücretli;1;true;true;118;null
+2512;2019;Genel Bil. Öğr. - 4.b Söz.;1;true;true;118;null
+2513;2020;Genel Bil. Öğr. - Usta Öğr.;1;true;true;118;null
+2514;2021;Genel Bil. Öğr. -  Ücretli;1;true;true;118;null
+2515;2022;Atöl.ve Lab.Öğr. - 4.b Söz;1;true;true;118;null
+2516;2023;Atöl.ve Lab.Öğr. - Usta Öğr.;1;true;true;118;null
+2517;2024;Atöl.ve Lab.Öğr. - Ücretli;1;true;true;118;null
+2518;2025;Oku.Yaz.Kurs Öğr. - 4.b Söz;1;true;true;118;null
+2519;2026;Oku.Yaz.Kurs Öğr. - Usta Öğr.;1;true;true;118;null
+2520;2027;Oku.Yaz.Kurs Öğr. - Ücretli;1;true;true;118;null
+2521;2028;Öğretmen TGTY/MTE - 4.b Söz;1;true;true;118;null
+2522;2029;Öğretmen TGTY/MTE - Usta Öğr.;1;true;true;118;null
+2523;2030;Öğretmen TGTY/MTE - Ücretli;1;true;true;118;null
+2524;2031;Okul Önce. Öğr. - 4.b Söz.;1;true;true;118;null
+2525;2032;Okul Önce. Öğr. - Usta Öğr.;1;true;true;118;null
+2526;2033;Okul Önce. Öğr. - Ücretli;1;true;true;118;null
+2527;2034;Çocuk Geliş. Öğr. - 4.b Söz;1;true;true;118;null
+2528;2035;Çocuk Geliş. Öğr. - Usta Öğr.;1;true;true;118;null
+2529;2036;Çocuk Geliş. Öğr. -  Ücretli;1;true;true;118;null
+2530;2037;Diğer - 4.b Söz.;1;true;true;118;null
+2531;2038;Diğer - Usta Öğr.;1;true;true;118;null
+2532;2039;Diğer - Ücretli;1;true;true;118;null
+1119;01;İngilizce;1;true;true;119;null
+1120;02;Almanca;1;true;true;119;null
+1121;03;Fransızca;1;true;true;119;null
+2397;04;Arapça;1;true;true;119;null
+2398;05;Diğer;1;true;true;119;null
+

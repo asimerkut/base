@@ -28,4 +28,12 @@
     <include file="config/liquibase/changelog/20181020094120_added_entity_constraints_PerExcuse.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181020094121_added_entity_constraints_PerSubmit.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+
+    <include file="config/liquibase/custom/99999999999999_LoadData_01.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/99999999999999_LoadData_02.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/99999999999999_LoadData_03.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/99999999999999_LoadData_04.xml" relativeToChangelogFile="false"/>
+
+
 </databaseChangeLog>
