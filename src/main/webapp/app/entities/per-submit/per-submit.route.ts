@@ -7,9 +7,6 @@ import { map } from 'rxjs/operators';
 import { PerSubmit } from 'app/shared/model/per-submit.model';
 import { PerSubmitService } from './per-submit.service';
 import { PerSubmitComponent } from './per-submit.component';
-import { PerSubmitDetailComponent } from './per-submit-detail.component';
-import { PerSubmitUpdateComponent } from './per-submit-update.component';
-import { PerSubmitDeletePopupComponent } from './per-submit-delete-dialog.component';
 import { IPerSubmit } from 'app/shared/model/per-submit.model';
 
 @Injectable({ providedIn: 'root' })
@@ -34,57 +31,7 @@ export const perSubmitRoute: Routes = [
             pageTitle: 'baseApp.perSubmit.home.title'
         },
         canActivate: [UserRouteAccessService]
-    },
-    {
-        path: 'per-submit/:id/view',
-        component: PerSubmitDetailComponent,
-        resolve: {
-            perSubmit: PerSubmitResolve
-        },
-        data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'baseApp.perSubmit.home.title'
-        },
-        canActivate: [UserRouteAccessService]
-    },
-    {
-        path: 'per-submit/new',
-        component: PerSubmitUpdateComponent,
-        resolve: {
-            perSubmit: PerSubmitResolve
-        },
-        data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'baseApp.perSubmit.home.title'
-        },
-        canActivate: [UserRouteAccessService]
-    },
-    {
-        path: 'per-submit/:id/edit',
-        component: PerSubmitUpdateComponent,
-        resolve: {
-            perSubmit: PerSubmitResolve
-        },
-        data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'baseApp.perSubmit.home.title'
-        },
-        canActivate: [UserRouteAccessService]
     }
 ];
 
-export const perSubmitPopupRoute: Routes = [
-    {
-        path: 'per-submit/:id/delete',
-        component: PerSubmitDeletePopupComponent,
-        resolve: {
-            perSubmit: PerSubmitResolve
-        },
-        data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'baseApp.perSubmit.home.title'
-        },
-        canActivate: [UserRouteAccessService],
-        outlet: 'popup'
-    }
-];
+export const perSubmitPopupRoute: Routes = [];
