@@ -1,8 +1,11 @@
 package com.er.base.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.er.base.domain.PerPerson;
 import com.er.base.domain.PerSubmit;
-import com.er.base.service.PerSubmitService;
+import com.er.base.domain.enumeration.EnmDersGrup;
+import com.er.base.service.*;
+import com.er.base.service.custom.ScheduleUtilService;
 import com.er.base.web.rest.errors.BadRequestAlertException;
 import com.er.base.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -15,6 +18,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
@@ -32,12 +36,22 @@ public class PerSubmitResource {
 
     private static final String ENTITY_NAME = "perSubmit";
 
-    private PerSubmitService perSubmitService;
+    private final PerSubmitService perSubmitService;
+    private final PerDailyService perDailyService;
+    private final ScheduleUtilService scheduleService;
+    private final PerPersonService perPersonService;
+    private final PerPlanService perPlanService;
+    private final PerExcuseService perExcuseService;
 
-    public PerSubmitResource(PerSubmitService perSubmitService) {
+
+    public PerSubmitResource(PerSubmitService perSubmitService, PerDailyService perDailyService, ScheduleUtilService scheduleService, PerPersonService perPersonService, PerPlanService perPlanService, PerExcuseService perExcuseService) {
         this.perSubmitService = perSubmitService;
+        this.perDailyService = perDailyService;
+        this.scheduleService = scheduleService;
+        this.perPersonService = perPersonService;
+        this.perPlanService = perPlanService;
+        this.perExcuseService = perExcuseService;
     }
-
     /**
      * POST  /per-submits : Create a new perSubmit.
      *
@@ -45,14 +59,26 @@ public class PerSubmitResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new perSubmit, or with status 400 (Bad Request) if the perSubmit has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
+
+
     @PostMapping("/per-submits")
     @Timed
-    public ResponseEntity<PerSubmit> createPerSubmit(@Valid @RequestBody PerSubmit perSubmit) throws URISyntaxException {
+    public ResponseEntity<PerSubmit> createPerSubmit(@RequestBody PerSubmit perSubmit) throws URISyntaxException {
         log.debug("REST request to save PerSubmit : {}", perSubmit);
         if (perSubmit.getId() != null) {
             throw new BadRequestAlertException("A new perSubmit cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        if (perSubmit.getDersSira()==0){
+            PerSubmit exist = perSubmitService.getSubmitUnique(perSubmit.getSubmitDate(), perSubmit.getDersSira(), perSubmit.getDers());
+            if (exist!=null){
+                return ResponseEntity.ok()
+                    .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, "0"))
+                    .body(perSubmit);
+            }
+        }
         PerSubmit result = perSubmitService.save(perSubmit);
+        perPlanService.planSaveOrUpdate(perSubmit);
+
         return ResponseEntity.created(new URI("/api/per-submits/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -69,14 +95,59 @@ public class PerSubmitResource {
      */
     @PutMapping("/per-submits")
     @Timed
-    public ResponseEntity<PerSubmit> updatePerSubmit(@Valid @RequestBody PerSubmit perSubmit) throws URISyntaxException {
+    public ResponseEntity<PerSubmit> updatePerSubmit(@RequestBody PerSubmit perSubmit) throws URISyntaxException {
         log.debug("REST request to update PerSubmit : {}", perSubmit);
         if (perSubmit.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+            return createPerSubmit(perSubmit);
+        } else if (perSubmit.getId().longValue()<(-20000000)){
+            String cellId = perSubmit.getDersSira().toString();
+            if (perSubmit.getDersSira().intValue()<0) {  // Normal
+                int sira = new Integer(cellId.substring(9,11));
+                perSubmit.setDersSira(sira);
+                perSubmit.setDersAdet(1);
+            } else { // allDay
+                perSubmit.setDersSira(0);
+                cellId = perSubmit.getId().toString();
+            }
+            int yyyy = new Integer(cellId.substring(1,5));
+            int mm = new Integer(cellId.substring(5,7));
+            int dd = new Integer(cellId.substring(7,9));
+            LocalDate cellDate = LocalDate.of(yyyy,mm,dd);
+            perSubmit.setDayNo(cellDate.getDayOfWeek());
+            perSubmit.setSubmitDate(cellDate);
+            PerPerson per = perPersonService.getLoginPerson();
+            perSubmit.setPerson(per);
+            perSubmit.setDersGrup(EnmDersGrup.D_GS);
+            perSubmit.setId(null);
+            return createPerSubmit(perSubmit);
         }
-        PerSubmit result = perSubmitService.save(perSubmit);
+        if (perSubmit.getId()<0){//Excuse Edit
+            return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, perSubmit.getId().toString()))
+                .body(perSubmit);
+        }
+        PerSubmit orj = perSubmitService.findOne(perSubmit.getId()).get();
+        if (orj.getDersSira()==0){
+            PerSubmit exist = perSubmitService.getSubmitUnique(orj.getSubmitDate(), orj.getDersSira(), perSubmit.getDers());
+            exist.setDersAdet(perSubmit.getDersAdet());
+            exist = perSubmitService.save(exist);
+            perPlanService.planDelete(orj);
+            perPlanService.planSaveOrUpdate(exist);
+            if (exist!=null){
+                return ResponseEntity.ok()
+                    .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, orj.getId().toString()))
+                    .body(exist);
+            }
+        }
+
+        perPlanService.planDelete(orj);
+        orj.setDers(perSubmit.getDers());
+        orj.setDersAdet(1);
+        PerSubmit result = perSubmitService.save(orj);
+        perPlanService.planSaveOrUpdate(result);
+
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, perSubmit.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, orj.getId().toString()))
             .body(result);
     }
 
