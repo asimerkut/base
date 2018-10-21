@@ -19,7 +19,8 @@ export class CommonService {
     getTreeData(currentSearch: string): Observable<any> {
         const query = { query: currentSearch };
         const options = createRequestOption(query);
-        const ret = this.http.get(this.resourceTreeSearchUrl, { params: options, observe: 'response' }).map(res => res.body as any[]);
+        const ret = this.http.get(this.resourceTreeSearchUrl, { params: options, observe: 'response' })
+            .map((res) => res.body as any[]);
         return ret;
     }
 
@@ -37,13 +38,15 @@ export class CommonService {
         return this.http.get<IDefItem[]>(this.resourceUrlEnumByType, { params: options, observe: 'response' });
     }
 
+
     getEvents(viewStart: any, viewEnd: any): Observable<any> {
         // return this.http.get('content/primeng/assets/data/json/events/scheduleevents.json')
         //    .map((response) => response);
         const req = { viewStart: viewStart, viewEnd: viewEnd };
         const query = { query: JSON.stringify(req) };
         const options = createRequestOption(query);
-        return this.http.get(this.submitScheduleUrl, { params: options, observe: 'response' });
+        return this.http.get(this.submitScheduleUrl, { params: options, observe: 'response' })
+            .map((res) => res.body as any[]);
     }
 
     initEvents(viewStart: any, viewEnd: any): Observable<any> {
@@ -52,6 +55,7 @@ export class CommonService {
         const req = { viewStart: viewStart, viewEnd: viewEnd };
         const query = { query: JSON.stringify(req) };
         const options = createRequestOption(query);
-        return this.http.get(this.initScheduleUrl, { params: options, observe: 'response' });
+        return this.http.get(this.initScheduleUrl, { params: options, observe: 'response' })
+            .map((res) => res.body as any[]);
     }
 }

@@ -91,7 +91,7 @@
                 (onDrop)="handleDrop($event)"></p-schedule>
 
     <p-dialog header="Detaylar" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade"
-              [modal]="false" [contentStyle]="{'overflow':'visible'}"
+              [modal]="true" [contentStyle]="{'overflow':'visible'}"
               [style]="{'overflow':'visible'}" [resizable]="false">
 
         <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="event">
@@ -122,7 +122,7 @@
 
         </div>
 
-        <p-footer>
+        <p-footer [(visible)]="dialogVisible">
             <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
                 <button type="button" pButton icon="fa-check" (click)="saveEvent()" label="Kaydet"
                         [disabled]="!event?.start"></button>
