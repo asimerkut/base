@@ -116,7 +116,8 @@ relationship ManyToOne {
 
 }
 
-enum EnmDay {D1,D2,D3,D4,D5,D6,D7}
+
+enum EnmDay {MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY}
 enum EnmCins {E,K}
 enum EnmMedeni {BEK,EVL,DUL,BOS}
 enum EnmDersGrup {D_GS,GG,GY}
@@ -137,6 +138,10 @@ enum EnmParam {
     KATSAYI,
     DAYANAK_GOR,   DAYANAK_UNV,
     GOSTERGE_GOR,  TARIFE_GOR
+}
+
+enum PerDaily {
+
 }
 
 service all with serviceImpl
