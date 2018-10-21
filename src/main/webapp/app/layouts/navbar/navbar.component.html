@@ -553,6 +553,12 @@
                             <span jhiTranslate="global.menu.entities.perSubmit">Per Submit</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="per-daily" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.perDaily">Per Daily</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

@@ -2,10 +2,12 @@ package com.er.base.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 
+import com.er.base.domain.PerPerson;
 import com.er.base.domain.User;
 import com.er.base.repository.UserRepository;
 import com.er.base.security.SecurityUtils;
 import com.er.base.service.MailService;
+import com.er.base.service.PerPersonService;
 import com.er.base.service.UserService;
 import com.er.base.service.dto.PasswordChangeDTO;
 import com.er.base.service.dto.UserDTO;
@@ -39,11 +41,15 @@ public class AccountResource {
 
     private final MailService mailService;
 
-    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService) {
+    private final PerPersonService perPersonService;
+
+    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService, PerPersonService perPersonService) {
 
         this.userRepository = userRepository;
         this.userService = userService;
         this.mailService = mailService;
+        this.perPersonService = perPersonService;
+
     }
 
     /**
@@ -62,7 +68,9 @@ public class AccountResource {
             throw new InvalidPasswordException();
         }
         User user = userService.registerUser(managedUserVM, managedUserVM.getPassword());
-        mailService.sendActivationEmail(user);
+        //mailService.sendActivationEmail(user);
+
+        PerPerson person = perPersonService.registerPerson(user);
     }
 
     /**

@@ -16,4 +16,7 @@ public interface PerPersonRepository extends JpaRepository<PerPerson, Long> {
     @Query("select per_person from PerPerson per_person where per_person.user.login = ?#{principal.username}")
     List<PerPerson> findByUserIsCurrentUser();
 
+    @Query("select per_person from PerPerson per_person where per_person.user.login = ?#{principal.username}")
+    PerPerson getPerson();
+
 }

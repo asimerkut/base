@@ -2,13 +2,16 @@ package com.er.base.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.er.base.domain.DefItem;
+import com.er.base.domain.PerDaily;
+import com.er.base.domain.PerExcuse;
+import com.er.base.domain.PerPerson;
 import com.er.base.domain.enumeration.*;
-import com.er.base.service.DefItemService;
+import com.er.base.service.*;
 import com.er.fin.domain.EnmBase;
 import com.er.fin.domain.IEnum;
 import com.er.fin.domain.JsonUtil;
-import com.er.fin.dto.DefTreeDataDTO;
-import com.er.fin.dto.DefTreeItemDTO;
+import com.er.fin.domain.ScheduleUtil;
+import com.er.fin.dto.*;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.*;
 
@@ -31,11 +35,29 @@ public class CommonResource {
     private final Logger log = LoggerFactory.getLogger(DefItemResource.class);
 
     private final DefItemService defItemService;
+    private final PerSubmitService perSubmitService;
+    private final PerDailyService perDailyService;
+    private final ScheduleUtil scheduleService;
+    private final PerPersonService perPersonService;
+    private final PerPlanService perPlanService;
+    private final PerExcuseService perExcuseService;
 
-    public CommonResource(DefItemService defItemService) {
+
+    public CommonResource(DefItemService defItemService,
+                          PerSubmitService perSubmitService,
+                          PerDailyService perDailyService,
+                          ScheduleUtil scheduleService,
+                          PerPersonService perPersonService,
+                          PerPlanService perPlanService,
+                          PerExcuseService perExcuseService) {
         this.defItemService = defItemService;
+        this.perSubmitService = perSubmitService;
+        this.perDailyService = perDailyService;
+        this.scheduleService = scheduleService;
+        this.perPersonService = perPersonService;
+        this.perPlanService = perPlanService;
+        this.perExcuseService = perExcuseService;
     }
-
 
     @GetMapping("/common/def-item-by-type")
     @Timed
@@ -125,6 +147,43 @@ public class CommonResource {
             valueList.add(EnmBase.getDefEnum(e));
         }
         return valueList;
+    }
+
+    @GetMapping("/common/per-submits-schedule")
+    @Timed
+    public ScheduleDataDTO findSubmitSchedule(@RequestParam String query) {
+        JsonNode json = JsonUtil.getJsonObject(query);
+        LocalDate viewStart = JsonUtil.getValueLocalDate(json,"viewStart");
+        LocalDate viewEnd = JsonUtil.getValueLocalDate(json,"viewEnd");
+        PerPerson person = perPersonService.getLoginPerson();
+        Map<Integer, PerDaily> okulDersSaatMap = perDailyService.findAllByOkul(person.getOkul());               // Okulun Günlük Ders Başlangıç Bitiş Saatleri
+        Map<SchKeyDateDTO, PerScheduleDTO> dateDersMap = perSubmitService.getSubmitWiewMap(viewStart, viewEnd); // Schedule Günlerine Göre Girişler
+
+        /*
+        if (dateDersMap.size()==0 && viewStart.compareTo(LocalDate.now())<=0){
+            submitInitialize(query);
+            dateDersMap = perSubmitService.getSubmitWiewMap(viewStart, viewEnd);
+        }
+        */
+
+        List<PerExcuse> excuseList = perExcuseService.getPersonExcuse();
+
+        List<ScheduleEventDTO> scheduleList = scheduleService.getFullMatrixDate(dateDersMap, okulDersSaatMap, excuseList, viewStart, viewEnd);// Boş Saatlerin Doldurulması
+        return new ScheduleDataDTO(scheduleList);
+    }
+
+    @GetMapping("/common/per-submits-initialize")
+    @Timed
+    public ScheduleDataDTO submitInitialize(@RequestParam String query) {
+        JsonNode json = JsonUtil.getJsonObject(query);
+        LocalDate viewStart = JsonUtil.getValueLocalDate(json,"viewStart");
+        LocalDate viewEnd = JsonUtil.getValueLocalDate(json,"viewEnd");
+        LocalDate startDate = LocalDate.of(2000,1,1);
+        Map<SchKeyWeekDTO, PerScheduleDTO> weekDersMap = perPlanService.getPlanWeekMap(startDate);          // Haftanın Günlerine Göre Haftalık Ders Planı
+        if (weekDersMap.size()>0){
+            perSubmitService.submitInit(weekDersMap, viewStart, viewEnd);
+        }
+        return findSubmitSchedule(query);
     }
 
 }

@@ -105,6 +105,7 @@
                 "perPlan": "Per Plan",
                 "perExcuse": "Per Excuse",
                 "perSubmit": "Per Submit",
+                "perDaily": "Per Daily",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

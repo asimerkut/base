@@ -11,6 +11,9 @@ export class CommonService {
     private resourceUrlByType = SERVER_API_URL + 'api/common/def-item-by-type';
     private resourceUrlEnumByType = SERVER_API_URL + 'api/common/def-enum';
 
+    private submitScheduleUrl = SERVER_API_URL + 'api/common/per-submits-schedule';
+    private initScheduleUrl = SERVER_API_URL + 'api/common/per-submits-initialize';
+
     constructor(private http: HttpClient) {}
 
     getTreeData(currentSearch: string): Observable<any> {
@@ -32,5 +35,23 @@ export class CommonService {
         const query = { query: JSON.stringify(req) };
         const options = createRequestOption(query);
         return this.http.get<IDefItem[]>(this.resourceUrlEnumByType, { params: options, observe: 'response' });
+    }
+
+    getEvents(viewStart: any, viewEnd: any): Observable<any> {
+        // return this.http.get('content/primeng/assets/data/json/events/scheduleevents.json')
+        //    .map((response) => response);
+        const req = { viewStart: viewStart, viewEnd: viewEnd };
+        const query = { query: JSON.stringify(req) };
+        const options = createRequestOption(query);
+        return this.http.get(this.submitScheduleUrl, { params: options, observe: 'response' });
+    }
+
+    initEvents(viewStart: any, viewEnd: any): Observable<any> {
+        // return this.http.get('content/primeng/assets/data/json/events/scheduleevents.json')
+        //    .map((response) => response);
+        const req = { viewStart: viewStart, viewEnd: viewEnd };
+        const query = { query: JSON.stringify(req) };
+        const options = createRequestOption(query);
+        return this.http.get(this.initScheduleUrl, { params: options, observe: 'response' });
     }
 }

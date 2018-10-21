@@ -60,6 +60,15 @@ public class DefItem implements IEntity {
     @JsonIgnoreProperties("")
     private DefItem parent;
 
+    public DefItem(){
+
+    }
+
+    public DefItem(Long id){
+        this.id = id;
+    }
+
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;

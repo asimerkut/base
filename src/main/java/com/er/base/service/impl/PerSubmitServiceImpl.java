@@ -1,16 +1,25 @@
 package com.er.base.service.impl;
 
+import com.er.base.domain.DefItem;
+import com.er.base.domain.PerPerson;
+import com.er.base.service.PerPersonService;
 import com.er.base.service.PerSubmitService;
 import com.er.base.domain.PerSubmit;
 import com.er.base.repository.PerSubmitRepository;
 import com.er.base.repository.search.PerSubmitSearchRepository;
+import com.er.fin.dto.PerScheduleDTO;
+import com.er.fin.dto.SchKeyDateDTO;
+import com.er.fin.dto.SchKeyWeekDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -30,9 +39,13 @@ public class PerSubmitServiceImpl implements PerSubmitService {
 
     private PerSubmitSearchRepository perSubmitSearchRepository;
 
-    public PerSubmitServiceImpl(PerSubmitRepository perSubmitRepository, PerSubmitSearchRepository perSubmitSearchRepository) {
+    private PerPersonService perPersonService;
+
+
+    public PerSubmitServiceImpl(PerSubmitRepository perSubmitRepository, PerSubmitSearchRepository perSubmitSearchRepository, PerPersonService perPersonService) {
         this.perSubmitRepository = perSubmitRepository;
         this.perSubmitSearchRepository = perSubmitSearchRepository;
+        this.perPersonService = perPersonService;
     }
 
     /**
@@ -101,4 +114,55 @@ public class PerSubmitServiceImpl implements PerSubmitService {
             .stream(perSubmitSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
     }
+
+    @Override
+    @Transactional(readOnly = false)
+    public Map<SchKeyDateDTO, PerScheduleDTO> getSubmitWiewMap(LocalDate viewStart, LocalDate viewEnd) {
+        Map<SchKeyDateDTO, PerScheduleDTO> map = new HashMap<>();
+        for (LocalDate date = viewStart; date.isBefore(viewEnd); date = date.plusDays(1)) {
+            List<PerSubmit> list = perSubmitRepository.getSubmitListByDate(date);
+            int i = -101;
+            for (PerSubmit p : list) {
+                int sira = p.getDersSira().intValue();
+                if (sira == 0) {
+                    sira = i--;
+                }
+                SchKeyDateDTO key = new SchKeyDateDTO(p.getSubmitDate(), sira);
+                map.put(key, p);
+            }
+        }
+
+        return map;
+    }
+
+    @Override
+    @Transactional(readOnly = false)
+    public void submitInit(Map<SchKeyWeekDTO, PerScheduleDTO> weekDersMap, LocalDate viewStart, LocalDate viewEnd) {
+        PerPerson person = perPersonService.getLoginPerson();
+        perSubmitRepository.deleteSubmitPlan(person, viewStart, viewEnd);
+        for (LocalDate date = viewStart; date.isBefore(viewEnd); date = date.plusDays(1)) {
+            for (SchKeyWeekDTO key : weekDersMap.keySet()){
+                if (date.getDayOfWeek().equals(key.getDersGun())){
+                    PerScheduleDTO sch = weekDersMap.get(key);
+                    PerSubmit perSubmit = new PerSubmit();
+                    perSubmit.setSubmitDate(date);
+                    perSubmit.setDersSira(sch.getDersSira());
+                    perSubmit.setDayNo(sch.getDayNo());
+                    perSubmit.setPerson(sch.getPerson());
+                    perSubmit.setDers(sch.getDers());
+                    perSubmit.setDersAdet(sch.getDersAdet());
+                    perSubmit.setDersGrup(sch.getDersGrup());
+                    perSubmitRepository.save(perSubmit);
+                }
+            }
+        }
+    }
+
+
+    @Override
+    @Transactional(readOnly = true)
+    public PerSubmit getSubmitUnique(LocalDate submitDate, Integer dersSira, DefItem ders){
+        return perSubmitRepository.getSubmitUnique(submitDate, dersSira, ders);
+    }
+
 }

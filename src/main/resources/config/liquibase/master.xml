@@ -17,6 +17,7 @@
     <include file="config/liquibase/changelog/20181020094119_added_entity_PerPlan.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181020094120_added_entity_PerExcuse.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181020094121_added_entity_PerSubmit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180311133648_added_entity_PerDaily.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20181020094113_added_entity_constraints_DefItem.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181020094114_added_entity_constraints_DefRelation.xml" relativeToChangelogFile="false"/>
@@ -27,6 +28,7 @@
     <include file="config/liquibase/changelog/20181020094119_added_entity_constraints_PerPlan.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181020094120_added_entity_constraints_PerExcuse.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181020094121_added_entity_constraints_PerSubmit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180311133648_added_entity_constraints_PerDaily.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 
 

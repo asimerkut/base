@@ -20,6 +20,8 @@ export interface IPerSubmit {
     ders?: IDefItem;
     excuse?: IPerExcuse;
     fiscalPeriod?: IFiscalPeriod;
+
+    cellId?: number;
 }
 
 export class PerSubmit implements IPerSubmit {
@@ -32,6 +34,7 @@ export class PerSubmit implements IPerSubmit {
         public person?: IPerPerson,
         public ders?: IDefItem,
         public excuse?: IPerExcuse,
-        public fiscalPeriod?: IFiscalPeriod
+        public fiscalPeriod?: IFiscalPeriod,
+        public cellId?: number
     ) {}
 }

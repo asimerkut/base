@@ -12,6 +12,7 @@ import { BaseFiscalPeriodModule } from './fiscal-period/fiscal-period.module';
 import { BasePerPlanModule } from './per-plan/per-plan.module';
 import { BasePerExcuseModule } from './per-excuse/per-excuse.module';
 import { BasePerSubmitModule } from './per-submit/per-submit.module';
+import { BasePerDailyModule } from './per-daily/per-daily.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -29,6 +30,7 @@ import { BasePerSubmitModule } from './per-submit/per-submit.module';
         BasePerPlanModule,
         BasePerExcuseModule,
         BasePerSubmitModule,
+        BasePerDailyModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

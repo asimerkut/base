@@ -8,6 +8,7 @@ import com.er.base.repository.AuthorityRepository;
 import com.er.base.repository.UserRepository;
 import com.er.base.security.AuthoritiesConstants;
 import com.er.base.service.MailService;
+import com.er.base.service.PerPersonService;
 import com.er.base.service.UserService;
 import com.er.base.service.dto.PasswordChangeDTO;
 import com.er.base.service.dto.UserDTO;
@@ -75,6 +76,10 @@ public class AccountResourceIntTest {
     @Mock
     private MailService mockMailService;
 
+    @Mock
+    private PerPersonService perPersonService;
+
+
     private MockMvc restMvc;
 
     private MockMvc restUserMockMvc;
@@ -84,10 +89,10 @@ public class AccountResourceIntTest {
         MockitoAnnotations.initMocks(this);
         doNothing().when(mockMailService).sendActivationEmail(any());
         AccountResource accountResource =
-            new AccountResource(userRepository, userService, mockMailService);
+            new AccountResource(userRepository, userService, mockMailService, perPersonService);
 
         AccountResource accountUserMockResource =
-            new AccountResource(userRepository, mockUserService, mockMailService);
+            new AccountResource(userRepository, mockUserService, mockMailService, perPersonService);
         this.restMvc = MockMvcBuilders.standaloneSetup(accountResource)
             .setMessageConverters(httpMessageConverters)
             .setControllerAdvice(exceptionTranslator)
