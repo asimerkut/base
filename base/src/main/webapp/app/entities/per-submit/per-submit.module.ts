@@ -1,15 +1,34 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { BaseSharedModule } from 'app/shared';
-import { PerSubmitComponent, perSubmitRoute, perSubmitPopupRoute } from './';
+import { ScheduleModule } from 'primeng/components/schedule/schedule';
+import { CalendarModule } from 'primeng/components/calendar/calendar';
 
-const ENTITY_STATES = [...perSubmitRoute, ...perSubmitPopupRoute];
+import { EventService } from './service/event.service';
+
+import { PerSubmitComponent, perSubmitRoute } from './';
+
+const ENTITY_STATES = [...perSubmitRoute];
 
 @NgModule({
-    imports: [BaseSharedModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [
+        BaseSharedModule,
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        ScheduleModule,
+        CalendarModule,
+        RouterModule.forChild(ENTITY_STATES)
+    ],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, EventService],
     declarations: [PerSubmitComponent],
-    entryComponents: [PerSubmitComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class BasePerSubmitModule {}
+
+
