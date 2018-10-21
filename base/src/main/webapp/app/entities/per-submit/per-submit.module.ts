@@ -25,10 +25,9 @@ const ENTITY_STATES = [...perSubmitRoute];
         CalendarModule,
         RouterModule.forChild(ENTITY_STATES)
     ],
-    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, EventService],
     declarations: [PerSubmitComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    entryComponents: [PerSubmitComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, EventService]
 })
 export class BasePerSubmitModule {}
-
-
