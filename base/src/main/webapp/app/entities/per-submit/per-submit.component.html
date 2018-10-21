@@ -1,0 +1,135 @@
+<div>
+    <h2>
+        <span>Haftalık Giriş ve Onaylama </span>
+        <button class="btn btn-primary float-right" (click)="refresh()">
+            <span class="fa fa-refresh"></span> <span>Plan Uygula</span>
+        </button>
+    </h2>
+
+    <!--
+    <jhi-alert></jhi-alert>
+    <div class="form-group">
+        <label class="form-control-label" for="field_plan_date">Dosya</label>
+        <select class="form-control" id="field_plan_date" name="plan_date" [(ngModel)]="comboSelModel.comboSel" (change)="onChangeComboSel($event)">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="selectedOption" *ngFor="let selectedOption of comboSelModel.comboList; trackBy: trackComboSel">{{selectedOption.startDate}}</option>
+        </select>
+    </div>
+    -->
+
+    <!--
+    <br/>
+    <div class="table-responsive" *ngIf="perPlans">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Day No</span></th>
+            <th><span>Ders Grup</span></th>
+            <th><span>Ders Sira</span></th>
+            <th><span>Ders Adet</span></th>
+            <th><span>Person</span></th>
+            <th><span>Ders</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let perPlan of perPlans ;trackBy: trackId">
+                <td><a [routerLink]="['../per-plan', perPlan.id ]">{{perPlan.id}}</a></td>
+                <td>{{perPlan.dayNo}}</td>
+                <td>{{perPlan.dersGrup}}</td>
+                <td>{{perPlan.dersSira}}</td>
+                <td>{{perPlan.dersAdet}}</td>
+                <td>
+                    <div *ngIf="perPlan.person">
+                        <a [routerLink]="['../per-person', perPlan.person?.id ]" >{{perPlan.person?.label}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="perPlan.ders">
+                        <a [routerLink]="['../def-item', perPlan.ders?.id ]" >{{perPlan.ders?.label}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../per-plan', perPlan.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'per-plan/'+ perPlan.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'per-plan/'+ perPlan.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    -->
+
+
+    <p-schedule [events]="events" [header]="headerConfig" (onViewRender)="loadEvents($event)" locale="tr" [height]="700"
+                [styleClass]="'schedule-width'" timeFormat="H" slotDuration="01:00:00" firstDay="6" displayEventTime=false
+                [eventLimit]="18" [editable]="false" defaultView="agendaWeek" minTime="01:00:00" maxTime="19:00:00"
+                (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"
+                (onViewRender)="loadEvents($event)" (onViewDestroy)="handleViewDestroy($event)"
+                (onDrop)="handleDrop($event)"></p-schedule>
+
+    <p-dialog header="Detaylar" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade"
+              [modal]="false" [contentStyle]="{'overflow':'visible'}"
+              [style]="{'overflow':'visible'}" [resizable]="false">
+
+        <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="event">
+
+            <div class="ui-grid-row">
+                <label class="ui-grid-col-4" for="field_ders">Ders</label>
+                <select class="ui-grid-col-8" id="field_ders" name="ders" [(ngModel)]="event.ders" required>
+                    <option *ngIf="!event.ders" [ngValue]="null" selected></option>
+                    <option [ngValue]="defItemOption.id === event?.ders?.id ? event.ders : defItemOption"
+                            *ngFor="let defItemOption of dersItemList; trackBy: trackDefItemById">
+                        {{defItemOption.label}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="ui-grid-row">
+                <label class="ui-grid-col-4" [hidden]="event.dersSira > 0" for="field_dersAdet">Adet</label>
+                <input type="number" class="form-control" name="dersAdet" id="field_dersAdet"
+                       [(ngModel)]="event.dersAdet" required max="18" [hidden]="event.dersSira > 0"/>
+            </div>
+
+            <!--
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label>ID</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="id" [(ngModel)]="event.id" [disabled]="true"/></div>
+            </div>
+            -->
+
+        </div>
+
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton icon="fa-check" (click)="saveEvent()" label="Kaydet"
+                        [disabled]="!event?.start"></button>
+                <button type="button" pButton icon="fa-close" (click)="deleteEvent()" label="Sil"
+                        [disabled]="!event?.id"></button>
+            </div>
+        </p-footer>
+    </p-dialog>
+
+</div>

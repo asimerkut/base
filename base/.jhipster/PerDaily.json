@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "okul",
+            "otherEntityName": "perCompany",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dersSira",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": "15"
+        },
+        {
+            "fieldName": "hourStart",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "5"
+        },
+        {
+            "fieldName": "hourFinish",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "5"
+        }
+    ],
+    "changelogDate": "20180311133648",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "per_daily",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

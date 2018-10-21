@@ -1,0 +1,101 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="perPerson">
+            <h2><span jhiTranslate="baseApp.perPerson.detail.title">Per Person</span> {{perPerson.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="baseApp.perPerson.code">Code</span></dt>
+                <dd>
+                    <span>{{perPerson.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.name">Name</span></dt>
+                <dd>
+                    <span>{{perPerson.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{perPerson.isActive}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.sozlesme">Sozlesme</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'baseApp.EnmSozlesme.' + perPerson.sozlesme}}">{{perPerson.sozlesme}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.email">Email</span></dt>
+                <dd>
+                    <span>{{perPerson.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.phone">Phone</span></dt>
+                <dd>
+                    <span>{{perPerson.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.cins">Cins</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'baseApp.EnmCins.' + perPerson.cins}}">{{perPerson.cins}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.medeni">Medeni</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'baseApp.EnmMedeni.' + perPerson.medeni}}">{{perPerson.medeni}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.okul">Okul</span></dt>
+                <dd>
+                    <div *ngIf="perPerson.okul">
+                        <a [routerLink]="['/per-company', perPerson.okul?.id, 'view']">{{perPerson.okul?.code}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.hizmt">Hizmt</span></dt>
+                <dd>
+                    <div *ngIf="perPerson.hizmt">
+                        <a [routerLink]="['/def-item', perPerson.hizmt?.id, 'view']">{{perPerson.hizmt?.code}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.brans">Brans</span></dt>
+                <dd>
+                    <div *ngIf="perPerson.brans">
+                        <a [routerLink]="['/def-item', perPerson.brans?.id, 'view']">{{perPerson.brans?.code}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.unvan">Unvan</span></dt>
+                <dd>
+                    <div *ngIf="perPerson.unvan">
+                        <a [routerLink]="['/def-item', perPerson.unvan?.id, 'view']">{{perPerson.unvan?.code}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.kadro">Kadro</span></dt>
+                <dd>
+                    <div *ngIf="perPerson.kadro">
+                        <a [routerLink]="['/def-item', perPerson.kadro?.id, 'view']">{{perPerson.kadro?.code}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.karyr">Karyr</span></dt>
+                <dd>
+                    <div *ngIf="perPerson.karyr">
+                        <a [routerLink]="['/def-item', perPerson.karyr?.id, 'view']">{{perPerson.karyr?.code}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.konum">Konum</span></dt>
+                <dd>
+                    <div *ngIf="perPerson.konum">
+                        <a [routerLink]="['/def-item', perPerson.konum?.id, 'view']">{{perPerson.konum?.code}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="baseApp.perPerson.user">User</span></dt>
+                <dd>
+                    {{perPerson.user?.login}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/per-person', perPerson.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

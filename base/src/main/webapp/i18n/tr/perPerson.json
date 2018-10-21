@@ -1,0 +1,38 @@
+
+{
+    "baseApp": {
+        "perPerson" : {
+            "home": {
+                "title": "Per People",
+                "createLabel": "Create a new Per Person",
+                "createOrEditLabel": "Create or edit a Per Person",
+                "search": "Search for Per Person"
+            },
+            "created": "A new Per Person is created with identifier {{ param }}",
+            "updated": "A Per Person is updated with identifier {{ param }}",
+            "deleted": "A Per Person is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Per Person {{ id }}?"
+            },
+            "detail": {
+                "title": "Per Person"
+            },
+            "code": "Code",
+            "name": "Name",
+            "isActive": "Is Active",
+            "sozlesme": "Sozlesme",
+            "email": "Email",
+            "phone": "Phone",
+            "cins": "Cins",
+            "medeni": "Medeni",
+            "okul": "Okul",
+            "hizmt": "Hizmt",
+            "brans": "Brans",
+            "unvan": "Unvan",
+            "kadro": "Kadro",
+            "karyr": "Karyr",
+            "konum": "Konum",
+            "user": "User"
+        }
+    }
+}

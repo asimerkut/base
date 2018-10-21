@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181018182635_added_entity_DefPivot.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094111_added_entity_FiscalYear.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094112_added_entity_DefType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094113_added_entity_DefItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094114_added_entity_DefRelation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094115_added_entity_DefAnswer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094116_added_entity_PerCompany.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094117_added_entity_PerPerson.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094118_added_entity_FiscalPeriod.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094119_added_entity_PerPlan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094120_added_entity_PerExcuse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094121_added_entity_PerSubmit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180311133648_added_entity_PerDaily.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20181020094113_added_entity_constraints_DefItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094114_added_entity_constraints_DefRelation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094115_added_entity_constraints_DefAnswer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094116_added_entity_constraints_PerCompany.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094117_added_entity_constraints_PerPerson.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094118_added_entity_constraints_FiscalPeriod.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094119_added_entity_constraints_PerPlan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094120_added_entity_constraints_PerExcuse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181020094121_added_entity_constraints_PerSubmit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180311133648_added_entity_constraints_PerDaily.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+
+    <include file="config/liquibase/custom/99999999999999_LoadData_01.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/99999999999999_LoadData_02.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/99999999999999_LoadData_03.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/99999999999999_LoadData_04.xml" relativeToChangelogFile="false"/>
+
+
+</databaseChangeLog>
