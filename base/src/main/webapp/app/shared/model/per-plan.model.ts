@@ -3,13 +3,13 @@ import { IPerPerson } from 'app/shared/model//per-person.model';
 import { IDefItem } from 'app/shared/model//def-item.model';
 
 export const enum EnmDay {
-    D1 = 'D1',
-    D2 = 'D2',
-    D3 = 'D3',
-    D4 = 'D4',
-    D5 = 'D5',
-    D6 = 'D6',
-    D7 = 'D7'
+    MONDAY = 'Pazartesi',
+    TUESDAY = 'Salı',
+    WEDNESDAY = 'Çarşamba',
+    THURSDAY = 'Perşembe',
+    FRIDAY = 'Cuma',
+    SATURDAY = 'Cumartesi',
+    SUNDAY = 'Pazar'
 }
 
 export const enum EnmDersGrup {
