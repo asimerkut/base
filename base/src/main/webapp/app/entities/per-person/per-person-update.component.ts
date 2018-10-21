@@ -13,6 +13,7 @@ import { DefItemService } from 'app/entities/def-item';
 import { IUser, UserService } from 'app/core';
 import { CommonService } from 'app/entities/common';
 import { EnmType } from 'app/shared/model/def-type.model';
+import { IEnmEnum, EnmList } from 'app/shared/model/enm-enum.model';
 
 @Component({
     selector: 'jhi-per-person-update',
@@ -31,6 +32,10 @@ export class PerPersonUpdateComponent implements OnInit {
     kadroItemList: IDefItem[];
     karyrItemList: IDefItem[];
     konumItemList: IDefItem[];
+
+    enmSozlesmeList: IEnmEnum[];
+    enmMedeniList: IEnmEnum[];
+    enmCinsList: IEnmEnum[];
 
     users: IUser[];
 
@@ -108,6 +113,25 @@ export class PerPersonUpdateComponent implements OnInit {
         this.commonService.findAllByTypeId(EnmType.KONUM).subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.konumItemList = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
+        this.commonService.findEnumByTypeId(EnmList.Sozlesme).subscribe(
+            (res: HttpResponse<IEnmEnum[]>) => {
+                this.enmSozlesmeList = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.commonService.findEnumByTypeId(EnmList.Medeni).subscribe(
+            (res: HttpResponse<IEnmEnum[]>) => {
+                this.enmMedeniList = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.commonService.findEnumByTypeId(EnmList.Cins).subscribe(
+            (res: HttpResponse<IEnmEnum[]>) => {
+                this.enmCinsList = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

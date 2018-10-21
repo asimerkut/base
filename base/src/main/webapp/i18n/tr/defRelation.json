@@ -12,7 +12,7 @@
             "updated": "A Def Relation is updated with identifier {{ param }}",
             "deleted": "A Def Relation is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Def Relation {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
                 "title": "Def Relation"

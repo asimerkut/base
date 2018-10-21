@@ -12,7 +12,7 @@
             "updated": "A Per Daily is updated with identifier {{ param }}",
             "deleted": "A Per Daily is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Per Daily {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
                 "title": "Per Daily"

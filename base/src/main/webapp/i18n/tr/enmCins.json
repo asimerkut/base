@@ -2,8 +2,8 @@
     "baseApp": {
         "EnmCins" : {
             "null": "",
-            "E": "E",
-            "K": "K"
+            "E": "Erkek",
+            "K": "Kadın"
         }
     }
 }

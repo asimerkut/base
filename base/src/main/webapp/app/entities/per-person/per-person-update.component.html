@@ -52,10 +52,11 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.sozlesme" for="field_sozlesme">Sozlesme</label>
-                    <select class="form-control" name="sozlesme" [(ngModel)]="perPerson.sozlesme" id="field_sozlesme"  required>
-                        <option value="KADRO">{{'baseApp.EnmSozlesme.KADRO' | translate}}</option>
-                        <option value="SOZ4B">{{'baseApp.EnmSozlesme.SOZ4B' | translate}}</option>
-                        <option value="UCRET">{{'baseApp.EnmSozlesme.UCRET' | translate}}</option>
+                    <select class="form-control" name="sozlesme" [(ngModel)]="perPerson.sozlesme" id="field_sozlesme" required>
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="opt.id === perPerson.sozlesme ? perPerson.sozlesme : opt"
+                                *ngFor="let opt of enmSozlesmeList; trackBy: trackEnumById">{{opt.label}}
+                        </option>
                     </select>
                     <div [hidden]="!(editForm.controls.sozlesme?.dirty && editForm.controls.sozlesme?.invalid)">
                         <small class="form-text text-danger"
@@ -76,18 +77,20 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.cins" for="field_cins">Cins</label>
-                    <select class="form-control" name="cins" [(ngModel)]="perPerson.cins" id="field_cins" >
-                        <option value="E">{{'baseApp.EnmCins.E' | translate}}</option>
-                        <option value="K">{{'baseApp.EnmCins.K' | translate}}</option>
+                    <select class="form-control" name="cins" [(ngModel)]="perPerson.cins" id="field_cins" required>
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="opt.id === perPerson.cins ? perPerson.cins : opt"
+                                *ngFor="let opt of enmCinsList; trackBy: trackEnumById">{{opt.label}}
+                        </option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.medeni" for="field_medeni">Medeni</label>
-                    <select class="form-control" name="medeni" [(ngModel)]="perPerson.medeni" id="field_medeni" >
-                        <option value="BEK">{{'baseApp.EnmMedeni.BEK' | translate}}</option>
-                        <option value="EVL">{{'baseApp.EnmMedeni.EVL' | translate}}</option>
-                        <option value="DUL">{{'baseApp.EnmMedeni.DUL' | translate}}</option>
-                        <option value="BOS">{{'baseApp.EnmMedeni.BOS' | translate}}</option>
+                    <select class="form-control" name="medeni" [(ngModel)]="perPerson.medeni" id="field_medeni" required>
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="opt.id === perPerson.medeni ? perPerson.medeni : opt"
+                                *ngFor="let opt of enmMedeniList; trackBy: trackEnumById">{{opt.label}}
+                        </option>
                     </select>
                 </div>
 

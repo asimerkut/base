@@ -12,7 +12,7 @@
             "updated": "A Per Submit is updated with identifier {{ param }}",
             "deleted": "A Per Submit is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Per Submit {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
                 "title": "Per Submit"

@@ -3,36 +3,36 @@
     "baseApp": {
         "perPerson" : {
             "home": {
-                "title": "Per People",
-                "createLabel": "Create a new Per Person",
-                "createOrEditLabel": "Create or edit a Per Person",
-                "search": "Search for Per Person"
+                "title": "Kişiler",
+                "createLabel": "Kişi Oluştur",
+                "createOrEditLabel": "Kişi  Değiştir",
+                "search": "Ara"
             },
-            "created": "A new Per Person is created with identifier {{ param }}",
-            "updated": "A Per Person is updated with identifier {{ param }}",
-            "deleted": "A Per Person is deleted with identifier {{ param }}",
+            "created": "Kişi Oluştu {{ param }}",
+            "updated": "Kişi Değişti {{ param }}",
+            "deleted": "Kişi Silindi {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Per Person {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
-                "title": "Per Person"
+                "title": "Kişiler"
             },
-            "code": "Code",
-            "name": "Name",
-            "isActive": "Is Active",
-            "sozlesme": "Sozlesme",
+            "code": "Kod",
+            "name": "Ad",
+            "isActive": "Aktif mi",
+            "sozlesme": "Sozleşme",
             "email": "Email",
-            "phone": "Phone",
-            "cins": "Cins",
-            "medeni": "Medeni",
+            "phone": "Telefone",
+            "cins": "Cinsiyet",
+            "medeni": "Medeni Hal",
             "okul": "Okul",
-            "hizmt": "Hizmt",
-            "brans": "Brans",
-            "unvan": "Unvan",
+            "hizmt": "Hizmet",
+            "brans": "Branş",
+            "unvan": "Ünvan",
             "kadro": "Kadro",
-            "karyr": "Karyr",
+            "karyr": "Kariyer",
             "konum": "Konum",
-            "user": "User"
+            "user": "Kullanıcı"
         }
     }
 }

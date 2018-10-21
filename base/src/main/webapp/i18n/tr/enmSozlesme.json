@@ -2,9 +2,9 @@
     "baseApp": {
         "EnmSozlesme" : {
             "null": "",
-            "KADRO": "KADRO",
-            "SOZ4B": "SOZ4B",
-            "UCRET": "UCRET"
+            "KADRO": "Kadro",
+            "SOZ4B": "Sözleşmelii",
+            "UCRET": "Ücretli"
         }
     }
 }

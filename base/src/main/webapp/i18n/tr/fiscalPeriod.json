@@ -3,19 +3,19 @@
     "baseApp": {
         "fiscalPeriod" : {
             "home": {
-                "title": "Fiscal Periods",
-                "createLabel": "Create a new Fiscal Period",
-                "createOrEditLabel": "Create or edit a Fiscal Period",
-                "search": "Search for Fiscal Period"
+                "title": "Dönemler",
+                "createLabel": "Yeni",
+                "createOrEditLabel": "Değiştir",
+                "search": "Ara"
             },
-            "created": "A new Fiscal Period is created with identifier {{ param }}",
-            "updated": "A Fiscal Period is updated with identifier {{ param }}",
-            "deleted": "A Fiscal Period is deleted with identifier {{ param }}",
+            "created": "Dönem Oluştu {{ param }}",
+            "updated": "Dönem Değişti {{ param }}",
+            "deleted": "Dönem Silindi {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Fiscal Period {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
-                "title": "Fiscal Period"
+                "title": "Dönemler"
             },
             "code": "Code",
             "dateStart": "Date Start",

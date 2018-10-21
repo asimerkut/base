@@ -3,22 +3,22 @@
     "baseApp": {
         "defType" : {
             "home": {
-                "title": "Def Types",
-                "createLabel": "Create a new Def Type",
-                "createOrEditLabel": "Create or edit a Def Type",
-                "search": "Search for Def Type"
+                "title": "Tipler",
+                "createLabel": "Yeni",
+                "createOrEditLabel": "Değiştir",
+                "search": "Ara"
             },
-            "created": "A new Def Type is created with identifier {{ param }}",
-            "updated": "A Def Type is updated with identifier {{ param }}",
-            "deleted": "A Def Type is deleted with identifier {{ param }}",
+            "created": "Tip Oluştu {{ param }}",
+            "updated": "Tip Değişti {{ param }}",
+            "deleted": "Tip Silindi {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Def Type {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
-                "title": "Def Type"
+                "title": "Tipler"
             },
-            "code": "Code",
-            "name": "Name"
+            "code": "Kod",
+            "name": "Ad"
         }
     }
 }

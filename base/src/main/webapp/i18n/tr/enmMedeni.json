@@ -2,10 +2,10 @@
     "baseApp": {
         "EnmMedeni" : {
             "null": "",
-            "BEK": "BEK",
-            "EVL": "EVL",
-            "DUL": "DUL",
-            "BOS": "BOS"
+            "BEK": "Bekar",
+            "EVL": "Evli",
+            "DUL": "Dul",
+            "BOS": "Boş"
         }
     }
 }

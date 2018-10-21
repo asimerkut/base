@@ -1,35 +1,18 @@
 import { IPerCompany } from 'app/shared/model//per-company.model';
 import { IDefItem } from 'app/shared/model//def-item.model';
 import { IUser } from 'app/core/user/user.model';
-
-export const enum EnmSozlesme {
-    KADRO = 'KADRO',
-    SOZ4B = 'SOZ4B',
-    UCRET = 'UCRET'
-}
-
-export const enum EnmCins {
-    E = 'E',
-    K = 'K'
-}
-
-export const enum EnmMedeni {
-    BEK = 'BEK',
-    EVL = 'EVL',
-    DUL = 'DUL',
-    BOS = 'BOS'
-}
+import { IEnmEnum } from './enm-enum.model';
 
 export interface IPerPerson {
     id?: number;
     code?: string;
     name?: string;
     isActive?: boolean;
-    sozlesme?: EnmSozlesme;
+    sozlesme?: any;
     email?: string;
     phone?: string;
-    cins?: EnmCins;
-    medeni?: EnmMedeni;
+    cins?: any;
+    medeni?: any;
     okul?: IPerCompany;
     hizmt?: IDefItem;
     brans?: IDefItem;
@@ -46,11 +29,11 @@ export class PerPerson implements IPerPerson {
         public code?: string,
         public name?: string,
         public isActive?: boolean,
-        public sozlesme?: EnmSozlesme,
+        public sozlesme?: any,
         public email?: string,
         public phone?: string,
-        public cins?: EnmCins,
-        public medeni?: EnmMedeni,
+        public cins?: any,
+        public medeni?: any,
         public okul?: IPerCompany,
         public hizmt?: IDefItem,
         public brans?: IDefItem,
