@@ -1,0 +1,144 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPerPlanLabel">Create or edit a Per Plan</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;
+        </button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!perPlan.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="perPlan.id" readonly/>
+        </div>
+        <!--
+        <div class="form-group">
+            <label class="form-control-label" for="field_startDate">Start Date</label>
+            <div class="input-group">
+                <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker  #startDateDp="ngbDatepicker" [(ngModel)]="perPlan.startDate"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.startDate?.dirty && editForm.controls.startDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.startDate?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        -->
+        <div class="form-group">
+            <label class="form-control-label" for="field_dayNo">dayNo</label>
+            <select class="form-control" name="dayNo" [(ngModel)]="perPlan.dayNo" id="field_dayNo">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="opt.id === perPlan.dayNo ? perPlan.dayNo : opt"
+                        *ngFor="let opt of enmDayNoList; trackBy: trackEnumById">{{opt.label}}
+                </option>
+            </select>
+            <div [hidden]="!(editForm.controls.dayNo?.dirty && editForm.controls.dayNo?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.dayNo?.errors?.required">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_dersGrup">dersGrup</label>
+            <select class="form-control" name="dersGrup" [(ngModel)]="perPlan.dersGrup" id="field_dersGrup">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="opt.id === perPlan.dersGrup ? perPlan.dersGrup : opt"
+                        *ngFor="let opt of enmDersGrupList; trackBy: trackEnumById">{{opt.label}}
+                </option>
+            </select>
+            <div [hidden]="!(editForm.controls.dersGrup?.dirty && editForm.controls.dersGrup?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.dersGrup?.errors?.required">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_dersSira">Ders Sira</label>
+            <input type="number" class="form-control" name="dersSira" id="field_dersSira"
+                   [(ngModel)]="perPlan.dersSira" required max="18"/>
+            <div [hidden]="!(editForm.controls.dersSira?.dirty && editForm.controls.dersSira?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.dersSira?.errors?.required">
+                    This field is required.
+                </small>
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.dersSira?.errors?.max">
+                    This field cannot be more than 18.
+                </small>
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.dersSira?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dersAdet">Ders Adet</label>
+            <input type="number" class="form-control" name="dersAdet" id="field_dersAdet"
+                   [(ngModel)]="perPlan.dersAdet" required max="18"/>
+            <div [hidden]="!(editForm.controls.dersAdet?.dirty && editForm.controls.dersAdet?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.dersAdet?.errors?.required">
+                    This field is required.
+                </small>
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.dersAdet?.errors?.max">
+                    This field cannot be more than 18.
+                </small>
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.dersAdet?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_person">Person</label>
+            <select class="form-control" id="field_person" name="person" [(ngModel)]="perPlan.person" required>
+                <option *ngIf="!editForm.value.person" [ngValue]="null" selected></option>
+                <option [ngValue]="perPersonOption.id === perPlan.person?.id ? perPlan.person : perPersonOption"
+                        *ngFor="let perPersonOption of perpeople; trackBy: trackPerPersonById">{{perPersonOption.label}}
+                </option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.person?.dirty && editForm.controls.person?.invalid)">
+            <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.person?.errors?.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ders">Ders</label>
+            <select class="form-control" id="field_ders" name="ders" [(ngModel)]="perPlan.ders" required>
+                <option *ngIf="!editForm.value.ders" [ngValue]="null" selected></option>
+                <option [ngValue]="defItemOption.id === perPlan.ders?.id ? perPlan.ders : defItemOption"
+                        *ngFor="let defItemOption of dersItemList; trackBy: trackDefItemById">{{defItemOption.label}}
+                </option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.ders?.dirty && editForm.controls.ders?.invalid)">
+            <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ders?.errors?.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

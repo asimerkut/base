@@ -1,0 +1,63 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPerDailyLabel">Günlük Ders Saatleri</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;
+        </button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!perDaily.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="perDaily.id" readonly/>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dersSira">Ders Sırası</label>
+            <input type="number" class="form-control" name="dersSira" id="field_dersSira"
+                   [(ngModel)]="perDaily.dersSira" max="18"/>
+            <div [hidden]="!(editForm.controls.dersSira?.dirty && editForm.controls.dersSira?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.dersSira?.errors?.max">
+                    1 ile 18 arasında sayı olmalıdır
+                </small>
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.dersSira?.errors?.number">
+                    1 ile 18 arasında sayı olmalıdır
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_hourStart">Başlangıç Saati (Örnek 09:10)</label>
+            <input type="text" class="form-control" name="hourStart" id="field_hourStart"
+                   [(ngModel)]="perDaily.hourStart" maxlength="5"/>
+            <div [hidden]="!(editForm.controls.hourStart?.dirty && editForm.controls.hourStart?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.hourStart?.errors?.maxlength">
+                    Örnek 09:10
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_hourFinish">Bitiş Saati (Örnek 09:50)</label>
+            <input type="text" class="form-control" name="hourFinish" id="field_hourFinish"
+                   [(ngModel)]="perDaily.hourFinish" maxlength="5"/>
+            <div [hidden]="!(editForm.controls.hourFinish?.dirty && editForm.controls.hourFinish?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.hourFinish?.errors?.maxlength">
+                    Örnek 09:50
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

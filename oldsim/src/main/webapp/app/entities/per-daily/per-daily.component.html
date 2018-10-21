@@ -1,0 +1,73 @@
+<div>
+    <h2>
+        <span>Okul Ders Saatleri</span>
+        <button class="btn btn-primary float-right jh-create-entity create-per-daily"
+                [routerLink]="['/', { outlets: { popup: ['per-daily-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down">
+            Yeni Saat
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="form-group">
+        <label class="form-control-label" for="field_def_type">Okul Listesi</label>
+        <select class="form-control" id="field_def_type" name="def_type" [(ngModel)]="comboSelModel.comboSel"
+                (change)="onChangeComboSel($event)">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="selectedOption"
+                    *ngFor="let selectedOption of comboSelModel.comboList; trackBy: trackComboSel">
+                {{selectedOption.label}}
+            </option>
+        </select>
+    </div>
+
+    <br/>
+    <div class="table-responsive" *ngIf="perDailies">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span>Ders Sırası</span></th>
+                <th><span>Başlangıç Saati</span></th>
+                <th><span>Bitiş Saati</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let perDaily of perDailies ;trackBy: trackId">
+                <td>{{perDaily.dersSira}}</td>
+                <td>{{perDaily.hourStart}}</td>
+                <td>{{perDaily.hourFinish}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <!--
+                        <button type="submit"
+                                [routerLink]="['../per-daily', perDaily.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        -->
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'per-daily/'+ perDaily.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Düzenle</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'per-daily/'+ perDaily.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Sil</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,143 @@
+<div>
+    <h2>
+
+        <span>Bilgilerim</span>
+        <!--
+        <button class="btn btn-primary float-right jh-create-entity create-per-person"
+                [routerLink]="['/', { outlets: { popup: ['per-person-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down">
+            Yeni Personel
+            </span>
+        </button>
+        -->
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch"
+                           name="currentSearch" placeholder="Query">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="perPeople">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span>Kod</span></th>
+                <th><span>Ad Soyad</span></th>
+                <th><span>Sözleşme</span></th>
+                <th><span>E-Mail</span></th>
+                <th><span>Telefon</span></th>
+                <!--
+                <th><span>Aktif</span></th>
+                <th><span>Cinsiyet</span></th>
+                <th><span>Medeni</span></th>
+                <th><span>Kullanıcı</span></th>
+                -->
+                <th><span>Okul</span></th>
+                <th><span>Hizmet</span></th>
+                <th><span>Branş</span></th>
+                <th><span>Ünvan</span></th>
+                <th><span>Kadro</span></th>
+                <th><span>Kariyer</span></th>
+                <th><span>Konum</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let perPerson of perPeople ;trackBy: trackId">
+                <td>{{perPerson.code}}</td>
+                <td>{{perPerson.name}}</td>
+                <td>{{perPerson.sozlesme}}</td>
+                <td>{{perPerson.email}}</td>
+                <td>{{perPerson.phone}}</td>
+                <!--
+                <td>{{perPerson.isActive}}</td>
+                <td>{{perPerson.cins}}</td>
+                <td>{{perPerson.medeni}}</td>
+                <td>
+                    {{perPerson.user?.login}}
+                </td>
+                -->
+                <td>
+                    <div *ngIf="perPerson.okul">
+                        <a [routerLink]="['../per-company', perPerson.okul?.id ]">{{perPerson.okul?.label}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="perPerson.hizmt">
+                        <a [routerLink]="['../def-item', perPerson.hizmt?.id ]">{{perPerson.hizmt?.label}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="perPerson.brans">
+                        <a [routerLink]="['../def-item', perPerson.brans?.id ]">{{perPerson.brans?.label}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="perPerson.unvan">
+                        <a [routerLink]="['../def-item', perPerson.unvan?.id ]">{{perPerson.unvan?.label}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="perPerson.kadro">
+                        <a [routerLink]="['../def-item', perPerson.kadro?.id ]">{{perPerson.kadro?.label}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="perPerson.karyr">
+                        <a [routerLink]="['../def-item', perPerson.karyr?.id ]">{{perPerson.karyr?.label}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="perPerson.konum">
+                        <a [routerLink]="['../def-item', perPerson.konum?.id ]">{{perPerson.konum?.label}}</a>
+                    </div>
+                </td>
+
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <!--
+                        <button type="submit"
+                                [routerLink]="['../per-person', perPerson.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        -->
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'per-person/'+ perPerson.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Düzenle</span>
+                        </button>
+                        <!--
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'per-person/'+ perPerson.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                        -->
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

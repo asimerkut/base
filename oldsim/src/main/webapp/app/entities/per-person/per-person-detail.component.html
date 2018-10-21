@@ -1,0 +1,103 @@
+<div *ngIf="perPerson">
+    <h2><span>Per Person</span> {{perPerson.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Hesap Kodu</span></dt>
+        <dd>
+            <span>{{perPerson.code}}</span>
+        </dd>
+        <dt><span>Ad Soyad</span></dt>
+        <dd>
+            <span>{{perPerson.name}}</span>
+        </dd>
+        <dt><span>Sözleşme</span></dt>
+        <dd>
+            <span>{{perPerson.sozlesme}}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{perPerson.email}}</span>
+        </dd>
+        <dt><span>Telefon</span></dt>
+        <dd>
+            <span>{{perPerson.phone}}</span>
+        </dd>
+        <!--
+        <dt><span>Is Active</span></dt>
+        <dd>
+            <span>{{perPerson.isActive}}</span>
+        </dd>
+
+        <dt><span>Cins</span></dt>
+        <dd>
+            <span>{{perPerson.cins}}</span>
+        </dd>
+        <dt><span>Medeni</span></dt>
+        <dd>
+            <span>{{perPerson.medeni}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{perPerson.user?.login}}
+        </dd>
+        -->
+        <dt><span>Okul</span></dt>
+        <dd>
+            <div *ngIf="perPerson.okul">
+                <a [routerLink]="['/per-company', perPerson.okul?.id]">{{perPerson.okul?.label}}</a>
+            </div>
+        </dd>
+        <dt><span>Hizmet</span></dt>
+        <dd>
+            <div *ngIf="perPerson.hizmt">
+                <a [routerLink]="['/def-item', perPerson.hizmt?.id]">{{perPerson.hizmt?.label}}</a>
+            </div>
+        </dd>
+        <dt><span>Branş</span></dt>
+        <dd>
+            <div *ngIf="perPerson.brans">
+                <a [routerLink]="['/def-item', perPerson.brans?.id]">{{perPerson.brans?.label}}</a>
+            </div>
+        </dd>
+        <dt><span>Ünvan</span></dt>
+        <dd>
+            <div *ngIf="perPerson.unvan">
+                <a [routerLink]="['/def-item', perPerson.unvan?.id]">{{perPerson.unvan?.label}}</a>
+            </div>
+        </dd>
+        <dt><span>Kadro</span></dt>
+        <dd>
+            <div *ngIf="perPerson.kadro">
+                <a [routerLink]="['/def-item', perPerson.kadro?.id]">{{perPerson.kadro?.label}}</a>
+            </div>
+        </dd>
+        <dt><span>Kariyer</span></dt>
+        <dd>
+            <div *ngIf="perPerson.karyr">
+                <a [routerLink]="['/def-item', perPerson.karyr?.id]">{{perPerson.karyr?.label}}</a>
+            </div>
+        </dd>
+        <dt><span>Konum</span></dt>
+        <dd>
+            <div *ngIf="perPerson.konum">
+                <a [routerLink]="['/def-item', perPerson.konum?.id]">{{perPerson.konum?.label}}</a>
+            </div>
+        </dd>
+
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'per-person/'+ perPerson.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

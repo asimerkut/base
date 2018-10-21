@@ -1,0 +1,348 @@
+package com.er.fin.domain;
+
+
+import com.er.fin.domain.enumeration.EnmCins;
+import com.er.fin.domain.enumeration.EnmMedeni;
+import com.er.fin.domain.enumeration.EnmSozlesme;
+import com.er.fin.domain.enumeration.EnmType;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Objects;
+
+/**
+ * A PerPerson.
+ */
+@Entity
+@Table(name = "per_person")
+public class PerPerson implements IEntity {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate_sequence")
+    @SequenceGenerator(name = "hibernate_sequence", sequenceName = "hibernate_sequence", allocationSize = 1)
+    private Long id;
+
+    @NotNull
+    @Size(max = 20)
+    @Column(name = "code", length = 20, nullable = false)
+    private String code;
+
+    @NotNull
+    @Size(max = 100)
+    @Column(name = "name", length = 100, nullable = false)
+    private String name;
+
+    @NotNull
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "sozlesme", nullable = false)
+    private EnmSozlesme sozlesme;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "cins")
+    private EnmCins cins;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "medeni")
+    private EnmMedeni medeni;
+
+    @ManyToOne
+    private PerCompany okul;
+
+    @ManyToOne
+    @CheckDefType(EnmType.HIZMT)
+    private DefItem hizmt;
+
+    @ManyToOne
+    @CheckDefType(EnmType.BRANS)
+    private DefItem brans;
+
+    @ManyToOne
+    @CheckDefType(EnmType.UNVAN)
+    private DefItem unvan;
+
+    @ManyToOne
+    @CheckDefType(EnmType.KADRO)
+    private DefItem kadro;
+
+    @ManyToOne
+    @CheckDefType(EnmType.KARYR)
+    private DefItem karyr;
+
+    @ManyToOne
+    @CheckDefType(EnmType.KONUM)
+    private DefItem konum;
+
+    @ManyToOne
+    private User user;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public PerPerson code(String code) {
+        this.code = code;
+        return this;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public PerPerson name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean isIsActive() {
+        return isActive;
+    }
+
+    public PerPerson isActive(Boolean isActive) {
+        this.isActive = isActive;
+        return this;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public EnmSozlesme getSozlesme() {
+        return sozlesme;
+    }
+
+    public PerPerson sozlesme(EnmSozlesme sozlesme) {
+        this.sozlesme = sozlesme;
+        return this;
+    }
+
+    public void setSozlesme(EnmSozlesme sozlesme) {
+        this.sozlesme = sozlesme;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public PerPerson email(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public PerPerson phone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public EnmCins getCins() {
+        return cins;
+    }
+
+    public PerPerson cins(EnmCins cins) {
+        this.cins = cins;
+        return this;
+    }
+
+    public void setCins(EnmCins cins) {
+        this.cins = cins;
+    }
+
+    public EnmMedeni getMedeni() {
+        return medeni;
+    }
+
+    public PerPerson medeni(EnmMedeni medeni) {
+        this.medeni = medeni;
+        return this;
+    }
+
+    public void setMedeni(EnmMedeni medeni) {
+        this.medeni = medeni;
+    }
+
+    public PerCompany getOkul() {
+        return okul;
+    }
+
+    public PerPerson okul(PerCompany perCompany) {
+        this.okul = perCompany;
+        return this;
+    }
+
+    public void setOkul(PerCompany perCompany) {
+        this.okul = perCompany;
+    }
+
+    public DefItem getHizmt() {
+        return hizmt;
+    }
+
+    public PerPerson hizmt(DefItem defItem) {
+        this.hizmt = defItem;
+        return this;
+    }
+
+    public void setHizmt(DefItem defItem) {
+        this.hizmt = defItem;
+    }
+
+    public DefItem getBrans() {
+        return brans;
+    }
+
+    public PerPerson brans(DefItem defItem) {
+        this.brans = defItem;
+        return this;
+    }
+
+    public void setBrans(DefItem defItem) {
+        this.brans = defItem;
+    }
+
+    public DefItem getUnvan() {
+        return unvan;
+    }
+
+    public PerPerson unvan(DefItem defItem) {
+        this.unvan = defItem;
+        return this;
+    }
+
+    public void setUnvan(DefItem defItem) {
+        this.unvan = defItem;
+    }
+
+    public DefItem getKadro() {
+        return kadro;
+    }
+
+    public PerPerson kadro(DefItem defItem) {
+        this.kadro = defItem;
+        return this;
+    }
+
+    public void setKadro(DefItem defItem) {
+        this.kadro = defItem;
+    }
+
+    public DefItem getKaryr() {
+        return karyr;
+    }
+
+    public PerPerson karyr(DefItem defItem) {
+        this.karyr = defItem;
+        return this;
+    }
+
+    public void setKaryr(DefItem defItem) {
+        this.karyr = defItem;
+    }
+
+    public DefItem getKonum() {
+        return konum;
+    }
+
+    public PerPerson konum(DefItem defItem) {
+        this.konum = defItem;
+        return this;
+    }
+
+    public void setKonum(DefItem defItem) {
+        this.konum = defItem;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public PerPerson user(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PerPerson perPerson = (PerPerson) o;
+        if (perPerson.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), perPerson.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "PerPerson{" +
+            "id=" + getId() +
+            ", code='" + getCode() + "'" +
+            ", name='" + getName() + "'" +
+            ", isActive='" + isIsActive() + "'" +
+            ", sozlesme='" + getSozlesme() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", phone='" + getPhone() + "'" +
+            ", cins='" + getCins() + "'" +
+            ", medeni='" + getMedeni() + "'" +
+            "}";
+    }
+
+    @Override
+    public String getLabel() {
+        return code+":"+name;
+    }
+}
