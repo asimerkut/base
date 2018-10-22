@@ -5,12 +5,15 @@ import com.er.base.service.DefItemService;
 import com.er.base.domain.DefItem;
 import com.er.base.repository.DefItemRepository;
 import com.er.base.repository.search.DefItemSearchRepository;
+import com.er.fin.domain.JsonUtil;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -101,6 +104,20 @@ public class DefItemServiceImpl implements DefItemService {
         return StreamSupport
             .stream(defItemSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<DefItem> searchJson(String query) {
+        //pageable = FinUtil.getPageParam();
+        JsonNode json = JsonUtil.getJsonObject(query);
+        Long selId = JsonUtil.getValueLong(json,"selId");
+
+        List<DefItem> result = new ArrayList<>();
+        if (selId!=null){
+            result = defItemRepository.findAllByTypeIdOrderByCode(selId);
+        }
+        return result;
     }
 
     @Override

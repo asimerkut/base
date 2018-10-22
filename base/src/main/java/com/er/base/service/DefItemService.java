@@ -51,6 +51,8 @@ public interface DefItemService {
      */
     List<DefItem> search(String query);
 
+    List<DefItem> searchJson(String query);
+
     List<DefItem> findAllByTypeId(EnmType enmType);
 
 }

@@ -21,11 +21,12 @@ const primeng_STATES = [treetableDemoRoute];
 
 @NgModule({
     imports: [
+        TreeTableModule,
+
         BaseSharedModule,
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        TreeTableModule,
         ButtonModule,
         ContextMenuModule,
         WizardModule,

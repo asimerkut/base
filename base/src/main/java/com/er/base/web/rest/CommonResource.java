@@ -73,7 +73,7 @@ public class CommonResource {
     @Timed
     public List<DefTreeItemDTO> searchDefItemTree(@RequestParam String query) {
         List<DefTreeItemDTO> root = new ArrayList<>();
-        List<DefItem> itemList = defItemService.search(query);
+        List<DefItem> itemList = defItemService.searchJson(query);
         if (itemList.isEmpty()) {
             return root;
         }

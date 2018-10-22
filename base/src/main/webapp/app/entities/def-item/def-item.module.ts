@@ -1,5 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TreeTableModule } from 'primeng/components/treetable/treetable';
 
 import { BaseSharedModule } from 'app/shared';
 import {
@@ -15,7 +16,7 @@ import {
 const ENTITY_STATES = [...defItemRoute, ...defItemPopupRoute];
 
 @NgModule({
-    imports: [BaseSharedModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [TreeTableModule, BaseSharedModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
         DefItemComponent,
         DefItemDetailComponent,
