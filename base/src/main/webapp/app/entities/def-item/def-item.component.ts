@@ -43,9 +43,8 @@ export class DefItemComponent implements OnInit, OnDestroy {
         // private activatedRoute: ActivatedRoute,
         private principal: Principal,
         private defTypeService: DefTypeService,
-        private commonService: CommonService
-    ) //private nodeService: TreeNodeService
-    {
+        private commonService: CommonService //private nodeService: TreeNodeService
+    ) {
         // this.currentSearch = this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search'] ?
         //    this.activatedRoute.snapshot.params['search'] : '';
     }
