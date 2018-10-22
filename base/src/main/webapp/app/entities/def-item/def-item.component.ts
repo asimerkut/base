@@ -60,13 +60,13 @@ export class DefItemComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
-        const selectedTypeId = this.sessionStorage.retrieve('selectedTypeId') == null ? 0 : this.sessionStorage.retrieve('selectedTypeId');
+        const selectedComboType = this.sessionStorage.retrieve('selectedComboType');
         console.log(this.comboSelModel.comboSel);
-        const comboSelId = this.comboSelModel.comboSel == null ? selectedTypeId : this.comboSelModel.comboSel.id;
+        const comboSelId =
+            this.comboSelModel.comboSel == null ? (selectedComboType == null ? 0 : selectedComboType.id) : this.comboSelModel.comboSel.id;
         const searchFilter = {
             selId: comboSelId
         };
-        this.sessionStorage.store('selectedTypeId', comboSelId);
         this.currentSearch = JSON.stringify(searchFilter);
 
         // this.defItemService.search({
@@ -92,11 +92,12 @@ export class DefItemComponent implements OnInit, OnDestroy {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.comboSelModel.comboSel = null;
 
-        this.commonService.getTreeData(this.currentSearch).subscribe((places: any) => (this.singleSelectionTreeTable = places));
-
+        //this.commonService.getTreeData(this.currentSearch).subscribe((places: any) => (this.singleSelectionTreeTable = places));
         this.loadAll();
+        const selectedComboType = this.sessionStorage.retrieve('selectedComboType');
+        this.comboSelModel.comboSel = selectedComboType;
+
         this.registerChangeInDefItems();
     }
 
@@ -117,6 +118,9 @@ export class DefItemComponent implements OnInit, OnDestroy {
     }
 
     onChangeComboSel($event) {
+        if (this.comboSelModel.comboSel != null) {
+            this.sessionStorage.store('selectedComboType', this.comboSelModel.comboSel);
+        }
         this.selectedTreePlace = null;
         this.search();
     }
