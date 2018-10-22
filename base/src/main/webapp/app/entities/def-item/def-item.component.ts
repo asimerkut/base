@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Principal } from 'app/core';
 import { MenuItem, Message, TreeNode } from 'primeng/components/common/api';
+import { SessionStorageService } from 'ngx-webstorage';
 
 import { ComboSelModel } from '../common/combo-sel-model';
 
@@ -43,7 +44,8 @@ export class DefItemComponent implements OnInit, OnDestroy {
         // private activatedRoute: ActivatedRoute,
         private principal: Principal,
         private defTypeService: DefTypeService,
-        private commonService: CommonService //private nodeService: TreeNodeService
+        private commonService: CommonService, //private nodeService: TreeNodeService
+        private sessionStorage: SessionStorageService
     ) {
         // this.currentSearch = this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search'] ?
         //    this.activatedRoute.snapshot.params['search'] : '';
@@ -58,11 +60,13 @@ export class DefItemComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
+        const selectedTypeId = this.sessionStorage.retrieve('selectedTypeId') == null ? 0 : this.sessionStorage.retrieve('selectedTypeId');
         console.log(this.comboSelModel.comboSel);
-        const comboSelId = this.comboSelModel.comboSel == null ? 0 : this.comboSelModel.comboSel.id;
+        const comboSelId = this.comboSelModel.comboSel == null ? selectedTypeId : this.comboSelModel.comboSel.id;
         const searchFilter = {
             selId: comboSelId
         };
+        this.sessionStorage.store('selectedTypeId', comboSelId);
         this.currentSearch = JSON.stringify(searchFilter);
 
         // this.defItemService.search({
