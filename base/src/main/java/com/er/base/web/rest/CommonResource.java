@@ -1,23 +1,19 @@
 package com.er.base.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.er.base.domain.DefItem;
-import com.er.base.domain.PerDaily;
-import com.er.base.domain.PerExcuse;
-import com.er.base.domain.PerPerson;
+import com.er.base.domain.*;
 import com.er.base.domain.enumeration.*;
 import com.er.base.service.*;
 import com.er.base.service.custom.ScheduleUtilService;
 import com.er.base.web.rest.errors.InternalServerErrorException;
 import com.er.fin.domain.*;
 import com.er.fin.dto.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -39,10 +35,11 @@ public class CommonResource {
     private final PerPersonService perPersonService;
     private final PerPlanService perPlanService;
     private final PerExcuseService perExcuseService;
-
+    private final DefPivotService defPivotService;
     private final ScheduleUtilService scheduleUtilService;
 
     public CommonResource(DefItemService defItemService,
+                          DefPivotService defPivotService,
                           PerSubmitService perSubmitService,
                           PerDailyService perDailyService,
                           PerPersonService perPersonService,
@@ -51,6 +48,7 @@ public class CommonResource {
                           ScheduleUtilService scheduleUtilService
                           ) {
         this.defItemService = defItemService;
+        this.defPivotService = defPivotService;
         this.perSubmitService = perSubmitService;
         this.perDailyService = perDailyService;
         this.perPersonService = perPersonService;
@@ -188,6 +186,23 @@ public class CommonResource {
             perSubmitService.submitInit(weekDersMap, viewStart, viewEnd);
         }
         return findSubmitSchedule(query);
+    }
+
+    @GetMapping("/common/def-pivot-data/{id}")
+    @Timed
+    public String getPivotData(@PathVariable Long id) {
+        System.out.println("Pivot Id   = "+id);
+        DefPivot defPivotDTO = defPivotService.findOne(id).get();
+        PivotDataDTO pivotData = defPivotService.getSqlData(defPivotDTO.getPvtSql());
+        String jsonText = null;
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            jsonText = mapper.writeValueAsString(pivotData);
+            System.out.println("Pivot JSON = " + jsonText);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return jsonText;
     }
 
 }

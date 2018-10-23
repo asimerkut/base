@@ -1,6 +1,7 @@
 package com.er.base.service;
 
 import com.er.base.domain.DefPivot;
+import com.er.fin.dto.PivotDataDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,8 +46,10 @@ public interface DefPivotService {
      * Search for the defPivot corresponding to the query.
      *
      * @param query the query of the search
-     * 
+     *
      * @return the list of entities
      */
     List<DefPivot> search(String query);
+
+    PivotDataDTO getSqlData(String sql);
 }
