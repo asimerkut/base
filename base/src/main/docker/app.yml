@@ -11,7 +11,7 @@ services:
             - JHIPSTER_SLEEP=30 # gives time for the JHipster Registry to boot before the application
             - SPRING_DATA_JEST_URI=http://base-elasticsearch:9200
         ports:
-            - 8080:8080
+            - 8088:8088
     base-postgresql:
         extends:
             file: postgresql.yml

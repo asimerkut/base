@@ -22,7 +22,6 @@ import { SubmitEvent } from '../common/submit-event';
     templateUrl: './per-submit.component.html'
 })
 export class PerSubmitComponent implements OnInit, OnDestroy {
-
     msgs: Message[] = [];
     event: SubmitEvent;
     perSubmit: IPerSubmit;
@@ -41,16 +40,19 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
 
     dersItemList: IDefItem[];
 
-    constructor(private perSubmitService: PerSubmitService,
-                private jhiAlertService: JhiAlertService,
-                private eventManager: JhiEventManager,
-                private activatedRoute: ActivatedRoute,
-                private defItemService: DefItemService,
-                private principal: Principal,
-                private commonService: CommonService
+    constructor(
+        private perSubmitService: PerSubmitService,
+        private jhiAlertService: JhiAlertService,
+        private eventManager: JhiEventManager,
+        private activatedRoute: ActivatedRoute,
+        private defItemService: DefItemService,
+        private principal: Principal,
+        private commonService: CommonService
     ) {
-        this.currentSearch = this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search'] ?
-            this.activatedRoute.snapshot.params['search'] : '';
+        this.currentSearch =
+            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                ? this.activatedRoute.snapshot.params['search']
+                : '';
     }
 
     loadAll() {
@@ -91,10 +93,9 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-
         this.loadAll();
 
-        this.principal.identity().then((account) => {
+        this.principal.identity().then(account => {
             this.currentAccount = account;
         });
 
@@ -106,10 +107,12 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
             // right: 'month,agendaWeek,agendaDay,list'
         };
 
-        this.commonService.findAllByTypeId(EnmType.DERS)
-            .subscribe((res: HttpResponse<DefItem[]>) => {
+        this.commonService.findAllByTypeId(EnmType.DERS).subscribe(
+            (res: HttpResponse<DefItem[]>) => {
                 this.dersItemList = res.body;
-            }, (res: HttpErrorResponse) => this.onError(res.message));
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
 
         this.registerChangeInPerSubmits();
     }
@@ -127,15 +130,19 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
     }
 
     registerChangeInPerSubmits() {
-        this.eventSubscriber = this.eventManager.subscribe('perSubmitListModification', (response) => this.loadAll());
+        this.eventSubscriber = this.eventManager.subscribe('perSubmitListModification', response => this.loadAll());
     }
 
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    loadEvents(event: any) {
+    onErrorCustom(resError) {
+        this.msgs = [];
+        this.msgs.push({ severity: 'error', summary: 'Error Message', detail: resError.title });
+    }
 
+    loadEvents(event: any) {
         if (event != null) {
             this.lastViewStart = event.view.start;
             this.lastViewEnd = event.view.end;
@@ -144,13 +151,15 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
         const viewStart = this.lastViewStart;
         const viewEnd = this.lastViewEnd;
 
-        this.commonService.getEvents(viewStart, viewEnd).subscribe((events: any) => {
-            this.events = events.data;
-        });
+        this.commonService.getEvents(viewStart, viewEnd).subscribe(
+            (events: any) => {
+                this.events = events.data;
+            },
+            (res: HttpErrorResponse) => this.onErrorCustom(res.error)
+        );
     }
 
     refresh() {
-
         const viewStart = this.lastViewStart;
         const viewEnd = this.lastViewEnd;
 
@@ -186,52 +195,52 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
 
     handleEventMouseover(event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Event mouse over'});
+        this.msgs.push({ severity: 'info', summary: 'Event mouse over' });
     }
 
     onEventMouseout(event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Event mouse over'});
+        this.msgs.push({ severity: 'info', summary: 'Event mouse over' });
     }
 
     onEventDragStart(event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Event mouse over'});
+        this.msgs.push({ severity: 'info', summary: 'Event mouse over' });
     }
 
     onEventDragStop(event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Event mouse over'});
+        this.msgs.push({ severity: 'info', summary: 'Event mouse over' });
     }
 
     onEventDrop(event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Event mouse over'});
+        this.msgs.push({ severity: 'info', summary: 'Event mouse over' });
     }
 
     onEventResizeStart(event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Event mouse over'});
+        this.msgs.push({ severity: 'info', summary: 'Event mouse over' });
     }
 
     onEventResizeStop(event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Event mouse over'});
+        this.msgs.push({ severity: 'info', summary: 'Event mouse over' });
     }
 
     onEventResize(event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Event mouse over'});
+        this.msgs.push({ severity: 'info', summary: 'Event mouse over' });
     }
 
     handleDrop(event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Event mouse over'});
+        this.msgs.push({ severity: 'info', summary: 'Event mouse over' });
     }
 
     handleViewDestroy(event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'The view is about to be removed from the DOM'});
+        this.msgs.push({ severity: 'info', summary: 'The view is about to be removed from the DOM' });
     }
 
     saveEvent() {
@@ -257,14 +266,12 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
                 if (this.event.ders) {
                     this.perSubmit.ders.id = this.event.ders.id;
                 }
-                this.subscribeToSaveResponse(
-                    this.perSubmitService.update(this.perSubmit));
+                this.subscribeToSaveResponse(this.perSubmitService.update(this.perSubmit));
             }
-        } else if (this.event.start.length === 10) { // allDay
-            const allDayId: number = -1 *
-                Number(this.event.start.substr(0, 4) +
-                    this.event.start.substr(5, 2) +
-                    this.event.start.substr(8, 2));
+        } else if (this.event.start.length === 10) {
+            // allDay
+            const allDayId: number =
+                -1 * Number(this.event.start.substr(0, 4) + this.event.start.substr(5, 2) + this.event.start.substr(8, 2));
             this.event.id = allDayId;
             this.events.push(this.event);
             this.perSubmit.id = this.event.id;
@@ -279,16 +286,14 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
             if (this.event.ders) {
                 this.perSubmit.ders.id = this.event.ders.id;
             }
-            this.subscribeToSaveResponse(
-                this.perSubmitService.update(this.perSubmit));
+            this.subscribeToSaveResponse(this.perSubmitService.update(this.perSubmit));
         }
         this.perSubmit = null;
         this.dialogVisible = false;
     }
 
     private subscribeToSaveResponse(result: Observable<HttpResponse<PerSubmit>>) {
-        result.subscribe((res: HttpResponse<PerSubmit>) =>
-            this.onSaveSuccess(res.body), (res: HttpErrorResponse) => this.onSaveError());
+        result.subscribe((res: HttpResponse<PerSubmit>) => this.onSaveSuccess(res.body), (res: HttpErrorResponse) => this.onSaveError());
     }
 
     private onSaveSuccess(result: PerSubmit) {
@@ -312,7 +317,7 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
             this.events[index] = this.event;
             this.dialogVisible = false;
             if (index >= 0) {
-                this.perSubmitService.delete(deletedId).subscribe((response) => {
+                this.perSubmitService.delete(deletedId).subscribe(response => {
                     this.eventManager.broadcast({
                         name: 'perSubmitListModification',
                         content: 'Deleted an perSubmit'
@@ -344,7 +349,7 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
 
     onChangeStep(label: string) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: label});
+        this.msgs.push({ severity: 'info', summary: label });
     }
 
     trackDefItemById(index: number, item: DefItem) {

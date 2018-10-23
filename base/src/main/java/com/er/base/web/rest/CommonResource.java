@@ -8,6 +8,7 @@ import com.er.base.domain.PerPerson;
 import com.er.base.domain.enumeration.*;
 import com.er.base.service.*;
 import com.er.base.service.custom.ScheduleUtilService;
+import com.er.base.web.rest.errors.InternalServerErrorException;
 import com.er.fin.domain.*;
 import com.er.fin.dto.*;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -156,6 +157,9 @@ public class CommonResource {
         LocalDate viewStart = JsonUtil.getValueLocalDate(json,"viewStart");
         LocalDate viewEnd = JsonUtil.getValueLocalDate(json,"viewEnd");
         PerPerson person = perPersonService.getLoginPerson();
+        if (person==null || person.getOkul()==null){
+            throw new InternalServerErrorException("Personel/Okul Tanımı Bulunamadı");
+        }
         Map<Integer, PerDaily> okulDersSaatMap = perDailyService.findAllByOkul(person.getOkul());               // Okulun Günlük Ders Başlangıç Bitiş Saatleri
         Map<SchKeyDateDTO, PerScheduleDTO> dateDersMap = perSubmitService.getSubmitWiewMap(viewStart, viewEnd); // Schedule Günlerine Göre Girişler
 

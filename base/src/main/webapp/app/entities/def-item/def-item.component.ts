@@ -41,7 +41,7 @@ export class DefItemComponent implements OnInit, OnDestroy {
         private defItemService: DefItemService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
-        // private activatedRoute: ActivatedRoute,
+        private activatedRoute: ActivatedRoute,
         private principal: Principal,
         private defTypeService: DefTypeService,
         private commonService: CommonService, //private nodeService: TreeNodeService
@@ -60,12 +60,10 @@ export class DefItemComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
-        const selectedComboType = this.sessionStorage.retrieve('selectedComboType');
+        this.comboSelModel.comboSel = this.sessionStorage.retrieve('selectedComboType');
         console.log(this.comboSelModel.comboSel);
-        const comboSelId =
-            this.comboSelModel.comboSel == null ? (selectedComboType == null ? 0 : selectedComboType.id) : this.comboSelModel.comboSel.id;
         const searchFilter = {
-            selId: comboSelId
+            selId: this.comboSelModel.comboSel == null ? 0 : this.comboSelModel.comboSel.id
         };
         this.currentSearch = JSON.stringify(searchFilter);
 
@@ -95,9 +93,6 @@ export class DefItemComponent implements OnInit, OnDestroy {
 
         //this.commonService.getTreeData(this.currentSearch).subscribe((places: any) => (this.singleSelectionTreeTable = places));
         this.loadAll();
-        const selectedComboType = this.sessionStorage.retrieve('selectedComboType');
-        this.comboSelModel.comboSel = selectedComboType;
-
         this.registerChangeInDefItems();
     }
 
