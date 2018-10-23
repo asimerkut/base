@@ -12,6 +12,12 @@ import {
     defPivotPopupRoute
 } from './';
 
+import 'jquery/dist/jquery.min.js';
+import 'jquery-ui-dist/jquery-ui.min.js';
+import 'pivottable/dist/pivot.min.js';
+import 'pivottable/dist/pivot.min.css';
+import * as $ from 'jquery';
+
 const ENTITY_STATES = [...defPivotRoute, ...defPivotPopupRoute];
 
 @NgModule({
