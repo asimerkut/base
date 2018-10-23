@@ -12,9 +12,11 @@ import { JhiDataUtils, JhiEventManager } from 'ng-jhipster';
 import { IDefPivot } from 'app/shared/model/def-pivot.model';
 import { DefPivotService } from './def-pivot.service';
 import { CommonService } from 'app/entities/common';
-import * as $ from 'jquery';
+import * from 'jquery';
+import * from 'jquery-ui-dist';
 
 declare var jQuery: any;
+declare var $: any;
 
 @Component({
     selector: 'jhi-def-pivot-detail',
