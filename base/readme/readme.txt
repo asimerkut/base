@@ -2,8 +2,8 @@ mvn -Pprod package -Dmaven.test.skip=true
 
 npm install jquery -S
 npm install jquery-ui -S
+npm install jquery-ui-dist -S
 npm install -D @types/jquery
-npm install --save jquery-ui-dist
 npm install pivottable
 
 jhipster import-jdl jdl-persim.jh

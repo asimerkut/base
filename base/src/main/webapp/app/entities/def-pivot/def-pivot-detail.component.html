@@ -1,43 +1,23 @@
-<div class="row justify-content-center">
-    <div class="col-8">
-        <div *ngIf="defPivot">
-            <h2><span jhiTranslate="baseApp.defPivot.detail.title">Def Pivot</span> {{defPivot.id}}</h2>
-            <hr>
-            <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="baseApp.defPivot.code">Code</span></dt>
-                <dd>
-                    <span>{{defPivot.code}}</span>
-                </dd>
-                <dt><span jhiTranslate="baseApp.defPivot.pvtSql">Pvt Sql</span></dt>
-                <dd>
-                    <span>{{defPivot.pvtSql}}</span>
-                </dd>
-                <dt><span jhiTranslate="baseApp.defPivot.pvtVal">Pvt Val</span></dt>
-                <dd>
-                    <span>{{defPivot.pvtVal}}</span>
-                </dd>
-                <dt><span jhiTranslate="baseApp.defPivot.pvtCol">Pvt Col</span></dt>
-                <dd>
-                    <span>{{defPivot.pvtCol}}</span>
-                </dd>
-                <dt><span jhiTranslate="baseApp.defPivot.pvtRow">Pvt Row</span></dt>
-                <dd>
-                    <span>{{defPivot.pvtRow}}</span>
-                </dd>
-            </dl>
+<div *ngIf="defPivot">
+    <h2><span>Pivot Rapor</span> {{defPivot.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
+    <hr>
+    <div id="pivotElement"></div>
+    <hr>
 
-            <button type="button"
-                    [routerLink]="['/def-pivot', defPivot.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-            </button>
-        </div>
-    </div>
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'def-pivot/'+ defPivot.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
 </div>
