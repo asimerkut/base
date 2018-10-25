@@ -5,6 +5,7 @@ import { BaseLinechartModule } from './linechart/linechart.module';
 import { BasePiechartModule } from './piechart/piechart.module';
 import { BasePolarareachartModule } from './polarareachart/polarareachart.module';
 import { BaseRadarchartModule } from './radarchart/radarchart.module';
+import { BaseScheduleModule } from './schedule/schedule.module';
 
 @NgModule({
     imports: [
@@ -13,7 +14,8 @@ import { BaseRadarchartModule } from './radarchart/radarchart.module';
         BaseLinechartModule,
         BasePiechartModule,
         BasePolarareachartModule,
-        BaseRadarchartModule
+        BaseRadarchartModule,
+        BaseScheduleModule
     ],
     declarations: [],
     entryComponents: [],

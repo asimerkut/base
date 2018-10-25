@@ -29,6 +29,11 @@
             "home": {
                 "title": "RadarChart"
             }
+        },
+        "schedule" : {
+            "home": {
+                "title": "Schedule"
+            }
         }
     }
 }
