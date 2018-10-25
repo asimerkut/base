@@ -8,10 +8,19 @@ import { ScheduleComponent, scheduleRoute } from './';
 import { FullCalendarModule } from 'ng-fullcalendar';
 import { ScheduleService } from './schedule.service';
 
+import { TreeTableModule } from 'primeng/components/treetable/treetable';
+
 const DASHBOARD_STATES = [scheduleRoute];
 
 @NgModule({
-    imports: [FullCalendarModule, ScheduleModule, BaseSharedModule, ChartModule, RouterModule.forRoot(DASHBOARD_STATES, { useHash: true })],
+    imports: [
+        TreeTableModule,
+        FullCalendarModule,
+        ScheduleModule,
+        BaseSharedModule,
+        ChartModule,
+        RouterModule.forRoot(DASHBOARD_STATES, { useHash: true })
+    ],
     declarations: [ScheduleComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     providers: [ScheduleService]

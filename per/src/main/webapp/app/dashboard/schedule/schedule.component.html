@@ -3,6 +3,13 @@
         <span jhiTranslate="dashboard.schedule.home.title">BarChart</span>
     </h2>
 
+    <p-treeTable [value]="basicTreeTable">
+        <p-header>Basic</p-header>
+        <p-column field="name" header="Name"></p-column>
+        <p-column field="days" header="Days"></p-column>
+        <p-column field="type" header="Type"></p-column>
+    </p-treeTable>
+
     <a (click)="loadevents()"> loadevents</a>
     <p>Display event : {{displayEvent | json}}</p>
     <div *ngIf="calendarOptions">

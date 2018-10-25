@@ -4,12 +4,16 @@ import { CalendarComponent } from 'ng-fullcalendar';
 import { ScheduleService } from './schedule.service';
 import { Options } from 'fullcalendar';
 
+import { Message, TreeNode, MenuItem } from 'primeng/components/common/api';
+
 @Component({
     selector: 'jhi-schedule',
     templateUrl: './schedule.component.html',
     styles: []
 })
 export class ScheduleComponent implements OnInit {
+    basicTreeTable: any[];
+
     calendarOptions: Options;
     displayEvent: any;
     events = null;
@@ -27,7 +31,10 @@ export class ScheduleComponent implements OnInit {
             },
             events: []
         };
+
+        this.basicTreeTable = this.scheduleService.getTouristPlaces();
     }
+
     loadevents() {
         this.scheduleService.getEvents().subscribe(data => {
             this.events = data;
