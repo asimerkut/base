@@ -48,6 +48,9 @@ public class DefAnswer implements IEntity {
     @JsonIgnoreProperties("")
     private DefItem itemTarget;
 
+    @Transient
+    private String code;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -140,5 +143,13 @@ public class DefAnswer implements IEntity {
     @Override
     public String getLabel() {
         return id.toString();
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

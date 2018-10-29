@@ -1,6 +1,6 @@
 import { Moment } from 'moment';
-import { IPerPerson } from 'app/shared/model//per-person.model';
-import { IDefItem } from 'app/shared/model//def-item.model';
+import { IPerPerson } from 'app/shared/model/per-person.model';
+import { IDefItem } from 'app/shared/model/def-item.model';
 
 export const enum EnmDay {
     MONDAY = 'Pazartesi',

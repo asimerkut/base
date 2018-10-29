@@ -22,7 +22,7 @@ export class DefAnswerUpdateComponent implements OnInit {
 
     defrelations: IDefRelation[];
 
-    //defitems: IDefItem[];
+    // defitems: IDefItem[];
     defTargetItems: IDefItem[];
 
     constructor(

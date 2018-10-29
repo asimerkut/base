@@ -19,7 +19,7 @@ export class PerCompanyUpdateComponent implements OnInit {
     perCompany: IPerCompany;
     isSaving: boolean;
 
-    //defitems: IDefItem[];
+    // defitems: IDefItem[];
     sehirItemList: IDefItem[];
     okulItemList: IDefItem[];
 

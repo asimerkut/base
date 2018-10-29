@@ -24,7 +24,7 @@ export class PerPlanUpdateComponent implements OnInit {
 
     perpeople: IPerPerson[];
 
-    //defitems: IDefItem[];
+    // defitems: IDefItem[];
     dersItemList: IDefItem[];
 
     startDateDp: any;

@@ -1,5 +1,5 @@
-import { IPerCompany } from 'app/shared/model//per-company.model';
-import { IDefItem } from 'app/shared/model//def-item.model';
+import { IPerCompany } from 'app/shared/model/per-company.model';
+import { IDefItem } from 'app/shared/model/def-item.model';
 import { IUser } from 'app/core/user/user.model';
 import { IEnmEnum } from './enm-enum.model';
 

@@ -1,4 +1,4 @@
-import { IPerCompany } from 'app/shared/model//per-company.model';
+import { IPerCompany } from 'app/shared/model/per-company.model';
 
 export interface IPerDaily {
     id?: number;

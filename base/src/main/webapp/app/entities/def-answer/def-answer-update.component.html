@@ -38,7 +38,7 @@
                     <label class="form-control-label" jhiTranslate="baseApp.defAnswer.itemSource" for="field_itemSource">Item Source</label>
                     <select class="form-control" id="field_itemSource" name="itemSource" [(ngModel)]="defAnswer.itemSource"  required>
                         <option *ngIf="!editForm.value.itemSource" [ngValue]="null" selected></option>
-                        <option [ngValue]="defItemOption.id === defAnswer.itemSource?.id ? defAnswer.itemSource : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === defAnswer.itemSource?.id ? defAnswer.itemSource : defItemOption" *ngFor="let defItemOption of defTargetItems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
                 <div [hidden]="!(editForm.controls.itemSource?.dirty && editForm.controls.itemSource?.invalid)">

@@ -1,5 +1,5 @@
-import { IDefType } from 'app/shared/model//def-type.model';
-import { IDefItem } from 'app/shared/model//def-item.model';
+import { IDefType } from 'app/shared/model/def-type.model';
+import { IDefItem } from 'app/shared/model/def-item.model';
 
 export interface IDefItem {
     id?: number;

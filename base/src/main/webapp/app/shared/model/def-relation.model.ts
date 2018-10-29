@@ -1,4 +1,4 @@
-import { IDefType } from 'app/shared/model//def-type.model';
+import { IDefType } from 'app/shared/model/def-type.model';
 
 export const enum EnmParam {
     GORV_MA_KAR = 'GORV_MA_KAR',
@@ -19,8 +19,15 @@ export interface IDefRelation {
     parameter?: EnmParam;
     typeSource?: IDefType;
     typeTarget?: IDefType;
+    code?: string;
 }
 
 export class DefRelation implements IDefRelation {
-    constructor(public id?: number, public parameter?: EnmParam, public typeSource?: IDefType, public typeTarget?: IDefType) {}
+    constructor(
+        public id?: number,
+        public parameter?: EnmParam,
+        public typeSource?: IDefType,
+        public typeTarget?: IDefType,
+        public code?: string
+    ) {}
 }

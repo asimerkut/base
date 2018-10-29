@@ -16,14 +16,14 @@ import { DefItemService } from './def-item.service';
 import { DefTypeService } from '../def-type';
 
 import { CommonService } from 'app/entities/common';
-//import { TreeNodeService } from 'app/primeng/data/treetable/service/treenode.service';
+// import { TreeNodeService } from 'app/primeng/data/treetable/service/treenode.service';
 
 @Component({
     selector: 'jhi-def-item',
     templateUrl: './def-item.component.html'
 })
 export class DefItemComponent implements OnInit, OnDestroy {
-    //basicTreeTable: TreeNode[];
+    // basicTreeTable: TreeNode[];
 
     msgs: Message[] = [];
     singleSelectionTreeTable: TreeNode[];
@@ -44,7 +44,8 @@ export class DefItemComponent implements OnInit, OnDestroy {
         private activatedRoute: ActivatedRoute,
         private principal: Principal,
         private defTypeService: DefTypeService,
-        private commonService: CommonService, //private nodeService: TreeNodeService
+        private commonService: CommonService,
+        // private nodeService: TreeNodeService
         private sessionStorage: SessionStorageService
     ) {
         // this.currentSearch = this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search'] ?
@@ -79,7 +80,7 @@ export class DefItemComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        //this.nodeService.getTouristPlaces().subscribe((places: any) => (this.basicTreeTable = places.data));
+        // this.nodeService.getTouristPlaces().subscribe((places: any) => (this.basicTreeTable = places.data));
 
         this.principal.identity().then(account => {
             this.currentAccount = account;
@@ -91,7 +92,7 @@ export class DefItemComponent implements OnInit, OnDestroy {
             (res: HttpErrorResponse) => this.onError(res.message)
         );
 
-        //this.commonService.getTreeData(this.currentSearch).subscribe((places: any) => (this.singleSelectionTreeTable = places));
+        // this.commonService.getTreeData(this.currentSearch).subscribe((places: any) => (this.singleSelectionTreeTable = places));
         this.loadAll();
         this.registerChangeInDefItems();
     }

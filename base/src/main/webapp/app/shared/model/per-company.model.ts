@@ -1,4 +1,4 @@
-import { IDefItem } from 'app/shared/model//def-item.model';
+import { IDefItem } from 'app/shared/model/def-item.model';
 
 export interface IPerCompany {
     id?: number;

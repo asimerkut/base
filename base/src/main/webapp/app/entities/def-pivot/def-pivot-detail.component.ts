@@ -33,7 +33,8 @@ export class DefPivotDetailComponent implements OnInit, OnDestroy, AfterViewInit
         private dataUtils: JhiDataUtils,
         private defPivotService: DefPivotService,
         private route: ActivatedRoute,
-        private commonService: CommonService, //private nodeService: TreeNodeService
+        private commonService: CommonService,
+        // private nodeService: TreeNodeService
         @Inject(ElementRef) el: ElementRef
     ) {
         this.pivotEL = el;

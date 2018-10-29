@@ -25,7 +25,7 @@ export class PerPersonUpdateComponent implements OnInit {
 
     percompanies: IPerCompany[];
 
-    //defitems: IDefItem[];
+    // defitems: IDefItem[];
     hizmtItemList: IDefItem[];
     bransItemList: IDefItem[];
     unvanItemList: IDefItem[];
@@ -176,6 +176,9 @@ export class PerPersonUpdateComponent implements OnInit {
     }
 
     trackUserById(index: number, item: IUser) {
+        return item.id;
+    }
+    trackEnumById(index: number, item: IUser) {
         return item.id;
     }
 }

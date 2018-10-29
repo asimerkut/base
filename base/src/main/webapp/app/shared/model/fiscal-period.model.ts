@@ -1,6 +1,6 @@
 import { Moment } from 'moment';
-import { IPerPerson } from 'app/shared/model//per-person.model';
-import { IFiscalYear } from 'app/shared/model//fiscal-year.model';
+import { IPerPerson } from 'app/shared/model/per-person.model';
+import { IFiscalYear } from 'app/shared/model/fiscal-year.model';
 
 export interface IFiscalPeriod {
     id?: number;

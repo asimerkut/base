@@ -1,7 +1,7 @@
 import { Moment } from 'moment';
-import { IPerPerson } from 'app/shared/model//per-person.model';
-import { IDefItem } from 'app/shared/model//def-item.model';
-import { IFiscalPeriod } from 'app/shared/model//fiscal-period.model';
+import { IPerPerson } from 'app/shared/model/per-person.model';
+import { IDefItem } from 'app/shared/model/def-item.model';
+import { IFiscalPeriod } from 'app/shared/model/fiscal-period.model';
 
 export interface IPerExcuse {
     id?: number;

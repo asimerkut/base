@@ -26,7 +26,7 @@ export class PerExcuseUpdateComponent implements OnInit {
 
     perpeople: IPerPerson[];
 
-    //defitems: IDefItem[];
+    // defitems: IDefItem[];
     izinItemList: IDefItem[];
 
     fiscalperiods: IFiscalPeriod[];

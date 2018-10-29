@@ -7,7 +7,7 @@ import { IDefItem } from 'app/shared/model/def-item.model';
 import { IDefPivot } from 'app/shared/model/def-pivot.model';
 import { IEnmEnum } from 'app/shared/model/enm-enum.model';
 
-//export type PivotResponseType = HttpResponse<IDefPivot>;
+// export type PivotResponseType = HttpResponse<IDefPivot>;
 
 @Injectable({ providedIn: 'root' })
 export class CommonService {
@@ -43,19 +43,19 @@ export class CommonService {
         return this.http.get<IEnmEnum[]>(this.resourceUrlEnumByType, { params: options, observe: 'response' });
     }
 
-    getEvents(viewStart: any, viewEnd: any): Observable<any> {
+    getEvents(viewStartDate: string, viewEndDate: string): Observable<any> {
         // return this.http.get('content/primeng/assets/data/json/events/scheduleevents.json')
         //    .map((response) => response);
-        const req = { viewStart: viewStart, viewEnd: viewEnd };
+        const req = { viewStart: viewStartDate, viewEnd: viewEndDate };
         const query = { query: JSON.stringify(req) };
         const options = createRequestOption(query);
         return this.http.get(this.submitScheduleUrl, { params: options, observe: 'response' }).map(res => res.body as any[]);
     }
 
-    initEvents(viewStart: any, viewEnd: any): Observable<any> {
+    initEvents(viewStartDate: string, viewEndDate: string): Observable<any> {
         // return this.http.get('content/primeng/assets/data/json/events/scheduleevents.json')
         //    .map((response) => response);
-        const req = { viewStart: viewStart, viewEnd: viewEnd };
+        const req = { viewStart: viewStartDate, viewEnd: viewEndDate };
         const query = { query: JSON.stringify(req) };
         const options = createRequestOption(query);
         return this.http.get(this.initScheduleUrl, { params: options, observe: 'response' }).map(res => res.body as any[]);
@@ -63,6 +63,6 @@ export class CommonService {
 
     getPivotData(id: number): Observable<any> {
         return this.http.get(`${this.resourcePivotData}/${id}`, { observe: 'response' }).map(res => res.body as any[]);
-        //.map((res: PivotResponseType) => this.convertResponse(res));
+        // .map((res: PivotResponseType) => this.convertResponse(res));
     }
 }
