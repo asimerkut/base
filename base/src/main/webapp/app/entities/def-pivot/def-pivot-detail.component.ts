@@ -1,8 +1,3 @@
-import 'jquery/dist/jquery.min.js';
-import 'jquery-ui-dist/jquery-ui.min.js';
-import 'pivottable/dist/pivot.min.js';
-import 'pivottable/dist/pivot.min.css';
-
 import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
@@ -13,8 +8,13 @@ import { IDefPivot } from 'app/shared/model/def-pivot.model';
 import { DefPivotService } from './def-pivot.service';
 import { CommonService } from 'app/entities/common';
 
-declare var jQuery: any;
-declare var $: any;
+import 'jquery/dist/jquery.min.js';
+import 'jquery-ui-dist/jquery-ui.min.js';
+import 'pivottable/dist/pivot.min.js';
+import 'pivottable/dist/pivot.min.css';
+
+declare const jQuery: any;
+declare const $: any;
 
 @Component({
     selector: 'jhi-def-pivot-detail',

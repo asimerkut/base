@@ -16,12 +16,15 @@ import { IPerSubmit, PerSubmit } from 'app/shared/model/per-submit.model';
 
 import { Observable } from 'rxjs/Observable';
 import { SubmitEvent } from '../common/submit-event';
+import { EventService } from './service/event.service'
 
 @Component({
     selector: 'jhi-per-submit',
     templateUrl: './per-submit.component.html'
 })
 export class PerSubmitComponent implements OnInit, OnDestroy {
+
+    // @ViewChild('fc') fc: FullCalendar;
     msgs: Message[] = [];
     event: SubmitEvent;
     perSubmit: IPerSubmit;
@@ -33,12 +36,14 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
     eventSubscriber: Subscription;
     currentSearch: string;
 
-    events: any[];
     headerConfig: any;
     lastViewStart: any;
     lastViewEnd: any;
 
     dersItemList: IDefItem[];
+
+    events: any[];
+    options: any;
 
     constructor(
         private perSubmitService: PerSubmitService,
@@ -47,7 +52,8 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
         private activatedRoute: ActivatedRoute,
         private defItemService: DefItemService,
         private principal: Principal,
-        private commonService: CommonService
+        private commonService: CommonService,
+        private eventService: EventService
     ) {
         this.currentSearch =
             this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
@@ -93,6 +99,22 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+/*
+        this.eventService.getEvents().then(events => {
+            this.events = events;
+        });
+    */
+
+        this.options = {
+            defaultDate: '2017-02-01',
+            header: {
+                left: 'prev,next',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable: true
+        };
+
         this.loadAll();
 
         this.principal.identity().then(account => {

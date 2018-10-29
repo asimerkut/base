@@ -9,13 +9,17 @@
         </button>
     </h2>
 
+    <p-fullCalendar #fc [events]="events" [options]="options"></p-fullCalendar>
+
+
+<!--
     <p-schedule [events]="events" [header]="headerConfig" (onViewRender)="loadEvents($event)" locale="tr" [height]="700"
                 [styleClass]="'schedule-width'" timeFormat="H" slotDuration="01:00:00" firstDay="6" displayEventTime=false
                 [eventLimit]="18" [editable]="false" defaultView="agendaWeek" minTime="01:00:00" maxTime="19:00:00"
                 (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"
                 (onViewRender)="loadEvents($event)" (onViewDestroy)="handleViewDestroy($event)"
                 (onDrop)="handleDrop($event)"></p-schedule>
-
+-->
     <p-dialog header="Plan Detayları" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade"
               [modal]="false" [contentStyle]="{'overflow':'visible'}"
               [style]="{'overflow':'visible'}" [resizable]="false">
