@@ -93,6 +93,7 @@ export class DefItemComponent implements OnInit, OnDestroy {
             { field: 'code', header: 'Kod' },
             { field: 'name', header: 'Ad' },
             { field: 'id', header: 'id' }
+            //{ field: 'parentId', header: '*' }
         ];
 
         // this.nodeService.getTouristPlaces().subscribe((places: any) => (this.basicTreeTable = places.data));

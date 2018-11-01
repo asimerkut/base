@@ -97,11 +97,12 @@ public class CommonResource {
                 DefTreeItemDTO parNode = itemMap.get(valDto.getParent().getId());
                 if (parNode == null) {
                     root.add(selNode);
+                } else {
+                    if (parNode.getChildren() == null) {
+                        parNode.setChildren(new ArrayList<>());
+                    }
+                    parNode.getChildren().add(selNode);
                 }
-                if (parNode.getChildren() == null) {
-                    parNode.setChildren(new ArrayList<>());
-                }
-                parNode.getChildren().add(selNode);
             }
         }
         return root;
