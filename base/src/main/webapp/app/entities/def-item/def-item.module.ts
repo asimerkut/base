@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { TreeTableModule } from 'primeng/components/treetable/treetable';
+import { TreeTableModule } from 'primeng/treetable';
 
 import { BaseSharedModule } from 'app/shared';
 import {

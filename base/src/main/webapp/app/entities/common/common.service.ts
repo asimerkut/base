@@ -6,6 +6,7 @@ import { createRequestOption } from 'app/shared';
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { IDefPivot } from 'app/shared/model/def-pivot.model';
 import { IEnmEnum } from 'app/shared/model/enm-enum.model';
+import {TreeNode} from 'primeng/api';
 
 // export type PivotResponseType = HttpResponse<IDefPivot>;
 
@@ -25,7 +26,8 @@ export class CommonService {
     getTreeData(currentSearch: string): Observable<any> {
         const query = { query: currentSearch };
         const options = createRequestOption(query);
-        const ret = this.http.get(this.resourceTreeSearchUrl, { params: options, observe: 'response' }).map(res => res.body as any[]);
+        //const ret = this.http.get(this.resourceTreeSearchUrl, { params: options, observe: 'response' }).map(res => res.body as any[]);
+        const ret = this.http.get(this.resourceTreeSearchUrl, { params: options, observe: 'response' }).map(res => <TreeNode[]>res.body);
         return ret;
     }
 

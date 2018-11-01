@@ -4,7 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Principal } from 'app/core';
-import { MenuItem, Message, TreeNode } from 'primeng/components/common/api';
+import { MenuItem, Message } from 'primeng/components/common/api';
+import {TreeNode} from 'primeng/api';
+
 import { SessionStorageService } from 'ngx-webstorage';
 
 import { ComboSelModel } from '../common/combo-sel-model';
@@ -16,7 +18,7 @@ import { DefItemService } from './def-item.service';
 import { DefTypeService } from '../def-type';
 
 import { CommonService } from 'app/entities/common';
-// import { TreeNodeService } from 'app/primeng/data/treetable/service/treenode.service';
+
 
 @Component({
     selector: 'jhi-def-item',
@@ -25,11 +27,14 @@ import { CommonService } from 'app/entities/common';
 export class DefItemComponent implements OnInit, OnDestroy {
     // basicTreeTable: TreeNode[];
 
+    //files: TreeNode[];
+
     msgs: Message[] = [];
     singleSelectionTreeTable: TreeNode[];
     selectedTreePlace: TreeNode;
     items: MenuItem[];
     activeIndex = 0;
+    cols: any[];
 
     // defItems: DefItem[];
     comboSelModel: ComboSelModel = new ComboSelModel();
@@ -61,6 +66,9 @@ export class DefItemComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
+        //this.commonService.getFilesystem().then(files => this.files = files);
+
+
         this.comboSelModel.comboSel = this.sessionStorage.retrieve('selectedComboType');
         console.log(this.comboSelModel.comboSel);
         const searchFilter = {
@@ -76,10 +84,17 @@ export class DefItemComponent implements OnInit, OnDestroy {
         //        );
 
         this.commonService.getTreeData(this.currentSearch).subscribe((places: any) => (this.singleSelectionTreeTable = places));
+
         return;
     }
 
     ngOnInit() {
+        this.cols = [
+            { field: 'code', header: 'Kod' },
+            { field: 'name', header: 'Ad' },
+            { field: 'id', header: 'id' }
+        ];
+
         // this.nodeService.getTouristPlaces().subscribe((places: any) => (this.basicTreeTable = places.data));
 
         this.principal.identity().then(account => {
