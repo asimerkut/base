@@ -114,7 +114,24 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
                 center: 'title',
                 right: 'agendaWeek'
             },
-            editable: true
+            editable: true,
+            dateClick: (e) =>  {
+                console.log('dateClick:'+e);
+            },
+            eventClick: (info) =>  {
+                alert('Event: ' + info.event.title);
+                alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+                alert('View: ' + info.view.type);
+
+                // change the border color just for fun
+                info.el.style.borderColor = 'red';
+            },
+            nextClick: (e) =>  {
+                console.log('next:'+e);
+            },
+            prevClick: (e) =>  {
+                console.log('prev:'+e);
+            }
         };
 
         this.loadAll();
