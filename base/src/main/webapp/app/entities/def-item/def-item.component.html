@@ -50,6 +50,16 @@
 
 
         <p>{{selectedTreePlace ? selectedTreePlace.data.code +':'+ selectedTreePlace.data.name : '-'}}</p>
+        <p-treeTable [value]="singleSelectionTreeTable" selectionMode="single" [(selection)]="selectedTreePlace">
+            (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"
+            (onRowDblclick)="onRowDblclick($event)" >
+
+            <p-header>Tree Selection</p-header>
+            <p-column field="code" header="code"></p-column>
+            <p-column field="name" header="name"></p-column>
+            <p-column field="id" header="id"></p-column>
+        </p-treeTable>
+        <!--
         <p-treeTable [value]="singleSelectionTreeTable" [columns]="cols" selectionMode="single" [(selection)]="selectedTreePlace">
             (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"
             (onRowDblclick)="onRowDblclick($event)" >
@@ -69,6 +79,7 @@
                 </tr>
             </ng-template>
         </p-treeTable>
+        -->
         <p>{{selectedTreePlace ? selectedTreePlace.data.code +':'+ selectedTreePlace.data.name : '-'}}</p>
 
 

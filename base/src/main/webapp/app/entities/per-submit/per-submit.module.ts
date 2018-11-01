@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 
 import { BaseSharedModule } from 'app/shared';
-import { FullCalendarModule } from 'primeng/components/fullcalendar/fullcalendar';
+//import { FullCalendarModule } from 'primeng/components/fullcalendar/fullcalendar';
+import { ScheduleModule } from 'primeng/components/schedule/schedule';
 import { GrowlModule } from 'primeng/primeng';
 
 import { EventService } from './service/event.service';
@@ -21,7 +22,8 @@ const ENTITY_STATES = [...perSubmitRoute];
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        FullCalendarModule,
+        //FullCalendarModule,
+        ScheduleModule,
         GrowlModule,
         RouterModule.forChild(ENTITY_STATES)
     ],

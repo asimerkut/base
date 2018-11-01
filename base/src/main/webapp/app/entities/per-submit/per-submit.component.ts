@@ -17,7 +17,8 @@ import { IPerSubmit, PerSubmit } from 'app/shared/model/per-submit.model';
 import { Observable } from 'rxjs/Observable';
 import { SubmitEvent } from '../common/submit-event';
 import { EventService } from './service/event.service'
-import { FullCalendar } from 'primeng/components/fullcalendar/fullcalendar';
+//import { FullCalendar } from 'primeng/components/fullcalendar/fullcalendar';
+import { Schedule } from 'primeng/components/schedule/schedule';
 
 @Component({
     selector: 'jhi-per-submit',
@@ -25,7 +26,7 @@ import { FullCalendar } from 'primeng/components/fullcalendar/fullcalendar';
 })
 export class PerSubmitComponent implements OnInit, OnDestroy {
 
-    @ViewChild('fc') fc: FullCalendar;
+  //  @ViewChild('fc') fc: FullCalendar;
     msgs: Message[] = [];
     event: SubmitEvent;
     perSubmit: IPerSubmit;
@@ -201,8 +202,10 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
     }
 
     refresh() {
-        const viewStart = this.commonService.formatDate(this.fc.getCalendar().view.activeStart); //this.lastViewStart;
-        const viewEnd = this.commonService.formatDate(this.fc.getCalendar().view.activeEnd); //this.lastViewEnd;
+        //const viewStart = this.commonService.formatDate(this.fc.getCalendar().view.activeStart); //this.lastViewStart;
+        //const viewEnd = this.commonService.formatDate(this.fc.getCalendar().view.activeEnd); //this.lastViewEnd;
+        const viewStart = this.lastViewStart;
+        const viewEnd = this.lastViewEnd;
 
         this.commonService.initEvents(viewStart, viewEnd).subscribe((events: any) => {
             this.events = events.data;
