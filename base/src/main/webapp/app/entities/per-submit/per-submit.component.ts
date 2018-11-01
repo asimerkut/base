@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -17,6 +17,7 @@ import { IPerSubmit, PerSubmit } from 'app/shared/model/per-submit.model';
 import { Observable } from 'rxjs/Observable';
 import { SubmitEvent } from '../common/submit-event';
 import { EventService } from './service/event.service'
+import { FullCalendar } from 'primeng/components/fullcalendar/fullcalendar';
 
 @Component({
     selector: 'jhi-per-submit',
@@ -24,7 +25,7 @@ import { EventService } from './service/event.service'
 })
 export class PerSubmitComponent implements OnInit, OnDestroy {
 
-    // @ViewChild('fc') fc: FullCalendar;
+    @ViewChild('fc') fc: FullCalendar;
     msgs: Message[] = [];
     event: SubmitEvent;
     perSubmit: IPerSubmit;
@@ -64,9 +65,10 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
     loadAll() {
         return;
         /*
-         this.currentSearch = JSON.stringify({'query': {'selId': (this.comboSelModel.comboSel == null ? '2000-01-01' : this.comboSelModel.comboSel.startDate)} });
+        //this.currentSearch = JSON.stringify({'query': {'selId': (this.comboSelModel.comboSel == null ? '2000-01-01' : this.comboSelModel.comboSel.startDate)} });
+        this.currentSearch = JSON.stringify({'query': {'selId': '2000-01-01' } });
 
-         if (this.currentSearch) {
+        if (this.currentSearch) {
          this.perSubmitService.search({
          query: this.currentSearch,
          }).subscribe(
@@ -82,7 +84,7 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
          },
          (res: HttpErrorResponse) => this.onError(res.message)
          );
-         */
+        */
     }
 
     search(query) {
@@ -106,11 +108,11 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
     */
 
         this.options = {
-            defaultDate: '2017-02-01',
+            //defaultDate: '2017-02-01',
             header: {
                 left: 'prev,next',
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay'
+                right: 'agendaWeek'
             },
             editable: true
         };
@@ -182,8 +184,8 @@ export class PerSubmitComponent implements OnInit, OnDestroy {
     }
 
     refresh() {
-        const viewStart = this.lastViewStart;
-        const viewEnd = this.lastViewEnd;
+        const viewStart = this.commonService.formatDate(this.fc.getCalendar().view.activeStart); //this.lastViewStart;
+        const viewEnd = this.commonService.formatDate(this.fc.getCalendar().view.activeEnd); //this.lastViewEnd;
 
         this.commonService.initEvents(viewStart, viewEnd).subscribe((events: any) => {
             this.events = events.data;

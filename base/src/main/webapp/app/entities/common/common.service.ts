@@ -7,6 +7,7 @@ import { IDefItem } from 'app/shared/model/def-item.model';
 import { IDefPivot } from 'app/shared/model/def-pivot.model';
 import { IEnmEnum } from 'app/shared/model/enm-enum.model';
 import {TreeNode} from 'primeng/api';
+import { DatePipe } from '@angular/common';
 
 // export type PivotResponseType = HttpResponse<IDefPivot>;
 
@@ -21,7 +22,12 @@ export class CommonService {
     private submitScheduleUrl = SERVER_API_URL + 'api/common/per-submits-schedule';
     private initScheduleUrl = SERVER_API_URL + 'api/common/per-submits-initialize';
 
-    constructor(private http: HttpClient) {}
+    constructor(
+        private http: HttpClient,
+        private datePipe: DatePipe
+    ) {
+
+    }
 
     getTreeData(currentSearch: string): Observable<any> {
         const query = { query: currentSearch };
@@ -66,5 +72,9 @@ export class CommonService {
     getPivotData(id: number): Observable<any> {
         return this.http.get(`${this.resourcePivotData}/${id}`, { observe: 'response' }).map(res => res.body as any[]);
         // .map((res: PivotResponseType) => this.convertResponse(res));
+    }
+
+    formatDate(today) {
+        return this.datePipe.transform(today, 'yyyy-MM-dd');
     }
 }
