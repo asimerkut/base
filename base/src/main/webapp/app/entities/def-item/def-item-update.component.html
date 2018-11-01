@@ -98,7 +98,7 @@
                     <label class="form-control-label" jhiTranslate="baseApp.defItem.parent" for="field_parent">Parent</label>
                     <select class="form-control" id="field_parent" name="parent" [(ngModel)]="defItem.parent" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === defItem.parent?.id ? defItem.parent : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === defItem.parent?.id ? defItem.parent : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.label}}</option>
                     </select>
                 </div>
             </div>
