@@ -17,6 +17,7 @@ import { PerHomeModule } from './home/home.module';
 import { PerAccountModule } from './account/account.module';
 import { PerEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
+import { PerprimengModule } from './primeng/primeng.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 
@@ -29,6 +30,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         PerCoreModule,
         PerHomeModule,
         PerAccountModule,
+        PerprimengModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         PerEntityModule
     ],
