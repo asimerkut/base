@@ -6,30 +6,42 @@ import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 
 import { BaseSharedModule } from 'app/shared';
-//import { FullCalendarModule } from 'primeng/components/fullcalendar/fullcalendar';
-import { ScheduleModule } from 'primeng/components/schedule/schedule';
-import { GrowlModule } from 'primeng/primeng';
-
+import { PerSubmitComponent, perSubmitRoute } from './';
 import { EventService } from './service/event.service';
 
-import { PerSubmitComponent, perSubmitRoute } from './';
+import { ScheduleModule } from 'primeng/components/schedule/schedule';
+import { RadioButtonModule } from 'primeng/components/radiobutton/radiobutton';
+import { GrowlModule } from 'primeng/components/growl/growl';
+import { DialogModule } from 'primeng/components/dialog/dialog';
+import { InputTextModule } from 'primeng/components/inputtext/inputtext';
+import { CalendarModule } from 'primeng/components/calendar/calendar';
+import { CheckboxModule } from 'primeng/components/checkbox/checkbox';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonModule } from 'primeng/components/button/button';
 
 const ENTITY_STATES = [...perSubmitRoute];
 
 @NgModule({
     imports: [
         BaseSharedModule,
+        ButtonModule,
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        //FullCalendarModule,
+        BrowserAnimationsModule,
         ScheduleModule,
+        RadioButtonModule,
+        DialogModule,
+        InputTextModule,
+        CalendarModule,
+        CheckboxModule,
+        ButtonModule,
         GrowlModule,
-        RouterModule.forChild(ENTITY_STATES)
+        RouterModule.forRoot(ENTITY_STATES, { useHash: true })
     ],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, EventService],
     declarations: [PerSubmitComponent],
-    entryComponents: [PerSubmitComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, EventService]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
+
 export class BasePerSubmitModule {}
