@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.er.base",
+      "nativeLanguage": "tr"
+    },
+    "jhipsterVersion": "5.6.0",
+    "applicationType": "monolith",
+    "baseName": "base",
+    "packageName": "com.er.base",
+    "packageFolder": "com/er/base",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZWYzM2Q0NWUyOTllMWU5NDFjMjY5YzM0MDdiNTZjYmVkZjJmMGIyYjA4YmUyYTJjZjI5NDg0OThlYjI1MTUwMmQ4NmYxY2NlMTkwYjY1ZDBjYTcwNTMzYzg5ZDI5MjA2YmZmYTlkNGM3ODQ2Yzg2ODczMWIyMTBkNTY5NzBjMmM=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "tr",
+    "languages": [
+      "tr",
+      "en"
+    ]
+  }
+}

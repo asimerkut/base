@@ -1,0 +1,20 @@
+version: '2'
+services:
+    base-app:
+        image: base
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://base-postgresql:5432/base
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_JEST_URI=http://base-elasticsearch:9200
+        ports:
+            - 8080:8080
+    base-postgresql:
+        extends:
+            file: postgresql.yml
+            service: base-postgresql
+    base-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: base-elasticsearch
