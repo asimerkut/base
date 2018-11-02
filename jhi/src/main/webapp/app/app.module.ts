@@ -10,12 +10,12 @@ import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
-import { BaseSharedModule } from 'app/shared';
-import { BaseCoreModule } from 'app/core';
-import { BaseAppRoutingModule } from './app-routing.module';
-import { BaseHomeModule } from './home/home.module';
-import { BaseAccountModule } from './account/account.module';
-import { BaseEntityModule } from './entities/entity.module';
+import { PerSharedModule } from 'app/shared';
+import { PerCoreModule } from 'app/core';
+import { PerAppRoutingModule } from './app-routing.module';
+import { PerHomeModule } from './home/home.module';
+import { PerAccountModule } from './account/account.module';
+import { PerEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
@@ -23,14 +23,14 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
 @NgModule({
     imports: [
         BrowserModule,
-        BaseAppRoutingModule,
+        PerAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
-        BaseSharedModule,
-        BaseCoreModule,
-        BaseHomeModule,
-        BaseAccountModule,
+        PerSharedModule,
+        PerCoreModule,
+        PerHomeModule,
+        PerAccountModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
-        BaseEntityModule
+        PerEntityModule
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
     providers: [
@@ -57,7 +57,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     ],
     bootstrap: [JhiMainComponent]
 })
-export class BaseAppModule {
+export class PerAppModule {
     constructor(private dpConfig: NgbDatepickerConfig) {
         this.dpConfig.minDate = { year: moment().year() - 100, month: 1, day: 1 };
     }

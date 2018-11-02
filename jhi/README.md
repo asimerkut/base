@@ -1,4 +1,4 @@
-# base
+# per
 This application was generated using JHipster 5.6.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.6.0](https://www.jhipster.tech/documentation-archive/v5.6.0).
 
 ## Development
@@ -27,7 +27,7 @@ will generate few files:
 
 ## Building for production
 
-To optimize the base application for production, run:
+To optimize the per application for production, run:
 
 
 To ensure everything worked, run:

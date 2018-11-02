@@ -1,7 +1,7 @@
 {
-  "name": "base",
+  "name": "per",
   "version": "0.0.0",
-  "description": "Description for base",
+  "description": "Description for per",
   "private": true,
   "license": "UNLICENSED",
   "cacheDirectories": [

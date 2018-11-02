@@ -17,7 +17,7 @@ import locale from '@angular/common/locales/tr';
         DatePipe
     ]
 })
-export class BaseCoreModule {
+export class PerCoreModule {
     constructor() {
         registerLocaleData(locale);
     }

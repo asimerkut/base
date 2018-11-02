@@ -17,7 +17,7 @@ logging:
     level:
         ROOT: DEBUG
         io.github.jhipster: DEBUG
-        com.er.base: DEBUG
+        com.er.jhi: DEBUG
 
 spring:
     profiles:
@@ -35,8 +35,8 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:file:./target/h2db/db/base;DB_CLOSE_DELAY=-1
-        username: base
+        url: jdbc:h2:file:./target/h2db/db/per;DB_CLOSE_DELAY=-1
+        username: per
         password:
         hikari:
             auto-commit: false
@@ -54,11 +54,6 @@ spring:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.BeanClassLoaderAwareJCacheRegionFactory
-    data:
-        elasticsearch:
-            properties:
-                path:
-                    home: target/elasticsearch
     liquibase:
         contexts: dev
     mail:
@@ -99,12 +94,12 @@ jhipster:
         authentication:
             jwt:
                 # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-                base64-secret: NmRiNjcyMWQyOThkODhkNzZiYzI2ZmFhZDUyZTczZDQ5YzQ4ZWY0NjdhZWYyNDg1ZDVkNjgwZjBjODdmNjI2Y2JiMzAxZWUxYTkyNzJiMWNiMDA4MmYyMjIwNDEzNTZiNWU4MDczMGQ5OTNiNTkwYTJiMzZkZTJhZjE5MTczZTI=
+                base64-secret: NjQxMTM5NGRkZDk1NzU1ZjIwNWRmMjYwMGE2YTgyYjA2MmM2Y2M4MjQ2ZDFjNDU4ZDJjOGJlYWFiMDUzNzczOTQ1NjZiYzFhMmM0MzdiMWZmNjY2MmIxNGE5Njc0NWEyNjI0Y2U4MDRiODVlNjcxNjJiODg2OWJjMDdkMDM3YzA=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: base@localhost
+        from: per@localhost
         base-url: http://127.0.0.1:8080
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx:

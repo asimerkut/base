@@ -16,12 +16,12 @@
 
 spring:
     application:
-        name: base
+        name: per
     cache:
         type: simple
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:base;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        url: jdbc:h2:mem:per;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
         name:
         username:
         password:
@@ -45,11 +45,6 @@ spring:
             hibernate.generate_statistics: true
             hibernate.hbm2ddl.auto: validate
             hibernate.jdbc.time_zone: UTC
-    data:
-        elasticsearch:
-            properties:
-                path:
-                    home: target/elasticsearch
     liquibase:
         contexts: test
     mail:
@@ -92,7 +87,7 @@ jhipster:
         authentication:
             jwt:
                 # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-                base64-secret: NmRiNjcyMWQyOThkODhkNzZiYzI2ZmFhZDUyZTczZDQ5YzQ4ZWY0NjdhZWYyNDg1ZDVkNjgwZjBjODdmNjI2Y2JiMzAxZWUxYTkyNzJiMWNiMDA4MmYyMjIwNDEzNTZiNWU4MDczMGQ5OTNiNTkwYTJiMzZkZTJhZjE5MTczZTI=
+                base64-secret: NjQxMTM5NGRkZDk1NzU1ZjIwNWRmMjYwMGE2YTgyYjA2MmM2Y2M4MjQ2ZDFjNDU4ZDJjOGJlYWFiMDUzNzczOTQ1NjZiYzFhMmM0MzdiMWZmNjY2MmIxNGE5Njc0NWEyNjI0Y2U4MDRiODVlNjcxNjJiODg2OWJjMDdkMDM3YzA=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration

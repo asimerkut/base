@@ -1,14 +1,14 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.er.base",
+      "packageName": "com.er.jhi",
       "nativeLanguage": "tr"
     },
     "jhipsterVersion": "5.6.0",
     "applicationType": "monolith",
-    "baseName": "base",
-    "packageName": "com.er.base",
-    "packageFolder": "com/er/base",
+    "baseName": "per",
+    "packageName": "com.er.jhi",
+    "packageFolder": "com/er/jhi",
     "serverPort": "8080",
     "authenticationType": "jwt",
     "cacheProvider": "ehcache",
@@ -17,12 +17,12 @@
     "databaseType": "sql",
     "devDatabaseType": "h2Disk",
     "prodDatabaseType": "postgresql",
-    "searchEngine": "elasticsearch",
+    "searchEngine": false,
     "messageBroker": false,
     "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "NmRiNjcyMWQyOThkODhkNzZiYzI2ZmFhZDUyZTczZDQ5YzQ4ZWY0NjdhZWYyNDg1ZDVkNjgwZjBjODdmNjI2Y2JiMzAxZWUxYTkyNzJiMWNiMDA4MmYyMjIwNDEzNTZiNWU4MDczMGQ5OTNiNTkwYTJiMzZkZTJhZjE5MTczZTI=",
+    "jwtSecretKey": "NjQxMTM5NGRkZDk1NzU1ZjIwNWRmMjYwMGE2YTgyYjA2MmM2Y2M4MjQ2ZDFjNDU4ZDJjOGJlYWFiMDUzNzczOTQ1NjZiYzFhMmM0MzdiMWZmNjY2MmIxNGE5Njc0NWEyNjI0Y2U4MDRiODVlNjcxNjJiODg2OWJjMDdkMDM3YzA=",
     "clientFramework": "angularX",
     "useSass": true,
     "clientPackageManager": "npm",
