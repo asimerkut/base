@@ -71,7 +71,7 @@ public class PerSubmit implements IEntity, PerScheduleDTO {
 
     @ManyToOne
     @JsonIgnoreProperties("")
-    private FiscalPeriod fiscalPeriod;
+    private PerPeriodState periodState;
 
     @Transient
     private Long cellId;
@@ -176,17 +176,17 @@ public class PerSubmit implements IEntity, PerScheduleDTO {
         this.excuse = perExcuse;
     }
 
-    public FiscalPeriod getFiscalPeriod() {
-        return fiscalPeriod;
+    public PerPeriodState getPeriodState() {
+        return periodState;
     }
 
-    public PerSubmit fiscalPeriod(FiscalPeriod fiscalPeriod) {
-        this.fiscalPeriod = fiscalPeriod;
+    public PerSubmit periodState(PerPeriodState perPeriodState) {
+        this.periodState = perPeriodState;
         return this;
     }
 
-    public void setFiscalPeriod(FiscalPeriod fiscalPeriod) {
-        this.fiscalPeriod = fiscalPeriod;
+    public void setPeriodState(PerPeriodState perPeriodState) {
+        this.periodState = perPeriodState;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

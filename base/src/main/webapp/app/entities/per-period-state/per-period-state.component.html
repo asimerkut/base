@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="baseApp.perPeriodState.home.title">Per Period States</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-per-period-state" [routerLink]="['/per-period-state/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="baseApp.perPeriodState.home.createLabel">
+            Create new Per Period State
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'baseApp.perPeriodState.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="perPeriodStates">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="baseApp.perPeriodState.periodState">Period State</span></th>
+            <th><span jhiTranslate="baseApp.perPeriodState.fiscalPeriod">Fiscal Period</span></th>
+            <th><span jhiTranslate="baseApp.perPeriodState.person">Person</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let perPeriodState of perPeriodStates ;trackBy: trackId">
+                <td><a [routerLink]="['/per-period-state', perPeriodState.id, 'view' ]">{{perPeriodState.id}}</a></td>
+                <td jhiTranslate="{{'baseApp.EnmPeriodState.' + perPeriodState.periodState}}">{{perPeriodState.periodState}}</td>
+                <td>
+                    <div *ngIf="perPeriodState.fiscalPeriod">
+                        <a [routerLink]="['../fiscal-period', perPeriodState.fiscalPeriod?.id, 'view' ]" >{{perPeriodState.fiscalPeriod?.code}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="perPeriodState.person">
+                        <a [routerLink]="['../per-person', perPeriodState.person?.id, 'view' ]" >{{perPeriodState.person?.code}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/per-period-state', perPeriodState.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/per-period-state', perPeriodState.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'per-period-state/'+ perPeriodState.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

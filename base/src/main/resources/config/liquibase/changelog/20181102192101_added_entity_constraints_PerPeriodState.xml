@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity PerPeriodState.
+    -->
+    <changeSet id="20181102192101-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="fiscal_period_id"
+                                 baseTableName="per_period_state"
+                                 constraintName="fk_per_period_state_fiscal_period_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiscal_period"/>
+
+        <addForeignKeyConstraint baseColumnNames="person_id"
+                                 baseTableName="per_period_state"
+                                 constraintName="fk_per_period_state_person_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="per_person"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -3,28 +3,28 @@
     "baseApp": {
         "perExcuse" : {
             "home": {
-                "title": "Mazeretler",
-                "createLabel": "Yeni",
-                "createOrEditLabel": "Değiştir",
-                "search": "Ara"
+                "title": "Per Excuses",
+                "createLabel": "Create a new Per Excuse",
+                "createOrEditLabel": "Create or edit a Per Excuse",
+                "search": "Search for Per Excuse"
             },
-            "created": "Mazeret oluştu {{ param }}",
-            "updated": "Mazeret Değişti {{ param }}",
-            "deleted": "Mazeret Silindi {{ param }}",
+            "created": "A new Per Excuse is created with identifier {{ param }}",
+            "updated": "A Per Excuse is updated with identifier {{ param }}",
+            "deleted": "A Per Excuse is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Silmek istiyor musunuz {{ id }}?"
+                "question": "Are you sure you want to delete Per Excuse {{ id }}?"
             },
             "detail": {
-                "title": "Mazeretler"
+                "title": "Per Excuse"
             },
-            "startDate": "Başla Tarih",
-            "startDersNo": "Başla Ders No",
-            "finishDate": "Bitiş Tarih",
-            "finishDersNo": "Bitiş Ders No",
-            "isExcuse": "Özür Kabul Edilir",
-            "person": "Kişi",
+            "startDate": "Start Date",
+            "startDersNo": "Start Ders No",
+            "finishDate": "Finish Date",
+            "finishDersNo": "Finish Ders No",
+            "isExcuse": "Is Excuse",
+            "person": "Person",
             "izin": "Izin",
-            "fiscalPeriod": "Dönem"
+            "periodState": "Period State"
         }
     }
 }

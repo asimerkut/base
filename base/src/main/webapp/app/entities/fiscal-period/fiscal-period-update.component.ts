@@ -7,10 +7,10 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IFiscalPeriod } from 'app/shared/model/fiscal-period.model';
 import { FiscalPeriodService } from './fiscal-period.service';
-import { IPerPerson } from 'app/shared/model/per-person.model';
-import { PerPersonService } from 'app/entities/per-person';
 import { IFiscalYear } from 'app/shared/model/fiscal-year.model';
 import { FiscalYearService } from 'app/entities/fiscal-year';
+import { IDefItem } from 'app/shared/model/def-item.model';
+import { DefItemService } from 'app/entities/def-item';
 
 @Component({
     selector: 'jhi-fiscal-period-update',
@@ -20,17 +20,17 @@ export class FiscalPeriodUpdateComponent implements OnInit {
     fiscalPeriod: IFiscalPeriod;
     isSaving: boolean;
 
-    perpeople: IPerPerson[];
-
     fiscalyears: IFiscalYear[];
+
+    defitems: IDefItem[];
     dateStartDp: any;
     dateFinishDp: any;
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private fiscalPeriodService: FiscalPeriodService,
-        private perPersonService: PerPersonService,
         private fiscalYearService: FiscalYearService,
+        private defItemService: DefItemService,
         private activatedRoute: ActivatedRoute
     ) {}
 
@@ -39,15 +39,15 @@ export class FiscalPeriodUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ fiscalPeriod }) => {
             this.fiscalPeriod = fiscalPeriod;
         });
-        this.perPersonService.query().subscribe(
-            (res: HttpResponse<IPerPerson[]>) => {
-                this.perpeople = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
         this.fiscalYearService.query().subscribe(
             (res: HttpResponse<IFiscalYear[]>) => {
                 this.fiscalyears = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.defItemService.query().subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.defitems = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -83,11 +83,11 @@ export class FiscalPeriodUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackPerPersonById(index: number, item: IPerPerson) {
+    trackFiscalYearById(index: number, item: IFiscalYear) {
         return item.id;
     }
 
-    trackFiscalYearById(index: number, item: IFiscalYear) {
+    trackDefItemById(index: number, item: IDefItem) {
         return item.id;
     }
 }

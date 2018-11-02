@@ -37,10 +37,10 @@
                         <a [routerLink]="['/def-item', perExcuse.izin?.id, 'view']">{{perExcuse.izin?.code}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="baseApp.perExcuse.fiscalPeriod">Fiscal Period</span></dt>
+                <dt><span jhiTranslate="baseApp.perExcuse.periodState">Period State</span></dt>
                 <dd>
-                    <div *ngIf="perExcuse.fiscalPeriod">
-                        <a [routerLink]="['/fiscal-period', perExcuse.fiscalPeriod?.id, 'view']">{{perExcuse.fiscalPeriod?.code}}</a>
+                    <div *ngIf="perExcuse.periodState">
+                        <a [routerLink]="['/per-period-state', perExcuse.periodState?.id, 'view']">{{perExcuse.periodState?.code}}</a>
                     </div>
                 </dd>
             </dl>

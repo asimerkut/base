@@ -1,25 +1,31 @@
 import { Moment } from 'moment';
-import { IPerPerson } from 'app/shared/model/per-person.model';
-import { IFiscalYear } from 'app/shared/model/fiscal-year.model';
+import { IFiscalYear } from 'app/shared/model//fiscal-year.model';
+import { IDefItem } from 'app/shared/model//def-item.model';
 
 export interface IFiscalPeriod {
     id?: number;
     code?: string;
+    month?: string;
+    week?: number;
     dateStart?: Moment;
     dateFinish?: Moment;
-    state?: number;
-    person?: IPerPerson;
+    entry?: boolean;
     fiscalYear?: IFiscalYear;
+    donem?: IDefItem;
 }
 
 export class FiscalPeriod implements IFiscalPeriod {
     constructor(
         public id?: number,
         public code?: string,
+        public month?: string,
+        public week?: number,
         public dateStart?: Moment,
         public dateFinish?: Moment,
-        public state?: number,
-        public person?: IPerPerson,
-        public fiscalYear?: IFiscalYear
-    ) {}
+        public entry?: boolean,
+        public fiscalYear?: IFiscalYear,
+        public donem?: IDefItem
+    ) {
+        this.entry = this.entry || false;
+    }
 }

@@ -1,5 +1,7 @@
 package com.er.base.domain;
 
+import com.er.base.domain.enumeration.EnmType;
+import com.er.fin.domain.CheckDefType;
 import com.er.fin.domain.IEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
@@ -34,6 +36,14 @@ public class FiscalPeriod implements IEntity {
     private String code;
 
     @NotNull
+    @Column(name = "month", nullable = false)
+    private String month;
+
+    @NotNull
+    @Column(name = "week", nullable = false)
+    private Long week;
+
+    @NotNull
     @Column(name = "date_start", nullable = false)
     private LocalDate dateStart;
 
@@ -42,16 +52,17 @@ public class FiscalPeriod implements IEntity {
     private LocalDate dateFinish;
 
     @NotNull
-    @Column(name = "state", nullable = false)
-    private Integer state;
-
-    @ManyToOne
-    @JsonIgnoreProperties("")
-    private PerPerson person;
+    @Column(name = "jhi_entry", nullable = false)
+    private Boolean entry;
 
     @ManyToOne
     @JsonIgnoreProperties("")
     private FiscalYear fiscalYear;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    @CheckDefType(EnmType.DONEM)
+    private DefItem donem;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -73,6 +84,32 @@ public class FiscalPeriod implements IEntity {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public FiscalPeriod month(String month) {
+        this.month = month;
+        return this;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public Long getWeek() {
+        return week;
+    }
+
+    public FiscalPeriod week(Long week) {
+        this.week = week;
+        return this;
+    }
+
+    public void setWeek(Long week) {
+        this.week = week;
     }
 
     public LocalDate getDateStart() {
@@ -101,30 +138,17 @@ public class FiscalPeriod implements IEntity {
         this.dateFinish = dateFinish;
     }
 
-    public Integer getState() {
-        return state;
+    public Boolean isEntry() {
+        return entry;
     }
 
-    public FiscalPeriod state(Integer state) {
-        this.state = state;
+    public FiscalPeriod entry(Boolean entry) {
+        this.entry = entry;
         return this;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
-    public PerPerson getPerson() {
-        return person;
-    }
-
-    public FiscalPeriod person(PerPerson perPerson) {
-        this.person = perPerson;
-        return this;
-    }
-
-    public void setPerson(PerPerson perPerson) {
-        this.person = perPerson;
+    public void setEntry(Boolean entry) {
+        this.entry = entry;
     }
 
     public FiscalYear getFiscalYear() {
@@ -138,6 +162,19 @@ public class FiscalPeriod implements IEntity {
 
     public void setFiscalYear(FiscalYear fiscalYear) {
         this.fiscalYear = fiscalYear;
+    }
+
+    public DefItem getDonem() {
+        return donem;
+    }
+
+    public FiscalPeriod donem(DefItem defItem) {
+        this.donem = defItem;
+        return this;
+    }
+
+    public void setDonem(DefItem defItem) {
+        this.donem = defItem;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -166,9 +203,11 @@ public class FiscalPeriod implements IEntity {
         return "FiscalPeriod{" +
             "id=" + getId() +
             ", code='" + getCode() + "'" +
+            ", month='" + getMonth() + "'" +
+            ", week=" + getWeek() +
             ", dateStart='" + getDateStart() + "'" +
             ", dateFinish='" + getDateFinish() + "'" +
-            ", state=" + getState() +
+            ", entry='" + isEntry() + "'" +
             "}";
     }
 

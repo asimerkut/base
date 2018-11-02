@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-per-period-state-heading" jhiTranslate="baseApp.perPeriodState.home.createOrEditLabel">Create or edit a Per Period State</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!perPeriodState.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="perPeriodState.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perPeriodState.periodState" for="field_periodState">Period State</label>
+                    <select class="form-control" name="periodState" [(ngModel)]="perPeriodState.periodState" id="field_periodState"  required>
+                        <option value="P10">{{'baseApp.EnmPeriodState.P10' | translate}}</option>
+                        <option value="P20">{{'baseApp.EnmPeriodState.P20' | translate}}</option>
+                        <option value="P30">{{'baseApp.EnmPeriodState.P30' | translate}}</option>
+                        <option value="P40">{{'baseApp.EnmPeriodState.P40' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.periodState?.dirty && editForm.controls.periodState?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.periodState?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perPeriodState.fiscalPeriod" for="field_fiscalPeriod">Fiscal Period</label>
+                    <select class="form-control" id="field_fiscalPeriod" name="fiscalPeriod" [(ngModel)]="perPeriodState.fiscalPeriod" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="fiscalPeriodOption.id === perPeriodState.fiscalPeriod?.id ? perPeriodState.fiscalPeriod : fiscalPeriodOption" *ngFor="let fiscalPeriodOption of fiscalperiods; trackBy: trackFiscalPeriodById">{{fiscalPeriodOption.code}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perPeriodState.person" for="field_person">Person</label>
+                    <select class="form-control" id="field_person" name="person" [(ngModel)]="perPeriodState.person" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="perPersonOption.id === perPeriodState.person?.id ? perPeriodState.person : perPersonOption" *ngFor="let perPersonOption of perpeople; trackBy: trackPerPersonById">{{perPersonOption.code}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

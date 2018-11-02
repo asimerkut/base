@@ -1,7 +1,7 @@
 import { Moment } from 'moment';
-import { IPerPerson } from 'app/shared/model/per-person.model';
-import { IDefItem } from 'app/shared/model/def-item.model';
-import { IFiscalPeriod } from 'app/shared/model/fiscal-period.model';
+import { IPerPerson } from 'app/shared/model//per-person.model';
+import { IDefItem } from 'app/shared/model//def-item.model';
+import { IPerPeriodState } from 'app/shared/model//per-period-state.model';
 
 export interface IPerExcuse {
     id?: number;
@@ -12,7 +12,7 @@ export interface IPerExcuse {
     isExcuse?: boolean;
     person?: IPerPerson;
     izin?: IDefItem;
-    fiscalPeriod?: IFiscalPeriod;
+    periodState?: IPerPeriodState;
 }
 
 export class PerExcuse implements IPerExcuse {
@@ -25,7 +25,7 @@ export class PerExcuse implements IPerExcuse {
         public isExcuse?: boolean,
         public person?: IPerPerson,
         public izin?: IDefItem,
-        public fiscalPeriod?: IFiscalPeriod
+        public periodState?: IPerPeriodState
     ) {
         this.isExcuse = this.isExcuse || false;
     }

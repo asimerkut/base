@@ -2,9 +2,9 @@
     "baseApp": {
         "EnmDersGrup" : {
             "null": "",
-            "D_GS": "Ders",
-            "GG": "Gün.Gör.",
-            "GY": "Gün.Yön."
+            "D_GS": "D_GS",
+            "GG": "GG",
+            "GY": "GY"
         }
     }
 }

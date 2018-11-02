@@ -25,6 +25,14 @@
                 <constraints nullable="false" />
             </column>
 
+            <column name="month" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="week" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
             <column name="date_start" type="date">
                 <constraints nullable="false" />
             </column>
@@ -33,15 +41,15 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="state" type="integer">
+            <column name="jhi_entry" type="boolean">
                 <constraints nullable="false" />
             </column>
 
-            <column name="person_id" type="bigint">
+            <column name="fiscal_year_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
-            <column name="fiscal_year_id" type="bigint">
+            <column name="donem_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

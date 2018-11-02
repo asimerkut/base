@@ -26,11 +26,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="per_excuse"/>
 
-        <addForeignKeyConstraint baseColumnNames="fiscal_period_id"
+        <addForeignKeyConstraint baseColumnNames="period_state_id"
                                  baseTableName="per_submit"
-                                 constraintName="fk_per_submit_fiscal_period_id"
+                                 constraintName="fk_per_submit_period_state_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="fiscal_period"/>
+                                 referencedTableName="per_period_state"/>
 
     </changeSet>
 </databaseChangeLog>

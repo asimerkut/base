@@ -12,7 +12,7 @@
             "updated": "A Per Submit is updated with identifier {{ param }}",
             "deleted": "A Per Submit is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Silmek istiyor musunuz {{ id }}?"
+                "question": "Are you sure you want to delete Per Submit {{ id }}?"
             },
             "detail": {
                 "title": "Per Submit"
@@ -24,7 +24,7 @@
             "person": "Person",
             "ders": "Ders",
             "excuse": "Excuse",
-            "fiscalPeriod": "Fiscal Period"
+            "periodState": "Period State"
         }
     }
 }

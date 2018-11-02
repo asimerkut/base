@@ -18,11 +18,13 @@
                 "title": "Fiscal Period"
             },
             "code": "Code",
+            "month": "Month",
+            "week": "Week",
             "dateStart": "Date Start",
             "dateFinish": "Date Finish",
-            "state": "State",
-            "person": "Person",
-            "fiscalYear": "Fiscal Year"
+            "entry": "Entry",
+            "fiscalYear": "Fiscal Year",
+            "donem": "Donem"
         }
     }
 }

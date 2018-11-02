@@ -31,11 +31,13 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="baseApp.fiscalPeriod.code">Code</span></th>
+            <th><span jhiTranslate="baseApp.fiscalPeriod.month">Month</span></th>
+            <th><span jhiTranslate="baseApp.fiscalPeriod.week">Week</span></th>
             <th><span jhiTranslate="baseApp.fiscalPeriod.dateStart">Date Start</span></th>
             <th><span jhiTranslate="baseApp.fiscalPeriod.dateFinish">Date Finish</span></th>
-            <th><span jhiTranslate="baseApp.fiscalPeriod.state">State</span></th>
-            <th><span jhiTranslate="baseApp.fiscalPeriod.person">Person</span></th>
+            <th><span jhiTranslate="baseApp.fiscalPeriod.entry">Entry</span></th>
             <th><span jhiTranslate="baseApp.fiscalPeriod.fiscalYear">Fiscal Year</span></th>
+            <th><span jhiTranslate="baseApp.fiscalPeriod.donem">Donem</span></th>
             <th></th>
             </tr>
             </thead>
@@ -43,17 +45,19 @@
             <tr *ngFor="let fiscalPeriod of fiscalPeriods ;trackBy: trackId">
                 <td><a [routerLink]="['/fiscal-period', fiscalPeriod.id, 'view' ]">{{fiscalPeriod.id}}</a></td>
                 <td>{{fiscalPeriod.code}}</td>
+                <td>{{fiscalPeriod.month}}</td>
+                <td>{{fiscalPeriod.week}}</td>
                 <td>{{fiscalPeriod.dateStart | date:'mediumDate'}}</td>
                 <td>{{fiscalPeriod.dateFinish | date:'mediumDate'}}</td>
-                <td>{{fiscalPeriod.state}}</td>
-                <td>
-                    <div *ngIf="fiscalPeriod.person">
-                        <a [routerLink]="['../per-person', fiscalPeriod.person?.id, 'view' ]" >{{fiscalPeriod.person?.code}}</a>
-                    </div>
-                </td>
+                <td>{{fiscalPeriod.entry}}</td>
                 <td>
                     <div *ngIf="fiscalPeriod.fiscalYear">
                         <a [routerLink]="['../fiscal-year', fiscalPeriod.fiscalYear?.id, 'view' ]" >{{fiscalPeriod.fiscalYear?.code}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="fiscalPeriod.donem">
+                        <a [routerLink]="['../def-item', fiscalPeriod.donem?.id, 'view' ]" >{{fiscalPeriod.donem?.code}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -24,7 +24,7 @@
             "person": "Person",
             "ders": "Ders",
             "excuse": "Excuse",
-            "fiscalPeriod": "Fiscal Period"
+            "periodState": "Period State"
         }
     }
 }

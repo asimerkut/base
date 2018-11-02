@@ -20,11 +20,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="def_item"/>
 
-        <addForeignKeyConstraint baseColumnNames="fiscal_period_id"
+        <addForeignKeyConstraint baseColumnNames="period_state_id"
                                  baseTableName="per_excuse"
-                                 constraintName="fk_per_excuse_fiscal_period_id"
+                                 constraintName="fk_per_excuse_period_state_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="fiscal_period"/>
+                                 referencedTableName="per_period_state"/>
 
     </changeSet>
 </databaseChangeLog>

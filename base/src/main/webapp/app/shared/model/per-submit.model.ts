@@ -1,8 +1,8 @@
 import { Moment } from 'moment';
-import { IPerPerson } from 'app/shared/model/per-person.model';
-import { IDefItem } from 'app/shared/model/def-item.model';
-import { IPerExcuse } from 'app/shared/model/per-excuse.model';
-import { IFiscalPeriod } from 'app/shared/model/fiscal-period.model';
+import { IPerPerson } from 'app/shared/model//per-person.model';
+import { IDefItem } from 'app/shared/model//def-item.model';
+import { IPerExcuse } from 'app/shared/model//per-excuse.model';
+import { IPerPeriodState } from 'app/shared/model//per-period-state.model';
 
 export const enum EnmDersGrup {
     D_GS = 'D_GS',
@@ -19,8 +19,7 @@ export interface IPerSubmit {
     person?: IPerPerson;
     ders?: IDefItem;
     excuse?: IPerExcuse;
-    fiscalPeriod?: IFiscalPeriod;
-
+    periodState?: IPerPeriodState;
     cellId?: number;
 }
 
@@ -34,7 +33,7 @@ export class PerSubmit implements IPerSubmit {
         public person?: IPerPerson,
         public ders?: IDefItem,
         public excuse?: IPerExcuse,
-        public fiscalPeriod?: IFiscalPeriod,
+        public periodState?: IPerPeriodState,
         public cellId?: number
     ) {}
 }

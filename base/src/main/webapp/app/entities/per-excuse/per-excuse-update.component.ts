@@ -11,10 +11,8 @@ import { IPerPerson } from 'app/shared/model/per-person.model';
 import { PerPersonService } from 'app/entities/per-person';
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from 'app/entities/def-item';
-import { IFiscalPeriod } from 'app/shared/model/fiscal-period.model';
-import { FiscalPeriodService } from 'app/entities/fiscal-period';
-import { CommonService } from 'app/entities/common';
-import { EnmType } from 'app/shared/model/def-type.model';
+import { IPerPeriodState } from 'app/shared/model/per-period-state.model';
+import { PerPeriodStateService } from 'app/entities/per-period-state';
 
 @Component({
     selector: 'jhi-per-excuse-update',
@@ -26,10 +24,9 @@ export class PerExcuseUpdateComponent implements OnInit {
 
     perpeople: IPerPerson[];
 
-    // defitems: IDefItem[];
-    izinItemList: IDefItem[];
+    defitems: IDefItem[];
 
-    fiscalperiods: IFiscalPeriod[];
+    perperiodstates: IPerPeriodState[];
     startDateDp: any;
     finishDateDp: any;
 
@@ -38,9 +35,8 @@ export class PerExcuseUpdateComponent implements OnInit {
         private perExcuseService: PerExcuseService,
         private perPersonService: PerPersonService,
         private defItemService: DefItemService,
-        private fiscalPeriodService: FiscalPeriodService,
-        private activatedRoute: ActivatedRoute,
-        private commonService: CommonService
+        private perPeriodStateService: PerPeriodStateService,
+        private activatedRoute: ActivatedRoute
     ) {}
 
     ngOnInit() {
@@ -54,24 +50,15 @@ export class PerExcuseUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        */
-        this.fiscalPeriodService.query().subscribe(
-            (res: HttpResponse<IFiscalPeriod[]>) => {
-                this.fiscalperiods = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-
-        this.commonService.findAllByTypeId(EnmType.IZIN).subscribe(
-            (res: HttpResponse<IDefItem[]>) => {
-                this.izinItemList = res.body;
+        this.perPeriodStateService.query().subscribe(
+            (res: HttpResponse<IPerPeriodState[]>) => {
+                this.perperiodstates = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -115,7 +102,7 @@ export class PerExcuseUpdateComponent implements OnInit {
         return item.id;
     }
 
-    trackFiscalPeriodById(index: number, item: IFiscalPeriod) {
+    trackPerPeriodStateById(index: number, item: IPerPeriodState) {
         return item.id;
     }
 }

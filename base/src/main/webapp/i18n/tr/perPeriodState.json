@@ -1,0 +1,25 @@
+
+{
+    "baseApp": {
+        "perPeriodState" : {
+            "home": {
+                "title": "Per Period States",
+                "createLabel": "Create a new Per Period State",
+                "createOrEditLabel": "Create or edit a Per Period State",
+                "search": "Search for Per Period State"
+            },
+            "created": "A new Per Period State is created with identifier {{ param }}",
+            "updated": "A Per Period State is updated with identifier {{ param }}",
+            "deleted": "A Per Period State is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Per Period State {{ id }}?"
+            },
+            "detail": {
+                "title": "Per Period State"
+            },
+            "periodState": "Period State",
+            "fiscalPeriod": "Fiscal Period",
+            "person": "Person"
+        }
+    }
+}

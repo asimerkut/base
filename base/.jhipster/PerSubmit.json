@@ -58,8 +58,8 @@
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "fiscalPeriod",
-            "otherEntityName": "fiscalPeriod",
+            "relationshipName": "periodState",
+            "otherEntityName": "perPeriodState",
             "otherEntityField": "code"
         }
     ],

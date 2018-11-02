@@ -13,7 +13,9 @@ import { BasePerPlanModule } from './per-plan/per-plan.module';
 import { BasePerExcuseModule } from './per-excuse/per-excuse.module';
 import { BasePerSubmitModule } from './per-submit/per-submit.module';
 import { BasePerDailyModule } from './per-daily/per-daily.module';
+import { BasePerPeriodStateModule } from './per-period-state/per-period-state.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
+import { BasePerSchedulerModule } from './per-scheduler/per-scheduler.module';
 
 @NgModule({
     // prettier-ignore
@@ -31,7 +33,9 @@ import { BasePerDailyModule } from './per-daily/per-daily.module';
         BasePerExcuseModule,
         BasePerSubmitModule,
         BasePerDailyModule,
+        BasePerPeriodStateModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
+        BasePerSchedulerModule
     ],
     declarations: [],
     entryComponents: [],

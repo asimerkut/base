@@ -1,0 +1,36 @@
+{
+    "name": "PerPeriodState",
+    "fields": [
+        {
+            "fieldName": "periodState",
+            "fieldType": "EnmPeriodState",
+            "fieldValues": "P10,P20,P30,P40",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fiscalPeriod",
+            "otherEntityName": "fiscalPeriod",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "person",
+            "otherEntityName": "perPerson",
+            "otherEntityField": "code"
+        }
+    ],
+    "changelogDate": "20181102192101",
+    "entityTableName": "per_period_state",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

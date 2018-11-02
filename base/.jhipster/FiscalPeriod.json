@@ -9,6 +9,20 @@
             ]
         },
         {
+            "fieldName": "month",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "week",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
             "fieldName": "dateStart",
             "fieldType": "LocalDate",
             "fieldValidateRules": [
@@ -23,8 +37,8 @@
             ]
         },
         {
-            "fieldName": "state",
-            "fieldType": "Integer",
+            "fieldName": "entry",
+            "fieldType": "Boolean",
             "fieldValidateRules": [
                 "required"
             ]
@@ -33,14 +47,14 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "person",
-            "otherEntityName": "perPerson",
+            "relationshipName": "fiscalYear",
+            "otherEntityName": "fiscalYear",
             "otherEntityField": "code"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "fiscalYear",
-            "otherEntityName": "fiscalYear",
+            "relationshipName": "donem",
+            "otherEntityName": "defItem",
             "otherEntityField": "code"
         }
     ],

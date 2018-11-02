@@ -66,7 +66,7 @@ public class PerExcuse implements IEntity {
 
     @ManyToOne
     @JsonIgnoreProperties("")
-    private FiscalPeriod fiscalPeriod;
+    private PerPeriodState periodState;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -168,17 +168,17 @@ public class PerExcuse implements IEntity {
         this.izin = defItem;
     }
 
-    public FiscalPeriod getFiscalPeriod() {
-        return fiscalPeriod;
+    public PerPeriodState getPeriodState() {
+        return periodState;
     }
 
-    public PerExcuse fiscalPeriod(FiscalPeriod fiscalPeriod) {
-        this.fiscalPeriod = fiscalPeriod;
+    public PerExcuse periodState(PerPeriodState perPeriodState) {
+        this.periodState = perPeriodState;
         return this;
     }
 
-    public void setFiscalPeriod(FiscalPeriod fiscalPeriod) {
-        this.fiscalPeriod = fiscalPeriod;
+    public void setPeriodState(PerPeriodState perPeriodState) {
+        this.periodState = perPeriodState;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

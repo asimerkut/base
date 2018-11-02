@@ -21,6 +21,32 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.fiscalPeriod.month" for="field_month">Month</label>
+                    <input type="text" class="form-control" name="month" id="field_month"
+                        [(ngModel)]="fiscalPeriod.month" required/>
+                    <div [hidden]="!(editForm.controls.month?.dirty && editForm.controls.month?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.month?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.fiscalPeriod.week" for="field_week">Week</label>
+                    <input type="number" class="form-control" name="week" id="field_week"
+                        [(ngModel)]="fiscalPeriod.week" required/>
+                    <div [hidden]="!(editForm.controls.week?.dirty && editForm.controls.week?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.week?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.week?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.fiscalPeriod.dateStart" for="field_dateStart">Date Start</label>
                     <div class="input-group">
                         <input id="field_dateStart" type="text" class="form-control" name="dateStart" ngbDatepicker  #dateStartDp="ngbDatepicker" [(ngModel)]="fiscalPeriod.dateStart"
@@ -53,33 +79,29 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.fiscalPeriod.state" for="field_state">State</label>
-                    <input type="number" class="form-control" name="state" id="field_state"
-                        [(ngModel)]="fiscalPeriod.state" required/>
-                    <div [hidden]="!(editForm.controls.state?.dirty && editForm.controls.state?.invalid)">
+                    <label class="form-control-label" jhiTranslate="baseApp.fiscalPeriod.entry" for="field_entry">Entry</label>
+                    <input type="checkbox" class="form-control" name="entry" id="field_entry"
+                        [(ngModel)]="fiscalPeriod.entry" />
+                    <div [hidden]="!(editForm.controls.entry?.dirty && editForm.controls.entry?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.state?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.entry?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.state?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
                         </small>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.fiscalPeriod.person" for="field_person">Person</label>
-                    <select class="form-control" id="field_person" name="person" [(ngModel)]="fiscalPeriod.person" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="perPersonOption.id === fiscalPeriod.person?.id ? fiscalPeriod.person : perPersonOption" *ngFor="let perPersonOption of perpeople; trackBy: trackPerPersonById">{{perPersonOption.code}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.fiscalPeriod.fiscalYear" for="field_fiscalYear">Fiscal Year</label>
                     <select class="form-control" id="field_fiscalYear" name="fiscalYear" [(ngModel)]="fiscalPeriod.fiscalYear" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="fiscalYearOption.id === fiscalPeriod.fiscalYear?.id ? fiscalPeriod.fiscalYear : fiscalYearOption" *ngFor="let fiscalYearOption of fiscalyears; trackBy: trackFiscalYearById">{{fiscalYearOption.code}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.fiscalPeriod.donem" for="field_donem">Donem</label>
+                    <select class="form-control" id="field_donem" name="donem" [(ngModel)]="fiscalPeriod.donem" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="defItemOption.id === fiscalPeriod.donem?.id ? fiscalPeriod.donem : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
             </div>

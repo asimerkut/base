@@ -108,7 +108,7 @@
                     <label class="form-control-label" jhiTranslate="baseApp.perExcuse.izin" for="field_izin">Izin</label>
                     <select class="form-control" id="field_izin" name="izin" [(ngModel)]="perExcuse.izin"  required>
                         <option *ngIf="!editForm.value.izin" [ngValue]="null" selected></option>
-                        <option [ngValue]="defItemOption.id === perExcuse.izin?.id ? perExcuse.izin : defItemOption" *ngFor="let defItemOption of izinItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
+                        <option [ngValue]="defItemOption.id === perExcuse.izin?.id ? perExcuse.izin : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
                     </select>
                 </div>
                 <div [hidden]="!(editForm.controls.izin?.dirty && editForm.controls.izin?.invalid)">
@@ -118,10 +118,10 @@
                     </small>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perExcuse.fiscalPeriod" for="field_fiscalPeriod">Fiscal Period</label>
-                    <select class="form-control" id="field_fiscalPeriod" name="fiscalPeriod" [(ngModel)]="perExcuse.fiscalPeriod" >
+                    <label class="form-control-label" jhiTranslate="baseApp.perExcuse.periodState" for="field_periodState">Period State</label>
+                    <select class="form-control" id="field_periodState" name="periodState" [(ngModel)]="perExcuse.periodState" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="fiscalPeriodOption.id === perExcuse.fiscalPeriod?.id ? perExcuse.fiscalPeriod : fiscalPeriodOption" *ngFor="let fiscalPeriodOption of fiscalperiods; trackBy: trackFiscalPeriodById">{{fiscalPeriodOption.code}}</option>
+                        <option [ngValue]="perPeriodStateOption.id === perExcuse.periodState?.id ? perExcuse.periodState : perPeriodStateOption" *ngFor="let perPeriodStateOption of perperiodstates; trackBy: trackPerPeriodStateById">{{perPeriodStateOption.code}}</option>
                     </select>
                 </div>
             </div>

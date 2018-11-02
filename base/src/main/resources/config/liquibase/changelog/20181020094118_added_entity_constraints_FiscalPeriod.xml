@@ -8,17 +8,17 @@
     -->
     <changeSet id="20181020094118-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="person_id"
-                                 baseTableName="fiscal_period"
-                                 constraintName="fk_fiscal_period_person_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="per_person"/>
-
         <addForeignKeyConstraint baseColumnNames="fiscal_year_id"
                                  baseTableName="fiscal_period"
                                  constraintName="fk_fiscal_period_fiscal_year_id"
                                  referencedColumnNames="id"
                                  referencedTableName="fiscal_year"/>
+
+        <addForeignKeyConstraint baseColumnNames="donem_id"
+                                 baseTableName="fiscal_period"
+                                 constraintName="fk_fiscal_period_donem_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="def_item"/>
 
     </changeSet>
 </databaseChangeLog>
