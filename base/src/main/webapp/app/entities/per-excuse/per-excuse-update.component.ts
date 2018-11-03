@@ -29,7 +29,6 @@ export class PerExcuseUpdateComponent implements OnInit {
     defitems: IDefItem[];
     izinItemList: IDefItem[];
 
-
     perperiodstates: IPerPeriodState[];
     startDateDp: any;
     finishDateDp: any;

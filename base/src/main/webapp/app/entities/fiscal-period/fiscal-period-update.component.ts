@@ -24,7 +24,7 @@ export class FiscalPeriodUpdateComponent implements OnInit {
 
     fiscalyears: IFiscalYear[];
 
-    //defitems: IDefItem[];
+    //  defitems: IDefItem[];
 
     donemItemList: IDefItem[];
 
