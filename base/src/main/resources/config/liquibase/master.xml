@@ -40,6 +40,8 @@
     <include file="config/liquibase/custom/99999999999999_LoadData_02.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/custom/99999999999999_LoadData_03.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/custom/99999999999999_LoadData_04.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/99999999999999_LoadData_05.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/99999999999999_LoadData_06.xml" relativeToChangelogFile="false"/>
 
 
 </databaseChangeLog>

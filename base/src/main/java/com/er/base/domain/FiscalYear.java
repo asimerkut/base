@@ -34,11 +34,11 @@ public class FiscalYear implements IEntity {
     private String code;
 
     @NotNull
-    @Column(name = "date_start", nullable = false)
+    @Column(name = "date_start")
     private LocalDate dateStart;
 
     @NotNull
-    @Column(name = "date_finish", nullable = false)
+    @Column(name = "date_finish")
     private LocalDate dateFinish;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
