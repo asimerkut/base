@@ -1,6 +1,6 @@
 import { Moment } from 'moment';
-import { IFiscalYear } from 'app/shared/model//fiscal-year.model';
-import { IDefItem } from 'app/shared/model//def-item.model';
+import { IFiscalYear } from 'app/shared/model/fiscal-year.model';
+import { IDefItem } from 'app/shared/model/def-item.model';
 
 export interface IFiscalPeriod {
     id?: number;

@@ -32,7 +32,7 @@ export class CommonService {
     getTreeData(currentSearch: string): Observable<any> {
         const query = { query: currentSearch };
         const options = createRequestOption(query);
-        //const ret = this.http.get(this.resourceTreeSearchUrl, { params: options, observe: 'response' }).map(res => res.body as any[]);
+        //  const ret = this.http.get(this.resourceTreeSearchUrl, { params: options, observe: 'response' }).map(res => res.body as any[]);
         const ret = this.http.get(this.resourceTreeSearchUrl, { params: options, observe: 'response' }).map(res => <TreeNode[]>res.body);
         return ret;
     }

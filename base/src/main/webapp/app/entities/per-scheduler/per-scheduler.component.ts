@@ -16,8 +16,8 @@ import { IPerSubmit, PerSubmit } from 'app/shared/model/per-submit.model';
 
 import { Observable } from 'rxjs/Observable';
 import { SubmitEvent } from '../common/submit-event';
-import { EventService } from './service/event.service'
-//import { FullCalendar } from 'primeng/components/fullcalendar/fullcalendar';
+import { EventService } from './service/event.service';
+// import { FullCalendar } from 'primeng/components/fullcalendar/fullcalendar';
 import { Schedule } from 'primeng/components/schedule/schedule';
 
 @Component({
@@ -26,7 +26,7 @@ import { Schedule } from 'primeng/components/schedule/schedule';
 })
 export class PerSchedulerComponent implements OnInit, OnDestroy {
 
-  //  @ViewChild('fc') fc: FullCalendar;
+    // @ViewChild('fc') fc: FullCalendar;
     msgs: Message[] = [];
     event: SubmitEvent;
     perSubmit: IPerSubmit;
@@ -109,30 +109,34 @@ export class PerSchedulerComponent implements OnInit, OnDestroy {
     */
 
         this.options = {
-            //defaultDate: '2017-02-01',
+            // defaultDate: '2017-02-01',
             header: {
                 left: 'prev,next',
                 center: 'title',
                 right: 'agendaWeek'
             },
             editable: true,
-            dateClick: (e) =>  {
-                console.log('dateClick:'+e);
+            /*
+            dateClick(e) => {
+                console.log('dateClick:' + e);
             },
-            eventClick: (info) =>  {
-                alert('Event: ' + info.event.title);
-                alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-                alert('View: ' + info.view.type);
+            eventClick(e) =>  {
+                console.log('eventClick:' + e);
+
+                // alert('Event: ' + info.event.title);
+                // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+                // alert('View: ' + info.view.type);
 
                 // change the border color just for fun
-                info.el.style.borderColor = 'red';
+                // info.el.style.borderColor = 'red';
             },
             nextClick: (e) =>  {
-                console.log('next:'+e);
+                console.log('next:' + e);
             },
             prevClick: (e) =>  {
-                console.log('prev:'+e);
+                console.log('prev:' + e);
             }
+            */
         };
 
         this.loadAll();
@@ -202,8 +206,8 @@ export class PerSchedulerComponent implements OnInit, OnDestroy {
     }
 
     refresh() {
-        //const viewStart = this.commonService.formatDate(this.fc.getCalendar().view.activeStart); //this.lastViewStart;
-        //const viewEnd = this.commonService.formatDate(this.fc.getCalendar().view.activeEnd); //this.lastViewEnd;
+        // const viewStart = this.commonService.formatDate(this.fc.getCalendar().view.activeStart); //this.lastViewStart;
+        // const viewEnd = this.commonService.formatDate(this.fc.getCalendar().view.activeEnd); //this.lastViewEnd;
         const viewStart = this.lastViewStart;
         const viewEnd = this.lastViewEnd;
 

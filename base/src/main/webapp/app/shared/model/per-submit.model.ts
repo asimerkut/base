@@ -1,8 +1,8 @@
 import { Moment } from 'moment';
-import { IPerPerson } from 'app/shared/model//per-person.model';
-import { IDefItem } from 'app/shared/model//def-item.model';
-import { IPerExcuse } from 'app/shared/model//per-excuse.model';
-import { IPerPeriodState } from 'app/shared/model//per-period-state.model';
+import { IPerPerson } from 'app/shared/model/per-person.model';
+import { IDefItem } from 'app/shared/model/def-item.model';
+import { IPerExcuse } from 'app/shared/model/per-excuse.model';
+import { IPerPeriodState } from 'app/shared/model/per-period-state.model';
 
 export const enum EnmDersGrup {
     D_GS = 'D_GS',

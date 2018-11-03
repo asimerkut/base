@@ -19,7 +19,6 @@ import { DefTypeService } from '../def-type';
 
 import { CommonService } from 'app/entities/common';
 
-
 @Component({
     selector: 'jhi-def-item',
     templateUrl: './def-item.component.html'
@@ -27,7 +26,7 @@ import { CommonService } from 'app/entities/common';
 export class DefItemComponent implements OnInit, OnDestroy {
     // basicTreeTable: TreeNode[];
 
-    //files: TreeNode[];
+    // files: TreeNode[];
 
     msgs: Message[] = [];
     singleSelectionTreeTable: TreeNode[];
@@ -66,8 +65,7 @@ export class DefItemComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
-        //this.commonService.getFilesystem().then(files => this.files = files);
-
+        // this.commonService.getFilesystem().then(files => this.files = files);
 
         this.comboSelModel.comboSel = this.sessionStorage.retrieve('selectedComboType');
         console.log(this.comboSelModel.comboSel);
@@ -93,7 +91,7 @@ export class DefItemComponent implements OnInit, OnDestroy {
             { field: 'code', header: 'Kod' },
             { field: 'name', header: 'Ad' },
             { field: 'id', header: 'id' }
-            //{ field: 'parentId', header: '*' }
+            // { field: 'parentId', header: '*' }
         ];
 
         // this.nodeService.getTouristPlaces().subscribe((places: any) => (this.basicTreeTable = places.data));

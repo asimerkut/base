@@ -17,7 +17,7 @@ import { BaseAppRoutingModule } from './app-routing.module';
 import { BaseHomeModule } from './home/home.module';
 import { BaseAccountModule } from './account/account.module';
 import { BaseEntityModule } from './entities/entity.module';
-import { PerprimengModule } from './primeng/primeng.module';
+// import { PerprimengModule } from './primeng/primeng.module';
 
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
@@ -32,7 +32,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         BaseCoreModule,
         BaseHomeModule,
         BaseAccountModule,
-        PerprimengModule,
+        // PerprimengModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         BaseEntityModule
     ],
