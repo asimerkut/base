@@ -1,0 +1,11 @@
+{
+    "baseApp": {
+        "EnmDayOff" : {
+            "null": "",
+            "ALL": "ALL",
+            "OO": "OO",
+            "OS": "OS",
+            "GC": "GC"
+        }
+    }
+}

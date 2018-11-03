@@ -1,0 +1,27 @@
+
+{
+    "baseApp": {
+        "fiscalDayoff" : {
+            "home": {
+                "title": "Fiscal Dayoffs",
+                "createLabel": "Create a new Fiscal Dayoff",
+                "createOrEditLabel": "Create or edit a Fiscal Dayoff",
+                "search": "Search for Fiscal Dayoff"
+            },
+            "created": "A new Fiscal Dayoff is created with identifier {{ param }}",
+            "updated": "A Fiscal Dayoff is updated with identifier {{ param }}",
+            "deleted": "A Fiscal Dayoff is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Fiscal Dayoff {{ id }}?"
+            },
+            "detail": {
+                "title": "Fiscal Dayoff"
+            },
+            "code": "Code",
+            "dateStart": "Date Start",
+            "dayoffType": "Dayoff Type",
+            "fiscalYear": "Fiscal Year",
+            "tatil": "Tatil"
+        }
+    }
+}

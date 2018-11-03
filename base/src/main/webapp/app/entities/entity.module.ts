@@ -14,6 +14,7 @@ import { BasePerExcuseModule } from './per-excuse/per-excuse.module';
 import { BasePerSubmitModule } from './per-submit/per-submit.module';
 import { BasePerDailyModule } from './per-daily/per-daily.module';
 import { BasePerPeriodStateModule } from './per-period-state/per-period-state.module';
+import { BaseFiscalDayoffModule } from './fiscal-dayoff/fiscal-dayoff.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 import { BasePerSchedulerModule } from './per-scheduler/per-scheduler.module';
 
@@ -34,6 +35,7 @@ import { BasePerSchedulerModule } from './per-scheduler/per-scheduler.module';
         BasePerSubmitModule,
         BasePerDailyModule,
         BasePerPeriodStateModule,
+        BaseFiscalDayoffModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
         BasePerSchedulerModule
     ],

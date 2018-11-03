@@ -55,6 +55,7 @@ public class CacheConfiguration {
             cm.createCache(com.er.base.domain.PerSubmit.class.getName(), jcacheConfiguration);
             cm.createCache(com.er.base.domain.PerDaily.class.getName(), jcacheConfiguration);
             cm.createCache(com.er.base.domain.PerPeriodState.class.getName(), jcacheConfiguration);
+            cm.createCache(com.er.base.domain.FiscalDayoff.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -569,6 +569,12 @@
                             <span jhiTranslate="global.menu.entities.perPeriodState">Per Period State</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="fiscal-dayoff" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.fiscalDayoff">Fiscal Dayoff</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     <li>
                         <a class="dropdown-item" routerLink="per-scheduler" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">

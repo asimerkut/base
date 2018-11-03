@@ -1,0 +1,50 @@
+{
+    "name": "FiscalDayoff",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateStart",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dayoffType",
+            "fieldType": "EnmDayOff",
+            "fieldValues": "ALL,OO,OS,GC",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fiscalYear",
+            "otherEntityName": "fiscalYear",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "tatil",
+            "otherEntityName": "defItem",
+            "otherEntityField": "code"
+        }
+    ],
+    "changelogDate": "20181103000000",
+    "entityTableName": "fiscal_dayoff",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

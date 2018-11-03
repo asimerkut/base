@@ -107,6 +107,7 @@
                 "perSubmit": "Per Submit",
                 "perDaily": "Per Daily",
                 "perPeriodState": "Per Period State",
+                "fiscalDayoff": "Fiscal Dayoff",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

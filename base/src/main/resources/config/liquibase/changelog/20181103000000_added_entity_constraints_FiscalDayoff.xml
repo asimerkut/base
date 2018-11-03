@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity FiscalDayoff.
+    -->
+    <changeSet id="20181103000000-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="fiscal_year_id"
+                                 baseTableName="fiscal_dayoff"
+                                 constraintName="fk_fiscal_dayoff_fiscal_year_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiscal_year"/>
+
+        <addForeignKeyConstraint baseColumnNames="tatil_id"
+                                 baseTableName="fiscal_dayoff"
+                                 constraintName="fk_fiscal_dayoff_tatil_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="def_item"/>
+
+    </changeSet>
+</databaseChangeLog>

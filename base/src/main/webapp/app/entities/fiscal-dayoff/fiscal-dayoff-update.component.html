@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-fiscal-dayoff-heading" jhiTranslate="baseApp.fiscalDayoff.home.createOrEditLabel">Create or edit a Fiscal Dayoff</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!fiscalDayoff.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="fiscalDayoff.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.fiscalDayoff.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                        [(ngModel)]="fiscalDayoff.code" required/>
+                    <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.fiscalDayoff.dateStart" for="field_dateStart">Date Start</label>
+                    <div class="input-group">
+                        <input id="field_dateStart" type="text" class="form-control" name="dateStart" ngbDatepicker  #dateStartDp="ngbDatepicker" [(ngModel)]="fiscalDayoff.dateStart"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateStartDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dateStart?.dirty && editForm.controls.dateStart?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dateStart?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.fiscalDayoff.dayoffType" for="field_dayoffType">Dayoff Type</label>
+                    <select class="form-control" name="dayoffType" [(ngModel)]="fiscalDayoff.dayoffType" id="field_dayoffType"  required>
+                        <option value="ALL">{{'baseApp.EnmDayOff.ALL' | translate}}</option>
+                        <option value="OO">{{'baseApp.EnmDayOff.OO' | translate}}</option>
+                        <option value="OS">{{'baseApp.EnmDayOff.OS' | translate}}</option>
+                        <option value="GC">{{'baseApp.EnmDayOff.GC' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.dayoffType?.dirty && editForm.controls.dayoffType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dayoffType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.fiscalDayoff.fiscalYear" for="field_fiscalYear">Fiscal Year</label>
+                    <select class="form-control" id="field_fiscalYear" name="fiscalYear" [(ngModel)]="fiscalDayoff.fiscalYear" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="fiscalYearOption.id === fiscalDayoff.fiscalYear?.id ? fiscalDayoff.fiscalYear : fiscalYearOption" *ngFor="let fiscalYearOption of fiscalyears; trackBy: trackFiscalYearById">{{fiscalYearOption.code}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.fiscalDayoff.tatil" for="field_tatil">Tatil</label>
+                    <select class="form-control" id="field_tatil" name="tatil" [(ngModel)]="fiscalDayoff.tatil" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="defItemOption.id === fiscalDayoff.tatil?.id ? fiscalDayoff.tatil : defItemOption" *ngFor="let defItemOption of tatilItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
