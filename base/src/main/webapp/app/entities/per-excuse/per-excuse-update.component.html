@@ -108,7 +108,7 @@
                     <label class="form-control-label" jhiTranslate="baseApp.perExcuse.izin" for="field_izin">Izin</label>
                     <select class="form-control" id="field_izin" name="izin" [(ngModel)]="perExcuse.izin"  required>
                         <option *ngIf="!editForm.value.izin" [ngValue]="null" selected></option>
-                        <option [ngValue]="defItemOption.id === perExcuse.izin?.id ? perExcuse.izin : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perExcuse.izin?.id ? perExcuse.izin : defItemOption" *ngFor="let defItemOption of izinItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
                     </select>
                 </div>
                 <div [hidden]="!(editForm.controls.izin?.dirty && editForm.controls.izin?.invalid)">

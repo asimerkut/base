@@ -118,4 +118,9 @@ public class PerPeriodState implements Serializable {
             ", periodState='" + getPeriodState() + "'" +
             "}";
     }
+
+    public  String getCode(){
+        return id.toString();
+    }
+
 }

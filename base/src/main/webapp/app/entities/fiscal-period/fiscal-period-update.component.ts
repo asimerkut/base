@@ -11,6 +11,8 @@ import { IFiscalYear } from 'app/shared/model/fiscal-year.model';
 import { FiscalYearService } from 'app/entities/fiscal-year';
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from 'app/entities/def-item';
+import { CommonService } from 'app/entities/common';
+import { EnmType } from 'app/shared/model/def-type.model';
 
 @Component({
     selector: 'jhi-fiscal-period-update',
@@ -22,7 +24,10 @@ export class FiscalPeriodUpdateComponent implements OnInit {
 
     fiscalyears: IFiscalYear[];
 
-    defitems: IDefItem[];
+    //defitems: IDefItem[];
+
+    donemItemList: IDefItem[];
+
     dateStartDp: any;
     dateFinishDp: any;
 
@@ -31,7 +36,8 @@ export class FiscalPeriodUpdateComponent implements OnInit {
         private fiscalPeriodService: FiscalPeriodService,
         private fiscalYearService: FiscalYearService,
         private defItemService: DefItemService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private commonService: CommonService
     ) {}
 
     ngOnInit() {
@@ -45,9 +51,18 @@ export class FiscalPeriodUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        */
+
+        this.commonService.findAllByTypeId(EnmType.DONEM).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.donemItemList = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

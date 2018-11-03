@@ -101,7 +101,7 @@
                     <label class="form-control-label" jhiTranslate="baseApp.fiscalPeriod.donem" for="field_donem">Donem</label>
                     <select class="form-control" id="field_donem" name="donem" [(ngModel)]="fiscalPeriod.donem" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === fiscalPeriod.donem?.id ? fiscalPeriod.donem : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === fiscalPeriod.donem?.id ? fiscalPeriod.donem : defItemOption" *ngFor="let defItemOption of donemItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
                     </select>
                 </div>
             </div>
