@@ -8,9 +8,9 @@
                 "createOrEditLabel": "Create or edit a Def Relation",
                 "search": "Search for Def Relation"
             },
-            "created": "A new Def Relation is created with identifier {{ param }}",
-            "updated": "A Def Relation is updated with identifier {{ param }}",
-            "deleted": "A Def Relation is deleted with identifier {{ param }}",
+            "created": "Oluşturuldu {{ param }}",
+            "updated": "Değiştirildi {{ param }}",
+            "deleted": "Silindi {{ param }}",
             "delete": {
                 "question": "Silmek istiyor musunuz {{ id }}?"
             },

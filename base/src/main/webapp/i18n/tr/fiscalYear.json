@@ -8,11 +8,11 @@
                 "createOrEditLabel": "Ekle/Değiştir",
                 "search": "Ara"
             },
-            "created": "A new Fiscal Year is created with identifier {{ param }}",
-            "updated": "A Fiscal Year is updated with identifier {{ param }}",
-            "deleted": "A Fiscal Year is deleted with identifier {{ param }}",
+            "created": "Oluşturuldu {{ param }}",
+            "updated": "Değiştirildi {{ param }}",
+            "deleted": "Silindi {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Fiscal Year {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
                 "title": "EÖ. Yılı"

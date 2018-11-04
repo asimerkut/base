@@ -8,9 +8,9 @@
                 "createOrEditLabel": "Create or edit a Per Plan",
                 "search": "?"
             },
-            "created": "A new Per Plan is created with identifier {{ param }}",
-            "updated": "A Per Plan is updated with identifier {{ param }}",
-            "deleted": "A Per Plan is deleted with identifier {{ param }}",
+            "created": "Oluşturuldu {{ param }}",
+            "updated": "Değiştirildi {{ param }}",
+            "deleted": "Silindi {{ param }}",
             "delete": {
                 "question": "Silmek istiyor musunuz {{ id }}?"
             },

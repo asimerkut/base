@@ -8,11 +8,11 @@
                 "createOrEditLabel": "Ekle/Değiştir",
                 "search": "Ara"
             },
-            "created": "A new Per Period State is created with identifier {{ param }}",
-            "updated": "A Per Period State is updated with identifier {{ param }}",
-            "deleted": "A Per Period State is deleted with identifier {{ param }}",
+            "created": "Oluşturuldu {{ param }}",
+            "updated": "Değiştirildi {{ param }}",
+            "deleted": "Silindi {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Per Period State {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
                 "title": "Kişisel Dönem"

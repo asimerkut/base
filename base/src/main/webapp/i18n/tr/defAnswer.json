@@ -8,9 +8,9 @@
                 "createOrEditLabel": "Ekle/Değiştir",
                 "search": "Ara"
             },
-            "created": "A new Def Answer is created with identifier {{ param }}",
-            "updated": "A Def Answer is updated with identifier {{ param }}",
-            "deleted": "A Def Answer is deleted with identifier {{ param }}",
+            "created": "Oluşturuldu {{ param }}",
+            "updated": "Değiştirildi {{ param }}",
+            "deleted": "Silindi {{ param }}",
             "delete": {
                 "question": "Silmek istiyor musunuz {{ id }}?"
             },

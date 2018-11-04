@@ -8,9 +8,9 @@
                 "createOrEditLabel": "Create or edit a Per Daily",
                 "search": "?"
             },
-            "created": "A new Per Daily is created with identifier {{ param }}",
-            "updated": "A Per Daily is updated with identifier {{ param }}",
-            "deleted": "A Per Daily is deleted with identifier {{ param }}",
+            "created": "Oluşturuldu {{ param }}",
+            "updated": "Değiştirildi {{ param }}",
+            "deleted": "Silindi {{ param }}",
             "delete": {
                 "question": "Silmek istiyor musunuz {{ id }}?"
             },

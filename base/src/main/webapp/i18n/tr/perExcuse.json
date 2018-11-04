@@ -8,11 +8,11 @@
                 "createOrEditLabel": "Ekle/Değiştir",
                 "search": "Ara"
             },
-            "created": "A new Per Excuse is created with identifier {{ param }}",
-            "updated": "A Per Excuse is updated with identifier {{ param }}",
-            "deleted": "A Per Excuse is deleted with identifier {{ param }}",
+            "created": "Oluşturuldu {{ param }}",
+            "updated": "Değiştirildi {{ param }}",
+            "deleted": "Silindi {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Per Excuse {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
                 "title": "Devamsızlık"
