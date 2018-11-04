@@ -1,7 +1,7 @@
 {
     "home": {
-        "title": "Ek Ders",
-        "subtitle": "Personel Ek Ders Takip",
+        "title": "EKS",
+        "subtitle": "Ek Ders Kontrol Sistemi",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
