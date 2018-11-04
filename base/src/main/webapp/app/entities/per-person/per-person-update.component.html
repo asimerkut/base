@@ -9,6 +9,12 @@
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="perPerson.id" readonly />
                 </div>
+                <div class="form-group" [hidden]="!perPerson.user">
+                    <label for="user" jhiTranslate="baseApp.perPerson.user">ID</label>
+                    <input type="text" class="form-control" id="user" name="user"
+                           [(ngModel)]="perPerson.user.login" readonly />
+                </div>
+                <!--
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.code" for="field_code">Code</label>
                     <input type="text" class="form-control" name="code" id="field_code"
@@ -24,6 +30,7 @@
                         </small>
                     </div>
                 </div>
+                -->
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.name" for="field_name">Name</label>
                     <input type="text" class="form-control" name="name" id="field_name"
@@ -76,36 +83,10 @@
                         [(ngModel)]="perPerson.phone" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.cins" for="field_cins">Cins</label>
-                    <select class="form-control" name="cins" [(ngModel)]="perPerson.cins" id="field_cins" required>
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="opt.id === perPerson.cins ? perPerson.cins : opt"
-                                *ngFor="let opt of enmCinsList; trackBy: trackEnumById">{{opt.label}}
-                        </option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.medeni" for="field_medeni">Medeni</label>
-                    <select class="form-control" name="medeni" [(ngModel)]="perPerson.medeni" id="field_medeni" required>
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="opt.id === perPerson.medeni ? perPerson.medeni : opt"
-                                *ngFor="let opt of enmMedeniList; trackBy: trackEnumById">{{opt.label}}
-                        </option>
-                    </select>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.okul" for="field_okul">Okul</label>
-                    <select class="form-control" id="field_okul" name="okul" [(ngModel)]="perPerson.okul" >
+                    <select class="form-control" id="field_okul" name="okul" [(ngModel)]="perPerson.okul" required>
                         <option [ngValue]="null"></option>
                         <option [ngValue]="perCompanyOption.id === perPerson.okul?.id ? perPerson.okul : perCompanyOption" *ngFor="let perCompanyOption of percompanies; trackBy: trackPerCompanyById">{{perCompanyOption.code}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.hizmt" for="field_hizmt">Hizmt</label>
-                    <select class="form-control" id="field_hizmt" name="hizmt" [(ngModel)]="perPerson.hizmt" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.hizmt?.id ? perPerson.hizmt : defItemOption" *ngFor="let defItemOption of hizmtItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -143,6 +124,7 @@
                         <option [ngValue]="defItemOption.id === perPerson.konum?.id ? perPerson.konum : defItemOption" *ngFor="let defItemOption of konumItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
                     </select>
                 </div>
+                <!--
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.user" for="field_user">User</label>
                     <select class="form-control" id="field_user" name="user" [(ngModel)]="perPerson.user" >
@@ -150,6 +132,7 @@
                         <option [ngValue]="userOption.id === perPerson.user?.id ? perPerson.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
                     </select>
                 </div>
+                -->
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

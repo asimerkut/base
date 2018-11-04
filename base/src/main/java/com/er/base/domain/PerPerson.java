@@ -69,6 +69,7 @@ public class PerPerson implements IEntity {
     @Column(name = "medeni")
     private EnmMedeni medeni;
 
+    @NotNull
     @ManyToOne
     @JsonIgnoreProperties("")
     private PerCompany okul;

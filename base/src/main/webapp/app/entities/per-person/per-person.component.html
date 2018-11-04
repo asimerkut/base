@@ -32,44 +32,33 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="baseApp.perPerson.code">Code</span></th>
+            <th><span jhiTranslate="baseApp.perPerson.user">User</span></th>
             <th><span jhiTranslate="baseApp.perPerson.name">Name</span></th>
             <th><span jhiTranslate="baseApp.perPerson.isActive">Is Active</span></th>
             <th><span jhiTranslate="baseApp.perPerson.sozlesme">Sozlesme</span></th>
             <th><span jhiTranslate="baseApp.perPerson.email">Email</span></th>
             <th><span jhiTranslate="baseApp.perPerson.phone">Phone</span></th>
-            <th><span jhiTranslate="baseApp.perPerson.cins">Cins</span></th>
-            <th><span jhiTranslate="baseApp.perPerson.medeni">Medeni</span></th>
             <th><span jhiTranslate="baseApp.perPerson.okul">Okul</span></th>
-            <th><span jhiTranslate="baseApp.perPerson.hizmt">Hizmt</span></th>
             <th><span jhiTranslate="baseApp.perPerson.brans">Brans</span></th>
             <th><span jhiTranslate="baseApp.perPerson.unvan">Unvan</span></th>
             <th><span jhiTranslate="baseApp.perPerson.kadro">Kadro</span></th>
             <th><span jhiTranslate="baseApp.perPerson.karyr">Karyr</span></th>
             <th><span jhiTranslate="baseApp.perPerson.konum">Konum</span></th>
-            <th><span jhiTranslate="baseApp.perPerson.user">User</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let perPerson of perPeople ;trackBy: trackId">
                 <td><a [routerLink]="['/per-person', perPerson.id, 'view' ]">{{perPerson.id}}</a></td>
-                <td>{{perPerson.code}}</td>
+                <td>{{perPerson.user?.login}}</td>
                 <td>{{perPerson.name}}</td>
                 <td>{{perPerson.isActive}}</td>
                 <td jhiTranslate="{{'baseApp.EnmSozlesme.' + perPerson.sozlesme}}">{{perPerson.sozlesme}}</td>
                 <td>{{perPerson.email}}</td>
                 <td>{{perPerson.phone}}</td>
-                <td jhiTranslate="{{'baseApp.EnmCins.' + perPerson.cins}}">{{perPerson.cins}}</td>
-                <td jhiTranslate="{{'baseApp.EnmMedeni.' + perPerson.medeni}}">{{perPerson.medeni}}</td>
                 <td>
                     <div *ngIf="perPerson.okul">
                         <a [routerLink]="['../per-company', perPerson.okul?.id, 'view' ]" >{{perPerson.okul?.code}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="perPerson.hizmt">
-                        <a [routerLink]="['../def-item', perPerson.hizmt?.id, 'view' ]" >{{perPerson.hizmt?.code}}</a>
                     </div>
                 </td>
                 <td>
@@ -96,9 +85,6 @@
                     <div *ngIf="perPerson.konum">
                         <a [routerLink]="['../def-item', perPerson.konum?.id, 'view' ]" >{{perPerson.konum?.code}}</a>
                     </div>
-                </td>
-                <td>
-                    {{perPerson.user?.login}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

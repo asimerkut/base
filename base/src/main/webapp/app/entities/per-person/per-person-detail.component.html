@@ -5,9 +5,9 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="baseApp.perPerson.code">Code</span></dt>
+                <dt><span jhiTranslate="baseApp.perPerson.user">User</span></dt>
                 <dd>
-                    <span>{{perPerson.code}}</span>
+                    {{perPerson.user?.login}}
                 </dd>
                 <dt><span jhiTranslate="baseApp.perPerson.name">Name</span></dt>
                 <dd>
@@ -29,24 +29,10 @@
                 <dd>
                     <span>{{perPerson.phone}}</span>
                 </dd>
-                <dt><span jhiTranslate="baseApp.perPerson.cins">Cins</span></dt>
-                <dd>
-                    <span jhiTranslate="{{'baseApp.EnmCins.' + perPerson.cins}}">{{perPerson.cins}}</span>
-                </dd>
-                <dt><span jhiTranslate="baseApp.perPerson.medeni">Medeni</span></dt>
-                <dd>
-                    <span jhiTranslate="{{'baseApp.EnmMedeni.' + perPerson.medeni}}">{{perPerson.medeni}}</span>
-                </dd>
                 <dt><span jhiTranslate="baseApp.perPerson.okul">Okul</span></dt>
                 <dd>
                     <div *ngIf="perPerson.okul">
                         <a [routerLink]="['/per-company', perPerson.okul?.id, 'view']">{{perPerson.okul?.code}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="baseApp.perPerson.hizmt">Hizmt</span></dt>
-                <dd>
-                    <div *ngIf="perPerson.hizmt">
-                        <a [routerLink]="['/def-item', perPerson.hizmt?.id, 'view']">{{perPerson.hizmt?.code}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perPerson.brans">Brans</span></dt>
@@ -78,10 +64,6 @@
                     <div *ngIf="perPerson.konum">
                         <a [routerLink]="['/def-item', perPerson.konum?.id, 'view']">{{perPerson.konum?.code}}</a>
                     </div>
-                </dd>
-                <dt><span jhiTranslate="baseApp.perPerson.user">User</span></dt>
-                <dd>
-                    {{perPerson.user?.login}}
                 </dd>
             </dl>
 

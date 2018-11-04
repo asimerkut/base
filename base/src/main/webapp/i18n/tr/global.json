@@ -204,7 +204,8 @@
             }
         },
         "field": {
-            "id" : "ID"
+            "id" : "ID",
+            "icode" : "Kod"
         },
         "ribbon": {
             "dev":"Development"

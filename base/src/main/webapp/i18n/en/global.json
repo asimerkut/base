@@ -204,7 +204,8 @@
             }
         },
         "field": {
-            "id": "ID"
+            "id": "ID",
+            "code": "Code"
         },
         "ribbon": {
             "dev":"Development"
