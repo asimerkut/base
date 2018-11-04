@@ -2,7 +2,9 @@ package com.er.base.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.er.base.domain.PerPerson;
+import com.er.base.security.AuthoritiesConstants;
 import com.er.base.service.PerPersonService;
+import com.er.base.service.UserService;
 import com.er.base.web.rest.errors.BadRequestAlertException;
 import com.er.base.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -15,6 +17,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
@@ -33,9 +36,11 @@ public class PerPersonResource {
     private static final String ENTITY_NAME = "perPerson";
 
     private PerPersonService perPersonService;
+    private UserService userService;
 
-    public PerPersonResource(PerPersonService perPersonService) {
+    public PerPersonResource(PerPersonService perPersonService, UserService userService) {
         this.perPersonService = perPersonService;
+        this.userService = userService;
     }
 
     /**
@@ -89,7 +94,13 @@ public class PerPersonResource {
     @Timed
     public List<PerPerson> getAllPerPeople() {
         log.debug("REST request to get all PerPeople");
-        return perPersonService.findAll();
+        Boolean isAdmin = userService.hasLoginAuthoritiy(AuthoritiesConstants.ADMIN);
+        if (isAdmin){
+            return perPersonService.findAll();
+        }
+        List<PerPerson> list = new ArrayList<>();
+        list.add(perPersonService.getLoginPerson());
+        return list;
     }
 
     /**

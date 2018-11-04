@@ -255,7 +255,12 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public Page<UserDTO> getAllManagedUsers(Pageable pageable) {
-        return userRepository.findAllByLoginNot(pageable, Constants.ANONYMOUS_USER).map(UserDTO::new);
+        // return userRepository.findAllByLoginNot(pageable, Constants.ANONYMOUS_USER).map(UserDTO::new);
+        Boolean isAdmin = hasLoginAuthoritiy(AuthoritiesConstants.ADMIN);
+        if (isAdmin){
+            return userRepository.findAllUserList(pageable).map(UserDTO::new);
+        }
+        return userRepository.findAllLoginList(pageable).map(UserDTO::new);
     }
 
     @Transactional(readOnly = true)
@@ -295,6 +300,16 @@ public class UserService {
      */
     public List<String> getAuthorities() {
         return authorityRepository.findAll().stream().map(Authority::getName).collect(Collectors.toList());
+    }
+
+    public Boolean hasLoginAuthoritiy(String authoritiesConstants) {
+        Object[] authSet = getUserWithAuthorities().get().getAuthorities().toArray();
+        for (Object auth : authSet){
+            if (authoritiesConstants.equals(((Authority)auth).getName())){
+                return true;
+            }
+        }
+        return false;
     }
 
     private void clearUserCaches(User user) {

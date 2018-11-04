@@ -89,7 +89,7 @@ public class PerExcuseResource {
     @Timed
     public List<PerExcuse> getAllPerExcuses() {
         log.debug("REST request to get all PerExcuses");
-        return perExcuseService.findAll();
+        return perExcuseService.getPersonExcuse();
     }
 
     /**

@@ -6,7 +6,7 @@
                 "title": "Per Plans",
                 "createLabel": "Create a new Per Plan",
                 "createOrEditLabel": "Create or edit a Per Plan",
-                "search": "Search for Per Plan"
+                "search": "?"
             },
             "created": "A new Per Plan is created with identifier {{ param }}",
             "updated": "A Per Plan is updated with identifier {{ param }}",

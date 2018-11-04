@@ -89,7 +89,7 @@ public class PerPeriodStateResource {
     @Timed
     public List<PerPeriodState> getAllPerPeriodStates() {
         log.debug("REST request to get all PerPeriodStates");
-        return perPeriodStateService.findAll();
+        return perPeriodStateService.getPersonPeriodState();
     }
 
     /**

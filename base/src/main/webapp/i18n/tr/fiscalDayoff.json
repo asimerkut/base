@@ -3,10 +3,10 @@
     "baseApp": {
         "fiscalDayoff" : {
             "home": {
-                "title": "Fiscal Dayoffs",
-                "createLabel": "Create a new Fiscal Dayoff",
-                "createOrEditLabel": "Create or edit a Fiscal Dayoff",
-                "search": "Search for Fiscal Dayoff"
+                "title": "Tatiller",
+                "createLabel": "Yeni",
+                "createOrEditLabel": "Değiştir",
+                "search": "Ara"
             },
             "created": "A new Fiscal Dayoff is created with identifier {{ param }}",
             "updated": "A Fiscal Dayoff is updated with identifier {{ param }}",

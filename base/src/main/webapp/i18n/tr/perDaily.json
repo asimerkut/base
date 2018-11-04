@@ -6,7 +6,7 @@
                 "title": "Per Dailies",
                 "createLabel": "Create a new Per Daily",
                 "createOrEditLabel": "Create or edit a Per Daily",
-                "search": "Search for Per Daily"
+                "search": "?"
             },
             "created": "A new Per Daily is created with identifier {{ param }}",
             "updated": "A Per Daily is updated with identifier {{ param }}",

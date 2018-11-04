@@ -1,5 +1,6 @@
 package com.er.base.service;
 
+import com.er.base.domain.PerExcuse;
 import com.er.base.domain.PerPeriodState;
 
 import java.util.List;
@@ -45,8 +46,11 @@ public interface PerPeriodStateService {
      * Search for the perPeriodState corresponding to the query.
      *
      * @param query the query of the search
-     * 
+     *
      * @return the list of entities
      */
     List<PerPeriodState> search(String query);
+
+    List<PerPeriodState> getPersonPeriodState();
+
 }

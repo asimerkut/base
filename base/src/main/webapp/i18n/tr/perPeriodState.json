@@ -3,10 +3,10 @@
     "baseApp": {
         "perPeriodState" : {
             "home": {
-                "title": "Per Period States",
-                "createLabel": "Create a new Per Period State",
-                "createOrEditLabel": "Create or edit a Per Period State",
-                "search": "Search for Per Period State"
+                "title": "Dönemler",
+                "createLabel": "Yeni",
+                "createOrEditLabel": "Değiştir",
+                "search": "Ara"
             },
             "created": "A new Per Period State is created with identifier {{ param }}",
             "updated": "A Per Period State is updated with identifier {{ param }}",

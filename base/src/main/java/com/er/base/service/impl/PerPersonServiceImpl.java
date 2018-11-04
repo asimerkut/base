@@ -107,7 +107,7 @@ public class PerPersonServiceImpl implements PerPersonService {
     @Override
     @Transactional(readOnly = true)
     public PerPerson getLoginPerson(){
-        return perPersonRepository.getPerson();
+        return perPersonRepository.getLoginPerson();
     }
 
     @Override

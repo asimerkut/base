@@ -1,5 +1,6 @@
 package com.er.base.service.impl;
 
+import com.er.base.domain.PerExcuse;
 import com.er.base.service.PerPeriodStateService;
 import com.er.base.domain.PerPeriodState;
 import com.er.base.repository.PerPeriodStateRepository;
@@ -101,4 +102,11 @@ public class PerPeriodStateServiceImpl implements PerPeriodStateService {
             .stream(perPeriodStateSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<PerPeriodState> getPersonPeriodState(){
+        return perPeriodStateRepository.getPersonPeriodState();
+    }
+
 }
