@@ -50,7 +50,6 @@ public class PerPerson implements IEntity {
     @Column(name = "is_active", nullable = false)
     private Boolean isActive;
 
-    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "sozlesme", nullable = false)
     private EnmSozlesme sozlesme;
@@ -69,7 +68,6 @@ public class PerPerson implements IEntity {
     @Column(name = "medeni")
     private EnmMedeni medeni;
 
-    @NotNull
     @ManyToOne
     @JsonIgnoreProperties("")
     private PerCompany okul;
@@ -104,6 +102,7 @@ public class PerPerson implements IEntity {
     @CheckDefType(EnmType.KONUM)
     private DefItem konum;
 
+    @NotNull
     @ManyToOne
     @JsonIgnoreProperties("")
     private User user;

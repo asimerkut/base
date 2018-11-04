@@ -119,7 +119,6 @@ public class PerPersonServiceImpl implements PerPersonService {
         per.setName(user.getLogin());
         per.setEmail(user.getEmail());
         per.setIsActive(true);
-        per.setSozlesme(EnmSozlesme.KADRO);
         per = perPersonRepository.save(per);
         return per;
     }
