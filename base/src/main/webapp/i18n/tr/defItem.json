@@ -5,7 +5,7 @@
             "home": {
                 "title": "Tanımlar",
                 "createLabel": "Yeni",
-                "createOrEditLabel": "Değiştir",
+                "createOrEditLabel": "Ekle/Değiştir",
                 "search": "Ara"
             },
             "created": "Tanım Oluştu {{ param }}",

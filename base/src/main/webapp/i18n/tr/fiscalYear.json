@@ -3,10 +3,10 @@
     "baseApp": {
         "fiscalYear" : {
             "home": {
-                "title": "Fiscal Years",
-                "createLabel": "Create a new Fiscal Year",
-                "createOrEditLabel": "Create or edit a Fiscal Year",
-                "search": "Search for Fiscal Year"
+                "title": "EÖ. Yılları",
+                "createLabel": "Yeni",
+                "createOrEditLabel": "Ekle/Değiştir",
+                "search": "Ara"
             },
             "created": "A new Fiscal Year is created with identifier {{ param }}",
             "updated": "A Fiscal Year is updated with identifier {{ param }}",
@@ -15,11 +15,11 @@
                 "question": "Are you sure you want to delete Fiscal Year {{ id }}?"
             },
             "detail": {
-                "title": "Fiscal Year"
+                "title": "EÖ. Yılı"
             },
-            "code": "Code",
-            "dateStart": "Date Start",
-            "dateFinish": "Date Finish"
+            "code": "Kod",
+            "dateStart": "Başlangıç Tarihi",
+            "dateFinish": "Bitiş Tarihi"
         }
     }
 }

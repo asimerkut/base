@@ -5,7 +5,7 @@
             "home": {
                 "title": "Tipler",
                 "createLabel": "Yeni",
-                "createOrEditLabel": "Değiştir",
+                "createOrEditLabel": "Ekle/Değiştir",
                 "search": "Ara"
             },
             "created": "Tip Oluştu {{ param }}",

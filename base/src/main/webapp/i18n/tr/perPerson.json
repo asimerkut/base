@@ -4,8 +4,8 @@
         "perPerson" : {
             "home": {
                 "title": "Kişiler",
-                "createLabel": "Kişi Oluştur",
-                "createOrEditLabel": "Kişi  Değiştir",
+                "createLabel": "Yeni",
+                "createOrEditLabel": "Ekle/Değiştir",
                 "search": "Ara"
             },
             "created": "Kişi Oluştu {{ param }}",
@@ -22,7 +22,7 @@
             "isActive": "Aktif mi",
             "sozlesme": "Sozleşme",
             "email": "Email",
-            "phone": "Telefone",
+            "phone": "Telefon",
             "cins": "Cinsiyet",
             "medeni": "Medeni Hal",
             "okul": "Okul",

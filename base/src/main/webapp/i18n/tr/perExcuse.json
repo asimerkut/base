@@ -5,7 +5,7 @@
             "home": {
                 "title": "Devamsızlık",
                 "createLabel": "Yeni",
-                "createOrEditLabel": "Değiştir",
+                "createOrEditLabel": "Ekle/Değiştir",
                 "search": "Ara"
             },
             "created": "A new Per Excuse is created with identifier {{ param }}",
@@ -15,16 +15,16 @@
                 "question": "Are you sure you want to delete Per Excuse {{ id }}?"
             },
             "detail": {
-                "title": "Per Excuse"
+                "title": "Devamsızlık"
             },
-            "startDate": "Start Date",
-            "startDersNo": "Start Ders No",
-            "finishDate": "Finish Date",
-            "finishDersNo": "Finish Ders No",
-            "isExcuse": "Is Excuse",
-            "person": "Person",
-            "izin": "Izin",
-            "periodState": "Period State"
+            "startDate": "Başlangıç Tarihi",
+            "startDersNo": "Başlangıç Ders No",
+            "finishDate": "Bitiş Tarihi",
+            "finishDersNo": "Bitiş Ders No",
+            "isExcuse": "Özür Sayılır mı?",
+            "person": "Personel",
+            "izin": "İzin",
+            "periodState": "Dönem"
         }
     }
 }

@@ -4,9 +4,9 @@
         "defAnswer" : {
             "home": {
                 "title": "Parametreler",
-                "createLabel": "Create a new Def Answer",
-                "createOrEditLabel": "Create or edit a Def Answer",
-                "search": "Search for Def Answer"
+                "createLabel": "Yeni",
+                "createOrEditLabel": "Ekle/Değiştir",
+                "search": "Ara"
             },
             "created": "A new Def Answer is created with identifier {{ param }}",
             "updated": "A Def Answer is updated with identifier {{ param }}",

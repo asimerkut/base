@@ -5,7 +5,7 @@
             "home": {
                 "title": "Dönemler",
                 "createLabel": "Yeni",
-                "createOrEditLabel": "Değiştir",
+                "createOrEditLabel": "Ekle/Değiştir",
                 "search": "Ara"
             },
             "created": "A new Per Period State is created with identifier {{ param }}",
@@ -15,11 +15,11 @@
                 "question": "Are you sure you want to delete Per Period State {{ id }}?"
             },
             "detail": {
-                "title": "Per Period State"
+                "title": "Kişisel Dönem"
             },
-            "periodState": "Period State",
-            "fiscalPeriod": "Fiscal Period",
-            "person": "Person"
+            "periodState": "Durum",
+            "fiscalPeriod": "Dönem",
+            "person": "Personel"
         }
     }
 }
