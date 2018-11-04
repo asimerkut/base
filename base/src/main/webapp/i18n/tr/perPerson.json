@@ -18,9 +18,9 @@
                 "title": "Kişiler"
             },
             "code": "Kod",
-            "name": "Ad",
-            "isActive": "Aktif mi",
-            "sozlesme": "Sozleşme",
+            "name": "Ad Soyad",
+            "isActive": "Aktif?",
+            "sozlesme": "Sözleşme",
             "email": "Email",
             "phone": "Telefon",
             "cins": "Cinsiyet",

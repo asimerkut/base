@@ -3,12 +3,14 @@
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
             <h2 id="jhi-per-person-heading" jhiTranslate="baseApp.perPerson.home.createOrEditLabel">Create or edit a Per Person</h2>
             <div>
+                <!--
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!perPerson.id">
                     <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="perPerson.id" readonly />
                 </div>
+                -->
                 <div class="form-group" [hidden]="!perPerson.user">
                     <label for="user" jhiTranslate="baseApp.perPerson.user">ID</label>
                     <input type="text" class="form-control" id="user" name="user"
@@ -46,6 +48,7 @@
                         </small>
                     </div>
                 </div>
+                <!--
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.isActive" for="field_isActive">Is Active</label>
                     <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
@@ -57,6 +60,7 @@
                         </small>
                     </div>
                 </div>
+                -->
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.sozlesme" for="field_sozlesme">Sozlesme</label>
                     <select class="form-control" name="sozlesme" [(ngModel)]="perPerson.sozlesme" id="field_sozlesme" required>
@@ -86,7 +90,7 @@
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.okul" for="field_okul">Okul</label>
                     <select class="form-control" id="field_okul" name="okul" [(ngModel)]="perPerson.okul" required>
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="perCompanyOption.id === perPerson.okul?.id ? perPerson.okul : perCompanyOption" *ngFor="let perCompanyOption of percompanies; trackBy: trackPerCompanyById">{{perCompanyOption.code}}</option>
+                        <option [ngValue]="perCompanyOption.id === perPerson.okul?.id ? perPerson.okul : perCompanyOption" *ngFor="let perCompanyOption of percompanies; trackBy: trackPerCompanyById">{{perCompanyOption.label}}</option>
                     </select>
                 </div>
                 <div class="form-group">

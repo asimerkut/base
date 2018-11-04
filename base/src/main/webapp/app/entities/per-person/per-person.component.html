@@ -31,10 +31,8 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="baseApp.perPerson.user">User</span></th>
             <th><span jhiTranslate="baseApp.perPerson.name">Name</span></th>
-            <th><span jhiTranslate="baseApp.perPerson.isActive">Is Active</span></th>
             <th><span jhiTranslate="baseApp.perPerson.sozlesme">Sozlesme</span></th>
             <th><span jhiTranslate="baseApp.perPerson.email">Email</span></th>
             <th><span jhiTranslate="baseApp.perPerson.phone">Phone</span></th>
@@ -49,43 +47,42 @@
             </thead>
             <tbody>
             <tr *ngFor="let perPerson of perPeople ;trackBy: trackId">
-                <td><a [routerLink]="['/per-person', perPerson.id, 'view' ]">{{perPerson.id}}</a></td>
                 <td>{{perPerson.user?.login}}</td>
                 <td>{{perPerson.name}}</td>
-                <td>{{perPerson.isActive}}</td>
                 <td jhiTranslate="{{'baseApp.EnmSozlesme.' + perPerson.sozlesme}}">{{perPerson.sozlesme}}</td>
                 <td>{{perPerson.email}}</td>
                 <td>{{perPerson.phone}}</td>
                 <td>
                     <div *ngIf="perPerson.okul">
-                        <a [routerLink]="['../per-company', perPerson.okul?.id, 'view' ]" >{{perPerson.okul?.code}}</a>
+                        <a [routerLink]="['../per-company', perPerson.okul?.id, 'view' ]" >{{perPerson.okul?.label}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="perPerson.brans">
-                        <a [routerLink]="['../def-item', perPerson.brans?.id, 'view' ]" >{{perPerson.brans?.code}}</a>
+                        <a [routerLink]="['../def-item', perPerson.brans?.id, 'view' ]" >{{perPerson.brans?.label}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="perPerson.unvan">
-                        <a [routerLink]="['../def-item', perPerson.unvan?.id, 'view' ]" >{{perPerson.unvan?.code}}</a>
+                        <a [routerLink]="['../def-item', perPerson.unvan?.id, 'view' ]" >{{perPerson.unvan?.label}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="perPerson.kadro">
-                        <a [routerLink]="['../def-item', perPerson.kadro?.id, 'view' ]" >{{perPerson.kadro?.code}}</a>
+                        <a [routerLink]="['../def-item', perPerson.kadro?.id, 'view' ]" >{{perPerson.kadro?.label}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="perPerson.karyr">
-                        <a [routerLink]="['../def-item', perPerson.karyr?.id, 'view' ]" >{{perPerson.karyr?.code}}</a>
+                        <a [routerLink]="['../def-item', perPerson.karyr?.id, 'view' ]" >{{perPerson.karyr?.label}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="perPerson.konum">
-                        <a [routerLink]="['../def-item', perPerson.konum?.id, 'view' ]" >{{perPerson.konum?.code}}</a>
+                        <a [routerLink]="['../def-item', perPerson.konum?.id, 'view' ]" >{{perPerson.konum?.label}}</a>
                     </div>
                 </td>
+
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

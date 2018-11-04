@@ -13,10 +13,12 @@
                 <dd>
                     <span>{{perPerson.name}}</span>
                 </dd>
+                <!--
                 <dt><span jhiTranslate="baseApp.perPerson.isActive">Is Active</span></dt>
                 <dd>
                     <span>{{perPerson.isActive}}</span>
                 </dd>
+                -->
                 <dt><span jhiTranslate="baseApp.perPerson.sozlesme">Sozlesme</span></dt>
                 <dd>
                     <span jhiTranslate="{{'baseApp.EnmSozlesme.' + perPerson.sozlesme}}">{{perPerson.sozlesme}}</span>
@@ -32,37 +34,37 @@
                 <dt><span jhiTranslate="baseApp.perPerson.okul">Okul</span></dt>
                 <dd>
                     <div *ngIf="perPerson.okul">
-                        <a [routerLink]="['/per-company', perPerson.okul?.id, 'view']">{{perPerson.okul?.code}}</a>
+                        <a [routerLink]="['/per-company', perPerson.okul?.id, 'view']">{{perPerson.okul?.label}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perPerson.brans">Brans</span></dt>
                 <dd>
                     <div *ngIf="perPerson.brans">
-                        <a [routerLink]="['/def-item', perPerson.brans?.id, 'view']">{{perPerson.brans?.code}}</a>
+                        <a [routerLink]="['/def-item', perPerson.brans?.id, 'view']">{{perPerson.brans?.label}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perPerson.unvan">Unvan</span></dt>
                 <dd>
                     <div *ngIf="perPerson.unvan">
-                        <a [routerLink]="['/def-item', perPerson.unvan?.id, 'view']">{{perPerson.unvan?.code}}</a>
+                        <a [routerLink]="['/def-item', perPerson.unvan?.id, 'view']">{{perPerson.unvan?.label}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perPerson.kadro">Kadro</span></dt>
                 <dd>
                     <div *ngIf="perPerson.kadro">
-                        <a [routerLink]="['/def-item', perPerson.kadro?.id, 'view']">{{perPerson.kadro?.code}}</a>
+                        <a [routerLink]="['/def-item', perPerson.kadro?.id, 'view']">{{perPerson.kadro?.label}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perPerson.karyr">Karyr</span></dt>
                 <dd>
                     <div *ngIf="perPerson.karyr">
-                        <a [routerLink]="['/def-item', perPerson.karyr?.id, 'view']">{{perPerson.karyr?.code}}</a>
+                        <a [routerLink]="['/def-item', perPerson.karyr?.id, 'view']">{{perPerson.karyr?.label}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perPerson.konum">Konum</span></dt>
                 <dd>
                     <div *ngIf="perPerson.konum">
-                        <a [routerLink]="['/def-item', perPerson.konum?.id, 'view']">{{perPerson.konum?.code}}</a>
+                        <a [routerLink]="['/def-item', perPerson.konum?.id, 'view']">{{perPerson.konum?.label}}</a>
                     </div>
                 </dd>
             </dl>

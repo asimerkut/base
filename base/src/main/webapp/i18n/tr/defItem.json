@@ -20,8 +20,8 @@
             "code": "Kod",
             "name": "Ad",
             "itemLevel": "Seviye",
-            "isSelect": "Seçilir mi",
-            "isConst": "Sabit mi",
+            "isSelect": "Seçilir?",
+            "isConst": "Sabit?",
             "type": "Tip",
             "parent": "Üst"
         }
