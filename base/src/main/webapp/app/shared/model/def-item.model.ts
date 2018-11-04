@@ -10,6 +10,7 @@ export interface IDefItem {
     isConst?: boolean;
     type?: IDefType;
     parent?: IDefItem;
+    label?: string;
 }
 
 export class DefItem implements IDefItem {
@@ -21,7 +22,8 @@ export class DefItem implements IDefItem {
         public isSelect?: boolean,
         public isConst?: boolean,
         public type?: IDefType,
-        public parent?: IDefItem
+        public parent?: IDefItem,
+        public label?: string
     ) {
         this.isSelect = this.isSelect || false;
         this.isConst = this.isConst || false;

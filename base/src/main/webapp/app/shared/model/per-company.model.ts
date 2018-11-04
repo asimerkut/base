@@ -9,6 +9,7 @@ export interface IPerCompany {
     mesaiGc?: number;
     sehir?: IDefItem;
     tipi?: IDefItem;
+    label?: string;
 }
 
 export class PerCompany implements IPerCompany {
@@ -20,6 +21,7 @@ export class PerCompany implements IPerCompany {
         public mesaiOs?: number,
         public mesaiGc?: number,
         public sehir?: IDefItem,
-        public tipi?: IDefItem
+        public tipi?: IDefItem,
+        public label?: string
     ) {}
 }
