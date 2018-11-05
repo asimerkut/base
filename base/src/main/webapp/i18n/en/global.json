@@ -243,6 +243,9 @@
             "number": "This field should be a number.",
             "datetimelocal": "This field should be a date and time.",
             "patternLogin": "This field can only contain letters, digits and e-mail addresses."
+        },
+        "others": {
+            "aktar": "Geçen Haftayı Aynen Aktar"
         }
     },
     "error": {
