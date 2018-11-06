@@ -63,7 +63,7 @@ spring:
         elasticsearch:
             properties:
                 path:
-                    home: elasticsearch
+                    home: target/elasticsearch
     liquibase:
         contexts: dev
     mail:
