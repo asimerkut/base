@@ -55,12 +55,6 @@
             "relationshipName": "izin",
             "otherEntityName": "defItem",
             "otherEntityField": "code"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "relationshipName": "periodState",
-            "otherEntityName": "perPeriodState",
-            "otherEntityField": "code"
         }
     ],
     "changelogDate": "20181020094120",

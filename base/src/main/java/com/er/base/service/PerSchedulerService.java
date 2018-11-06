@@ -14,7 +14,7 @@ import java.util.Optional;
 /**
  * Service Interface for managing PerSubmit.
  */
-public interface PerSubmitService {
+public interface PerSchedulerService {
 
     /**
      * Save a perSubmit.
@@ -56,5 +56,10 @@ public interface PerSubmitService {
      */
     List<PerSubmit> search(String query);
 
+    Map<SchKeyDateDTO, PerScheduleDTO> getSubmitWiewMap(LocalDate viewStart, LocalDate viewEnd);
+
+    void submitInit(Map<SchKeyWeekDTO, PerScheduleDTO> weekDersMap, LocalDate viewStart, LocalDate viewEnd);
+
+    PerSubmit getSubmitUnique(LocalDate submitDate, Integer dersSira, DefItem ders);
 
 }

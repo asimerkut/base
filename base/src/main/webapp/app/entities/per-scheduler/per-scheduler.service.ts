@@ -14,8 +14,8 @@ type EntityArrayResponseType = HttpResponse<IPerSubmit[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PerSchedulerService {
-    public resourceUrl = SERVER_API_URL + 'api/per-submits';
-    public resourceSearchUrl = SERVER_API_URL + 'api/_search/per-submits';
+    public resourceUrl = SERVER_API_URL + 'api/per-scheduler';
+    public resourceSearchUrl = SERVER_API_URL + 'api/_search/per-scheduler';
 
     constructor(private http: HttpClient) {}
 

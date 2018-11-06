@@ -1,0 +1,35 @@
+{
+    "name": "PerValue",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "valType",
+            "otherEntityName": "defType",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "valItem",
+            "otherEntityName": "defItem",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "person",
+            "otherEntityName": "perPerson",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20181106182900",
+    "entityTableName": "per_value",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

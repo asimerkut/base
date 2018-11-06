@@ -29,14 +29,9 @@ entity PerCompany {
 }
 
 entity PerPerson {
-    code String required maxlength(20),
     name String required maxlength(100),
-    isActive Boolean required,
-    sozlesme EnmSozlesme required,
     email String,
-    phone String,
-    cins  EnmCins,
-    medeni EnmMedeni
+    phone String
 }
 
 entity PerPlan {
@@ -59,7 +54,8 @@ entity PerSubmit {
     submitDate LocalDate required,
     dersGrup EnmDersGrup required,
     dersSira Integer required max(15),
-    dersAdet Integer required max(15)
+    dersAdet Integer required max(15),
+    dayNo EnmDay required
 }
 
 relationship ManyToOne {
@@ -74,18 +70,10 @@ relationship ManyToOne {
     DefAnswer{itemSource(code) required} to DefItem,
     DefAnswer{itemTarget(code)} to DefItem
 
-
     PerCompany{sehir(code)} to DefItem,
     PerCompany{tipi(code)} to DefItem,
 
-    PerPerson{okul(code)} to PerCompany,
-    PerPerson{hizmt(code)} to DefItem,
-    PerPerson{brans(code)} to DefItem,
-    PerPerson{unvan(code)} to DefItem,
-    PerPerson{kadro(code)} to DefItem,
-    PerPerson{karyr(code)} to DefItem,
-    PerPerson{konum(code)} to DefItem,
-    PerPerson{user(login)} to User,
+    PerPerson{loginUser(login)} to User,
 
     PerPlan{person(code) required} to PerPerson,
     PerPlan{ders(code) required} to DefItem
@@ -100,10 +88,7 @@ relationship ManyToOne {
 }
 
 enum EnmDay {D1,D2,D3,D4,D5,D6,D7}
-enum EnmCins {E,K}
-enum EnmMedeni {BEK,EVL,DUL,BOS}
 enum EnmDersGrup {D_GS,GG,GY}
-enum EnmSozlesme {KADRO,SOZ4B,UCRET}
 
 enum EnmType {
     BANKA,	BRANS,	DERS,	DONEM,	DURUM,
@@ -141,6 +126,10 @@ entity PerPeriodState {
 	periodState EnmPeriodState required
 }
 
+entity PerValue {
+
+}
+
 relationship ManyToOne {
     FiscalPeriod{fiscalYear(code)} to FiscalYear,
     FiscalPeriod{donem(code)} to DefItem,
@@ -148,9 +137,15 @@ relationship ManyToOne {
     PerPeriodState{fiscalPeriod(code)} to FiscalPeriod,
     PerPeriodState{person(code)} to PerPerson,
 
-    PerExcuse{periodState(code)} to PerPeriodState,
     PerSubmit{periodState(code)} to PerPeriodState
 
+    PerValue{valType(code) required} to DefType,
+    PerValue{valItem(code)} to DefItem,
+
+}
+
+relationship OneToMany {
+  PerPerson{valList} to PerValue{person(name) required}
 }
 
 enum EnmPeriodState {

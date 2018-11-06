@@ -30,7 +30,7 @@ public class CommonResource {
     private final Logger log = LoggerFactory.getLogger(DefItemResource.class);
 
     private final DefItemService defItemService;
-    private final PerSubmitService perSubmitService;
+    private final PerSchedulerService perSchedulerService;
     private final PerDailyService perDailyService;
     private final PerPersonService perPersonService;
     private final PerPlanService perPlanService;
@@ -40,7 +40,7 @@ public class CommonResource {
 
     public CommonResource(DefItemService defItemService,
                           DefPivotService defPivotService,
-                          PerSubmitService perSubmitService,
+                          PerSchedulerService perSchedulerService,
                           PerDailyService perDailyService,
                           PerPersonService perPersonService,
                           PerPlanService perPlanService,
@@ -49,7 +49,7 @@ public class CommonResource {
                           ) {
         this.defItemService = defItemService;
         this.defPivotService = defPivotService;
-        this.perSubmitService = perSubmitService;
+        this.perSchedulerService = perSchedulerService;
         this.perDailyService = perDailyService;
         this.perPersonService = perPersonService;
         this.perPlanService = perPlanService;
@@ -160,7 +160,7 @@ public class CommonResource {
             throw new InternalServerErrorException("Personel/Okul Tanımı Bulunamadı");
         }
         Map<Integer, PerDaily> okulDersSaatMap = perDailyService.findAllByOkul(person.getOkul());               // Okulun Günlük Ders Başlangıç Bitiş Saatleri
-        Map<SchKeyDateDTO, PerScheduleDTO> dateDersMap = perSubmitService.getSubmitWiewMap(viewStart, viewEnd); // Schedule Günlerine Göre Girişler
+        Map<SchKeyDateDTO, PerScheduleDTO> dateDersMap = perSchedulerService.getSubmitWiewMap(viewStart, viewEnd); // Schedule Günlerine Göre Girişler
 
         /*
         if (dateDersMap.size()==0 && viewStart.compareTo(LocalDate.now())<=0){
@@ -184,7 +184,7 @@ public class CommonResource {
         LocalDate startDate = LocalDate.of(2000,1,1);
         Map<SchKeyWeekDTO, PerScheduleDTO> weekDersMap = perPlanService.getPlanWeekMap(startDate);          // Haftanın Günlerine Göre Haftalık Ders Planı
         if (weekDersMap.size()>0){
-            perSubmitService.submitInit(weekDersMap, viewStart, viewEnd);
+            perSchedulerService.submitInit(weekDersMap, viewStart, viewEnd);
         }
         return findSubmitSchedule(query);
     }

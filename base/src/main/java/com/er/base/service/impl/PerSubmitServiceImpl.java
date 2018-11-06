@@ -115,54 +115,6 @@ public class PerSubmitServiceImpl implements PerSubmitService {
             .collect(Collectors.toList());
     }
 
-    @Override
-    @Transactional(readOnly = false)
-    public Map<SchKeyDateDTO, PerScheduleDTO> getSubmitWiewMap(LocalDate viewStart, LocalDate viewEnd) {
-        Map<SchKeyDateDTO, PerScheduleDTO> map = new HashMap<>();
-        for (LocalDate date = viewStart; date.isBefore(viewEnd); date = date.plusDays(1)) {
-            List<PerSubmit> list = perSubmitRepository.getSubmitListByDate(date);
-            int i = -101;
-            for (PerSubmit p : list) {
-                int sira = p.getDersSira().intValue();
-                if (sira == 0) {
-                    sira = i--;
-                }
-                SchKeyDateDTO key = new SchKeyDateDTO(p.getSubmitDate(), sira);
-                map.put(key, p);
-            }
-        }
 
-        return map;
-    }
-
-    @Override
-    @Transactional(readOnly = false)
-    public void submitInit(Map<SchKeyWeekDTO, PerScheduleDTO> weekDersMap, LocalDate viewStart, LocalDate viewEnd) {
-        PerPerson person = perPersonService.getLoginPerson();
-        perSubmitRepository.deleteSubmitPlan(person, viewStart, viewEnd);
-        for (LocalDate date = viewStart; date.isBefore(viewEnd); date = date.plusDays(1)) {
-            for (SchKeyWeekDTO key : weekDersMap.keySet()){
-                if (date.getDayOfWeek().equals(key.getDersGun())){
-                    PerScheduleDTO sch = weekDersMap.get(key);
-                    PerSubmit perSubmit = new PerSubmit();
-                    perSubmit.setSubmitDate(date);
-                    perSubmit.setDersSira(sch.getDersSira());
-                    perSubmit.setDayNo(sch.getDayNo());
-                    perSubmit.setPerson(sch.getPerson());
-                    perSubmit.setDers(sch.getDers());
-                    perSubmit.setDersAdet(sch.getDersAdet());
-                    perSubmit.setDersGrup(sch.getDersGrup());
-                    perSubmitRepository.save(perSubmit);
-                }
-            }
-        }
-    }
-
-
-    @Override
-    @Transactional(readOnly = true)
-    public PerSubmit getSubmitUnique(LocalDate submitDate, Integer dersSira, DefItem ders){
-        return perSubmitRepository.getSubmitUnique(submitDate, dersSira, ders);
-    }
 
 }
