@@ -44,7 +44,7 @@ public class ScheduleUtilServiceImpl implements ScheduleUtilService {
     }
 
     private ScheduleEventDTO getEmptyCell(Integer i, Long cellId, LocalDate date, PerDaily d) {
-        ScheduleEventDTO se = new ScheduleEventDTO(i, d.getOkul(), date.getDayOfWeek());
+        ScheduleEventDTO se = new ScheduleEventDTO(i, d.getPerson(), date.getDayOfWeek());
         se.setId(cellId);
         se.setStart(getDateWithHour(date, d.getHourStart()));
         se.setEnd(getDateWithHour(date, d.getHourFinish()));
@@ -56,7 +56,7 @@ public class ScheduleUtilServiceImpl implements ScheduleUtilService {
     }
 
     private ScheduleEventDTO getFullCell(Integer i, Long cellId, LocalDate date, PerDaily d, PerScheduleDTO p) {
-        ScheduleEventDTO se = new ScheduleEventDTO(i, d == null ? null : d.getOkul(), date.getDayOfWeek());
+        ScheduleEventDTO se = new ScheduleEventDTO(i, d == null ? null : d.getPerson(), date.getDayOfWeek());
         se.setId(p.getId());
         if (d != null) {
             se.setStart(getDateWithHour(date, d.getHourStart()));
@@ -73,7 +73,7 @@ public class ScheduleUtilServiceImpl implements ScheduleUtilService {
     }
 
     private ScheduleEventDTO getExcuseCell(PerExcuse ex, Map<Integer, PerDaily> dailyMap) {
-        ScheduleEventDTO se = new ScheduleEventDTO(0, ex.getPerson().getOkul(), null);
+        ScheduleEventDTO se = new ScheduleEventDTO(0, ex.getPerson(), null);
         se.setId(-1L);
         se.setTitle(ex.getIzin().getName());
         se.setDers(new DefItem(null));

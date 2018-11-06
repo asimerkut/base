@@ -3,36 +3,12 @@
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
             <h2 id="jhi-per-person-heading" jhiTranslate="baseApp.perPerson.home.createOrEditLabel">Create or edit a Per Person</h2>
             <div>
-                <!--
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!perPerson.id">
                     <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="perPerson.id" readonly />
                 </div>
-                -->
-                <div class="form-group" [hidden]="!perPerson.user">
-                    <label for="user" jhiTranslate="baseApp.perPerson.user">ID</label>
-                    <input type="text" class="form-control" id="user" name="user"
-                           [(ngModel)]="perPerson.user.login" readonly />
-                </div>
-                <!--
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.code" for="field_code">Code</label>
-                    <input type="text" class="form-control" name="code" id="field_code"
-                        [(ngModel)]="perPerson.code" required maxlength="20"/>
-                    <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.code?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
-                        This field cannot be longer than 20 characters.
-                        </small>
-                    </div>
-                </div>
-                -->
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.name" for="field_name">Name</label>
                     <input type="text" class="form-control" name="name" id="field_name"
@@ -48,34 +24,6 @@
                         </small>
                     </div>
                 </div>
-                <!--
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.isActive" for="field_isActive">Is Active</label>
-                    <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
-                        [(ngModel)]="perPerson.isActive" />
-                    <div [hidden]="!(editForm.controls.isActive?.dirty && editForm.controls.isActive?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.isActive?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
-                -->
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.sozlesme" for="field_sozlesme">Sozlesme</label>
-                    <select class="form-control" name="sozlesme" [(ngModel)]="perPerson.sozlesme" id="field_sozlesme" required>
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="opt.id === perPerson.sozlesme ? perPerson.sozlesme : opt"
-                                *ngFor="let opt of enmSozlesmeList; trackBy: trackEnumById">{{opt.label}}
-                        </option>
-                    </select>
-                    <div [hidden]="!(editForm.controls.sozlesme?.dirty && editForm.controls.sozlesme?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.sozlesme?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perPerson.email" for="field_email">Email</label>
                     <input type="text" class="form-control" name="email" id="field_email"
@@ -87,56 +35,58 @@
                         [(ngModel)]="perPerson.phone" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.okul" for="field_okul">Okul</label>
-                    <select class="form-control" id="field_okul" name="okul" [(ngModel)]="perPerson.okul" required>
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="perCompanyOption.id === perPerson.okul?.id ? perPerson.okul : perCompanyOption" *ngFor="let perCompanyOption of percompanies; trackBy: trackPerCompanyById">{{perCompanyOption.label}}</option>
-                    </select>
+                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.shift1" for="field_shift1">Shift 1</label>
+                    <input type="number" class="form-control" name="shift1" id="field_shift1"
+                        [(ngModel)]="perPerson.shift1" max="8" jhiMax="8"/>
+                    <div [hidden]="!(editForm.controls.shift1?.dirty && editForm.controls.shift1?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.shift1?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.shift1?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.brans" for="field_brans">Brans</label>
-                    <select class="form-control" id="field_brans" name="brans" [(ngModel)]="perPerson.brans" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.brans?.id ? perPerson.brans : defItemOption" *ngFor="let defItemOption of bransItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
-                    </select>
+                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.shift2" for="field_shift2">Shift 2</label>
+                    <input type="number" class="form-control" name="shift2" id="field_shift2"
+                        [(ngModel)]="perPerson.shift2" max="8" jhiMax="8"/>
+                    <div [hidden]="!(editForm.controls.shift2?.dirty && editForm.controls.shift2?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.shift2?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.shift2?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.unvan" for="field_unvan">Unvan</label>
-                    <select class="form-control" id="field_unvan" name="unvan" [(ngModel)]="perPerson.unvan" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.unvan?.id ? perPerson.unvan : defItemOption" *ngFor="let defItemOption of unvanItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
-                    </select>
+                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.shift3" for="field_shift3">Shift 3</label>
+                    <input type="number" class="form-control" name="shift3" id="field_shift3"
+                        [(ngModel)]="perPerson.shift3" max="8" jhiMax="8"/>
+                    <div [hidden]="!(editForm.controls.shift3?.dirty && editForm.controls.shift3?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.shift3?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.shift3?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.kadro" for="field_kadro">Kadro</label>
-                    <select class="form-control" id="field_kadro" name="kadro" [(ngModel)]="perPerson.kadro" >
+                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.loginUser" for="field_loginUser">Login User</label>
+                    <select class="form-control" id="field_loginUser" name="loginUser" [(ngModel)]="perPerson.loginUser" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.kadro?.id ? perPerson.kadro : defItemOption" *ngFor="let defItemOption of kadroItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
+                        <option [ngValue]="userOption.id === perPerson.loginUser?.id ? perPerson.loginUser : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.karyr" for="field_karyr">Karyr</label>
-                    <select class="form-control" id="field_karyr" name="karyr" [(ngModel)]="perPerson.karyr" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.karyr?.id ? perPerson.karyr : defItemOption" *ngFor="let defItemOption of karyrItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.konum" for="field_konum">Konum</label>
-                    <select class="form-control" id="field_konum" name="konum" [(ngModel)]="perPerson.konum" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === perPerson.konum?.id ? perPerson.konum : defItemOption" *ngFor="let defItemOption of konumItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
-                    </select>
-                </div>
-                <!--
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perPerson.user" for="field_user">User</label>
-                    <select class="form-control" id="field_user" name="user" [(ngModel)]="perPerson.user" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="userOption.id === perPerson.user?.id ? perPerson.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
-                    </select>
-                </div>
-                -->
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

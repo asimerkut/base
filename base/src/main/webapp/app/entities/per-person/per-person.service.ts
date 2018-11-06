@@ -21,7 +21,7 @@ export class PerPersonService {
     }
 
     update(perPerson: IPerPerson): Observable<EntityResponseType> {
-        return this.http.put<IPerPerson>(this.resourceUrl, this.convert(perPerson), { observe: 'response' });
+        return this.http.put<IPerPerson>(this.resourceUrl, perPerson, { observe: 'response' });
     }
 
     find(id: number): Observable<EntityResponseType> {
@@ -40,13 +40,5 @@ export class PerPersonService {
     search(req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
         return this.http.get<IPerPerson[]>(this.resourceSearchUrl, { params: options, observe: 'response' });
-    }
-
-    private convert(perPerson: IPerPerson): IPerPerson {
-        const copy: IPerPerson = Object.assign({}, perPerson);
-        copy.sozlesme = copy.sozlesme && copy.sozlesme.id ? copy.sozlesme.id : copy.sozlesme;
-        copy.medeni = copy.medeni && copy.medeni.id ? copy.medeni.id : copy.medeni;
-        copy.cins = copy.cins && copy.cins.id ? copy.cins.id : copy.cins;
-        return copy;
     }
 }

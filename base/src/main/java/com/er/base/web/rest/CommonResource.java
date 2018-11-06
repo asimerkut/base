@@ -37,6 +37,7 @@ public class CommonResource {
     private final PerExcuseService perExcuseService;
     private final DefPivotService defPivotService;
     private final ScheduleUtilService scheduleUtilService;
+    private final CommonService commonService;
 
     public CommonResource(DefItemService defItemService,
                           DefPivotService defPivotService,
@@ -45,7 +46,8 @@ public class CommonResource {
                           PerPersonService perPersonService,
                           PerPlanService perPlanService,
                           PerExcuseService perExcuseService,
-                          ScheduleUtilService scheduleUtilService
+                          ScheduleUtilService scheduleUtilService,
+                          CommonService commonService
                           ) {
         this.defItemService = defItemService;
         this.defPivotService = defPivotService;
@@ -56,6 +58,7 @@ public class CommonResource {
         this.perExcuseService = perExcuseService;
 
         this.scheduleUtilService = scheduleUtilService;
+        this.commonService = commonService;
     }
 
     @GetMapping("/common/def-item-by-type")
@@ -155,11 +158,13 @@ public class CommonResource {
         JsonNode json = JsonUtil.getJsonObject(query);
         LocalDate viewStart = JsonUtil.getValueLocalDate(json,"viewStart");
         LocalDate viewEnd = JsonUtil.getValueLocalDate(json,"viewEnd");
-        PerPerson person = perPersonService.getLoginPerson();
+        PerPerson person = commonService.getLoginPerson();
+        /*
         if (person==null || person.getOkul()==null){
             throw new InternalServerErrorException("Personel/Okul Tanımı Bulunamadı");
         }
-        Map<Integer, PerDaily> okulDersSaatMap = perDailyService.findAllByOkul(person.getOkul());               // Okulun Günlük Ders Başlangıç Bitiş Saatleri
+        */
+        Map<Integer, PerDaily> okulDersSaatMap = commonService.findAllByOkul(person);               // Okulun Günlük Ders Başlangıç Bitiş Saatleri
         Map<SchKeyDateDTO, PerScheduleDTO> dateDersMap = perSchedulerService.getSubmitWiewMap(viewStart, viewEnd); // Schedule Günlerine Göre Girişler
 
         /*
@@ -169,7 +174,7 @@ public class CommonResource {
         }
         */
 
-        List<PerExcuse> excuseList = perExcuseService.getPersonExcuse();
+        List<PerExcuse> excuseList = commonService.getPersonExcuse();
 
         List<ScheduleEventDTO> scheduleList = scheduleUtilService.getFullMatrixDate(dateDersMap, okulDersSaatMap, excuseList, viewStart, viewEnd);// Boş Saatlerin Doldurulması
         return new ScheduleDataDTO(scheduleList);

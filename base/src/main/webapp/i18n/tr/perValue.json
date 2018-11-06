@@ -1,0 +1,25 @@
+
+{
+    "baseApp": {
+        "perValue" : {
+            "home": {
+                "title": "Per Values",
+                "createLabel": "Create a new Per Value",
+                "createOrEditLabel": "Create or edit a Per Value",
+                "search": "Search for Per Value"
+            },
+            "created": "A new Per Value is created with identifier {{ param }}",
+            "updated": "A Per Value is updated with identifier {{ param }}",
+            "deleted": "A Per Value is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Per Value {{ id }}?"
+            },
+            "detail": {
+                "title": "Per Value"
+            },
+            "valType": "Val Type",
+            "valItem": "Val Item",
+            "person": "Person"
+        }
+    }
+}

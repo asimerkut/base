@@ -4,24 +4,24 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
 import { BaseTestModule } from '../../../test.module';
-import { FiscalPeriodDetailComponent } from 'app/entities/fiscal-period/fiscal-period-detail.component';
-import { FiscalPeriod } from 'app/shared/model/fiscal-period.model';
+import { PerDailyDetailComponent } from 'app/entities/per-daily/per-daily-detail.component';
+import { PerDaily } from 'app/shared/model/per-daily.model';
 
 describe('Component Tests', () => {
-    describe('FiscalPeriod Management Detail Component', () => {
-        let comp: FiscalPeriodDetailComponent;
-        let fixture: ComponentFixture<FiscalPeriodDetailComponent>;
-        const route = ({ data: of({ fiscalPeriod: new FiscalPeriod(123) }) } as any) as ActivatedRoute;
+    describe('PerDaily Management Detail Component', () => {
+        let comp: PerDailyDetailComponent;
+        let fixture: ComponentFixture<PerDailyDetailComponent>;
+        const route = ({ data: of({ perDaily: new PerDaily(123) }) } as any) as ActivatedRoute;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [BaseTestModule],
-                declarations: [FiscalPeriodDetailComponent],
+                declarations: [PerDailyDetailComponent],
                 providers: [{ provide: ActivatedRoute, useValue: route }]
             })
-                .overrideTemplate(FiscalPeriodDetailComponent, '')
+                .overrideTemplate(PerDailyDetailComponent, '')
                 .compileComponents();
-            fixture = TestBed.createComponent(FiscalPeriodDetailComponent);
+            fixture = TestBed.createComponent(PerDailyDetailComponent);
             comp = fixture.componentInstance;
         });
 
@@ -33,7 +33,7 @@ describe('Component Tests', () => {
                 comp.ngOnInit();
 
                 // THEN
-                expect(comp.fiscalPeriod).toEqual(jasmine.objectContaining({ id: 123 }));
+                expect(comp.perDaily).toEqual(jasmine.objectContaining({ id: 123 }));
             });
         });
     });

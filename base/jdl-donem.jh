@@ -22,16 +22,16 @@ entity DefAnswer {
 
 entity PerCompany {
     code String required maxlength(20),
-    name String required maxlength(100),
-    mesaiOo Integer max(8),
-    mesaiOs Integer max(8),
-    mesaiGc Integer max(8)
+    name String required maxlength(100)
 }
 
 entity PerPerson {
     name String required maxlength(100),
     email String,
-    phone String
+    phone String,
+    shift1 Integer max(8),
+    shift2 Integer max(8),
+    shift3 Integer max(8)
 }
 
 entity PerPlan {
@@ -57,6 +57,13 @@ entity PerSubmit {
     dersAdet Integer required max(15),
     dayNo EnmDay required
 }
+
+entity PerDaily {
+    dersSira Integer required max(15),
+    hourStart String required maxlength(5),
+    hourFinish String required maxlength(5)
+}
+
 
 relationship ManyToOne {
 
@@ -145,7 +152,8 @@ relationship ManyToOne {
 }
 
 relationship OneToMany {
-  PerPerson{valList} to PerValue{person(name) required}
+  PerPerson{valList} to PerValue{person(name)}
+  PerPerson{dailyList} to PerDaily{person(name)}
 }
 
 enum EnmPeriodState {

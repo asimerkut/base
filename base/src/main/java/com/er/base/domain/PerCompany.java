@@ -1,7 +1,5 @@
 package com.er.base.domain;
 
-import com.er.base.domain.enumeration.EnmType;
-import com.er.fin.domain.CheckDefType;
 import com.er.fin.domain.IEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
@@ -40,26 +38,12 @@ public class PerCompany implements IEntity {
     @Column(name = "name", length = 100, nullable = false)
     private String name;
 
-    @Max(value = 8)
-    @Column(name = "mesai_oo")
-    private Integer mesaiOo;
-
-    @Max(value = 8)
-    @Column(name = "mesai_os")
-    private Integer mesaiOs;
-
-    @Max(value = 8)
-    @Column(name = "mesai_gc")
-    private Integer mesaiGc;
-
     @ManyToOne
     @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.SEHIR)
     private DefItem sehir;
 
     @ManyToOne
     @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.OKUL)
     private DefItem tipi;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -95,45 +79,6 @@ public class PerCompany implements IEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getMesaiOo() {
-        return mesaiOo;
-    }
-
-    public PerCompany mesaiOo(Integer mesaiOo) {
-        this.mesaiOo = mesaiOo;
-        return this;
-    }
-
-    public void setMesaiOo(Integer mesaiOo) {
-        this.mesaiOo = mesaiOo;
-    }
-
-    public Integer getMesaiOs() {
-        return mesaiOs;
-    }
-
-    public PerCompany mesaiOs(Integer mesaiOs) {
-        this.mesaiOs = mesaiOs;
-        return this;
-    }
-
-    public void setMesaiOs(Integer mesaiOs) {
-        this.mesaiOs = mesaiOs;
-    }
-
-    public Integer getMesaiGc() {
-        return mesaiGc;
-    }
-
-    public PerCompany mesaiGc(Integer mesaiGc) {
-        this.mesaiGc = mesaiGc;
-        return this;
-    }
-
-    public void setMesaiGc(Integer mesaiGc) {
-        this.mesaiGc = mesaiGc;
     }
 
     public DefItem getSehir() {
@@ -189,9 +134,6 @@ public class PerCompany implements IEntity {
             "id=" + getId() +
             ", code='" + getCode() + "'" +
             ", name='" + getName() + "'" +
-            ", mesaiOo=" + getMesaiOo() +
-            ", mesaiOs=" + getMesaiOs() +
-            ", mesaiGc=" + getMesaiGc() +
             "}";
     }
 

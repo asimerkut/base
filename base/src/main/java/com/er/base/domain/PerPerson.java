@@ -1,8 +1,7 @@
 package com.er.base.domain;
 
-import com.er.base.domain.enumeration.EnmType;
-import com.er.fin.domain.CheckDefType;
 import com.er.fin.domain.IEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -12,13 +11,9 @@ import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
-
-import com.er.base.domain.enumeration.EnmSozlesme;
-
-import com.er.base.domain.enumeration.EnmCins;
-
-import com.er.base.domain.enumeration.EnmMedeni;
 
 /**
  * A PerPerson.
@@ -37,22 +32,9 @@ public class PerPerson implements IEntity {
     private Long id;
 
     @NotNull
-    @Size(max = 20)
-    @Column(name = "code", length = 20, nullable = false)
-    private String code;
-
-    @NotNull
     @Size(max = 100)
     @Column(name = "name", length = 100, nullable = false)
     private String name;
-
-    @NotNull
-    @Column(name = "is_active", nullable = false)
-    private Boolean isActive;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "sozlesme", nullable = false)
-    private EnmSozlesme sozlesme;
 
     @Column(name = "email")
     private String email;
@@ -60,52 +42,27 @@ public class PerPerson implements IEntity {
     @Column(name = "phone")
     private String phone;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "cins")
-    private EnmCins cins;
+    @Max(value = 8)
+    @Column(name = "shift_1")
+    private Integer shift1;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "medeni")
-    private EnmMedeni medeni;
+    @Max(value = 8)
+    @Column(name = "shift_2")
+    private Integer shift2;
 
+    @Max(value = 8)
+    @Column(name = "shift_3")
+    private Integer shift3;
+
+    @OneToMany(mappedBy = "person")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<PerValue> valLists = new HashSet<>();
+    @OneToMany(mappedBy = "person")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<PerDaily> dailyLists = new HashSet<>();
     @ManyToOne
     @JsonIgnoreProperties("")
-    private PerCompany okul;
-
-    @ManyToOne
-    @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.HIZMT)
-    private DefItem hizmt;
-
-    @ManyToOne
-    @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.BRANS)
-    private DefItem brans;
-
-    @ManyToOne
-    @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.UNVAN)
-    private DefItem unvan;
-
-    @ManyToOne
-    @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.KADRO)
-    private DefItem kadro;
-
-    @ManyToOne
-    @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.KARYR)
-    private DefItem karyr;
-
-    @ManyToOne
-    @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.KONUM)
-    private DefItem konum;
-
-    @NotNull
-    @ManyToOne
-    @JsonIgnoreProperties("")
-    private User user;
+    private User loginUser;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,19 +71,6 @@ public class PerPerson implements IEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public PerPerson code(String code) {
-        this.code = code;
-        return this;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getName() {
@@ -140,32 +84,6 @@ public class PerPerson implements IEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Boolean isIsActive() {
-        return isActive;
-    }
-
-    public PerPerson isActive(Boolean isActive) {
-        this.isActive = isActive;
-        return this;
-    }
-
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
-    }
-
-    public EnmSozlesme getSozlesme() {
-        return sozlesme;
-    }
-
-    public PerPerson sozlesme(EnmSozlesme sozlesme) {
-        this.sozlesme = sozlesme;
-        return this;
-    }
-
-    public void setSozlesme(EnmSozlesme sozlesme) {
-        this.sozlesme = sozlesme;
     }
 
     public String getEmail() {
@@ -194,134 +112,106 @@ public class PerPerson implements IEntity {
         this.phone = phone;
     }
 
-    public EnmCins getCins() {
-        return cins;
+    public Integer getShift1() {
+        return shift1;
     }
 
-    public PerPerson cins(EnmCins cins) {
-        this.cins = cins;
+    public PerPerson shift1(Integer shift1) {
+        this.shift1 = shift1;
         return this;
     }
 
-    public void setCins(EnmCins cins) {
-        this.cins = cins;
+    public void setShift1(Integer shift1) {
+        this.shift1 = shift1;
     }
 
-    public EnmMedeni getMedeni() {
-        return medeni;
+    public Integer getShift2() {
+        return shift2;
     }
 
-    public PerPerson medeni(EnmMedeni medeni) {
-        this.medeni = medeni;
+    public PerPerson shift2(Integer shift2) {
+        this.shift2 = shift2;
         return this;
     }
 
-    public void setMedeni(EnmMedeni medeni) {
-        this.medeni = medeni;
+    public void setShift2(Integer shift2) {
+        this.shift2 = shift2;
     }
 
-    public PerCompany getOkul() {
-        return okul;
+    public Integer getShift3() {
+        return shift3;
     }
 
-    public PerPerson okul(PerCompany perCompany) {
-        this.okul = perCompany;
+    public PerPerson shift3(Integer shift3) {
+        this.shift3 = shift3;
         return this;
     }
 
-    public void setOkul(PerCompany perCompany) {
-        this.okul = perCompany;
+    public void setShift3(Integer shift3) {
+        this.shift3 = shift3;
     }
 
-    public DefItem getHizmt() {
-        return hizmt;
+    public Set<PerValue> getValLists() {
+        return valLists;
     }
 
-    public PerPerson hizmt(DefItem defItem) {
-        this.hizmt = defItem;
+    public PerPerson valLists(Set<PerValue> perValues) {
+        this.valLists = perValues;
         return this;
     }
 
-    public void setHizmt(DefItem defItem) {
-        this.hizmt = defItem;
-    }
-
-    public DefItem getBrans() {
-        return brans;
-    }
-
-    public PerPerson brans(DefItem defItem) {
-        this.brans = defItem;
+    public PerPerson addValList(PerValue perValue) {
+        this.valLists.add(perValue);
+        perValue.setPerson(this);
         return this;
     }
 
-    public void setBrans(DefItem defItem) {
-        this.brans = defItem;
-    }
-
-    public DefItem getUnvan() {
-        return unvan;
-    }
-
-    public PerPerson unvan(DefItem defItem) {
-        this.unvan = defItem;
+    public PerPerson removeValList(PerValue perValue) {
+        this.valLists.remove(perValue);
+        perValue.setPerson(null);
         return this;
     }
 
-    public void setUnvan(DefItem defItem) {
-        this.unvan = defItem;
+    public void setValLists(Set<PerValue> perValues) {
+        this.valLists = perValues;
     }
 
-    public DefItem getKadro() {
-        return kadro;
+    public Set<PerDaily> getDailyLists() {
+        return dailyLists;
     }
 
-    public PerPerson kadro(DefItem defItem) {
-        this.kadro = defItem;
+    public PerPerson dailyLists(Set<PerDaily> perDailies) {
+        this.dailyLists = perDailies;
         return this;
     }
 
-    public void setKadro(DefItem defItem) {
-        this.kadro = defItem;
-    }
-
-    public DefItem getKaryr() {
-        return karyr;
-    }
-
-    public PerPerson karyr(DefItem defItem) {
-        this.karyr = defItem;
+    public PerPerson addDailyList(PerDaily perDaily) {
+        this.dailyLists.add(perDaily);
+        perDaily.setPerson(this);
         return this;
     }
 
-    public void setKaryr(DefItem defItem) {
-        this.karyr = defItem;
-    }
-
-    public DefItem getKonum() {
-        return konum;
-    }
-
-    public PerPerson konum(DefItem defItem) {
-        this.konum = defItem;
+    public PerPerson removeDailyList(PerDaily perDaily) {
+        this.dailyLists.remove(perDaily);
+        perDaily.setPerson(null);
         return this;
     }
 
-    public void setKonum(DefItem defItem) {
-        this.konum = defItem;
+    public void setDailyLists(Set<PerDaily> perDailies) {
+        this.dailyLists = perDailies;
     }
 
-    public User getUser() {
-        return user;
+    public User getLoginUser() {
+        return loginUser;
     }
 
-    public PerPerson user(User user) {
-        this.user = user;
+    public PerPerson loginUser(User user) {
+        this.loginUser = user;
         return this;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setLoginUser(User user) {
+        this.loginUser = user;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -349,19 +239,17 @@ public class PerPerson implements IEntity {
     public String toString() {
         return "PerPerson{" +
             "id=" + getId() +
-            ", code='" + getCode() + "'" +
             ", name='" + getName() + "'" +
-            ", isActive='" + isIsActive() + "'" +
-            ", sozlesme='" + getSozlesme() + "'" +
             ", email='" + getEmail() + "'" +
             ", phone='" + getPhone() + "'" +
-            ", cins='" + getCins() + "'" +
-            ", medeni='" + getMedeni() + "'" +
+            ", shift1=" + getShift1() +
+            ", shift2=" + getShift2() +
+            ", shift3=" + getShift3() +
             "}";
     }
 
     @Override
     public String getLabel() {
-        return code+":"+name;
+        return loginUser.getLogin();
     }
 }

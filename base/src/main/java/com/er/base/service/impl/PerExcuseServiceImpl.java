@@ -101,11 +101,4 @@ public class PerExcuseServiceImpl implements PerExcuseService {
             .stream(perExcuseSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
     }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<PerExcuse> getPersonExcuse(){
-        return perExcuseRepository.getPersonExcuse();
-    }
-    
 }

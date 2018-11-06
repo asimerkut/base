@@ -17,10 +17,10 @@
                 <dd>
                     <span>{{perDaily.hourFinish}}</span>
                 </dd>
-                <dt><span jhiTranslate="baseApp.perDaily.okul">Okul</span></dt>
+                <dt><span jhiTranslate="baseApp.perDaily.person">Person</span></dt>
                 <dd>
-                    <div *ngIf="perDaily.okul">
-                        <a [routerLink]="['/per-company', perDaily.okul?.id, 'view']">{{perDaily.okul?.code}}</a>
+                    <div *ngIf="perDaily.person">
+                        <a [routerLink]="['/per-person', perDaily.person?.id, 'view']">{{perDaily.person?.name}}</a>
                     </div>
                 </dd>
             </dl>

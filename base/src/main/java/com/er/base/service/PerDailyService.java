@@ -1,10 +1,8 @@
 package com.er.base.service;
 
-import com.er.base.domain.PerCompany;
 import com.er.base.domain.PerDaily;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -47,13 +45,8 @@ public interface PerDailyService {
      * Search for the perDaily corresponding to the query.
      *
      * @param query the query of the search
-     *
+     * 
      * @return the list of entities
      */
     List<PerDaily> search(String query);
-
-    Map<Integer, PerDaily> findAllByOkul(PerCompany okul);
-
-    List<PerDaily> findAllByOkulList(Long okulId);
-
 }

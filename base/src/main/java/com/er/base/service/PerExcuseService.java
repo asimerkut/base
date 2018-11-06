@@ -45,11 +45,8 @@ public interface PerExcuseService {
      * Search for the perExcuse corresponding to the query.
      *
      * @param query the query of the search
-     *
+     * 
      * @return the list of entities
      */
     List<PerExcuse> search(String query);
-
-    List<PerExcuse> getPersonExcuse();
-
 }

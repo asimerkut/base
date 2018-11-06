@@ -37,15 +37,18 @@ public class PerSchedulerResource {
     private final PerPersonService perPersonService;
     private final PerPlanService perPlanService;
     private final PerExcuseService perExcuseService;
+    private final CommonService commonService;
 
 
-    public PerSchedulerResource(PerSchedulerService perSchedulerService, PerDailyService perDailyService, ScheduleUtilService scheduleService, PerPersonService perPersonService, PerPlanService perPlanService, PerExcuseService perExcuseService) {
+    public PerSchedulerResource(PerSchedulerService perSchedulerService, PerDailyService perDailyService, ScheduleUtilService scheduleService, PerPersonService perPersonService, PerPlanService perPlanService, PerExcuseService perExcuseService, CommonService commonService) {
         this.perSchedulerService = perSchedulerService;
         this.perDailyService = perDailyService;
         this.scheduleService = scheduleService;
         this.perPersonService = perPersonService;
         this.perPlanService = perPlanService;
         this.perExcuseService = perExcuseService;
+        this.commonService = commonService;
+
     }
     /**
      * POST  /per-scheduler : Create a new perSubmit.
@@ -110,7 +113,7 @@ public class PerSchedulerResource {
             LocalDate cellDate = LocalDate.of(yyyy,mm,dd);
             perSubmit.setDayNo(cellDate.getDayOfWeek());
             perSubmit.setSubmitDate(cellDate);
-            PerPerson per = perPersonService.getLoginPerson();
+            PerPerson per = commonService.getLoginPerson();
             perSubmit.setPerson(per);
             perSubmit.setDersGrup(EnmDersGrup.D_GS);
             perSubmit.setId(null);

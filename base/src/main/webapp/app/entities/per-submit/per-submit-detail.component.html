@@ -21,6 +21,10 @@
                 <dd>
                     <span>{{perSubmit.dersAdet}}</span>
                 </dd>
+                <dt><span jhiTranslate="baseApp.perSubmit.dayNo">Day No</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'baseApp.EnmDay.' + perSubmit.dayNo}}">{{perSubmit.dayNo}}</span>
+                </dd>
                 <dt><span jhiTranslate="baseApp.perSubmit.person">Person</span></dt>
                 <dd>
                     <div *ngIf="perSubmit.person">

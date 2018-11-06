@@ -3,27 +3,24 @@
     "baseApp": {
         "perCompany" : {
             "home": {
-                "title": "Okullar",
-                "createLabel": "Yeni",
-                "createOrEditLabel": "Ekle/Değiştir",
-                "search": "Ara"
+                "title": "Per Companies",
+                "createLabel": "Create a new Per Company",
+                "createOrEditLabel": "Create or edit a Per Company",
+                "search": "Search for Per Company"
             },
-            "created": "Okul Oluştu {{ param }}",
-            "updated": "Okul Değişti {{ param }}",
-            "deleted": "Okul Silindi {{ param }}",
+            "created": "A new Per Company is created with identifier {{ param }}",
+            "updated": "A Per Company is updated with identifier {{ param }}",
+            "deleted": "A Per Company is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Silmek istiyor musunuz {{ id }}?"
+                "question": "Are you sure you want to delete Per Company {{ id }}?"
             },
             "detail": {
-                "title": "Okullar"
+                "title": "Per Company"
             },
-            "code": "Kod",
-            "name": "Ad",
-            "mesaiOo": "Öğleden Önce",
-            "mesaiOs": "Öğleden Sonra",
-            "mesaiGc": "Gece Mesai",
-            "sehir": "Şehir",
-            "tipi": "Okul Tipi"
+            "code": "Code",
+            "name": "Name",
+            "sehir": "Sehir",
+            "tipi": "Tipi"
         }
     }
 }

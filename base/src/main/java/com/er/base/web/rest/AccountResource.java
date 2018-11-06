@@ -6,6 +6,7 @@ import com.er.base.domain.PerPerson;
 import com.er.base.domain.User;
 import com.er.base.repository.UserRepository;
 import com.er.base.security.SecurityUtils;
+import com.er.base.service.CommonService;
 import com.er.base.service.MailService;
 import com.er.base.service.PerPersonService;
 import com.er.base.service.UserService;
@@ -41,14 +42,14 @@ public class AccountResource {
 
     private final MailService mailService;
 
-    private final PerPersonService perPersonService;
+    private final CommonService commonService;
 
-    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService, PerPersonService perPersonService) {
+    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService, CommonService commonService) {
 
         this.userRepository = userRepository;
         this.userService = userService;
         this.mailService = mailService;
-        this.perPersonService = perPersonService;
+        this.commonService = commonService;
 
     }
 
@@ -70,7 +71,7 @@ public class AccountResource {
         User user = userService.registerUser(managedUserVM, managedUserVM.getPassword());
         //mailService.sendActivationEmail(user);
 
-        PerPerson person = perPersonService.registerPerson(user);
+        PerPerson person = commonService.registerPerson(user);
     }
 
     /**

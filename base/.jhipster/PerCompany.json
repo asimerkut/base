@@ -18,30 +18,6 @@
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": 100
-        },
-        {
-            "fieldName": "mesaiOo",
-            "fieldType": "Integer",
-            "fieldValidateRules": [
-                "max"
-            ],
-            "fieldValidateRulesMax": 8
-        },
-        {
-            "fieldName": "mesaiOs",
-            "fieldType": "Integer",
-            "fieldValidateRules": [
-                "max"
-            ],
-            "fieldValidateRulesMax": 8
-        },
-        {
-            "fieldName": "mesaiGc",
-            "fieldType": "Integer",
-            "fieldValidateRules": [
-                "max"
-            ],
-            "fieldValidateRulesMax": 8
         }
     ],
     "relationships": [

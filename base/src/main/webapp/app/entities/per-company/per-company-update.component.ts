@@ -8,8 +8,6 @@ import { IPerCompany } from 'app/shared/model/per-company.model';
 import { PerCompanyService } from './per-company.service';
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from 'app/entities/def-item';
-import { CommonService } from 'app/entities/common';
-import { EnmType } from 'app/shared/model/def-type.model';
 
 @Component({
     selector: 'jhi-per-company-update',
@@ -19,16 +17,13 @@ export class PerCompanyUpdateComponent implements OnInit {
     perCompany: IPerCompany;
     isSaving: boolean;
 
-    // defitems: IDefItem[];
-    sehirItemList: IDefItem[];
-    okulItemList: IDefItem[];
+    defitems: IDefItem[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private perCompanyService: PerCompanyService,
         private defItemService: DefItemService,
-        private activatedRoute: ActivatedRoute,
-        private commonService: CommonService
+        private activatedRoute: ActivatedRoute
     ) {}
 
     ngOnInit() {
@@ -36,23 +31,9 @@ export class PerCompanyUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ perCompany }) => {
             this.perCompany = perCompany;
         });
-        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        */
-        this.commonService.findAllByTypeId(EnmType.SEHIR).subscribe(
-            (res: HttpResponse<IDefItem[]>) => {
-                this.sehirItemList = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.commonService.findAllByTypeId(EnmType.OKUL).subscribe(
-            (res: HttpResponse<IDefItem[]>) => {
-                this.okulItemList = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

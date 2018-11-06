@@ -6,6 +6,7 @@ import com.er.base.domain.PerSubmit;
 import com.er.base.repository.PerSchedulerRepository;
 import com.er.base.repository.PerSubmitRepository;
 import com.er.base.repository.search.PerSubmitSearchRepository;
+import com.er.base.service.CommonService;
 import com.er.base.service.PerPersonService;
 import com.er.base.service.PerSchedulerService;
 import com.er.base.service.PerSubmitService;
@@ -40,13 +41,13 @@ public class PerSchedulerServiceImpl implements PerSchedulerService {
 
     private PerSubmitSearchRepository perSubmitSearchRepository;
 
-    private PerPersonService perPersonService;
+    private CommonService commonService;
 
 
-    public PerSchedulerServiceImpl(PerSchedulerRepository perSchedulerRepository, PerSubmitSearchRepository perSubmitSearchRepository, PerPersonService perPersonService) {
+    public PerSchedulerServiceImpl(PerSchedulerRepository perSchedulerRepository, PerSubmitSearchRepository perSubmitSearchRepository, CommonService commonService) {
         this.perSchedulerRepository = perSchedulerRepository;
         this.perSubmitSearchRepository = perSubmitSearchRepository;
-        this.perPersonService = perPersonService;
+        this.commonService = commonService;
     }
 
     /**
@@ -139,7 +140,7 @@ public class PerSchedulerServiceImpl implements PerSchedulerService {
     @Override
     @Transactional(readOnly = false)
     public void submitInit(Map<SchKeyWeekDTO, PerScheduleDTO> weekDersMap, LocalDate viewStart, LocalDate viewEnd) {
-        PerPerson person = perPersonService.getLoginPerson();
+        PerPerson person = commonService.getLoginPerson();
         perSchedulerRepository.deleteSubmitPlan(person, viewStart, viewEnd);
         for (LocalDate date = viewStart; date.isBefore(viewEnd); date = date.plusDays(1)) {
             for (SchKeyWeekDTO key : weekDersMap.keySet()){

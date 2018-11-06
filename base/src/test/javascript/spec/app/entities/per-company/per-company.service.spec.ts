@@ -4,38 +4,29 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import * as moment from 'moment';
-import { DATE_FORMAT } from 'app/shared/constants/input.constants';
-import { FiscalDayoffService } from 'app/entities/fiscal-dayoff/fiscal-dayoff.service';
-import { IFiscalDayoff, FiscalDayoff, EnmDayOff } from 'app/shared/model/fiscal-dayoff.model';
+import { PerCompanyService } from 'app/entities/per-company/per-company.service';
+import { IPerCompany, PerCompany } from 'app/shared/model/per-company.model';
 
 describe('Service Tests', () => {
-    describe('FiscalDayoff Service', () => {
+    describe('PerCompany Service', () => {
         let injector: TestBed;
-        let service: FiscalDayoffService;
+        let service: PerCompanyService;
         let httpMock: HttpTestingController;
-        let elemDefault: IFiscalDayoff;
-        let currentDate: moment.Moment;
+        let elemDefault: IPerCompany;
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule]
             });
             injector = getTestBed();
-            service = injector.get(FiscalDayoffService);
+            service = injector.get(PerCompanyService);
             httpMock = injector.get(HttpTestingController);
-            currentDate = moment();
 
-            elemDefault = new FiscalDayoff(0, 'AAAAAAA', currentDate, EnmDayOff.ALL);
+            elemDefault = new PerCompany(0, 'AAAAAAA', 'AAAAAAA');
         });
 
         describe('Service methods', async () => {
             it('should find an element', async () => {
-                const returnedFromService = Object.assign(
-                    {
-                        dateStart: currentDate.format(DATE_FORMAT)
-                    },
-                    elemDefault
-                );
+                const returnedFromService = Object.assign({}, elemDefault);
                 service
                     .find(123)
                     .pipe(take(1))
@@ -45,44 +36,32 @@ describe('Service Tests', () => {
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should create a FiscalDayoff', async () => {
+            it('should create a PerCompany', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        id: 0,
-                        dateStart: currentDate.format(DATE_FORMAT)
+                        id: 0
                     },
                     elemDefault
                 );
-                const expected = Object.assign(
-                    {
-                        dateStart: currentDate
-                    },
-                    returnedFromService
-                );
+                const expected = Object.assign({}, returnedFromService);
                 service
-                    .create(new FiscalDayoff(null))
+                    .create(new PerCompany(null))
                     .pipe(take(1))
                     .subscribe(resp => expect(resp).toMatchObject({ body: expected }));
                 const req = httpMock.expectOne({ method: 'POST' });
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should update a FiscalDayoff', async () => {
+            it('should update a PerCompany', async () => {
                 const returnedFromService = Object.assign(
                     {
                         code: 'BBBBBB',
-                        dateStart: currentDate.format(DATE_FORMAT),
-                        dayoffType: 'BBBBBB'
+                        name: 'BBBBBB'
                     },
                     elemDefault
                 );
 
-                const expected = Object.assign(
-                    {
-                        dateStart: currentDate
-                    },
-                    returnedFromService
-                );
+                const expected = Object.assign({}, returnedFromService);
                 service
                     .update(expected)
                     .pipe(take(1))
@@ -91,34 +70,25 @@ describe('Service Tests', () => {
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should return a list of FiscalDayoff', async () => {
+            it('should return a list of PerCompany', async () => {
                 const returnedFromService = Object.assign(
                     {
                         code: 'BBBBBB',
-                        dateStart: currentDate.format(DATE_FORMAT),
-                        dayoffType: 'BBBBBB'
+                        name: 'BBBBBB'
                     },
                     elemDefault
                 );
-                const expected = Object.assign(
-                    {
-                        dateStart: currentDate
-                    },
-                    returnedFromService
-                );
+                const expected = Object.assign({}, returnedFromService);
                 service
                     .query(expected)
-                    .pipe(
-                        take(1),
-                        map(resp => resp.body)
-                    )
+                    .pipe(take(1), map(resp => resp.body))
                     .subscribe(body => expect(body).toContainEqual(expected));
                 const req = httpMock.expectOne({ method: 'GET' });
                 req.flush(JSON.stringify([returnedFromService]));
                 httpMock.verify();
             });
 
-            it('should delete a FiscalDayoff', async () => {
+            it('should delete a PerCompany', async () => {
                 const rxPromise = service.delete(123).subscribe(resp => expect(resp.ok));
 
                 const req = httpMock.expectOne({ method: 'DELETE' });

@@ -11,10 +11,6 @@ import { IPerPerson } from 'app/shared/model/per-person.model';
 import { PerPersonService } from 'app/entities/per-person';
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from 'app/entities/def-item';
-import { IPerPeriodState } from 'app/shared/model/per-period-state.model';
-import { PerPeriodStateService } from 'app/entities/per-period-state';
-import { CommonService } from 'app/entities/common';
-import { EnmType } from 'app/shared/model/def-type.model';
 
 @Component({
     selector: 'jhi-per-excuse-update',
@@ -26,10 +22,7 @@ export class PerExcuseUpdateComponent implements OnInit {
 
     perpeople: IPerPerson[];
 
-    // defitems: IDefItem[];
-    izinItemList: IDefItem[];
-
-    perperiodstates: IPerPeriodState[];
+    defitems: IDefItem[];
     startDateDp: any;
     finishDateDp: any;
 
@@ -38,9 +31,7 @@ export class PerExcuseUpdateComponent implements OnInit {
         private perExcuseService: PerExcuseService,
         private perPersonService: PerPersonService,
         private defItemService: DefItemService,
-        private perPeriodStateService: PerPeriodStateService,
-        private activatedRoute: ActivatedRoute,
-        private commonService: CommonService
+        private activatedRoute: ActivatedRoute
     ) {}
 
     ngOnInit() {
@@ -54,24 +45,9 @@ export class PerExcuseUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        */
-        this.perPeriodStateService.query().subscribe(
-            (res: HttpResponse<IPerPeriodState[]>) => {
-                this.perperiodstates = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-
-        this.commonService.findAllByTypeId(EnmType.IZIN).subscribe(
-            (res: HttpResponse<IDefItem[]>) => {
-                this.izinItemList = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -112,10 +88,6 @@ export class PerExcuseUpdateComponent implements OnInit {
     }
 
     trackDefItemById(index: number, item: IDefItem) {
-        return item.id;
-    }
-
-    trackPerPeriodStateById(index: number, item: IPerPeriodState) {
         return item.id;
     }
 }

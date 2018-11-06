@@ -1,7 +1,6 @@
 package com.er.base.service;
 
 import com.er.base.domain.PerPerson;
-import com.er.base.domain.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -46,13 +45,8 @@ public interface PerPersonService {
      * Search for the perPerson corresponding to the query.
      *
      * @param query the query of the search
-     *
+     * 
      * @return the list of entities
      */
     List<PerPerson> search(String query);
-
-    PerPerson getLoginPerson();
-
-    PerPerson registerPerson(User user);
-
 }

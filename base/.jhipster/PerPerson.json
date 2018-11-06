@@ -17,6 +17,30 @@
         {
             "fieldName": "phone",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "shift1",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": 8
+        },
+        {
+            "fieldName": "shift2",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": 8
+        },
+        {
+            "fieldName": "shift3",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": 8
         }
     ],
     "relationships": [
@@ -24,6 +48,12 @@
             "relationshipType": "one-to-many",
             "relationshipName": "valList",
             "otherEntityName": "perValue",
+            "otherEntityRelationshipName": "person"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dailyList",
+            "otherEntityName": "perDaily",
             "otherEntityRelationshipName": "person"
         },
         {

@@ -6,8 +6,8 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IPerDaily } from 'app/shared/model/per-daily.model';
 import { PerDailyService } from './per-daily.service';
-import { IPerCompany } from 'app/shared/model/per-company.model';
-import { PerCompanyService } from 'app/entities/per-company';
+import { IPerPerson } from 'app/shared/model/per-person.model';
+import { PerPersonService } from 'app/entities/per-person';
 
 @Component({
     selector: 'jhi-per-daily-update',
@@ -17,12 +17,12 @@ export class PerDailyUpdateComponent implements OnInit {
     perDaily: IPerDaily;
     isSaving: boolean;
 
-    percompanies: IPerCompany[];
+    perpeople: IPerPerson[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private perDailyService: PerDailyService,
-        private perCompanyService: PerCompanyService,
+        private perPersonService: PerPersonService,
         private activatedRoute: ActivatedRoute
     ) {}
 
@@ -31,9 +31,9 @@ export class PerDailyUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ perDaily }) => {
             this.perDaily = perDaily;
         });
-        this.perCompanyService.query().subscribe(
-            (res: HttpResponse<IPerCompany[]>) => {
-                this.percompanies = res.body;
+        this.perPersonService.query().subscribe(
+            (res: HttpResponse<IPerPerson[]>) => {
+                this.perpeople = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -69,7 +69,7 @@ export class PerDailyUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackPerCompanyById(index: number, item: IPerCompany) {
+    trackPerPersonById(index: number, item: IPerPerson) {
         return item.id;
     }
 }

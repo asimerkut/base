@@ -20,11 +20,5 @@
                                  referencedColumnNames="id"
                                  referencedTableName="def_item"/>
 
-        <addForeignKeyConstraint baseColumnNames="period_state_id"
-                                 baseTableName="per_excuse"
-                                 constraintName="fk_per_excuse_period_state_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="per_period_state"/>
-
     </changeSet>
 </databaseChangeLog>

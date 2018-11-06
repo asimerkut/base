@@ -34,6 +34,7 @@
             <th><span jhiTranslate="baseApp.perSubmit.dersGrup">Ders Grup</span></th>
             <th><span jhiTranslate="baseApp.perSubmit.dersSira">Ders Sira</span></th>
             <th><span jhiTranslate="baseApp.perSubmit.dersAdet">Ders Adet</span></th>
+            <th><span jhiTranslate="baseApp.perSubmit.dayNo">Day No</span></th>
             <th><span jhiTranslate="baseApp.perSubmit.person">Person</span></th>
             <th><span jhiTranslate="baseApp.perSubmit.ders">Ders</span></th>
             <th><span jhiTranslate="baseApp.perSubmit.excuse">Excuse</span></th>
@@ -48,6 +49,7 @@
                 <td jhiTranslate="{{'baseApp.EnmDersGrup.' + perSubmit.dersGrup}}">{{perSubmit.dersGrup}}</td>
                 <td>{{perSubmit.dersSira}}</td>
                 <td>{{perSubmit.dersAdet}}</td>
+                <td jhiTranslate="{{'baseApp.EnmDay.' + perSubmit.dayNo}}">{{perSubmit.dayNo}}</td>
                 <td>
                     <div *ngIf="perSubmit.person">
                         <a [routerLink]="['../per-person', perSubmit.person?.id, 'view' ]" >{{perSubmit.person?.code}}</a>

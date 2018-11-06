@@ -1,25 +1,16 @@
 package com.er.base.service.impl;
 
-import com.er.base.domain.DefItem;
-import com.er.base.domain.PerPerson;
-import com.er.base.service.PerPersonService;
 import com.er.base.service.PerSubmitService;
 import com.er.base.domain.PerSubmit;
 import com.er.base.repository.PerSubmitRepository;
 import com.er.base.repository.search.PerSubmitSearchRepository;
-import com.er.fin.dto.PerScheduleDTO;
-import com.er.fin.dto.SchKeyDateDTO;
-import com.er.fin.dto.SchKeyWeekDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -39,13 +30,9 @@ public class PerSubmitServiceImpl implements PerSubmitService {
 
     private PerSubmitSearchRepository perSubmitSearchRepository;
 
-    private PerPersonService perPersonService;
-
-
-    public PerSubmitServiceImpl(PerSubmitRepository perSubmitRepository, PerSubmitSearchRepository perSubmitSearchRepository, PerPersonService perPersonService) {
+    public PerSubmitServiceImpl(PerSubmitRepository perSubmitRepository, PerSubmitSearchRepository perSubmitSearchRepository) {
         this.perSubmitRepository = perSubmitRepository;
         this.perSubmitSearchRepository = perSubmitSearchRepository;
-        this.perPersonService = perPersonService;
     }
 
     /**
@@ -114,7 +101,4 @@ public class PerSubmitServiceImpl implements PerSubmitService {
             .stream(perSubmitSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
     }
-
-
-
 }

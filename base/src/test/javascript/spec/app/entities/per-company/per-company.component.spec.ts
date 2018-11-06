@@ -4,28 +4,28 @@ import { Observable, of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { BaseTestModule } from '../../../test.module';
-import { FiscalPeriodComponent } from 'app/entities/fiscal-period/fiscal-period.component';
-import { FiscalPeriodService } from 'app/entities/fiscal-period/fiscal-period.service';
-import { FiscalPeriod } from 'app/shared/model/fiscal-period.model';
+import { PerCompanyComponent } from 'app/entities/per-company/per-company.component';
+import { PerCompanyService } from 'app/entities/per-company/per-company.service';
+import { PerCompany } from 'app/shared/model/per-company.model';
 
 describe('Component Tests', () => {
-    describe('FiscalPeriod Management Component', () => {
-        let comp: FiscalPeriodComponent;
-        let fixture: ComponentFixture<FiscalPeriodComponent>;
-        let service: FiscalPeriodService;
+    describe('PerCompany Management Component', () => {
+        let comp: PerCompanyComponent;
+        let fixture: ComponentFixture<PerCompanyComponent>;
+        let service: PerCompanyService;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [BaseTestModule],
-                declarations: [FiscalPeriodComponent],
+                declarations: [PerCompanyComponent],
                 providers: []
             })
-                .overrideTemplate(FiscalPeriodComponent, '')
+                .overrideTemplate(PerCompanyComponent, '')
                 .compileComponents();
 
-            fixture = TestBed.createComponent(FiscalPeriodComponent);
+            fixture = TestBed.createComponent(PerCompanyComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(FiscalPeriodService);
+            service = fixture.debugElement.injector.get(PerCompanyService);
         });
 
         it('Should call load all on init', () => {
@@ -34,7 +34,7 @@ describe('Component Tests', () => {
             spyOn(service, 'query').and.returnValue(
                 of(
                     new HttpResponse({
-                        body: [new FiscalPeriod(123)],
+                        body: [new PerCompany(123)],
                         headers
                     })
                 )
@@ -45,7 +45,7 @@ describe('Component Tests', () => {
 
             // THEN
             expect(service.query).toHaveBeenCalled();
-            expect(comp.fiscalPeriods[0]).toEqual(jasmine.objectContaining({ id: 123 }));
+            expect(comp.perCompanies[0]).toEqual(jasmine.objectContaining({ id: 123 }));
         });
     });
 });

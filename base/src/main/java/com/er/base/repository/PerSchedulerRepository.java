@@ -21,7 +21,7 @@ import java.util.List;
 @Repository
 public interface PerSchedulerRepository extends JpaRepository<PerSubmit, Long> {
 
-    @Query("select d from PerSubmit d where d.person.user.login = ?#{principal.username} and d.submitDate = :submitDate order by d.dersSira, d.id")
+    @Query("select d from PerSubmit d where d.person.loginUser.login = ?#{principal.username} and d.submitDate = :submitDate order by d.dersSira, d.id")
     List<PerSubmit> getSubmitListByDate(@Param("submitDate") LocalDate submitDate);
 
     @Modifying
@@ -29,7 +29,7 @@ public interface PerSchedulerRepository extends JpaRepository<PerSubmit, Long> {
     @Query("delete from PerSubmit d where d.person = :person and d.submitDate >= :startDate and d.submitDate < :endDate")
     void deleteSubmitPlan(@Param("person") PerPerson person, @Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 
-    @Query("select d from PerSubmit d where d.person.user.login = ?#{principal.username} and d.submitDate = :submitDate and d.dersSira = :dersSira and d.ders = :ders")
+    @Query("select d from PerSubmit d where d.person.loginUser.login = ?#{principal.username} and d.submitDate = :submitDate and d.dersSira = :dersSira and d.ders = :ders")
     PerSubmit getSubmitUnique(@Param("submitDate") LocalDate submitDate, @Param("dersSira") Integer dersSira, @Param("ders") DefItem ders);
 
 }

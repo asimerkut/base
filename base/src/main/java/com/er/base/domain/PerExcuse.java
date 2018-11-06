@@ -1,7 +1,5 @@
 package com.er.base.domain;
 
-import com.er.base.domain.enumeration.EnmType;
-import com.er.fin.domain.CheckDefType;
 import com.er.fin.domain.IEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
@@ -61,12 +59,7 @@ public class PerExcuse implements IEntity {
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.IZIN)
     private DefItem izin;
-
-    @ManyToOne
-    @JsonIgnoreProperties("")
-    private PerPeriodState periodState;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -167,19 +160,6 @@ public class PerExcuse implements IEntity {
     public void setIzin(DefItem defItem) {
         this.izin = defItem;
     }
-
-    public PerPeriodState getPeriodState() {
-        return periodState;
-    }
-
-    public PerExcuse periodState(PerPeriodState perPeriodState) {
-        this.periodState = perPeriodState;
-        return this;
-    }
-
-    public void setPeriodState(PerPeriodState perPeriodState) {
-        this.periodState = perPeriodState;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -216,7 +196,6 @@ public class PerExcuse implements IEntity {
 
     @Override
     public String getLabel() {
-        return startDate.toString()+":"+izin.getLabel();
+        return id.toString();
     }
-
 }

@@ -2,6 +2,7 @@ package com.er.fin.dto;
 
 import com.er.base.domain.DefItem;
 import com.er.base.domain.PerCompany;
+import com.er.base.domain.PerPerson;
 
 import java.io.Serializable;
 import java.time.DayOfWeek;
@@ -25,7 +26,7 @@ public class ScheduleEventDTO implements Serializable {
     private String borderColor = "black";
     private String textColor = "gray";
 
-    public ScheduleEventDTO(Integer dersSira, PerCompany c, DayOfWeek dof){
+    public ScheduleEventDTO(Integer dersSira, PerPerson c, DayOfWeek dof){
         this.dersSira=dersSira;
         if (dof!=null && (dof.equals(DayOfWeek.SATURDAY) || dof.equals(DayOfWeek.SUNDAY))){
             backgroundColor="rgb(255, 204, 204)";
@@ -34,11 +35,11 @@ public class ScheduleEventDTO implements Serializable {
         if (c==null){
             return;
         }
-        if (dersSira<=c.getMesaiOo()){
+        if (dersSira<=c.getShift1()){
             backgroundColor="rgb(204, 255, 153)";
-        } else if (dersSira>c.getMesaiOo() &&  dersSira<=(c.getMesaiOo()+c.getMesaiOs())){
+        } else if (dersSira>c.getShift1() &&  dersSira<=(c.getShift1()+c.getShift2())){
             backgroundColor="rgb(255, 255, 153)";
-        } else if (dersSira>(c.getMesaiOo()+c.getMesaiOs()) &&  dersSira<=(c.getMesaiOo()+c.getMesaiOs()+c.getMesaiGc())){
+        } else if (dersSira>(c.getShift1()+c.getShift2()) &&  dersSira<=(c.getShift1()+c.getShift2()+c.getShift3())){
             backgroundColor="rgb(224, 224, 235)";
         } else {
             backgroundColor="rgb(255, 204, 204)";

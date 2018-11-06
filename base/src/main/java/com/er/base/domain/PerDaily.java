@@ -1,5 +1,6 @@
 package com.er.base.domain;
 
+import com.er.fin.domain.IEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -18,7 +19,7 @@ import java.util.Objects;
 @Table(name = "per_daily")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "perdaily")
-public class PerDaily implements Serializable {
+public class PerDaily implements IEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -27,21 +28,24 @@ public class PerDaily implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @NotNull
     @Max(value = 15)
-    @Column(name = "ders_sira")
+    @Column(name = "ders_sira", nullable = false)
     private Integer dersSira;
 
+    @NotNull
     @Size(max = 5)
-    @Column(name = "hour_start", length = 5)
+    @Column(name = "hour_start", length = 5, nullable = false)
     private String hourStart;
 
+    @NotNull
     @Size(max = 5)
-    @Column(name = "hour_finish", length = 5)
+    @Column(name = "hour_finish", length = 5, nullable = false)
     private String hourFinish;
 
     @ManyToOne
-    @JsonIgnoreProperties("")
-    private PerCompany okul;
+    @JsonIgnoreProperties("dailyLists")
+    private PerPerson person;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -91,17 +95,17 @@ public class PerDaily implements Serializable {
         this.hourFinish = hourFinish;
     }
 
-    public PerCompany getOkul() {
-        return okul;
+    public PerPerson getPerson() {
+        return person;
     }
 
-    public PerDaily okul(PerCompany perCompany) {
-        this.okul = perCompany;
+    public PerDaily person(PerPerson perPerson) {
+        this.person = perPerson;
         return this;
     }
 
-    public void setOkul(PerCompany perCompany) {
-        this.okul = perCompany;
+    public void setPerson(PerPerson perPerson) {
+        this.person = perPerson;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -133,5 +137,10 @@ public class PerDaily implements Serializable {
             ", hourStart='" + getHourStart() + "'" +
             ", hourFinish='" + getHourFinish() + "'" +
             "}";
+    }
+
+    @Override
+    public String getLabel() {
+        return id.toString();
     }
 }

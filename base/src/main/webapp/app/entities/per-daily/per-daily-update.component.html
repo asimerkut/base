@@ -12,8 +12,12 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perDaily.dersSira" for="field_dersSira">Ders Sira</label>
                     <input type="number" class="form-control" name="dersSira" id="field_dersSira"
-                        [(ngModel)]="perDaily.dersSira" max="15" jhiMax="15"/>
+                        [(ngModel)]="perDaily.dersSira" required max="15" jhiMax="15"/>
                     <div [hidden]="!(editForm.controls.dersSira?.dirty && editForm.controls.dersSira?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dersSira?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
                         <small class="form-text text-danger"
                             [hidden]="!editForm.controls.dersSira?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 15 }">
                             This field cannot be more than 15.
@@ -27,8 +31,12 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perDaily.hourStart" for="field_hourStart">Hour Start</label>
                     <input type="text" class="form-control" name="hourStart" id="field_hourStart"
-                        [(ngModel)]="perDaily.hourStart" maxlength="5"/>
+                        [(ngModel)]="perDaily.hourStart" required maxlength="5"/>
                     <div [hidden]="!(editForm.controls.hourStart?.dirty && editForm.controls.hourStart?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.hourStart?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
                         <small class="form-text text-danger"
                         [hidden]="!editForm.controls.hourStart?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5 }">
                         This field cannot be longer than 5 characters.
@@ -38,8 +46,12 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perDaily.hourFinish" for="field_hourFinish">Hour Finish</label>
                     <input type="text" class="form-control" name="hourFinish" id="field_hourFinish"
-                        [(ngModel)]="perDaily.hourFinish" maxlength="5"/>
+                        [(ngModel)]="perDaily.hourFinish" required maxlength="5"/>
                     <div [hidden]="!(editForm.controls.hourFinish?.dirty && editForm.controls.hourFinish?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.hourFinish?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
                         <small class="form-text text-danger"
                         [hidden]="!editForm.controls.hourFinish?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5 }">
                         This field cannot be longer than 5 characters.
@@ -48,10 +60,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perDaily.okul" for="field_okul">Okul</label>
-                    <select class="form-control" id="field_okul" name="okul" [(ngModel)]="perDaily.okul" >
+                    <label class="form-control-label" jhiTranslate="baseApp.perDaily.person" for="field_person">Person</label>
+                    <select class="form-control" id="field_person" name="person" [(ngModel)]="perDaily.person" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="perCompanyOption.id === perDaily.okul?.id ? perDaily.okul : perCompanyOption" *ngFor="let perCompanyOption of percompanies; trackBy: trackPerCompanyById">{{perCompanyOption.code}}</option>
+                        <option [ngValue]="perPersonOption.id === perDaily.person?.id ? perDaily.person : perPersonOption" *ngFor="let perPersonOption of perpeople; trackBy: trackPerPersonById">{{perPersonOption.name}}</option>
                     </select>
                 </div>
             </div>

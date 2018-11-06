@@ -77,6 +77,24 @@
                         </small>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="baseApp.perSubmit.dayNo" for="field_dayNo">Day No</label>
+                    <select class="form-control" name="dayNo" [(ngModel)]="perSubmit.dayNo" id="field_dayNo"  required>
+                        <option value="D1">{{'baseApp.EnmDay.D1' | translate}}</option>
+                        <option value="D2">{{'baseApp.EnmDay.D2' | translate}}</option>
+                        <option value="D3">{{'baseApp.EnmDay.D3' | translate}}</option>
+                        <option value="D4">{{'baseApp.EnmDay.D4' | translate}}</option>
+                        <option value="D5">{{'baseApp.EnmDay.D5' | translate}}</option>
+                        <option value="D6">{{'baseApp.EnmDay.D6' | translate}}</option>
+                        <option value="D7">{{'baseApp.EnmDay.D7' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.dayNo?.dirty && editForm.controls.dayNo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dayNo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perSubmit.person" for="field_person">Person</label>

@@ -19,6 +19,8 @@ import java.util.Objects;
 
 import com.er.base.domain.enumeration.EnmDersGrup;
 
+import com.er.base.domain.enumeration.EnmDay;
+
 /**
  * A PerSubmit.
  */
@@ -53,6 +55,11 @@ public class PerSubmit implements IEntity, PerScheduleDTO {
     @Max(value = 15)
     @Column(name = "ders_adet", nullable = false)
     private Integer dersAdet;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "day_no", nullable = false)
+    private DayOfWeek dayNo;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -137,6 +144,19 @@ public class PerSubmit implements IEntity, PerScheduleDTO {
         this.dersAdet = dersAdet;
     }
 
+    public DayOfWeek getDayNo() {
+        return dayNo;
+    }
+
+    public PerSubmit dayNo(DayOfWeek dayNo) {
+        this.dayNo = dayNo;
+        return this;
+    }
+
+    public void setDayNo(DayOfWeek dayNo) {
+        this.dayNo = dayNo;
+    }
+
     public PerPerson getPerson() {
         return person;
     }
@@ -174,6 +194,16 @@ public class PerSubmit implements IEntity, PerScheduleDTO {
 
     public void setExcuse(PerExcuse perExcuse) {
         this.excuse = perExcuse;
+    }
+
+    @Override
+    public Long getCellId() {
+        return null;
+    }
+
+    @Override
+    public void setCellId(Long cellId) {
+
     }
 
     public PerPeriodState getPeriodState() {
@@ -218,28 +248,12 @@ public class PerSubmit implements IEntity, PerScheduleDTO {
             ", dersGrup='" + getDersGrup() + "'" +
             ", dersSira=" + getDersSira() +
             ", dersAdet=" + getDersAdet() +
+            ", dayNo='" + getDayNo() + "'" +
             "}";
     }
 
     @Override
     public String getLabel() {
-        return this.ders.getName()+(this.getDersSira()==0 || this.dersAdet.intValue()>1?" ("+this.dersAdet+")":"");
-    }
-
-    @Override
-    public Long getCellId() {
-        return this.cellId;
-    }
-
-    @Override
-    public void setCellId(Long cellId) {
-        this.cellId = cellId;
-    }
-
-    public DayOfWeek getDayNo() {
-        return (this.submitDate==null?null:this.submitDate.getDayOfWeek());
-    }
-
-    public void setDayNo(DayOfWeek dayNo) {
+        return id.toString();
     }
 }

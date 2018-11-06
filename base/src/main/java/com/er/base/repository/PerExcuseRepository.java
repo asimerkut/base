@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface PerExcuseRepository extends JpaRepository<PerExcuse, Long> {
 
-    @Query("select d from PerExcuse d where d.person.user.login = ?#{principal.username} order by d.startDate, d.startDersNo")
+    @Query("select d from PerExcuse d where d.person.loginUser.login = ?#{principal.username} order by d.startDate, d.startDersNo")
     List<PerExcuse> getPersonExcuse();
 
 }

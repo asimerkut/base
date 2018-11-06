@@ -15,7 +15,7 @@ import java.util.List;
 @Repository
 public interface PerPeriodStateRepository extends JpaRepository<PerPeriodState, Long> {
 
-    @Query("select d from PerPeriodState d where d.person.user.login = ?#{principal.username} order by d.fiscalPeriod.id")
+    @Query("select d from PerPeriodState d where d.person.loginUser.login = ?#{principal.username} order by d.fiscalPeriod.id")
     List<PerPeriodState> getPersonPeriodState();
 
 }

@@ -130,6 +130,7 @@
                 "perPeriodState": "Per Period State",
                 "fiscalDayoff": "Fiscal Dayoff",
                 "perScheduler": "Per Scheduler",
+                "perValue": "Per Value",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

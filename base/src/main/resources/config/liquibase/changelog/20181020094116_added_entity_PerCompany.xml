@@ -29,18 +29,6 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="mesai_oo" type="integer">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="mesai_os" type="integer">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="mesai_gc" type="integer">
-                <constraints nullable="true" />
-            </column>
-
             <column name="sehir_id" type="bigint">
                 <constraints nullable="true" />
             </column>

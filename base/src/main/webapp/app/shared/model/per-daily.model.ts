@@ -1,11 +1,11 @@
-import { IPerCompany } from 'app/shared/model/per-company.model';
+import { IPerPerson } from 'app/shared/model//per-person.model';
 
 export interface IPerDaily {
     id?: number;
     dersSira?: number;
     hourStart?: string;
     hourFinish?: string;
-    okul?: IPerCompany;
+    person?: IPerPerson;
 }
 
 export class PerDaily implements IPerDaily {
@@ -14,6 +14,6 @@ export class PerDaily implements IPerDaily {
         public dersSira?: number,
         public hourStart?: string,
         public hourFinish?: string,
-        public okul?: IPerCompany
+        public person?: IPerPerson
     ) {}
 }

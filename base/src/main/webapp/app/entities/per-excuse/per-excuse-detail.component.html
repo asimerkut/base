@@ -37,12 +37,6 @@
                         <a [routerLink]="['/def-item', perExcuse.izin?.id, 'view']">{{perExcuse.izin?.code}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="baseApp.perExcuse.periodState">Period State</span></dt>
-                <dd>
-                    <div *ngIf="perExcuse.periodState">
-                        <a [routerLink]="['/per-period-state', perExcuse.periodState?.id, 'view']">{{perExcuse.periodState?.code}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

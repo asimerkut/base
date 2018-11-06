@@ -4,27 +4,27 @@ import { HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { BaseTestModule } from '../../../test.module';
-import { FiscalPeriodUpdateComponent } from 'app/entities/fiscal-period/fiscal-period-update.component';
-import { FiscalPeriodService } from 'app/entities/fiscal-period/fiscal-period.service';
-import { FiscalPeriod } from 'app/shared/model/fiscal-period.model';
+import { PerPersonUpdateComponent } from 'app/entities/per-person/per-person-update.component';
+import { PerPersonService } from 'app/entities/per-person/per-person.service';
+import { PerPerson } from 'app/shared/model/per-person.model';
 
 describe('Component Tests', () => {
-    describe('FiscalPeriod Management Update Component', () => {
-        let comp: FiscalPeriodUpdateComponent;
-        let fixture: ComponentFixture<FiscalPeriodUpdateComponent>;
-        let service: FiscalPeriodService;
+    describe('PerPerson Management Update Component', () => {
+        let comp: PerPersonUpdateComponent;
+        let fixture: ComponentFixture<PerPersonUpdateComponent>;
+        let service: PerPersonService;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [BaseTestModule],
-                declarations: [FiscalPeriodUpdateComponent]
+                declarations: [PerPersonUpdateComponent]
             })
-                .overrideTemplate(FiscalPeriodUpdateComponent, '')
+                .overrideTemplate(PerPersonUpdateComponent, '')
                 .compileComponents();
 
-            fixture = TestBed.createComponent(FiscalPeriodUpdateComponent);
+            fixture = TestBed.createComponent(PerPersonUpdateComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(FiscalPeriodService);
+            service = fixture.debugElement.injector.get(PerPersonService);
         });
 
         describe('save', () => {
@@ -32,9 +32,9 @@ describe('Component Tests', () => {
                 'Should call update service on save for existing entity',
                 fakeAsync(() => {
                     // GIVEN
-                    const entity = new FiscalPeriod(123);
+                    const entity = new PerPerson(123);
                     spyOn(service, 'update').and.returnValue(of(new HttpResponse({ body: entity })));
-                    comp.fiscalPeriod = entity;
+                    comp.perPerson = entity;
                     // WHEN
                     comp.save();
                     tick(); // simulate async
@@ -49,9 +49,9 @@ describe('Component Tests', () => {
                 'Should call create service on save for new entity',
                 fakeAsync(() => {
                     // GIVEN
-                    const entity = new FiscalPeriod();
+                    const entity = new PerPerson();
                     spyOn(service, 'create').and.returnValue(of(new HttpResponse({ body: entity })));
-                    comp.fiscalPeriod = entity;
+                    comp.perPerson = entity;
                     // WHEN
                     comp.save();
                     tick(); // simulate async

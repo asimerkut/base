@@ -37,7 +37,6 @@
             <th><span jhiTranslate="baseApp.perExcuse.isExcuse">Is Excuse</span></th>
             <th><span jhiTranslate="baseApp.perExcuse.person">Person</span></th>
             <th><span jhiTranslate="baseApp.perExcuse.izin">Izin</span></th>
-            <th><span jhiTranslate="baseApp.perExcuse.periodState">Period State</span></th>
             <th></th>
             </tr>
             </thead>
@@ -57,11 +56,6 @@
                 <td>
                     <div *ngIf="perExcuse.izin">
                         <a [routerLink]="['../def-item', perExcuse.izin?.id, 'view' ]" >{{perExcuse.izin?.code}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="perExcuse.periodState">
-                        <a [routerLink]="['../per-period-state', perExcuse.periodState?.id, 'view' ]" >{{perExcuse.periodState?.code}}</a>
                     </div>
                 </td>
                 <td class="text-right">

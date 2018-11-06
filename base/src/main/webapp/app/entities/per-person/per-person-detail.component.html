@@ -5,23 +5,9 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="baseApp.perPerson.user">User</span></dt>
-                <dd>
-                    {{perPerson.user?.login}}
-                </dd>
                 <dt><span jhiTranslate="baseApp.perPerson.name">Name</span></dt>
                 <dd>
                     <span>{{perPerson.name}}</span>
-                </dd>
-                <!--
-                <dt><span jhiTranslate="baseApp.perPerson.isActive">Is Active</span></dt>
-                <dd>
-                    <span>{{perPerson.isActive}}</span>
-                </dd>
-                -->
-                <dt><span jhiTranslate="baseApp.perPerson.sozlesme">Sozlesme</span></dt>
-                <dd>
-                    <span jhiTranslate="{{'baseApp.EnmSozlesme.' + perPerson.sozlesme}}">{{perPerson.sozlesme}}</span>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perPerson.email">Email</span></dt>
                 <dd>
@@ -31,41 +17,21 @@
                 <dd>
                     <span>{{perPerson.phone}}</span>
                 </dd>
-                <dt><span jhiTranslate="baseApp.perPerson.okul">Okul</span></dt>
+                <dt><span jhiTranslate="baseApp.perPerson.shift1">Shift 1</span></dt>
                 <dd>
-                    <div *ngIf="perPerson.okul">
-                        <a [routerLink]="['/per-company', perPerson.okul?.id, 'view']">{{perPerson.okul?.label}}</a>
-                    </div>
+                    <span>{{perPerson.shift1}}</span>
                 </dd>
-                <dt><span jhiTranslate="baseApp.perPerson.brans">Brans</span></dt>
+                <dt><span jhiTranslate="baseApp.perPerson.shift2">Shift 2</span></dt>
                 <dd>
-                    <div *ngIf="perPerson.brans">
-                        <a [routerLink]="['/def-item', perPerson.brans?.id, 'view']">{{perPerson.brans?.label}}</a>
-                    </div>
+                    <span>{{perPerson.shift2}}</span>
                 </dd>
-                <dt><span jhiTranslate="baseApp.perPerson.unvan">Unvan</span></dt>
+                <dt><span jhiTranslate="baseApp.perPerson.shift3">Shift 3</span></dt>
                 <dd>
-                    <div *ngIf="perPerson.unvan">
-                        <a [routerLink]="['/def-item', perPerson.unvan?.id, 'view']">{{perPerson.unvan?.label}}</a>
-                    </div>
+                    <span>{{perPerson.shift3}}</span>
                 </dd>
-                <dt><span jhiTranslate="baseApp.perPerson.kadro">Kadro</span></dt>
+                <dt><span jhiTranslate="baseApp.perPerson.loginUser">Login User</span></dt>
                 <dd>
-                    <div *ngIf="perPerson.kadro">
-                        <a [routerLink]="['/def-item', perPerson.kadro?.id, 'view']">{{perPerson.kadro?.label}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="baseApp.perPerson.karyr">Karyr</span></dt>
-                <dd>
-                    <div *ngIf="perPerson.karyr">
-                        <a [routerLink]="['/def-item', perPerson.karyr?.id, 'view']">{{perPerson.karyr?.label}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="baseApp.perPerson.konum">Konum</span></dt>
-                <dd>
-                    <div *ngIf="perPerson.konum">
-                        <a [routerLink]="['/def-item', perPerson.konum?.id, 'view']">{{perPerson.konum?.label}}</a>
-                    </div>
+                    {{perPerson.loginUser?.login}}
                 </dd>
             </dl>
 

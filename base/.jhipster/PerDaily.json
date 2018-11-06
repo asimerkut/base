@@ -1,43 +1,49 @@
 {
-    "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "okul",
-            "otherEntityName": "perCompany",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "code"
-        }
-    ],
+    "name": "PerDaily",
     "fields": [
         {
             "fieldName": "dersSira",
             "fieldType": "Integer",
             "fieldValidateRules": [
+                "required",
                 "max"
             ],
-            "fieldValidateRulesMax": "15"
+            "fieldValidateRulesMax": 15
         },
         {
             "fieldName": "hourStart",
             "fieldType": "String",
             "fieldValidateRules": [
+                "required",
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "5"
+            "fieldValidateRulesMaxlength": 5
         },
         {
             "fieldName": "hourFinish",
             "fieldType": "String",
             "fieldValidateRules": [
+                "required",
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "5"
+            "fieldValidateRulesMaxlength": 5
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "person",
+            "otherEntityName": "perPerson",
+            "otherEntityField": "name"
         }
     ],
     "changelogDate": "20180311133648",
-    "dto": "no",
-    "service": "serviceImpl",
     "entityTableName": "per_daily",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
     "jpaMetamodelFiltering": false,
-    "pagination": "no"
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
 }

@@ -2,13 +2,13 @@
     "baseApp": {
         "EnmDay" : {
             "null": "",
-            "MONDAY": "Pazartesi",
-            "TUESDAY": "Salı",
-            "WEDNESDAY": "Çarşamba",
-            "THURSDAY": "Perşembe",
-            "FRIDAY": "Cuma",
-            "SATURDAY": "Cumartesi",
-            "SUNDAY": "Pazar"
+            "D1": "D1",
+            "D2": "D2",
+            "D3": "D3",
+            "D4": "D4",
+            "D5": "D5",
+            "D6": "D6",
+            "D7": "D7"
         }
     }
 }

@@ -17,22 +17,15 @@
             "detail": {
                 "title": "Per Person"
             },
-            "code": "Code",
             "name": "Name",
-            "isActive": "Is Active",
-            "sozlesme": "Sozlesme",
             "email": "Email",
             "phone": "Phone",
-            "cins": "Cins",
-            "medeni": "Medeni",
-            "okul": "Okul",
-            "hizmt": "Hizmt",
-            "brans": "Brans",
-            "unvan": "Unvan",
-            "kadro": "Kadro",
-            "karyr": "Karyr",
-            "konum": "Konum",
-            "user": "User"
+            "shift1": "Shift 1",
+            "shift2": "Shift 2",
+            "shift3": "Shift 3",
+            "valList": "Val List",
+            "dailyList": "Daily List",
+            "loginUser": "Login User"
         }
     }
 }

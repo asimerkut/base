@@ -22,18 +22,18 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="ders_sira" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
 
             <column name="hour_start" type="varchar(5)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
 
             <column name="hour_finish" type="varchar(5)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
 
-            <column name="okul_id" type="bigint">
+            <column name="person_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

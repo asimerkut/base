@@ -1,7 +1,5 @@
 package com.er.base.service.impl;
 
-import com.er.base.domain.User;
-import com.er.base.domain.enumeration.EnmSozlesme;
 import com.er.base.service.PerPersonService;
 import com.er.base.domain.PerPerson;
 import com.er.base.repository.PerPersonRepository;
@@ -102,24 +100,5 @@ public class PerPersonServiceImpl implements PerPersonService {
         return StreamSupport
             .stream(perPersonSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public PerPerson getLoginPerson(){
-        return perPersonRepository.getLoginPerson();
-    }
-
-    @Override
-    @Transactional(readOnly = false)
-    public PerPerson registerPerson(User user){
-        PerPerson per = new PerPerson();
-        per.setUser(user);
-        per.setCode(user.getLogin());
-        per.setName(user.getLogin());
-        per.setEmail(user.getEmail());
-        per.setIsActive(true);
-        per = perPersonRepository.save(per);
-        return per;
     }
 }

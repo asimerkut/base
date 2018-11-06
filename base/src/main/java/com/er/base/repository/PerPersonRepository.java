@@ -13,10 +13,10 @@ import java.util.List;
 @Repository
 public interface PerPersonRepository extends JpaRepository<PerPerson, Long> {
 
-    // @Query("select per_person from PerPerson per_person where per_person.user.login = ?#{principal.username}")
-    // List<PerPerson> findByUserIsCurrentUser();
+    @Query("select per_person from PerPerson per_person where per_person.loginUser.login = ?#{principal.username}")
+    List<PerPerson> findByUserIsCurrentUser();
 
-    @Query("select per_person from PerPerson per_person where per_person.user.login = ?#{principal.username}")
+    @Query("select per_person from PerPerson per_person where per_person.loginUser.login = ?#{principal.username}")
     PerPerson getLoginPerson();
 
 }

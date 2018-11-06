@@ -1,14 +1,8 @@
 package com.er.base.service;
 
-import com.er.base.domain.DefItem;
 import com.er.base.domain.PerSubmit;
-import com.er.fin.dto.PerScheduleDTO;
-import com.er.fin.dto.SchKeyDateDTO;
-import com.er.fin.dto.SchKeyWeekDTO;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -51,10 +45,8 @@ public interface PerSubmitService {
      * Search for the perSubmit corresponding to the query.
      *
      * @param query the query of the search
-     *
+     * 
      * @return the list of entities
      */
     List<PerSubmit> search(String query);
-
-
 }

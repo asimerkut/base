@@ -32,9 +32,6 @@
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="baseApp.perCompany.code">Code</span></th>
             <th><span jhiTranslate="baseApp.perCompany.name">Name</span></th>
-            <th><span jhiTranslate="baseApp.perCompany.mesaiOo">Mesai Oo</span></th>
-            <th><span jhiTranslate="baseApp.perCompany.mesaiOs">Mesai Os</span></th>
-            <th><span jhiTranslate="baseApp.perCompany.mesaiGc">Mesai Gc</span></th>
             <th><span jhiTranslate="baseApp.perCompany.sehir">Sehir</span></th>
             <th><span jhiTranslate="baseApp.perCompany.tipi">Tipi</span></th>
             <th></th>
@@ -45,9 +42,6 @@
                 <td><a [routerLink]="['/per-company', perCompany.id, 'view' ]">{{perCompany.id}}</a></td>
                 <td>{{perCompany.code}}</td>
                 <td>{{perCompany.name}}</td>
-                <td>{{perCompany.mesaiOo}}</td>
-                <td>{{perCompany.mesaiOs}}</td>
-                <td>{{perCompany.mesaiGc}}</td>
                 <td>
                     <div *ngIf="perCompany.sehir">
                         <a [routerLink]="['../def-item', perCompany.sehir?.id, 'view' ]" >{{perCompany.sehir?.code}}</a>

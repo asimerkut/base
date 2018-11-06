@@ -27,19 +27,19 @@ public interface PerPlanRepository extends JpaRepository<PerPlan, Long> {
     //@Query("update FinDetailEntity t set t.document=null where t.document.id = :finDocId and (resource != 'FIN' and resource != 'ACC')")
     //void updateRefFinInfo(@Param("finDocId") Long id);
 
-    @Query("select distinct d.startDate from PerPlan d where d.person.user.login = ?#{principal.username} order by 1")
+    @Query("select distinct d.startDate from PerPlan d where d.person.loginUser.login = ?#{principal.username} order by 1")
     List<LocalDate> getPlanDateList();
 
-    @Query("select d from PerPlan d where d.person.user.login = ?#{principal.username} and d.person = :person")
+    @Query("select d from PerPlan d where d.person.loginUser.login = ?#{principal.username} and d.person = :person")
     List<PerPlan> getPlanListByPerson(@Param("person") PerPerson person);
 
-    @Query("select d from PerPlan d where d.person.user.login = ?#{principal.username} and d.startDate = :startDate and d.dayNo = :dayNo order by d.dersSira, d.id")
+    @Query("select d from PerPlan d where d.person.loginUser.login = ?#{principal.username} and d.startDate = :startDate and d.dayNo = :dayNo order by d.dersSira, d.id")
     List<PerPlan> getPlanListByDateAndDay(@Param("startDate") LocalDate startDate, @Param("dayNo") DayOfWeek dayNo);
 
-    @Query("select d from PerPlan d where d.person.user.login = ?#{principal.username} and d.startDate = :startDate order by d.dayNo, d.dersSira, d.id")
+    @Query("select d from PerPlan d where d.person.loginUser.login = ?#{principal.username} and d.startDate = :startDate order by d.dayNo, d.dersSira, d.id")
     List<PerPlan> getPlanListByDate(@Param("startDate") LocalDate startDate);
 
-    @Query("select d from PerPlan d where d.person.user.login = ?#{principal.username} and d.startDate = :startDate and d.dayNo = :dayNo and d.dersSira = :dersSira and d.ders = :ders")
+    @Query("select d from PerPlan d where d.person.loginUser.login = ?#{principal.username} and d.startDate = :startDate and d.dayNo = :dayNo and d.dersSira = :dersSira and d.ders = :ders")
     PerPlan getPlanUnique(@Param("startDate") LocalDate startDate, @Param("dayNo") DayOfWeek dayNo, @Param("dersSira") Integer dersSira, @Param("ders") DefItem ders);
 
 }

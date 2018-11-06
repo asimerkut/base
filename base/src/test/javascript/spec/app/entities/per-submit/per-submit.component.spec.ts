@@ -4,28 +4,28 @@ import { Observable, of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { BaseTestModule } from '../../../test.module';
-import { FiscalDayoffComponent } from 'app/entities/fiscal-dayoff/fiscal-dayoff.component';
-import { FiscalDayoffService } from 'app/entities/fiscal-dayoff/fiscal-dayoff.service';
-import { FiscalDayoff } from 'app/shared/model/fiscal-dayoff.model';
+import { PerSubmitComponent } from 'app/entities/per-submit/per-submit.component';
+import { PerSubmitService } from 'app/entities/per-submit/per-submit.service';
+import { PerSubmit } from 'app/shared/model/per-submit.model';
 
 describe('Component Tests', () => {
-    describe('FiscalDayoff Management Component', () => {
-        let comp: FiscalDayoffComponent;
-        let fixture: ComponentFixture<FiscalDayoffComponent>;
-        let service: FiscalDayoffService;
+    describe('PerSubmit Management Component', () => {
+        let comp: PerSubmitComponent;
+        let fixture: ComponentFixture<PerSubmitComponent>;
+        let service: PerSubmitService;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [BaseTestModule],
-                declarations: [FiscalDayoffComponent],
+                declarations: [PerSubmitComponent],
                 providers: []
             })
-                .overrideTemplate(FiscalDayoffComponent, '')
+                .overrideTemplate(PerSubmitComponent, '')
                 .compileComponents();
 
-            fixture = TestBed.createComponent(FiscalDayoffComponent);
+            fixture = TestBed.createComponent(PerSubmitComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(FiscalDayoffService);
+            service = fixture.debugElement.injector.get(PerSubmitService);
         });
 
         it('Should call load all on init', () => {
@@ -34,7 +34,7 @@ describe('Component Tests', () => {
             spyOn(service, 'query').and.returnValue(
                 of(
                     new HttpResponse({
-                        body: [new FiscalDayoff(123)],
+                        body: [new PerSubmit(123)],
                         headers
                     })
                 )
@@ -45,7 +45,7 @@ describe('Component Tests', () => {
 
             // THEN
             expect(service.query).toHaveBeenCalled();
-            expect(comp.fiscalDayoffs[0]).toEqual(jasmine.objectContaining({ id: 123 }));
+            expect(comp.perSubmits[0]).toEqual(jasmine.objectContaining({ id: 123 }));
         });
     });
 });

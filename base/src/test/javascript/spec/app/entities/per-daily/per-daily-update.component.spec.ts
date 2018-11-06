@@ -4,27 +4,27 @@ import { HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { BaseTestModule } from '../../../test.module';
-import { FiscalDayoffUpdateComponent } from 'app/entities/fiscal-dayoff/fiscal-dayoff-update.component';
-import { FiscalDayoffService } from 'app/entities/fiscal-dayoff/fiscal-dayoff.service';
-import { FiscalDayoff } from 'app/shared/model/fiscal-dayoff.model';
+import { PerDailyUpdateComponent } from 'app/entities/per-daily/per-daily-update.component';
+import { PerDailyService } from 'app/entities/per-daily/per-daily.service';
+import { PerDaily } from 'app/shared/model/per-daily.model';
 
 describe('Component Tests', () => {
-    describe('FiscalDayoff Management Update Component', () => {
-        let comp: FiscalDayoffUpdateComponent;
-        let fixture: ComponentFixture<FiscalDayoffUpdateComponent>;
-        let service: FiscalDayoffService;
+    describe('PerDaily Management Update Component', () => {
+        let comp: PerDailyUpdateComponent;
+        let fixture: ComponentFixture<PerDailyUpdateComponent>;
+        let service: PerDailyService;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [BaseTestModule],
-                declarations: [FiscalDayoffUpdateComponent]
+                declarations: [PerDailyUpdateComponent]
             })
-                .overrideTemplate(FiscalDayoffUpdateComponent, '')
+                .overrideTemplate(PerDailyUpdateComponent, '')
                 .compileComponents();
 
-            fixture = TestBed.createComponent(FiscalDayoffUpdateComponent);
+            fixture = TestBed.createComponent(PerDailyUpdateComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(FiscalDayoffService);
+            service = fixture.debugElement.injector.get(PerDailyService);
         });
 
         describe('save', () => {
@@ -32,9 +32,9 @@ describe('Component Tests', () => {
                 'Should call update service on save for existing entity',
                 fakeAsync(() => {
                     // GIVEN
-                    const entity = new FiscalDayoff(123);
+                    const entity = new PerDaily(123);
                     spyOn(service, 'update').and.returnValue(of(new HttpResponse({ body: entity })));
-                    comp.fiscalDayoff = entity;
+                    comp.perDaily = entity;
                     // WHEN
                     comp.save();
                     tick(); // simulate async
@@ -49,9 +49,9 @@ describe('Component Tests', () => {
                 'Should call create service on save for new entity',
                 fakeAsync(() => {
                     // GIVEN
-                    const entity = new FiscalDayoff();
+                    const entity = new PerDaily();
                     spyOn(service, 'create').and.returnValue(of(new HttpResponse({ body: entity })));
-                    comp.fiscalDayoff = entity;
+                    comp.perDaily = entity;
                     // WHEN
                     comp.save();
                     tick(); // simulate async

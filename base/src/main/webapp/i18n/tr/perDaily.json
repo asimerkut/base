@@ -6,13 +6,13 @@
                 "title": "Per Dailies",
                 "createLabel": "Create a new Per Daily",
                 "createOrEditLabel": "Create or edit a Per Daily",
-                "search": "?"
+                "search": "Search for Per Daily"
             },
-            "created": "Oluşturuldu {{ param }}",
-            "updated": "Değiştirildi {{ param }}",
-            "deleted": "Silindi {{ param }}",
+            "created": "A new Per Daily is created with identifier {{ param }}",
+            "updated": "A Per Daily is updated with identifier {{ param }}",
+            "deleted": "A Per Daily is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Silmek istiyor musunuz {{ id }}?"
+                "question": "Are you sure you want to delete Per Daily {{ id }}?"
             },
             "detail": {
                 "title": "Per Daily"
@@ -20,7 +20,7 @@
             "dersSira": "Ders Sira",
             "hourStart": "Hour Start",
             "hourFinish": "Hour Finish",
-            "okul": "Okul"
+            "person": "Person"
         }
     }
 }

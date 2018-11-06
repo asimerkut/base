@@ -8,11 +8,11 @@
                 "createOrEditLabel": "Create or edit a Per Submit",
                 "search": "Search for Per Submit"
             },
-            "created": "Oluşturuldu {{ param }}",
-            "updated": "Değiştirildi {{ param }}",
-            "deleted": "Silindi {{ param }}",
+            "created": "A new Per Submit is created with identifier {{ param }}",
+            "updated": "A Per Submit is updated with identifier {{ param }}",
+            "deleted": "A Per Submit is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Silmek istiyor musunuz {{ id }}?"
+                "question": "Are you sure you want to delete Per Submit {{ id }}?"
             },
             "detail": {
                 "title": "Per Submit"
@@ -21,6 +21,7 @@
             "dersGrup": "Ders Grup",
             "dersSira": "Ders Sira",
             "dersAdet": "Ders Adet",
+            "dayNo": "Day No",
             "person": "Person",
             "ders": "Ders",
             "excuse": "Excuse",
