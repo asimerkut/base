@@ -54,10 +54,10 @@ public class PerPerson implements IEntity {
     @Column(name = "shift_3")
     private Integer shift3;
 
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PerValue> valLists = new HashSet<>();
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PerDaily> dailyLists = new HashSet<>();
     @ManyToOne
