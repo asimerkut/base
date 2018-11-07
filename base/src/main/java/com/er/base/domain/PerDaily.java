@@ -1,6 +1,7 @@
 package com.er.base.domain;
 
 import com.er.fin.domain.IEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -44,7 +45,7 @@ public class PerDaily implements IEntity {
     private String hourFinish;
 
     @ManyToOne
-    @JsonIgnoreProperties("dailyLists")
+    @JsonIgnore
     private PerPerson person;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
