@@ -4,9 +4,9 @@
             <h2 id="jhi-per-person-heading" jhiTranslate="baseApp.perPerson.home.createOrEditLabel">Create or edit a Per Person</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!perPerson.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
+                <div class="ui-g ui-fluid" [hidden]="!perPerson.id">
+                    <label class="ui-g-2" for="id" jhiTranslate="global.field.id">ID</label>
+                    <input class="ui-g-8" type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="perPerson.id" readonly />
                 </div>
                 <div class="form-group">
@@ -116,7 +116,7 @@
                 </ng-template>
                 <ng-template pTemplate="summary" let-rowData>
                     <div style="text-align:left">
-                        <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+                        <!--<button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label="Add"></button>-->
                     </div>
                 </ng-template>
             </p-table>
@@ -125,17 +125,20 @@
                 <div class="ui-g ui-fluid" *ngIf="selectedVal">
                     <div class="ui-g-12">
                         <div class="ui-g-4">
-                            <label for="id">Id</label>
+                            <label for="field_item">Değer</label>
                         </div>
                         <div class="ui-g-8">
-                            <input pInputText id="id" [(ngModel)]="selectedVal.id" />
+                            <select class="form-control" id="field_item" name="item" [(ngModel)]="selectedVal"  required>
+                                <option *ngIf="!editForm.value.ders" [ngValue]="null" selected></option>
+                                <option [ngValue]="defItemOption.id === selectedVal.item?.id ? selectedVal.item : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <p-footer>
                     <div class="ui-dialog-buttonpane ui-helper-clearfix">
-                        <button type="button" pButton icon="fa fa-close" (click)="deleteVal()" label="Delete"></button>
-                        <button type="button" pButton icon="fa fa-check" (click)="saveVal()" label="Save"></button>
+                        <button type="button" pButton icon="fa fa-arrow-left" (click)="deleteVal()" label="Iptal"></button>
+                        <button type="button" pButton icon="fa fa-check" (click)="saveVal()" label="Kaydet"></button>
                     </div>
                 </p-footer>
             </p-dialog>

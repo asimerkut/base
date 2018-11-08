@@ -8,6 +8,8 @@ import { IPerPerson } from 'app/shared/model/per-person.model';
 import { PerPersonService } from './per-person.service';
 import { IUser, UserService } from 'app/core';
 import { IPerValue } from '../../shared/model/per-value.model';
+import { IDefItem } from 'app/shared/model/def-item.model';
+import { DefItemService } from 'app/entities/def-item';
 
 @Component({
     selector: 'jhi-per-person-update',
@@ -22,15 +24,17 @@ export class PerPersonUpdateComponent implements OnInit {
     valCols: any[];
     personValLists: IPerValue[];
 
-    val: IPerValue = {};
     selectedVal: IPerValue;
     displayDialog: boolean;
+
+    defitems: IDefItem[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private perPersonService: PerPersonService,
         private userService: UserService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private defItemService: DefItemService
     ) {}
 
     ngOnInit() {
@@ -46,7 +50,14 @@ export class PerPersonUpdateComponent implements OnInit {
             (res: HttpErrorResponse) => this.onError(res.message)
         );
 
-        this.valCols = [{ field: 'valType', subfield: 'code', header: 'tip' }, { field: 'valItem', subfield: 'code', header: 'kod' }];
+        this.defItemService.query().subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.defitems = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
+        this.valCols = [{ field: 'valType', subfield: 'label', header: 'Tanım' }, { field: 'valItem', subfield: 'label', header: 'Değer' }];
     }
 
     previousState() {
@@ -85,7 +96,7 @@ export class PerPersonUpdateComponent implements OnInit {
 
     onRowSelect(event) {
         // this.newCar = false;
-        //  this.car = this.cloneCar(event.data);
+        this.selectedVal = this.cloneVal(event.data);
         this.displayDialog = true;
     }
 
@@ -110,5 +121,17 @@ export class PerPersonUpdateComponent implements OnInit {
         this.car = null;
         */
         this.displayDialog = false;
+    }
+
+    cloneVal(oldObj: IPerValue): IPerValue {
+        let newObj = {};
+        for (let prop in oldObj) {
+            newObj[prop] = oldObj[prop];
+        }
+        return newObj;
+    }
+
+    trackDefItemById(index: number, item: IDefItem) {
+        return item.id;
     }
 }
