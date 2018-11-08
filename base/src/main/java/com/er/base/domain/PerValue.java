@@ -30,16 +30,13 @@ public class PerValue implements IEntity {
     private Long id;
 
     @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnore
     private DefType valType;
 
     @ManyToOne
-    @JsonIgnore
     private DefItem valItem;
 
     @ManyToOne
-    @JsonIgnoreProperties("valLists")
+    @JsonIgnore
     private PerPerson person;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
