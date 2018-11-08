@@ -1,6 +1,7 @@
 package com.er.base.service;
 
 import com.er.base.domain.DefType;
+import com.er.base.domain.enumeration.EnmType;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,8 +46,10 @@ public interface DefTypeService {
      * Search for the defType corresponding to the query.
      *
      * @param query the query of the search
-     * 
+     *
      * @return the list of entities
      */
     List<DefType> search(String query);
+
+    DefType getDeyTypeByCode(EnmType enmType);
 }

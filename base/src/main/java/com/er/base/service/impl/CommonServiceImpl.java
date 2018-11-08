@@ -1,11 +1,14 @@
 package com.er.base.service.impl;
 
 import com.er.base.domain.*;
+import com.er.base.domain.enumeration.EnmType;
 import com.er.base.repository.PerExcuseRepository;
 import com.er.base.repository.PerPersonRepository;
 import com.er.base.repository.search.PerPersonSearchRepository;
 import com.er.base.service.CommonService;
+import com.er.base.service.DefTypeService;
 import com.er.base.service.PerPersonService;
+import com.er.base.service.PerValueService;
 import com.er.fin.domain.FinUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,16 +34,23 @@ public class CommonServiceImpl implements CommonService {
 
     private PerExcuseRepository perExcuseRepository;
 
-    public CommonServiceImpl(PerPersonRepository perPersonRepository, PerExcuseRepository perExcuseRepository) {
+    private DefTypeService defTypeService;
+
+    private PerValueService perValueService;
+
+    public CommonServiceImpl(PerPersonRepository perPersonRepository, PerExcuseRepository perExcuseRepository, DefTypeService defTypeService, PerValueService perValueService) {
         this.perPersonRepository = perPersonRepository;
         this.perExcuseRepository = perExcuseRepository;
+        this.defTypeService = defTypeService;
+        this.perValueService = perValueService;
     }
 
 
     @Override
     @Transactional(readOnly = true)
     public PerPerson getLoginPerson(){
-        return perPersonRepository.getLoginPerson();
+        List<PerPerson> perList = perPersonRepository.getLoginPerson();
+        return perList.get(0);
     }
 
     @Override
@@ -54,8 +64,30 @@ public class CommonServiceImpl implements CommonService {
         per.setShift2(4);
         per.setShift3(4);
         per = perPersonRepository.save(per);
+        createValSet(per);
         return per;
     }
+
+    private void createValSet(PerPerson per){
+        createVal(per, EnmType.SEHIR);
+        createVal(per, EnmType.OKUL);
+
+        createVal(per, EnmType.BRANS);
+        createVal(per, EnmType.UNVAN);
+        createVal(per, EnmType.KADRO);
+        createVal(per, EnmType.KARYR);
+        createVal(per, EnmType.KONUM);
+    }
+
+    private void createVal(PerPerson per, EnmType type){
+        PerValue perValue = new PerValue();
+        perValue.setPerson(per);
+        perValue.setValType(defTypeService.getDeyTypeByCode(type));
+        perValueService.save(perValue);
+    }
+
+
+
 
     @Override
     @Transactional(readOnly = true)

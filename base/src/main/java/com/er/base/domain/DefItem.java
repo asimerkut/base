@@ -204,9 +204,7 @@ public class DefItem implements IEntity {
 
     @Override
     public String getLabel() {
-        if (code!=null){
-            return code+":"+name;
-        }
-        return null;
+        return (id==null?"?":code+":"+name);
+
     }
 }

@@ -1,9 +1,11 @@
 package com.er.base.service;
 
+import com.er.base.domain.PerPerson;
 import com.er.base.domain.PerValue;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Service Interface for managing PerValue.
@@ -45,8 +47,11 @@ public interface PerValueService {
      * Search for the perValue corresponding to the query.
      *
      * @param query the query of the search
-     * 
+     *
      * @return the list of entities
      */
     List<PerValue> search(String query);
+
+    Set<PerValue> findAllByPerson(PerPerson perPerson);
+
 }

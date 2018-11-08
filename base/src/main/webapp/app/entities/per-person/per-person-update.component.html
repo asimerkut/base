@@ -166,9 +166,9 @@
                             <label for="field_item">Değer</label>
                         </div>
                         <div class="ui-g-8">
-                            <select class="form-control" id="field_item" name="item" [(ngModel)]="selectedVal.valItem"  required>
-                                <option *ngIf="!selectedVal" [ngValue]="null" selected></option>
-                                <option [ngValue]="defItemOption.id === selectedVal.valItem?.id ? selectedVal.valItem : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                            <select class="form-control" id="field_item" name="item" [(ngModel)]="selectedVal.valItem">
+                                <option [ngValue]="nullItem"></option>
+                                <option [ngValue]="defItemOption.id === selectedVal.valItem?.id ? selectedVal.valItem : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption?.label}}</option>
                             </select>
                         </div>
                     </div>

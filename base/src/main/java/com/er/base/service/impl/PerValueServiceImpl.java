@@ -1,5 +1,6 @@
 package com.er.base.service.impl;
 
+import com.er.base.domain.PerPerson;
 import com.er.base.service.PerValueService;
 import com.er.base.domain.PerValue;
 import com.er.base.repository.PerValueRepository;
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -101,4 +103,11 @@ public class PerValueServiceImpl implements PerValueService {
             .stream(perValueSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Set<PerValue> findAllByPerson(PerPerson perPerson){
+        return perValueRepository.findAllByPerson(perPerson);
+    }
+
 }

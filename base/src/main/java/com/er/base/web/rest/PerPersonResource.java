@@ -1,8 +1,14 @@
 package com.er.base.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.er.base.domain.DefItem;
+import com.er.base.domain.DefType;
 import com.er.base.domain.PerPerson;
+import com.er.base.domain.PerValue;
+import com.er.base.domain.enumeration.EnmType;
+import com.er.base.service.DefTypeService;
 import com.er.base.service.PerPersonService;
+import com.er.base.service.PerValueService;
 import com.er.base.web.rest.errors.BadRequestAlertException;
 import com.er.base.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -15,8 +21,10 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.StreamSupport;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
@@ -33,9 +41,13 @@ public class PerPersonResource {
     private static final String ENTITY_NAME = "perPerson";
 
     private PerPersonService perPersonService;
+    private PerValueService perValueService;
+    private DefTypeService defTypeService;
 
-    public PerPersonResource(PerPersonService perPersonService) {
+    public PerPersonResource(PerPersonService perPersonService, PerValueService perValueService, DefTypeService defTypeService) {
         this.perPersonService = perPersonService;
+        this.perValueService = perValueService;
+        this.defTypeService = defTypeService;
     }
 
     /**
@@ -75,6 +87,13 @@ public class PerPersonResource {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
         PerPerson result = perPersonService.save(perPerson);
+        for (PerValue val : perPerson.getValLists()){
+            val.setPerson(perPerson);
+            if (val.getValItem().getId()==null){
+                val.setValItem(null);
+            }
+            perValueService.save(val);
+        }
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, perPerson.getId().toString()))
             .body(result);
@@ -103,6 +122,13 @@ public class PerPersonResource {
     public ResponseEntity<PerPerson> getPerPerson(@PathVariable Long id) {
         log.debug("REST request to get PerPerson : {}", id);
         Optional<PerPerson> perPerson = perPersonService.findOne(id);
+        Set<PerValue> valSet = perValueService.findAllByPerson(perPerson.get());
+        for (PerValue val : valSet){
+            if (val.getValItem()==null){
+                val.setValItem(new DefItem());
+            }
+        }
+        perPerson.get().setValLists(valSet);
         return ResponseUtil.wrapOrNotFound(perPerson);
     }
 
@@ -133,5 +159,7 @@ public class PerPersonResource {
         log.debug("REST request to search PerPeople for query {}", query);
         return perPersonService.search(query);
     }
+
+
 
 }

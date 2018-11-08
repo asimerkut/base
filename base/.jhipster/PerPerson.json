@@ -61,7 +61,14 @@
             "relationshipName": "loginUser",
             "otherEntityName": "user",
             "otherEntityField": "login"
-        }
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "okul",
+            "otherEntityName": "perCompany",
+            "otherEntityField": "code"
+        },
+
     ],
     "changelogDate": "20181020094117",
     "entityTableName": "per_person",

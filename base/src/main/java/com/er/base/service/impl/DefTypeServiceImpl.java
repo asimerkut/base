@@ -1,5 +1,6 @@
 package com.er.base.service.impl;
 
+import com.er.base.domain.enumeration.EnmType;
 import com.er.base.service.DefTypeService;
 import com.er.base.domain.DefType;
 import com.er.base.repository.DefTypeRepository;
@@ -101,4 +102,11 @@ public class DefTypeServiceImpl implements DefTypeService {
             .stream(defTypeSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public DefType getDeyTypeByCode(EnmType enmType){
+        return defTypeRepository.getDeyTypeByCode(enmType);
+    }
+
 }

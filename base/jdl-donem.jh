@@ -81,6 +81,7 @@ relationship ManyToOne {
     PerCompany{tipi(code)} to DefItem,
 
     PerPerson{loginUser(login)} to User,
+    PerPerson{okul(code)} to PerCompany,
 
     PerPlan{person(code) required} to PerPerson,
     PerPlan{ders(code) required} to DefItem

@@ -9,7 +9,7 @@ import { PerPersonService } from './per-person.service';
 import { IUser, UserService } from 'app/core';
 import { IPerValue } from '../../shared/model/per-value.model';
 import { IDefItem } from 'app/shared/model/def-item.model';
-import { DefItemService } from 'app/entities/def-item';
+import { CommonService } from 'app/entities/common';
 
 @Component({
     selector: 'jhi-per-person-update',
@@ -25,16 +25,18 @@ export class PerPersonUpdateComponent implements OnInit {
     personValLists: IPerValue[];
 
     selectedVal: IPerValue;
+    selectedValIndex: number;
     displayDialog: boolean;
 
     defitems: IDefItem[];
+    nullItem: IDefItem = {};
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private perPersonService: PerPersonService,
         private userService: UserService,
         private activatedRoute: ActivatedRoute,
-        private defItemService: DefItemService
+        private commonService: CommonService
     ) {}
 
     ngOnInit() {
@@ -49,14 +51,14 @@ export class PerPersonUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-
+        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-
+        */
         this.valCols = [{ field: 'valType', subfield: 'label', header: 'Tanım' }, { field: 'valItem', subfield: 'label', header: 'Değer' }];
     }
 
@@ -95,23 +97,22 @@ export class PerPersonUpdateComponent implements OnInit {
     }
 
     onRowSelect(event) {
-        // this.newCar = false;
+        this.selectedValIndex = this.personValLists.indexOf(event.data);
         this.selectedVal = this.cloneVal(event.data);
+        this.commonService.findAllByTypeId(this.selectedVal.valType.code).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.defitems = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
         this.displayDialog = true;
     }
 
     saveVal() {
-        /*
-        let cars = [...this.cars];
-        if (this.newCar)
-            cars.push(this.car);
-        else
-            cars[this.cars.indexOf(this.selectedCar)] = this.car;
-
-        this.cars = cars;
-        this.car = null;
-        */
         this.displayDialog = false;
+        this.personValLists[this.selectedValIndex] = this.selectedVal;
+        this.selectedValIndex = null;
+        this.selectedVal = null;
     }
 
     deleteVal() {

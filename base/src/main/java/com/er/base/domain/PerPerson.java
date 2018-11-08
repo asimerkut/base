@@ -54,12 +54,18 @@ public class PerPerson implements IEntity {
     @Column(name = "shift_3")
     private Integer shift3;
 
-    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private PerCompany okul;
+
+    @OneToMany(mappedBy = "person")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PerValue> valLists = new HashSet<>();
-    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
+
+    @OneToMany(mappedBy = "person")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PerDaily> dailyLists = new HashSet<>();
+
     @ManyToOne
     @JsonIgnoreProperties("")
     private User loginUser;
@@ -242,14 +248,20 @@ public class PerPerson implements IEntity {
             ", name='" + getName() + "'" +
             ", email='" + getEmail() + "'" +
             ", phone='" + getPhone() + "'" +
-            ", shift1=" + getShift1() +
-            ", shift2=" + getShift2() +
-            ", shift3=" + getShift3() +
+            ", okul=" + getOkul() +
             "}";
     }
 
     @Override
     public String getLabel() {
         return loginUser.getLogin();
+    }
+
+    public PerCompany getOkul() {
+        return okul;
+    }
+
+    public void setOkul(PerCompany okul) {
+        this.okul = okul;
     }
 }
