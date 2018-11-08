@@ -88,6 +88,58 @@
                     </select>
                 </div>
             </div>
+
+            <p-table [columns]="valCols" [value]="personValLists" selectionMode="single" [(selection)]="selectedVal" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+                <ng-template pTemplate="caption">
+                    Görev Yeri Tanımları
+                </ng-template>
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr [pSelectableRow]="rowData">
+                        <td *ngFor="let col of columns">
+                            <div *ngIf="col.subfield;then nested_object_content else normal_content"></div>
+                            <ng-template #nested_object_content>
+                                {{rowData[col.field][col.subfield]}}
+                            </ng-template>
+                            <ng-template #normal_content>
+                                {{rowData[col.field]}}
+                            </ng-template>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary" let-rowData>
+                    <div style="text-align:left">
+                        <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+                    </div>
+                </ng-template>
+            </p-table>
+
+            <p-dialog header="Seçim" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="300">
+                <div class="ui-g ui-fluid" *ngIf="selectedVal">
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="id">Id</label>
+                        </div>
+                        <div class="ui-g-8">
+                            <input pInputText id="id" [(ngModel)]="selectedVal.id" />
+                        </div>
+                    </div>
+                </div>
+                <p-footer>
+                    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                        <button type="button" pButton icon="fa fa-close" (click)="deleteVal()" label="Delete"></button>
+                        <button type="button" pButton icon="fa fa-check" (click)="saveVal()" label="Save"></button>
+                    </div>
+                </p-footer>
+            </p-dialog>
+
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
@@ -97,5 +149,6 @@
                 </button>
             </div>
         </form>
+
     </div>
 </div>

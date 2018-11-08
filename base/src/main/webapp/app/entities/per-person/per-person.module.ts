@@ -12,11 +12,16 @@ import {
     perPersonRoute,
     perPersonPopupRoute
 } from './';
+import { TableModule } from 'primeng/components/table/table';
+import { DialogModule } from 'primeng/components/dialog/dialog';
+import { ButtonModule } from 'primeng/components/button/button';
+
+// import { ObjectUtils } from 'primeng/components/utils/objectutils';
 
 const ENTITY_STATES = [...perPersonRoute, ...perPersonPopupRoute];
 
 @NgModule({
-    imports: [BaseSharedModule, BaseAdminModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [BaseSharedModule, BaseAdminModule, TableModule, DialogModule, ButtonModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
         PerPersonComponent,
         PerPersonDetailComponent,
