@@ -5,7 +5,7 @@
             "home": {
                 "title": "Personel",
                 "createLabel": "Yeni",
-                "createOrEditLabel": "Ekle/Değiştir",
+                "createOrEditLabel": "Personel Ekle/Değiştir",
                 "search": "Ara"
             },
             "created": "Oluşturuldu {{ param }}",
