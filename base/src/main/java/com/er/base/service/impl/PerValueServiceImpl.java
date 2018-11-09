@@ -123,6 +123,7 @@ public class PerValueServiceImpl implements PerValueService {
         addToList(newSet, valSet, EnmType.UNVAN,label);
         addToList(newSet, valSet, EnmType.KADRO,label);
         addToList(newSet, valSet, EnmType.KONUM,label);
+        addToList(newSet, valSet, EnmType.KARYR,label);
         return newSet;
     }
 
