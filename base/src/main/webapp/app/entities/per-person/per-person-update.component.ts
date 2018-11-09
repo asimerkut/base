@@ -31,19 +31,24 @@ export class PerPersonUpdateComponent implements OnInit {
     defitems: IDefItem[];
     nullItem: IDefItem = {};
 
+    // rowGroupMetadata: {};
+
     constructor(
         private jhiAlertService: JhiAlertService,
         private perPersonService: PerPersonService,
         private userService: UserService,
         private activatedRoute: ActivatedRoute,
         private commonService: CommonService
-    ) {}
+    ) {
+        // this.updateRowGroupMetaData();
+    }
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ perPerson }) => {
             this.perPerson = perPerson;
             this.personValLists = perPerson.valLists;
+            // this.updateRowGroupMetaData();
         });
         this.userService.query().subscribe(
             (res: HttpResponse<IUser[]>) => {
@@ -98,6 +103,7 @@ export class PerPersonUpdateComponent implements OnInit {
 
     onRowSelect(event) {
         this.selectedValIndex = this.personValLists.indexOf(event.data);
+
         this.selectedVal = this.cloneVal(event.data);
         this.commonService.findAllByTypeId(this.selectedVal.valType.code).subscribe(
             (res: HttpResponse<IDefItem[]>) => {
@@ -106,6 +112,28 @@ export class PerPersonUpdateComponent implements OnInit {
             (res: HttpErrorResponse) => this.onError(res.message)
         );
         this.displayDialog = true;
+    }
+
+    rowGroupMetadata(label: string): number {
+        const rowGroupMetadata = {};
+        if (this.personValLists) {
+            for (let i = 0; i < this.personValLists.length; i++) {
+                const rowData = this.personValLists[i];
+                const label = rowData.label;
+                if (i === 0) {
+                    rowGroupMetadata[label] = { index: 0, size: 1 };
+                } else {
+                    const previousRowData = this.personValLists[i - 1];
+                    const previousRowGroup = previousRowData.label;
+                    if (label === previousRowGroup) {
+                        rowGroupMetadata[label].size++;
+                    } else {
+                        rowGroupMetadata[label] = { index: i, size: 1 };
+                    }
+                }
+            }
+        }
+        return rowGroupMetadata[label].index;
     }
 
     saveVal() {
@@ -125,8 +153,8 @@ export class PerPersonUpdateComponent implements OnInit {
     }
 
     cloneVal(oldObj: IPerValue): IPerValue {
-        let newObj = {};
-        for (let prop in oldObj) {
+        const newObj = {};
+        for (const prop in oldObj) {
             newObj[prop] = oldObj[prop];
         }
         return newObj;

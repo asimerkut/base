@@ -2,15 +2,11 @@ package com.er.base.domain;
 
 import com.er.fin.domain.IEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
-
-import org.springframework.data.elasticsearch.annotations.Document;
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -38,6 +34,9 @@ public class PerValue implements IEntity {
     @ManyToOne
     @JsonIgnore
     private PerPerson person;
+
+    @Transient
+    private String grp;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -117,6 +116,14 @@ public class PerValue implements IEntity {
 
     @Override
     public String getLabel() {
-        return (id!=null?id.toString():"");
+        return (id != null ? (this.grp == null ? id.toString() : this.grp) : "?");
+    }
+
+    public String getGrp() {
+        return grp;
+    }
+
+    public void setGrp(String grp) {
+        this.grp = grp;
     }
 }

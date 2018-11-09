@@ -129,7 +129,6 @@
             <div>
             <p-table [columns]="valCols" [value]="personValLists" selectionMode="single" [(selection)]="selectedVal" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
                 <ng-template pTemplate="caption">
-                    Görev Yeri Tanımları
                 </ng-template>
                 <ng-template pTemplate="header" let-columns>
                     <tr>
@@ -139,7 +138,14 @@
                         </th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+
+                    <tr class="ui-widget-header" *ngIf="rowGroupMetadata(rowData.label) == rowIndex">
+                        <td colspan="2">
+                            <span style="font-weight:bold">{{rowData.label}}</span>
+                        </td>
+                    </tr>
+
                     <tr [pSelectableRow]="rowData">
                         <td *ngFor="let col of columns">
                             <div *ngIf="col.subfield;then nested_object_content else normal_content"></div>

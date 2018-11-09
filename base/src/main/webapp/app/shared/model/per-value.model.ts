@@ -7,8 +7,15 @@ export interface IPerValue {
     valType?: IDefType;
     valItem?: IDefItem;
     person?: IPerPerson;
+    label?: string;
 }
 
 export class PerValue implements IPerValue {
-    constructor(public id?: number, public valType?: IDefType, public valItem?: IDefItem, public person?: IPerPerson) {}
+    constructor(
+        public id?: number,
+        public valType?: IDefType,
+        public valItem?: IDefItem,
+        public person?: IPerPerson,
+        public label?: string
+    ) {}
 }

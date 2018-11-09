@@ -11,9 +11,7 @@ import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * A PerPerson.
@@ -60,11 +58,11 @@ public class PerPerson implements IEntity {
 
     @OneToMany(mappedBy = "person")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<PerValue> valLists = new HashSet<>();
+    private List<PerValue> valLists = new ArrayList<>();
 
     @OneToMany(mappedBy = "person")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<PerDaily> dailyLists = new HashSet<>();
+    private List<PerDaily> dailyLists = new ArrayList<>();
 
     @ManyToOne
     @JsonIgnoreProperties("")
@@ -157,11 +155,11 @@ public class PerPerson implements IEntity {
         this.shift3 = shift3;
     }
 
-    public Set<PerValue> getValLists() {
+    public List<PerValue> getValLists() {
         return valLists;
     }
 
-    public PerPerson valLists(Set<PerValue> perValues) {
+    public PerPerson valLists(List<PerValue> perValues) {
         this.valLists = perValues;
         return this;
     }
@@ -178,15 +176,15 @@ public class PerPerson implements IEntity {
         return this;
     }
 
-    public void setValLists(Set<PerValue> perValues) {
+    public void setValLists(List<PerValue> perValues) {
         this.valLists = perValues;
     }
 
-    public Set<PerDaily> getDailyLists() {
+    public List<PerDaily> getDailyLists() {
         return dailyLists;
     }
 
-    public PerPerson dailyLists(Set<PerDaily> perDailies) {
+    public PerPerson dailyLists(List<PerDaily> perDailies) {
         this.dailyLists = perDailies;
         return this;
     }
@@ -203,7 +201,7 @@ public class PerPerson implements IEntity {
         return this;
     }
 
-    public void setDailyLists(Set<PerDaily> perDailies) {
+    public void setDailyLists(List<PerDaily> perDailies) {
         this.dailyLists = perDailies;
     }
 

@@ -21,10 +21,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.StreamSupport;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
@@ -123,12 +120,15 @@ public class PerPersonResource {
         log.debug("REST request to get PerPerson : {}", id);
         Optional<PerPerson> perPerson = perPersonService.findOne(id);
         Set<PerValue> valSet = perValueService.findAllByPerson(perPerson.get());
+
+        perPerson.get().setValLists(new ArrayList<>());
         for (PerValue val : valSet){
             if (val.getValItem()==null){
                 val.setValItem(new DefItem());
             }
+            val.setGrp("A");
+            perPerson.get().getValLists().add(val);
         }
-        perPerson.get().setValLists(valSet);
         return ResponseUtil.wrapOrNotFound(perPerson);
     }
 
