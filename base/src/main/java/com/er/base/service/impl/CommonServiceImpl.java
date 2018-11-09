@@ -69,14 +69,7 @@ public class CommonServiceImpl implements CommonService {
     }
 
     private void createValSet(PerPerson per){
-        createVal(per, EnmType.SEHIR);
-        createVal(per, EnmType.OKUL);
 
-        createVal(per, EnmType.BRANS);
-        createVal(per, EnmType.UNVAN);
-        createVal(per, EnmType.KADRO);
-        createVal(per, EnmType.KARYR);
-        createVal(per, EnmType.KONUM);
     }
 
     private void createVal(PerPerson per, EnmType type){

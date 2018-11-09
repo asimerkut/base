@@ -116,7 +116,7 @@ public class PerValue implements IEntity {
 
     @Override
     public String getLabel() {
-        return (id != null ? (this.grp == null ? id.toString() : this.grp) : "?");
+        return (this.grp);
     }
 
     public String getGrp() {

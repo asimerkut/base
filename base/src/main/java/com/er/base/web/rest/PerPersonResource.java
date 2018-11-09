@@ -15,6 +15,7 @@ import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.support.SimpleTriggerContext;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -121,15 +122,34 @@ public class PerPersonResource {
         Optional<PerPerson> perPerson = perPersonService.findOne(id);
         Set<PerValue> valSet = perValueService.findAllByPerson(perPerson.get());
 
-        perPerson.get().setValLists(new ArrayList<>());
-        for (PerValue val : valSet){
-            if (val.getValItem()==null){
-                val.setValItem(new DefItem());
-            }
-            val.setGrp("A");
-            perPerson.get().getValLists().add(val);
-        }
+        List<PerValue> list = new ArrayList();
+        addToList(list, valSet, EnmType.OKUL,"Görev Yeri");
+        addToList(list, valSet, EnmType.SEHIR,"Görev Yeri");
+
+        addToList(list, valSet, EnmType.KARYR,"Bilgiler");
+
+        perPerson.get().setValLists(list);
+
         return ResponseUtil.wrapOrNotFound(perPerson);
+    }
+
+    private void addToList(List<PerValue> list, Set<PerValue> valSet, EnmType enmType, String grp){
+        PerValue val = null;
+        for (PerValue value : valSet){
+            if (value.getValType().getCode().getId().equals(enmType.getId())){
+                val = value;
+                break;
+            }
+        }
+        if (val==null){
+            val = new PerValue();
+            val.setValType(defTypeService.getDeyTypeByCode(enmType));
+        }
+        if (val.getValItem()==null){
+            val.setValItem(new DefItem());
+        }
+        val.setGrp(grp);
+        list.add(val);
     }
 
     /**
