@@ -58,11 +58,11 @@ public class PerPerson implements IEntity {
 
     @OneToMany(mappedBy = "person")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private List<PerValue> valLists = new ArrayList<>();
+    private Set<PerValue> valLists = new HashSet<>();
 
     @OneToMany(mappedBy = "person")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private List<PerDaily> dailyLists = new ArrayList<>();
+    private Set<PerDaily> dailyLists = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties("")
@@ -155,11 +155,11 @@ public class PerPerson implements IEntity {
         this.shift3 = shift3;
     }
 
-    public List<PerValue> getValLists() {
+    public Set<PerValue> getValLists() {
         return valLists;
     }
 
-    public PerPerson valLists(List<PerValue> perValues) {
+    public PerPerson valLists(Set<PerValue> perValues) {
         this.valLists = perValues;
         return this;
     }
@@ -176,15 +176,15 @@ public class PerPerson implements IEntity {
         return this;
     }
 
-    public void setValLists(List<PerValue> perValues) {
+    public void setValLists(Set<PerValue> perValues) {
         this.valLists = perValues;
     }
 
-    public List<PerDaily> getDailyLists() {
+    public Set<PerDaily> getDailyLists() {
         return dailyLists;
     }
 
-    public PerPerson dailyLists(List<PerDaily> perDailies) {
+    public PerPerson dailyLists(Set<PerDaily> perDailies) {
         this.dailyLists = perDailies;
         return this;
     }
@@ -201,7 +201,7 @@ public class PerPerson implements IEntity {
         return this;
     }
 
-    public void setDailyLists(List<PerDaily> perDailies) {
+    public void setDailyLists(Set<PerDaily> perDailies) {
         this.dailyLists = perDailies;
     }
 

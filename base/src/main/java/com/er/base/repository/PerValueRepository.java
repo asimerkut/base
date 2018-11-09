@@ -2,11 +2,9 @@ package com.er.base.repository;
 
 import com.er.base.domain.PerPerson;
 import com.er.base.domain.PerValue;
-import com.er.fin.domain.CheckDefType;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Set;
 
 

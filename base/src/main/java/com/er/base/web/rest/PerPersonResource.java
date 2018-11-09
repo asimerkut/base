@@ -40,12 +40,10 @@ public class PerPersonResource {
 
     private PerPersonService perPersonService;
     private PerValueService perValueService;
-    private DefTypeService defTypeService;
 
-    public PerPersonResource(PerPersonService perPersonService, PerValueService perValueService, DefTypeService defTypeService) {
+    public PerPersonResource(PerPersonService perPersonService, PerValueService perValueService) {
         this.perPersonService = perPersonService;
         this.perValueService = perValueService;
-        this.defTypeService = defTypeService;
     }
 
     /**
@@ -120,36 +118,9 @@ public class PerPersonResource {
     public ResponseEntity<PerPerson> getPerPerson(@PathVariable Long id) {
         log.debug("REST request to get PerPerson : {}", id);
         Optional<PerPerson> perPerson = perPersonService.findOne(id);
-        Set<PerValue> valSet = perValueService.findAllByPerson(perPerson.get());
-
-        List<PerValue> list = new ArrayList();
-        addToList(list, valSet, EnmType.OKUL,"Görev Yeri");
-        addToList(list, valSet, EnmType.SEHIR,"Görev Yeri");
-
-        addToList(list, valSet, EnmType.KARYR,"Bilgiler");
-
-        perPerson.get().setValLists(list);
-
+        LinkedHashSet<PerValue> valSet = perValueService.findAllByPerson(perPerson.get());
+        perPerson.get().setValLists(valSet);
         return ResponseUtil.wrapOrNotFound(perPerson);
-    }
-
-    private void addToList(List<PerValue> list, Set<PerValue> valSet, EnmType enmType, String grp){
-        PerValue val = null;
-        for (PerValue value : valSet){
-            if (value.getValType().getCode().getId().equals(enmType.getId())){
-                val = value;
-                break;
-            }
-        }
-        if (val==null){
-            val = new PerValue();
-            val.setValType(defTypeService.getDeyTypeByCode(enmType));
-        }
-        if (val.getValItem()==null){
-            val.setValItem(new DefItem());
-        }
-        val.setGrp(grp);
-        list.add(val);
     }
 
     /**

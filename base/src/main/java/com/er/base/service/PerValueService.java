@@ -3,6 +3,7 @@ package com.er.base.service;
 import com.er.base.domain.PerPerson;
 import com.er.base.domain.PerValue;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -52,6 +53,6 @@ public interface PerValueService {
      */
     List<PerValue> search(String query);
 
-    Set<PerValue> findAllByPerson(PerPerson perPerson);
+    LinkedHashSet<PerValue> findAllByPerson(PerPerson perPerson);
 
 }

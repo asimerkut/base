@@ -1,6 +1,9 @@
 package com.er.base.service.impl;
 
+import com.er.base.domain.DefItem;
 import com.er.base.domain.PerPerson;
+import com.er.base.domain.enumeration.EnmType;
+import com.er.base.service.DefTypeService;
 import com.er.base.service.PerValueService;
 import com.er.base.domain.PerValue;
 import com.er.base.repository.PerValueRepository;
@@ -11,9 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -32,9 +33,13 @@ public class PerValueServiceImpl implements PerValueService {
 
     private PerValueSearchRepository perValueSearchRepository;
 
-    public PerValueServiceImpl(PerValueRepository perValueRepository, PerValueSearchRepository perValueSearchRepository) {
+    private DefTypeService defTypeService;
+
+
+    public PerValueServiceImpl(PerValueRepository perValueRepository, PerValueSearchRepository perValueSearchRepository, DefTypeService defTypeService) {
         this.perValueRepository = perValueRepository;
         this.perValueSearchRepository = perValueSearchRepository;
+        this.defTypeService = defTypeService;
     }
 
     /**
@@ -106,8 +111,38 @@ public class PerValueServiceImpl implements PerValueService {
 
     @Override
     @Transactional(readOnly = true)
-    public Set<PerValue> findAllByPerson(PerPerson perPerson){
-        return perValueRepository.findAllByPerson(perPerson);
+    public LinkedHashSet<PerValue> findAllByPerson(PerPerson perPerson){
+        Set<PerValue> valSet = perValueRepository.findAllByPerson(perPerson);
+        LinkedHashSet<PerValue> newSet = new LinkedHashSet<>();
+        String label = "Görev Yeri";
+        addToList(newSet, valSet, EnmType.SEHIR,label);
+        addToList(newSet, valSet, EnmType.OKUL,label);
+        label = "Bilgiler";
+        addToList(newSet, valSet, EnmType.HIZMT,label);
+        addToList(newSet, valSet, EnmType.BRANS,label);
+        addToList(newSet, valSet, EnmType.UNVAN,label);
+        addToList(newSet, valSet, EnmType.KADRO,label);
+        addToList(newSet, valSet, EnmType.KONUM,label);
+        return newSet;
+    }
+
+    private void addToList(LinkedHashSet<PerValue> list, Set<PerValue> valSet, EnmType enmType, String grp){
+        PerValue val = null;
+        for (PerValue value : valSet){
+            if (value.getValType().getCode().getId().equals(enmType.getId())){
+                val = value;
+                break;
+            }
+        }
+        if (val==null){
+            val = new PerValue();
+            val.setValType(defTypeService.getDeyTypeByCode(enmType));
+        }
+        if (val.getValItem()==null){
+            val.setValItem(new DefItem());
+        }
+        val.setGrp(grp);
+        list.add(val);
     }
 
 }
