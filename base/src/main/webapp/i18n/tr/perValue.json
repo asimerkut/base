@@ -4,9 +4,9 @@
         "perValue" : {
             "home": {
                 "title": "Per Values",
-                "createLabel": "Create a new Per Value",
-                "createOrEditLabel": "Create or edit a Per Value",
-                "search": "Search for Per Value"
+                "createLabel": "Yeni Per Value",
+                "createOrEditLabel": "Ekle/Değiştir Per Value",
+                "search": "Ara"
             },
             "created": "A new Per Value is created with identifier {{ param }}",
             "updated": "A Per Value is updated with identifier {{ param }}",

@@ -12,6 +12,8 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.defType.code" for="field_code">Code</label>
                     <select class="form-control" name="code" [(ngModel)]="defType.code" id="field_code"  required>
+                        <option [ngValue]="null"></option>
+
                         <option value="BANKA">{{'baseApp.EnmType.BANKA' | translate}}</option>
                         <option value="BRANS">{{'baseApp.EnmType.BRANS' | translate}}</option>
                         <option value="DERS">{{'baseApp.EnmType.DERS' | translate}}</option>

@@ -17,7 +17,7 @@
             "detail": {
                 "title": "Def Field"
             },
-            "tableName": "Table Name",
+            "tabName": "Tab Name",
             "orderNo": "Order No",
             "groupName": "Group Name",
             "selSelect": "Sel Select",

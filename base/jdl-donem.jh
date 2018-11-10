@@ -21,7 +21,7 @@ entity DefAnswer {
 }
 
 entity DefField {
-	tableName String maxlength(20),
+	tabName String maxlength(20),
     orderNo Integer required,
     groupName String maxlength(20) required,
     selSelect EnmSelect required,
@@ -104,7 +104,7 @@ relationship ManyToOne {
 
 enum EnmDay {D1,D2,D3,D4,D5,D6,D7}
 enum EnmDersGrup {D_GS,GG,GY}
-enum EnmSelect {DEFTYPE,FSTRG,FNUMB,FDATE}
+enum EnmSelect {FTYPE,FSTRG,FNUMB,FDATE}
 
 enum EnmType {
     BANKA,	BRANS,	DERS,	DONEM,	DURUM,

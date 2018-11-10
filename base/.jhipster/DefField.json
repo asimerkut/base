@@ -2,7 +2,7 @@
     "name": "DefField",
     "fields": [
         {
-            "fieldName": "tableName",
+            "fieldName": "tabName",
             "fieldType": "String",
             "fieldValidateRules": [
                 "maxlength"
@@ -28,7 +28,7 @@
         {
             "fieldName": "selSelect",
             "fieldType": "EnmSelect",
-            "fieldValues": "DEFTYPE,FSTRG,FNUMB,FDATE",
+            "fieldValues": "FLDTYPE,FLDSTRG,FLDNUMB,FLDDATE",
             "fieldValidateRules": [
                 "required"
             ]

@@ -1,8 +1,8 @@
 export const enum EnmSelect {
-    DEFTYPE = 'DEFTYPE',
-    FSTRG = 'FSTRG',
-    FNUMB = 'FNUMB',
-    FDATE = 'FDATE'
+    FLDTYPE = 'FLDTYPE',
+    FLDSTRG = 'FLDSTRG',
+    FLDNUMB = 'FLDNUMB',
+    FLDDATE = 'FLDDATE'
 }
 
 export const enum EnmType {
@@ -29,7 +29,7 @@ export const enum EnmType {
 
 export interface IDefField {
     id?: number;
-    tableName?: string;
+    tabName?: string;
     orderNo?: number;
     groupName?: string;
     selSelect?: EnmSelect;
@@ -39,7 +39,7 @@ export interface IDefField {
 export class DefField implements IDefField {
     constructor(
         public id?: number,
-        public tableName?: string,
+        public tabName?: string,
         public orderNo?: number,
         public groupName?: string,
         public selSelect?: EnmSelect,

@@ -101,4 +101,11 @@ public class DefFieldServiceImpl implements DefFieldService {
             .stream(defFieldSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<DefField> findAllByTabName(String tabName){
+        return defFieldRepository.findAllByTabNameOrderByOrderNo(tabName);
+    }
+
 }

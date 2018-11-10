@@ -1,19 +1,17 @@
 package com.er.base.domain.enumeration;
 
-import com.er.fin.domain.IEnum;
-
 /**
  * The EnmSelect enumeration.
  */
-public enum EnmSelect implements IEnum {
-    DEFTYPE("Seçim"),
-    FSTRG("Harf"),
-    FNUMB("Sayı"),
-    FDATE("Tarih"),
+public enum EnmSelect {
+    FLDTYPE("Seçim"),
+    FLDSTRG("Harf"),
+    FLDNUMB("Sayı"),
+    FLDDATE("Tarih"),
     ;
     String label;
     EnmSelect(String label){
-        this.label = (label==null?name()+ nullFix :label);
+        this.label = (label==null?name()+ "" :label);
     }
     public String getLabel(){
         return label;
@@ -21,4 +19,5 @@ public enum EnmSelect implements IEnum {
     public String getId(){
         return name();
     }
+
 }

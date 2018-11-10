@@ -4,9 +4,9 @@
         "defRelation" : {
             "home": {
                 "title": "Def Relations",
-                "createLabel": "Create a new Def Relation",
-                "createOrEditLabel": "Create or edit a Def Relation",
-                "search": "Search for Def Relation"
+                "createLabel": "Yeni Def Relation",
+                "createOrEditLabel": "Ekle/Değiştir Def Relation",
+                "search": "Ara"
             },
             "created": "Oluşturuldu {{ param }}",
             "updated": "Değiştirildi {{ param }}",

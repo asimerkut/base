@@ -23,6 +23,8 @@ import com.er.base.domain.enumeration.EnmType;
 @Document(indexName = "deffield")
 public class DefField implements Serializable {
 
+    public static final String TAB_NAME = "PER_VALUE";
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -31,8 +33,8 @@ public class DefField implements Serializable {
     private Long id;
 
     @Size(max = 20)
-    @Column(name = "table_name", length = 20)
-    private String tableName;
+    @Column(name = "tab_name", length = 20)
+    private String tabName;
 
     @NotNull
     @Column(name = "order_no", nullable = false)
@@ -61,17 +63,17 @@ public class DefField implements Serializable {
         this.id = id;
     }
 
-    public String getTableName() {
-        return tableName;
+    public String getTabName() {
+        return tabName;
     }
 
-    public DefField tableName(String tableName) {
-        this.tableName = tableName;
+    public DefField tabName(String tabName) {
+        this.tabName = tabName;
         return this;
     }
 
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
+    public void setTabName(String tabName) {
+        this.tabName = tabName;
     }
 
     public Integer getOrderNo() {
@@ -151,7 +153,7 @@ public class DefField implements Serializable {
     public String toString() {
         return "DefField{" +
             "id=" + getId() +
-            ", tableName='" + getTableName() + "'" +
+            ", tabName='" + getTabName() + "'" +
             ", orderNo=" + getOrderNo() +
             ", groupName='" + getGroupName() + "'" +
             ", selSelect='" + getSelSelect() + "'" +

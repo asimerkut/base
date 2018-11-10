@@ -3,10 +3,10 @@
     "baseApp": {
         "defField" : {
             "home": {
-                "title": "Def Fields",
-                "createLabel": "Create a new Def Field",
-                "createOrEditLabel": "Create or edit a Def Field",
-                "search": "Search for Def Field"
+                "title": "Veri Tipleri",
+                "createLabel": "Yeni Def Field",
+                "createOrEditLabel": "Ekle/Değiştir Def Field",
+                "search": "Ara"
             },
             "created": "A new Def Field is created with identifier {{ param }}",
             "updated": "A Def Field is updated with identifier {{ param }}",
@@ -17,11 +17,11 @@
             "detail": {
                 "title": "Def Field"
             },
-            "tableName": "Table Name",
-            "orderNo": "Order No",
-            "groupName": "Group Name",
-            "selSelect": "Sel Select",
-            "selType": "Sel Type"
+            "tabName": "Tab Name",
+            "orderNo": "Sıra No",
+            "groupName": "Grup Adı",
+            "selSelect": "Giriş Tipi",
+            "selType": "Seçenek"
         }
     }
 }

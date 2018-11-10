@@ -4,9 +4,9 @@
         "perSubmit" : {
             "home": {
                 "title": "Per Submits",
-                "createLabel": "Create a new Per Submit",
-                "createOrEditLabel": "Create or edit a Per Submit",
-                "search": "Search for Per Submit"
+                "createLabel": "Yeni Per Submit",
+                "createOrEditLabel": "Ekle/Değiştir Per Submit",
+                "search": "Ara"
             },
             "created": "A new Per Submit is created with identifier {{ param }}",
             "updated": "A Per Submit is updated with identifier {{ param }}",

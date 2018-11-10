@@ -4,8 +4,8 @@
         "perPlan" : {
             "home": {
                 "title": "Per Plans",
-                "createLabel": "Create a new Per Plan",
-                "createOrEditLabel": "Create or edit a Per Plan",
+                "createLabel": "Yeni Per Plan",
+                "createOrEditLabel": "Ekle/Değiştir Per Plan",
                 "search": "?"
             },
             "created": "Oluşturuldu {{ param }}",

@@ -38,6 +38,7 @@ public class DefFieldResource {
         this.defFieldService = defFieldService;
     }
 
+
     /**
      * POST  /def-fields : Create a new defField.
      *
@@ -48,6 +49,7 @@ public class DefFieldResource {
     @PostMapping("/def-fields")
     @Timed
     public ResponseEntity<DefField> createDefField(@Valid @RequestBody DefField defField) throws URISyntaxException {
+        defField.setTabName(DefField.TAB_NAME);
         log.debug("REST request to save DefField : {}", defField);
         if (defField.getId() != null) {
             throw new BadRequestAlertException("A new defField cannot already have an ID", ENTITY_NAME, "idexists");
@@ -70,6 +72,7 @@ public class DefFieldResource {
     @PutMapping("/def-fields")
     @Timed
     public ResponseEntity<DefField> updateDefField(@Valid @RequestBody DefField defField) throws URISyntaxException {
+        defField.setTabName(DefField.TAB_NAME);
         log.debug("REST request to update DefField : {}", defField);
         if (defField.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -89,7 +92,8 @@ public class DefFieldResource {
     @Timed
     public List<DefField> getAllDefFields() {
         log.debug("REST request to get all DefFields");
-        return defFieldService.findAll();
+        List<DefField> list = defFieldService.findAllByTabName(DefField.TAB_NAME);
+        return list;
     }
 
     /**

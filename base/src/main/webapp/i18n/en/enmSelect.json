@@ -2,10 +2,10 @@
     "baseApp": {
         "EnmSelect" : {
             "null": "",
-            "DEFTYPE": "DEFTYPE",
-            "FSTRG": "FSTRG",
-            "FNUMB": "FNUMB",
-            "FDATE": "FDATE"
+            "FLDTYPE": "FLDTYPE",
+            "FLDSTRG": "FLDSTRG",
+            "FLDNUMB": "FLDNUMB",
+            "FLDDATE": "FLDDATE"
         }
     }
 }

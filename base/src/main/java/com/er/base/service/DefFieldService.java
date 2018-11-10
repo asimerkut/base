@@ -45,8 +45,11 @@ public interface DefFieldService {
      * Search for the defField corresponding to the query.
      *
      * @param query the query of the search
-     * 
+     *
      * @return the list of entities
      */
     List<DefField> search(String query);
+
+    List<DefField> findAllByTabName(String tabName);
+
 }

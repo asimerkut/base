@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(DefFieldService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new DefField(0, 'AAAAAAA', 0, 'AAAAAAA', EnmSelect.DEFTYPE, EnmType.BANKA);
+            elemDefault = new DefField(0, 'AAAAAAA', 0, 'AAAAAAA', EnmSelect.FLDTYPE, EnmType.BANKA);
         });
 
         describe('Service methods', async () => {
@@ -55,7 +55,7 @@ describe('Service Tests', () => {
             it('should update a DefField', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        tableName: 'BBBBBB',
+                        tabName: 'BBBBBB',
                         orderNo: 1,
                         groupName: 'BBBBBB',
                         selSelect: 'BBBBBB',
@@ -76,7 +76,7 @@ describe('Service Tests', () => {
             it('should return a list of DefField', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        tableName: 'BBBBBB',
+                        tabName: 'BBBBBB',
                         orderNo: 1,
                         groupName: 'BBBBBB',
                         selSelect: 'BBBBBB',

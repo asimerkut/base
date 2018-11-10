@@ -4,9 +4,9 @@
         "perExcuse" : {
             "home": {
                 "title": "Per Excuses",
-                "createLabel": "Create a new Per Excuse",
-                "createOrEditLabel": "Create or edit a Per Excuse",
-                "search": "Search for Per Excuse"
+                "createLabel": "Yeni Per Excuse",
+                "createOrEditLabel": "Ekle/Değiştir Per Excuse",
+                "search": "Ara"
             },
             "created": "A new Per Excuse is created with identifier {{ param }}",
             "updated": "A Per Excuse is updated with identifier {{ param }}",

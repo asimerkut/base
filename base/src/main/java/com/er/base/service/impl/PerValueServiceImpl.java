@@ -1,13 +1,16 @@
 package com.er.base.service.impl;
 
+import com.er.base.domain.DefField;
 import com.er.base.domain.DefItem;
 import com.er.base.domain.PerPerson;
 import com.er.base.domain.enumeration.EnmType;
+import com.er.base.service.DefFieldService;
 import com.er.base.service.DefTypeService;
 import com.er.base.service.PerValueService;
 import com.er.base.domain.PerValue;
 import com.er.base.repository.PerValueRepository;
 import com.er.base.repository.search.PerValueSearchRepository;
+import com.er.base.web.rest.DefFieldResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,11 +38,13 @@ public class PerValueServiceImpl implements PerValueService {
 
     private DefTypeService defTypeService;
 
+    private DefFieldService defFieldService;
 
-    public PerValueServiceImpl(PerValueRepository perValueRepository, PerValueSearchRepository perValueSearchRepository, DefTypeService defTypeService) {
+    public PerValueServiceImpl(PerValueRepository perValueRepository, PerValueSearchRepository perValueSearchRepository, DefTypeService defTypeService, DefFieldService defFieldService) {
         this.perValueRepository = perValueRepository;
         this.perValueSearchRepository = perValueSearchRepository;
         this.defTypeService = defTypeService;
+        this.defFieldService = defFieldService;
     }
 
     /**
@@ -113,17 +118,11 @@ public class PerValueServiceImpl implements PerValueService {
     @Transactional(readOnly = true)
     public LinkedHashSet<PerValue> findAllByPerson(PerPerson perPerson){
         Set<PerValue> valSet = perValueRepository.findAllByPerson(perPerson);
+        List<DefField> fieldList = defFieldService.findAllByTabName(DefField.TAB_NAME);
         LinkedHashSet<PerValue> newSet = new LinkedHashSet<>();
-        String label = "Görev Yeri";
-        addToList(newSet, valSet, EnmType.SEHIR,label);
-        addToList(newSet, valSet, EnmType.OKUL,label);
-        label = "Bilgiler";
-        addToList(newSet, valSet, EnmType.HIZMT,label);
-        addToList(newSet, valSet, EnmType.BRANS,label);
-        addToList(newSet, valSet, EnmType.UNVAN,label);
-        addToList(newSet, valSet, EnmType.KADRO,label);
-        addToList(newSet, valSet, EnmType.KONUM,label);
-        addToList(newSet, valSet, EnmType.KARYR,label);
+        for (DefField fld : fieldList){
+            addToList(newSet, valSet, fld.getSelType(),fld.getGroupName());
+        }
         return newSet;
     }
 

@@ -5,7 +5,7 @@
             "home": {
                 "title": "Per Companies",
                 "createLabel": "Create a new Per Company",
-                "createOrEditLabel": "Create or edit a Per Company",
+                "createOrEditLabel": "Ekle/Değiştir Per Company",
                 "search": "Search for Per Company"
             },
             "created": "A new Per Company is created with identifier {{ param }}",
