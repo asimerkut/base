@@ -41,7 +41,10 @@ export class DefItemUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.defItem.parent = this.defItemService.selectedTreePlace.data;
+        this.defItem.parent = null;
+        if (this.defItemService.selectedTreePlace != null) {
+            this.defItem.parent = this.defItemService.selectedTreePlace.data;
+        }
         this.commonService.findAllByTypeId(this.defItemService.comboSelModel.comboSel.code).subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;

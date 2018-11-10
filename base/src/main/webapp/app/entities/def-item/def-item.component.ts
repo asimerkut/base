@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -10,12 +10,13 @@ import { TreeNode } from 'primeng/api';
 import { SessionStorageService } from 'ngx-webstorage';
 
 import { IDefItem } from 'app/shared/model/def-item.model';
-import { IDefType } from 'app/shared/model/def-type.model';
+import { DefType, IDefType } from 'app/shared/model/def-type.model';
 
 import { DefItemService } from './def-item.service';
 import { DefTypeService } from '../def-type';
 
 import { CommonService } from 'app/entities/common';
+import { ComboSelModel } from 'app/entities/common/combo-sel-model';
 
 @Component({
     selector: 'jhi-def-item',
@@ -23,7 +24,6 @@ import { CommonService } from 'app/entities/common';
 })
 export class DefItemComponent implements OnInit, OnDestroy {
     // basicTreeTable: TreeNode[];
-
     // files: TreeNode[];
 
     msgs: Message[] = [];
@@ -63,7 +63,7 @@ export class DefItemComponent implements OnInit, OnDestroy {
     loadAll() {
         // this.commonService.getFilesystem().then(files => this.files = files);
 
-        this.defItemService.comboSelModel.comboSel = this.sessionStorage.retrieve('selectedComboType');
+        // this.defItemService.comboSelModel.comboSel = this.sessionStorage.retrieve('selectedComboType');
         console.log(this.defItemService.comboSelModel.comboSel);
         const searchFilter = {
             selId: this.defItemService.comboSelModel.comboSel == null ? 0 : this.defItemService.comboSelModel.comboSel.id
@@ -83,6 +83,12 @@ export class DefItemComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        if (this.defItemService.comboSelModel == null || this.defItemService.comboSelModel.comboSel == null) {
+            this.defItemService.comboSelModel = new ComboSelModel();
+            this.defItemService.comboSelModel.comboSel = new DefType();
+            this.defItemService.comboSelModel.comboSel.code = '*';
+        }
+
         this.cols = [
             { field: 'code', header: 'Kod' },
             { field: 'name', header: 'Ad' },
@@ -105,6 +111,7 @@ export class DefItemComponent implements OnInit, OnDestroy {
         // this.commonService.getTreeData(this.currentSearch).subscribe((places: any) => (this.singleSelectionTreeTable = places));
         this.loadAll();
         this.registerChangeInDefItems();
+        // this.cmb.nativeElement.selectedIndex=0;
     }
 
     ngOnDestroy() {
@@ -124,9 +131,9 @@ export class DefItemComponent implements OnInit, OnDestroy {
     }
 
     onChangeComboSel($event) {
-        if (this.defItemService.comboSelModel.comboSel != null) {
-            this.sessionStorage.store('selectedComboType', this.defItemService.comboSelModel.comboSel);
-        }
+        // if (this.defItemService.comboSelModel.comboSel != null) {
+        //    this.sessionStorage.store('selectedComboType', this.defItemService.comboSelModel.comboSel);
+        // }
         this.defItemService.selectedTreePlace = null;
         this.search();
     }
