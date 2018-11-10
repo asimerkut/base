@@ -148,6 +148,7 @@ public class PerSchedulerServiceImpl implements PerSchedulerService {
                     PerScheduleDTO sch = weekDersMap.get(key);
                     PerSubmit perSubmit = new PerSubmit();
                     perSubmit.setSubmitDate(date);
+                    perSubmit.setDayNo(date==null?null:date.getDayOfWeek());
                     perSubmit.setDersSira(sch.getDersSira());
                     perSubmit.setDayNo(sch.getDayNo());
                     perSubmit.setPerson(sch.getPerson());

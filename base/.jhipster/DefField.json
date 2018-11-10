@@ -41,14 +41,16 @@
             "fieldValidateRules": [
                 "required"
             ]
-        },
-        {
-            "fieldName": "selType",
-            "fieldType": "EnmType",
-            "fieldValues": "BANKA,BRANS,DERS,DONEM,DURUM,GGOKL,GYERI,HIZMT,IZIN,KADRO,KARYR,KONUM,MESLK,OKUL,SEHIR,SENDK,TATIL,UNVAN,YBDIL"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "selType",
+            "otherEntityName": "defType",
+            "otherEntityField": "code"
+        }
+    ],
     "changelogDate": "20181110064501",
     "entityTableName": "def_field",
     "dto": "no",

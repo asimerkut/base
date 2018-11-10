@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DefTypeRepository extends JpaRepository<DefType, Long> {
 
-    DefType getDeyTypeByCode(EnmType enmType);
+    DefType getDefTypeByCode(String enmType);
 
 }

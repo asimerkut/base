@@ -22,7 +22,7 @@ export class PerExcuseUpdateComponent implements OnInit {
     perExcuse: IPerExcuse;
     isSaving: boolean;
 
-    perpeople: IPerPerson[];
+    // perpeople: IPerPerson[];
 
     // defitems: IDefItem[];
     izinItemList: IDefItem[];
@@ -44,12 +44,14 @@ export class PerExcuseUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ perExcuse }) => {
             this.perExcuse = perExcuse;
         });
+        /*
         this.perPersonService.query().subscribe(
             (res: HttpResponse<IPerPerson[]>) => {
                 this.perpeople = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        */
         /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {

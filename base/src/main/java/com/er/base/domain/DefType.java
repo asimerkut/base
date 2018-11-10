@@ -102,7 +102,7 @@ public class DefType implements IEntity {
 
     @Override
     public String getLabel() {
-        return name;
+        return name+" ("+code+")";
     }
 
 }

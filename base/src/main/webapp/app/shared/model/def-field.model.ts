@@ -1,3 +1,5 @@
+import { IDefType } from 'app/shared/model/def-type.model';
+
 export const enum EnmSelect {
     FLDTYPE = 'FLDTYPE',
     FLDSTRG = 'FLDSTRG',
@@ -34,7 +36,7 @@ export interface IDefField {
     grpName?: string;
     fldCaption?: string;
     selSelect?: EnmSelect;
-    selType?: EnmType;
+    selType?: IDefType;
 }
 
 export class DefField implements IDefField {
@@ -45,6 +47,6 @@ export class DefField implements IDefField {
         public grpName?: string,
         public fldCaption?: string,
         public selSelect?: EnmSelect,
-        public selType?: EnmType
+        public selType?: IDefType
     ) {}
 }

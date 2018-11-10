@@ -51,5 +51,5 @@ public interface DefTypeService {
      */
     List<DefType> search(String query);
 
-    DefType getDeyTypeByCode(EnmType enmType);
+    DefType getDefTypeByCode(String enmType);
 }

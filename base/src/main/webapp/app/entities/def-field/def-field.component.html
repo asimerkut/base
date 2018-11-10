@@ -45,7 +45,7 @@
                 <td>{{defField.grpName}}</td>
                 <td>{{defField.fldCaption}}</td>
                 <td jhiTranslate="{{'baseApp.EnmSelect.' + defField.selSelect}}">{{defField.selSelect}}</td>
-                <td jhiTranslate="{{'baseApp.EnmType.' + defField.selType}}">{{defField.selType}}</td>
+                <td>{{defField.selType?.label}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

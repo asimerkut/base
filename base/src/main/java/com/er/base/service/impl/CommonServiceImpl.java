@@ -64,23 +64,8 @@ public class CommonServiceImpl implements CommonService {
         per.setShift2(4);
         per.setShift3(4);
         per = perPersonRepository.save(per);
-        createValSet(per);
         return per;
     }
-
-    private void createValSet(PerPerson per){
-
-    }
-
-    private void createVal(PerPerson per, EnmType type){
-        PerValue perValue = new PerValue();
-        perValue.setPerson(per);
-        perValue.setValType(defTypeService.getDeyTypeByCode(type));
-        perValueService.save(perValue);
-    }
-
-
-
 
     @Override
     @Transactional(readOnly = true)

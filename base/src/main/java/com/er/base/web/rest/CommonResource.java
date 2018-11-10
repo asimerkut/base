@@ -29,6 +29,7 @@ public class CommonResource {
 
     private final Logger log = LoggerFactory.getLogger(DefItemResource.class);
 
+    private final DefTypeService defTypeService;
     private final DefItemService defItemService;
     private final PerSchedulerService perSchedulerService;
     private final PerDailyService perDailyService;
@@ -39,7 +40,8 @@ public class CommonResource {
     private final ScheduleUtilService scheduleUtilService;
     private final CommonService commonService;
 
-    public CommonResource(DefItemService defItemService,
+    public CommonResource(DefTypeService defTypeService,
+                          DefItemService defItemService,
                           DefPivotService defPivotService,
                           PerSchedulerService perSchedulerService,
                           PerDailyService perDailyService,
@@ -49,6 +51,7 @@ public class CommonResource {
                           ScheduleUtilService scheduleUtilService,
                           CommonService commonService
                           ) {
+        this.defTypeService = defTypeService;
         this.defItemService = defItemService;
         this.defPivotService = defPivotService;
         this.perSchedulerService = perSchedulerService;
@@ -67,8 +70,8 @@ public class CommonResource {
         log.debug("REST request to get all DefItems");
         JsonNode json = JsonUtil.getJsonObject(query);
         String selId = JsonUtil.getValueString(json, "selId");
-        String enmType = EnmType.valueOf(selId).getId();
-        return defItemService.findAllByTypeId(enmType);
+        //DefType enmType = defTypeService.getDefTypeByCode(selId);
+        return defItemService.findAllByTypeId(selId);
     }
 
     @GetMapping("/common/def-item-tree")

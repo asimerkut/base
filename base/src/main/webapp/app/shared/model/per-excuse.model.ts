@@ -9,7 +9,6 @@ export interface IPerExcuse {
     finishDate?: Moment;
     finishDersNo?: number;
     isExcuse?: boolean;
-    person?: IPerPerson;
     izin?: IDefItem;
 }
 
@@ -21,7 +20,6 @@ export class PerExcuse implements IPerExcuse {
         public finishDate?: Moment,
         public finishDersNo?: number,
         public isExcuse?: boolean,
-        public person?: IPerPerson,
         public izin?: IDefItem
     ) {
         this.isExcuse = this.isExcuse || false;

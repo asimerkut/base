@@ -254,6 +254,7 @@ public class PerSubmit implements IEntity, PerScheduleDTO {
 
     @Override
     public String getLabel() {
-        return id.toString();
+        return this.ders.getName()+(this.getDersSira()==0 || this.dersAdet.intValue()>1?" ("+this.dersAdet+")":"");
     }
+
 }

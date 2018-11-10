@@ -113,6 +113,7 @@ public class PerSchedulerResource {
             LocalDate cellDate = LocalDate.of(yyyy,mm,dd);
             perSubmit.setDayNo(cellDate.getDayOfWeek());
             perSubmit.setSubmitDate(cellDate);
+            perSubmit.setDayNo(cellDate==null?null:cellDate.getDayOfWeek());
             PerPerson per = commonService.getLoginPerson();
             perSubmit.setPerson(per);
             perSubmit.setDersGrup(EnmDersGrup.D_GS);

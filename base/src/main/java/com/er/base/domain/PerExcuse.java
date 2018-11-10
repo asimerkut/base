@@ -1,6 +1,7 @@
 package com.er.base.domain;
 
 import com.er.fin.domain.IEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -52,8 +53,7 @@ public class PerExcuse implements IEntity {
     private Boolean isExcuse;
 
     @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("")
+    @JsonIgnore
     private PerPerson person;
 
     @ManyToOne(optional = false)

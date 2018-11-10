@@ -1,5 +1,6 @@
 package com.er.base.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -55,9 +56,8 @@ public class DefField implements Serializable {
     @Column(name = "sel_select", nullable = false)
     private EnmSelect selSelect;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "sel_type")
-    private EnmType selType;
+    @ManyToOne(optional = false)
+    private DefType selType;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -133,16 +133,16 @@ public class DefField implements Serializable {
         this.selSelect = selSelect;
     }
 
-    public EnmType getSelType() {
+    public DefType getSelType() {
         return selType;
     }
 
-    public DefField selType(EnmType selType) {
+    public DefField selType(DefType selType) {
         this.selType = selType;
         return this;
     }
 
-    public void setSelType(EnmType selType) {
+    public void setSelType(DefType selType) {
         this.selType = selType;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove

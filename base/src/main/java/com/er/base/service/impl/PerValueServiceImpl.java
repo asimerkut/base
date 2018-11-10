@@ -1,13 +1,10 @@
 package com.er.base.service.impl;
 
-import com.er.base.domain.DefField;
-import com.er.base.domain.DefItem;
-import com.er.base.domain.PerPerson;
+import com.er.base.domain.*;
 import com.er.base.domain.enumeration.EnmType;
 import com.er.base.service.DefFieldService;
 import com.er.base.service.DefTypeService;
 import com.er.base.service.PerValueService;
-import com.er.base.domain.PerValue;
 import com.er.base.repository.PerValueRepository;
 import com.er.base.repository.search.PerValueSearchRepository;
 import com.er.base.web.rest.DefFieldResource;
@@ -126,17 +123,17 @@ public class PerValueServiceImpl implements PerValueService {
         return newSet;
     }
 
-    private void addToList(LinkedHashSet<PerValue> list, Set<PerValue> valSet, EnmType enmType, String grp, String cap){
+    private void addToList(LinkedHashSet<PerValue> list, Set<PerValue> valSet, DefType enmType, String grp, String cap){
         PerValue val = null;
         for (PerValue value : valSet){
-            if (value.getValType().getCode().equals(enmType.getId())){
+            if (enmType==null || value.getValType().getId().equals(enmType.getId())){
                 val = value;
                 break;
             }
         }
         if (val==null){
             val = new PerValue();
-            val.setValType(defTypeService.getDeyTypeByCode(enmType));
+            val.setValType(enmType);
         }
         if (val.getValItem()==null){
             val.setValItem(new DefItem());

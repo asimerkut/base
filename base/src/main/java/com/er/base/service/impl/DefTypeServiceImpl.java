@@ -105,8 +105,8 @@ public class DefTypeServiceImpl implements DefTypeService {
 
     @Override
     @Transactional(readOnly = true)
-    public DefType getDeyTypeByCode(EnmType enmType){
-        return defTypeRepository.getDeyTypeByCode(enmType);
+    public DefType getDefTypeByCode(String enmType){
+        return defTypeRepository.getDefTypeByCode(enmType);
     }
 
 }

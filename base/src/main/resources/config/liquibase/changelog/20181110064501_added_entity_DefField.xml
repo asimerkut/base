@@ -41,7 +41,7 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="sel_type" type="varchar(255)">
+            <column name="sel_type_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

@@ -98,6 +98,9 @@
                 "fiscalPeriod": "Dönem Tanımı",
                 "fiscalDayoff": "Tatil Tanımı",
                 "defItem": "Genel Tanımlar",
+                "defItem": "Genel Tanımlar",
+                "defType": "Tip Tanımları",
+                "defField": "Personel Değerleri",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "menu_user_def": {
