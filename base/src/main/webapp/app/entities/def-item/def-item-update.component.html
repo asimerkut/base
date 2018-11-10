@@ -40,25 +40,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.defItem.itemLevel" for="field_itemLevel">Item Level</label>
-                    <input type="number" class="form-control" name="itemLevel" id="field_itemLevel"
-                        [(ngModel)]="defItem.itemLevel" required max="9" jhiMax="9"/>
-                    <div [hidden]="!(editForm.controls.itemLevel?.dirty && editForm.controls.itemLevel?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.itemLevel?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.itemLevel?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 9 }">
-                            This field cannot be more than 9.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.itemLevel?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.defItem.isSelect" for="field_isSelect">Is Select</label>
                     <input type="checkbox" class="form-control" name="isSelect" id="field_isSelect"
                         [(ngModel)]="defItem.isSelect" />
@@ -82,21 +63,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.defItem.type" for="field_type">Type</label>
-                    <select class="form-control" id="field_type" name="type" [(ngModel)]="defItem.type"  required>
-                        <option *ngIf="!editForm.value.type" [ngValue]="null" selected></option>
-                        <option [ngValue]="defTypeOption.id === defItem.type?.id ? defItem.type : defTypeOption" *ngFor="let defTypeOption of deftypes; trackBy: trackDefTypeById">{{defTypeOption.code}}</option>
-                    </select>
-                </div>
-                <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
-                    <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.type?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.defItem.parent" for="field_parent">Parent</label>
-                    <select class="form-control" id="field_parent" name="parent" [(ngModel)]="defItem.parent" >
+                    <select class="form-control" id="field_parent" name="parent" [(ngModel)]="defItem.parent" [disabled]="true">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="defItemOption.id === defItem.parent?.id ? defItem.parent : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.label}}</option>
                     </select>

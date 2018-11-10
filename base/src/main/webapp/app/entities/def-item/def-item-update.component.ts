@@ -6,8 +6,9 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from './def-item.service';
-import { IDefType } from 'app/shared/model/def-type.model';
+import {EnmType, IDefType} from 'app/shared/model/def-type.model';
 import { DefTypeService } from 'app/entities/def-type';
+import {CommonService} from 'app/entities/common';
 
 @Component({
     selector: 'jhi-def-item-update',
@@ -25,7 +26,8 @@ export class DefItemUpdateComponent implements OnInit {
         private jhiAlertService: JhiAlertService,
         private defItemService: DefItemService,
         private defTypeService: DefTypeService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private commonService: CommonService
     ) {}
 
     ngOnInit() {
@@ -39,12 +41,22 @@ export class DefItemUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        this.defItem.parent = this.defItemService.selectedTreePlace.data;
+        this.commonService.findAllByTypeId(this.defItemService.comboSelModel.comboSel.code).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.defitems = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        */
+
     }
 
     previousState() {

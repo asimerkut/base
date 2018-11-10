@@ -25,12 +25,6 @@
                 <dd>
                     <span>{{defItem.isConst}}</span>
                 </dd>
-                <dt><span jhiTranslate="baseApp.defItem.type">Type</span></dt>
-                <dd>
-                    <div *ngIf="defItem.type">
-                        <a [routerLink]="['/def-type', defItem.type?.id, 'view']">{{defItem.type?.code}}</a>
-                    </div>
-                </dd>
                 <dt><span jhiTranslate="baseApp.defItem.parent">Parent</span></dt>
                 <dd>
                     <div *ngIf="defItem.parent">

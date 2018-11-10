@@ -2,7 +2,9 @@ package com.er.base.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.er.base.domain.DefItem;
+import com.er.base.domain.DefType;
 import com.er.base.service.DefItemService;
+import com.er.base.service.DefTypeService;
 import com.er.base.web.rest.errors.BadRequestAlertException;
 import com.er.base.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -34,8 +36,11 @@ public class DefItemResource {
 
     private DefItemService defItemService;
 
-    public DefItemResource(DefItemService defItemService) {
+    private DefTypeService defTypeService;
+
+    public DefItemResource(DefItemService defItemService, DefTypeService defTypeService) {
         this.defItemService = defItemService;
+        this.defTypeService = defTypeService;
     }
 
     /**
@@ -48,6 +53,15 @@ public class DefItemResource {
     @PostMapping("/def-items")
     @Timed
     public ResponseEntity<DefItem> createDefItem(@Valid @RequestBody DefItem defItem) throws URISyntaxException {
+        DefType type = defTypeService.getDefTypeByCode(defItem.getType().getCode());
+        defItem.setType(type);
+        if (defItem.getParent()==null){
+            defItem.setItemLevel(1);
+        } else {
+            DefItem parent = defItemService.findOne(defItem.getParent().getId()).get();
+            defItem.setParent(parent);
+            defItem.setItemLevel(parent.getItemLevel()+1);
+        }
         log.debug("REST request to save DefItem : {}", defItem);
         if (defItem.getId() != null) {
             throw new BadRequestAlertException("A new defItem cannot already have an ID", ENTITY_NAME, "idexists");

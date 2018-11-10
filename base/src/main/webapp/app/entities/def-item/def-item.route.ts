@@ -11,6 +11,7 @@ import { DefItemDetailComponent } from './def-item-detail.component';
 import { DefItemUpdateComponent } from './def-item-update.component';
 import { DefItemDeletePopupComponent } from './def-item-delete-dialog.component';
 import { IDefItem } from 'app/shared/model/def-item.model';
+import { DefType } from 'app/shared/model/def-type.model';
 
 @Injectable({ providedIn: 'root' })
 export class DefItemResolve implements Resolve<IDefItem> {
@@ -20,6 +21,14 @@ export class DefItemResolve implements Resolve<IDefItem> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(map((defItem: HttpResponse<DefItem>) => defItem.body));
+        }
+        const type = route.params['type'] ? route.params['type'] : null;
+        if (type) {
+            var newType = new DefType();
+            newType.code = type;
+            var newItem = new DefItem();
+            newItem.type = newType;
+            return newItem;
         }
         return of(new DefItem());
     }
@@ -48,7 +57,7 @@ export const defItemRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'def-item/new',
+        path: 'def-item/:type/new',
         component: DefItemUpdateComponent,
         resolve: {
             defItem: DefItemResolve

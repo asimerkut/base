@@ -27,5 +27,6 @@ export class DefItem implements IDefItem {
     ) {
         this.isSelect = this.isSelect || false;
         this.isConst = this.isConst || false;
+        this.itemLevel = this.itemLevel || 0;
     }
 }

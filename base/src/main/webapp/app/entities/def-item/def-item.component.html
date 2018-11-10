@@ -6,11 +6,11 @@
     <jhi-alert></jhi-alert>
     <div class="form-group">
         <label class="form-control-label" for="field_def_type">Tanım Listesi</label>
-        <select class="form-control" id="field_def_type" name="def_type" [(ngModel)]="comboSelModel.comboSel"
+        <select class="form-control" id="field_def_type" name="def_type" [(ngModel)]="defItemService.comboSelModel.comboSel"
                 (change)="onChangeComboSel($event)">
             <option [ngValue]="null"></option>
             <option [ngValue]="selectedOption"
-                    *ngFor="let selectedOption of comboSelModel.comboList; trackBy: trackComboSel">
+                    *ngFor="let selectedOption of defItemService.comboSelModel.comboList; trackBy: trackComboSel">
                 {{selectedOption.label}}
             </option>
         </select>
@@ -20,7 +20,7 @@
 
     <div>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-def-item" [routerLink]="['/def-item/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-def-item" [routerLink]="['/def-item',defItemService.comboSelModel.comboSel.code,'new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span class="hidden-sm-down"  jhiTranslate="baseApp.defItem.home.createLabel">
             Create new Def Item
@@ -28,7 +28,7 @@
         </button>
 
         <button id="jh-view-entity"
-                [routerLink]="['/def-item', selectedTreePlace==null?0:selectedTreePlace.data.id, 'view' ]"
+                [routerLink]="['/def-item', defItemService.selectedTreePlace==null?0:defItemService.selectedTreePlace.data.id, 'view' ]"
                 class="btn btn-info btn-sm">
             <fa-icon [icon]="'eye'"></fa-icon>
             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">
@@ -37,7 +37,7 @@
         </button>
 
         <button id="jh-edit-entity"
-                [routerLink]="['/def-item', selectedTreePlace==null?0:selectedTreePlace.data.id, 'edit']"
+                [routerLink]="['/def-item', defItemService.selectedTreePlace==null?0:defItemService.selectedTreePlace.data.id, 'edit']"
                 class="btn btn-primary btn-sm">
             <fa-icon [icon]="'pencil-alt'"></fa-icon>
             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">
@@ -49,14 +49,14 @@
         <br/>
 
 
-        <p>{{selectedTreePlace ? selectedTreePlace.data.code +':'+ selectedTreePlace.data.name : '-'}}</p>
-        <p-treeTable [value]="singleSelectionTreeTable" selectionMode="single" [(selection)]="selectedTreePlace">
+        <p>{{defItemService.selectedTreePlace ? defItemService.selectedTreePlace.data.code +':'+ defItemService.selectedTreePlace.data.name : '-'}}</p>
+        <p-treeTable [value]="singleSelectionTreeTable" selectionMode="single" [(selection)]="defItemService.selectedTreePlace">
             (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)" (onRowDblclick)="onRowDblclick($event)" >
             <p-column field="code" header="Kodu"></p-column>
             <p-column field="name" header="Adı"></p-column>
             <p-column field="id" header="id"></p-column>
         </p-treeTable>
-        <p>{{selectedTreePlace ? selectedTreePlace.data.code +':'+ selectedTreePlace.data.name : '-'}}</p>
+        <p>{{defItemService.selectedTreePlace ? defItemService.selectedTreePlace.data.code +':'+ defItemService.selectedTreePlace.data.name : '-'}}</p>
 
         <!--
         <p-treeTable [value]="singleSelectionTreeTable" [columns]="cols" selectionMode="single" [(selection)]="selectedTreePlace">

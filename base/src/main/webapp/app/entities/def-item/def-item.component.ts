@@ -9,8 +9,6 @@ import {TreeNode} from 'primeng/api';
 
 import { SessionStorageService } from 'ngx-webstorage';
 
-import { ComboSelModel } from '../common/combo-sel-model';
-
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { IDefType } from 'app/shared/model/def-type.model';
 
@@ -30,13 +28,11 @@ export class DefItemComponent implements OnInit, OnDestroy {
 
     msgs: Message[] = [];
     singleSelectionTreeTable: TreeNode[];
-    selectedTreePlace: TreeNode;
     items: MenuItem[];
     activeIndex = 0;
     cols: any[];
 
     // defItems: DefItem[];
-    comboSelModel: ComboSelModel = new ComboSelModel();
     currentAccount: any;
     eventSubscriber: Subscription;
     currentSearch: string;
@@ -67,10 +63,10 @@ export class DefItemComponent implements OnInit, OnDestroy {
     loadAll() {
         // this.commonService.getFilesystem().then(files => this.files = files);
 
-        this.comboSelModel.comboSel = this.sessionStorage.retrieve('selectedComboType');
-        console.log(this.comboSelModel.comboSel);
+        this.defItemService.comboSelModel.comboSel = this.sessionStorage.retrieve('selectedComboType');
+        console.log(this.defItemService.comboSelModel.comboSel);
         const searchFilter = {
-            selId: this.comboSelModel.comboSel == null ? 0 : this.comboSelModel.comboSel.id
+            selId: this.defItemService.comboSelModel.comboSel == null ? 0 : this.defItemService.comboSelModel.comboSel.id
         };
         this.currentSearch = JSON.stringify(searchFilter);
 
@@ -101,7 +97,7 @@ export class DefItemComponent implements OnInit, OnDestroy {
         });
         this.defTypeService.query().subscribe(
             (res: HttpResponse<IDefType[]>) => {
-                this.comboSelModel.comboList = res.body;
+                this.defItemService.comboSelModel.comboList = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -128,10 +124,10 @@ export class DefItemComponent implements OnInit, OnDestroy {
     }
 
     onChangeComboSel($event) {
-        if (this.comboSelModel.comboSel != null) {
-            this.sessionStorage.store('selectedComboType', this.comboSelModel.comboSel);
+        if (this.defItemService.comboSelModel.comboSel != null) {
+            this.sessionStorage.store('selectedComboType', this.defItemService.comboSelModel.comboSel);
         }
-        this.selectedTreePlace = null;
+        this.defItemService.selectedTreePlace = null;
         this.search();
     }
 
