@@ -25,16 +25,10 @@
                 <dd>
                     <span>{{perExcuse.isExcuse}}</span>
                 </dd>
-                <dt><span jhiTranslate="baseApp.perExcuse.person">Person</span></dt>
-                <dd>
-                    <div *ngIf="perExcuse.person">
-                        <a [routerLink]="['/per-person', perExcuse.person?.id, 'view']">{{perExcuse.person?.code}}</a>
-                    </div>
-                </dd>
                 <dt><span jhiTranslate="baseApp.perExcuse.izin">Izin</span></dt>
                 <dd>
                     <div *ngIf="perExcuse.izin">
-                        <a [routerLink]="['/def-item', perExcuse.izin?.id, 'view']">{{perExcuse.izin?.code}}</a>
+                        <a [routerLink]="['/def-item', perExcuse.izin?.id, 'view']">{{perExcuse.izin?.label}}</a>
                     </div>
                 </dd>
             </dl>

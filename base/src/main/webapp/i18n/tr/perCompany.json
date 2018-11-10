@@ -3,10 +3,10 @@
     "baseApp": {
         "perCompany" : {
             "home": {
-                "title": "Per Companies",
-                "createLabel": "Create a new Per Company",
-                "createOrEditLabel": "Ekle/Değiştir Per Company",
-                "search": "Search for Per Company"
+                "title": "Okul Tanımları",
+                "createLabel": "Yeni",
+                "createOrEditLabel": "Ekle/Değiştir",
+                "search": "Ara"
             },
             "created": "A new Per Company is created with identifier {{ param }}",
             "updated": "A Per Company is updated with identifier {{ param }}",
@@ -17,10 +17,10 @@
             "detail": {
                 "title": "Per Company"
             },
-            "code": "Code",
-            "name": "Name",
-            "sehir": "Sehir",
-            "tipi": "Tipi"
+            "code": "Kodu",
+            "name": "Adı",
+            "sehir": "Şehir",
+            "tipi": "Okul Tipi"
         }
     }
 }

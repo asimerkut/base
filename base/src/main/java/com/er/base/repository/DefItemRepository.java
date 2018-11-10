@@ -17,6 +17,6 @@ public interface DefItemRepository extends JpaRepository<DefItem, Long> {
 
     List<DefItem> findAllByTypeIdOrderByCode(Long typeId);
 
-    List<DefItem> findAllByTypeCodeOrderByCode(EnmType enmType);
+    List<DefItem> findAllByTypeCodeOrderByCode(String enmType);
 
 }

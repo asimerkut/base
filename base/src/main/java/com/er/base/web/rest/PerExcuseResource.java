@@ -2,6 +2,8 @@ package com.er.base.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.er.base.domain.PerExcuse;
+import com.er.base.domain.PerPerson;
+import com.er.base.service.CommonService;
 import com.er.base.service.PerExcuseService;
 import com.er.base.web.rest.errors.BadRequestAlertException;
 import com.er.base.web.rest.util.HeaderUtil;
@@ -33,9 +35,11 @@ public class PerExcuseResource {
     private static final String ENTITY_NAME = "perExcuse";
 
     private PerExcuseService perExcuseService;
+    private CommonService commonService;
 
-    public PerExcuseResource(PerExcuseService perExcuseService) {
+    public PerExcuseResource(PerExcuseService perExcuseService, CommonService commonService) {
         this.perExcuseService = perExcuseService;
+        this.commonService = commonService;
     }
 
     /**
@@ -48,6 +52,8 @@ public class PerExcuseResource {
     @PostMapping("/per-excuses")
     @Timed
     public ResponseEntity<PerExcuse> createPerExcuse(@Valid @RequestBody PerExcuse perExcuse) throws URISyntaxException {
+        PerPerson per = commonService.getLoginPerson();
+        perExcuse.setPerson(per);
         log.debug("REST request to save PerExcuse : {}", perExcuse);
         if (perExcuse.getId() != null) {
             throw new BadRequestAlertException("A new perExcuse cannot already have an ID", ENTITY_NAME, "idexists");
@@ -89,7 +95,7 @@ public class PerExcuseResource {
     @Timed
     public List<PerExcuse> getAllPerExcuses() {
         log.debug("REST request to get all PerExcuses");
-        return perExcuseService.findAll();
+        return commonService.getPersonExcuse();
     }
 
     /**

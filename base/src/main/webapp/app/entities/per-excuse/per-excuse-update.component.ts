@@ -11,6 +11,8 @@ import { IPerPerson } from 'app/shared/model/per-person.model';
 import { PerPersonService } from 'app/entities/per-person';
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from 'app/entities/def-item';
+import { CommonService } from 'app/entities/common';
+import { EnmType } from 'app/shared/model/def-type.model';
 
 @Component({
     selector: 'jhi-per-excuse-update',
@@ -22,7 +24,9 @@ export class PerExcuseUpdateComponent implements OnInit {
 
     perpeople: IPerPerson[];
 
-    defitems: IDefItem[];
+    // defitems: IDefItem[];
+    izinItemList: IDefItem[];
+
     startDateDp: any;
     finishDateDp: any;
 
@@ -31,7 +35,8 @@ export class PerExcuseUpdateComponent implements OnInit {
         private perExcuseService: PerExcuseService,
         private perPersonService: PerPersonService,
         private defItemService: DefItemService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private commonService: CommonService
     ) {}
 
     ngOnInit() {
@@ -45,9 +50,17 @@ export class PerExcuseUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        /*
         this.defItemService.query().subscribe(
             (res: HttpResponse<IDefItem[]>) => {
                 this.defitems = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        */
+        this.commonService.findAllByTypeId(EnmType.IZIN).subscribe(
+            (res: HttpResponse<IDefItem[]>) => {
+                this.izinItemList = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

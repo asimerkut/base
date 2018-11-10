@@ -16,13 +16,13 @@
                 <dt><span jhiTranslate="baseApp.perCompany.sehir">Sehir</span></dt>
                 <dd>
                     <div *ngIf="perCompany.sehir">
-                        <a [routerLink]="['/def-item', perCompany.sehir?.id, 'view']">{{perCompany.sehir?.code}}</a>
+                        <a [routerLink]="['/def-item', perCompany.sehir?.id, 'view']">{{perCompany.sehir?.label}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perCompany.tipi">Tipi</span></dt>
                 <dd>
                     <div *ngIf="perCompany.tipi">
-                        <a [routerLink]="['/def-item', perCompany.tipi?.id, 'view']">{{perCompany.tipi?.code}}</a>
+                        <a [routerLink]="['/def-item', perCompany.tipi?.id, 'view']">{{perCompany.tipi?.label}}</a>
                     </div>
                 </dd>
             </dl>

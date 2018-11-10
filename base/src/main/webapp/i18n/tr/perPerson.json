@@ -12,7 +12,7 @@
             "updated": "Değiştirildi {{ param }}",
             "deleted": "Silindi {{ param }}",
             "delete": {
-                "question": "Silmek istediğinize emin misiniz? {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
                 "title": "Per Person"

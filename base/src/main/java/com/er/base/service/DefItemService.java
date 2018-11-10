@@ -53,6 +53,6 @@ public interface DefItemService {
 
     List<DefItem> searchJson(String query);
 
-    List<DefItem> findAllByTypeId(EnmType enmType);
+    List<DefItem> findAllByTypeId(String enmType);
 
 }

@@ -12,7 +12,7 @@
             "updated": "Tanım Değişti {{ param }}",
             "deleted": "Tanım Silindi {{ param }}",
             "delete": {
-                "question": "Silmek İstiyor musunuz {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
                 "title": "Tanımlar"

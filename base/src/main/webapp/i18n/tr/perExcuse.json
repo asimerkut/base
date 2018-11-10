@@ -3,27 +3,27 @@
     "baseApp": {
         "perExcuse" : {
             "home": {
-                "title": "Per Excuses",
-                "createLabel": "Yeni Per Excuse",
-                "createOrEditLabel": "Ekle/Değiştir Per Excuse",
+                "title": "Devamsızlık",
+                "createLabel": "Yeni",
+                "createOrEditLabel": "Ekle/Değiştir",
                 "search": "Ara"
             },
-            "created": "A new Per Excuse is created with identifier {{ param }}",
-            "updated": "A Per Excuse is updated with identifier {{ param }}",
-            "deleted": "A Per Excuse is deleted with identifier {{ param }}",
+            "created": "Oluşturuldu {{ param }}",
+            "updated": "Değiştirildi {{ param }}",
+            "deleted": "Silindi {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Per Excuse {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
-                "title": "Per Excuse"
+                "title": "Devamsızlık / Özür Bilgileri"
             },
-            "startDate": "Start Date",
-            "startDersNo": "Start Ders No",
-            "finishDate": "Finish Date",
-            "finishDersNo": "Finish Ders No",
-            "isExcuse": "Is Excuse",
-            "person": "Person",
-            "izin": "Izin"
+            "startDate": "Başlangıç Tarihi",
+            "startDersNo": "Başlangıç Ders No",
+            "finishDate": "Bitiş Tarihi",
+            "finishDersNo": "Bitiş Ders No",
+            "isExcuse": "Özürlü Sayılır mı?",
+            "person": "Kişi",
+            "izin": "İzin Tipi"
         }
     }
 }

@@ -92,23 +92,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.perExcuse.person" for="field_person">Person</label>
-                    <select class="form-control" id="field_person" name="person" [(ngModel)]="perExcuse.person"  required>
-                        <option *ngIf="!editForm.value.person" [ngValue]="null" selected></option>
-                        <option [ngValue]="perPersonOption.id === perExcuse.person?.id ? perExcuse.person : perPersonOption" *ngFor="let perPersonOption of perpeople; trackBy: trackPerPersonById">{{perPersonOption.code}}</option>
-                    </select>
-                </div>
-                <div [hidden]="!(editForm.controls.person?.dirty && editForm.controls.person?.invalid)">
-                    <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.person?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="baseApp.perExcuse.izin" for="field_izin">Izin</label>
                     <select class="form-control" id="field_izin" name="izin" [(ngModel)]="perExcuse.izin"  required>
                         <option *ngIf="!editForm.value.izin" [ngValue]="null" selected></option>
-                        <option [ngValue]="defItemOption.id === perExcuse.izin?.id ? perExcuse.izin : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.code}}</option>
+                        <option [ngValue]="defItemOption.id === perExcuse.izin?.id ? perExcuse.izin : defItemOption" *ngFor="let defItemOption of izinItemList; trackBy: trackDefItemById">{{defItemOption.label}}</option>
                     </select>
                 </div>
                 <div [hidden]="!(editForm.controls.izin?.dirty && editForm.controls.izin?.invalid)">

@@ -67,7 +67,7 @@ public class CommonResource {
         log.debug("REST request to get all DefItems");
         JsonNode json = JsonUtil.getJsonObject(query);
         String selId = JsonUtil.getValueString(json, "selId");
-        EnmType enmType = EnmType.valueOf(selId);
+        String enmType = EnmType.valueOf(selId).getId();
         return defItemService.findAllByTypeId(enmType);
     }
 

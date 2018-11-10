@@ -35,7 +35,6 @@
             <th><span jhiTranslate="baseApp.perExcuse.finishDate">Finish Date</span></th>
             <th><span jhiTranslate="baseApp.perExcuse.finishDersNo">Finish Ders No</span></th>
             <th><span jhiTranslate="baseApp.perExcuse.isExcuse">Is Excuse</span></th>
-            <th><span jhiTranslate="baseApp.perExcuse.person">Person</span></th>
             <th><span jhiTranslate="baseApp.perExcuse.izin">Izin</span></th>
             <th></th>
             </tr>
@@ -49,13 +48,8 @@
                 <td>{{perExcuse.finishDersNo}}</td>
                 <td>{{perExcuse.isExcuse}}</td>
                 <td>
-                    <div *ngIf="perExcuse.person">
-                        <a [routerLink]="['../per-person', perExcuse.person?.id, 'view' ]" >{{perExcuse.person?.code}}</a>
-                    </div>
-                </td>
-                <td>
                     <div *ngIf="perExcuse.izin">
-                        <a [routerLink]="['../def-item', perExcuse.izin?.id, 'view' ]" >{{perExcuse.izin?.code}}</a>
+                        <a [routerLink]="['../def-item', perExcuse.izin?.id, 'view' ]" >{{perExcuse.izin?.label}}</a>
                     </div>
                 </td>
                 <td class="text-right">

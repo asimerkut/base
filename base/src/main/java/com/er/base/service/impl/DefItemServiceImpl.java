@@ -122,7 +122,7 @@ public class DefItemServiceImpl implements DefItemService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<DefItem> findAllByTypeId(EnmType enmType) {
+    public List<DefItem> findAllByTypeId(String enmType) {
         log.debug("Request to get all DefItems");
         return defItemRepository.findAllByTypeCodeOrderByCode(enmType);
     }
