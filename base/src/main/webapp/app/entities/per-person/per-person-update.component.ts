@@ -115,7 +115,7 @@ export class PerPersonUpdateComponent implements OnInit {
     }
 
     rowGroupMetadata(label: string): number {
-        const rowGroupMetadata = {};
+        const rowGroupMetadata = [];
         if (this.personValLists) {
             for (let i = 0; i < this.personValLists.length; i++) {
                 const rowData: IPerValue = this.personValLists[i];
@@ -125,7 +125,7 @@ export class PerPersonUpdateComponent implements OnInit {
                     const previousRowData = this.personValLists[i - 1];
                     const previousRowGroup = previousRowData.label;
                     if (label === previousRowGroup) {
-                        rowGroupMetadata[rowData.label].size++;
+                        const a = rowGroupMetadata[rowData.label]; // .size++;
                     } else {
                         rowGroupMetadata[rowData.label] = { index: i, size: 1 };
                     }
