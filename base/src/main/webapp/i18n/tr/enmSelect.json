@@ -1,0 +1,11 @@
+{
+    "baseApp": {
+        "EnmSelect" : {
+            "null": "",
+            "DEFTYPE": "DEFTYPE",
+            "FSTRG": "FSTRG",
+            "FNUMB": "FNUMB",
+            "FDATE": "FDATE"
+        }
+    }
+}

@@ -20,6 +20,14 @@ entity DefAnswer {
 	answer String maxlength(20)
 }
 
+entity DefField {
+	tableName String maxlength(20),
+    orderNo Integer required,
+    groupName String maxlength(20) required,
+    selSelect EnmSelect required,
+    selType EnmType
+}
+
 entity PerCompany {
     code String required maxlength(20),
     name String required maxlength(100)
@@ -64,7 +72,6 @@ entity PerDaily {
     hourFinish String required maxlength(5)
 }
 
-
 relationship ManyToOne {
 
     DefItem{type(code) required} to DefType,
@@ -81,7 +88,7 @@ relationship ManyToOne {
     PerCompany{tipi(code)} to DefItem,
 
     PerPerson{loginUser(login)} to User,
-    PerPerson{okul(code)} to PerCompany,
+  	PerPerson{okul(code)} to PerCompany,
 
     PerPlan{person(code) required} to PerPerson,
     PerPlan{ders(code) required} to DefItem
@@ -97,6 +104,7 @@ relationship ManyToOne {
 
 enum EnmDay {D1,D2,D3,D4,D5,D6,D7}
 enum EnmDersGrup {D_GS,GG,GY}
+enum EnmSelect {DEFTYPE,FSTRG,FNUMB,FDATE}
 
 enum EnmType {
     BANKA,	BRANS,	DERS,	DONEM,	DURUM,

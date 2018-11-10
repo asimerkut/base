@@ -1,3 +1,5 @@
+jhipster import-jdl ./jdl-donem.jh --json-only
+
 mvn -Pprod package -Dmaven.test.skip=true
 
 npm install jquery -S

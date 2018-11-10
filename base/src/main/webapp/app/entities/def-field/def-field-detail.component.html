@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="defField">
+            <h2><span jhiTranslate="baseApp.defField.detail.title">Def Field</span> {{defField.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="baseApp.defField.tableName">Table Name</span></dt>
+                <dd>
+                    <span>{{defField.tableName}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.defField.orderNo">Order No</span></dt>
+                <dd>
+                    <span>{{defField.orderNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.defField.groupName">Group Name</span></dt>
+                <dd>
+                    <span>{{defField.groupName}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.defField.selSelect">Sel Select</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'baseApp.EnmSelect.' + defField.selSelect}}">{{defField.selSelect}}</span>
+                </dd>
+                <dt><span jhiTranslate="baseApp.defField.selType">Sel Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'baseApp.EnmType.' + defField.selType}}">{{defField.selType}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/def-field', defField.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

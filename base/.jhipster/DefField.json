@@ -1,0 +1,52 @@
+{
+    "name": "DefField",
+    "fields": [
+        {
+            "fieldName": "tableName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "orderNo",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "groupName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "selSelect",
+            "fieldType": "EnmSelect",
+            "fieldValues": "DEFTYPE,FSTRG,FNUMB,FDATE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "selType",
+            "fieldType": "EnmType",
+            "fieldValues": "BANKA,BRANS,DERS,DONEM,DURUM,GGOKL,GYERI,HIZMT,IZIN,KADRO,KARYR,KONUM,MESLK,OKUL,SEHIR,SENDK,TATIL,UNVAN,YBDIL"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181110064501",
+    "entityTableName": "def_field",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

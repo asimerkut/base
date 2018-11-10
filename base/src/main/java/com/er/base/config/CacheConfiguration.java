@@ -59,6 +59,7 @@ public class CacheConfiguration {
             cm.createCache(com.er.base.domain.PerPerson.class.getName() + ".valLists", jcacheConfiguration);
             cm.createCache(com.er.base.domain.PerValue.class.getName(), jcacheConfiguration);
             cm.createCache(com.er.base.domain.PerPerson.class.getName() + ".dailyLists", jcacheConfiguration);
+            cm.createCache(com.er.base.domain.DefField.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
