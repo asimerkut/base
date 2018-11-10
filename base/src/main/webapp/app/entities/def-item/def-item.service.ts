@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { IDefItem } from 'app/shared/model/def-item.model';
-import {ComboSelModel} from 'app/entities/common/combo-sel-model';
-import {TreeNode} from "primeng/api";
+import { ComboSelModel } from 'app/entities/common/combo-sel-model';
+import { TreeNode } from 'primeng/api';
 
 type EntityResponseType = HttpResponse<IDefItem>;
 type EntityArrayResponseType = HttpResponse<IDefItem[]>;

@@ -34,10 +34,10 @@ export class PerSubmitUpdateComponent implements OnInit {
     submitDateDp: any;
 
     constructor(
+        public defItemService: DefItemService,
         private jhiAlertService: JhiAlertService,
         private perSubmitService: PerSubmitService,
         private perPersonService: PerPersonService,
-        private defItemService: DefItemService,
         private perExcuseService: PerExcuseService,
         private perPeriodStateService: PerPeriodStateService,
         private activatedRoute: ActivatedRoute

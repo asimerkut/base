@@ -6,9 +6,9 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IDefItem } from 'app/shared/model/def-item.model';
 import { DefItemService } from './def-item.service';
-import {EnmType, IDefType} from 'app/shared/model/def-type.model';
+import { EnmType, IDefType } from 'app/shared/model/def-type.model';
 import { DefTypeService } from 'app/entities/def-type';
-import {CommonService} from 'app/entities/common';
+import { CommonService } from 'app/entities/common';
 
 @Component({
     selector: 'jhi-def-item-update',
@@ -23,8 +23,8 @@ export class DefItemUpdateComponent implements OnInit {
     defitems: IDefItem[];
 
     constructor(
+        public defItemService: DefItemService,
         private jhiAlertService: JhiAlertService,
-        private defItemService: DefItemService,
         private defTypeService: DefTypeService,
         private activatedRoute: ActivatedRoute,
         private commonService: CommonService
@@ -56,7 +56,6 @@ export class DefItemUpdateComponent implements OnInit {
             (res: HttpErrorResponse) => this.onError(res.message)
         );
         */
-
     }
 
     previousState() {

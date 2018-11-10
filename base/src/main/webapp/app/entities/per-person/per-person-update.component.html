@@ -4,21 +4,11 @@
             <h2 id="jhi-per-person-heading" jhiTranslate="baseApp.perPerson.home.createOrEditLabel">Create or edit a Per Person</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-
-                <!--
-                <div class="ui-g-2">
-                    zzzzzz
-                </div>
-                <div class="ui-g-10">
-                    zzzzzz
-                </div>
-                -->
-
                 <div class="form-group">
-                    <div class="ui-g-2">
+                    <div class="ui-g-3">
                         <label class="form-control-label" jhiTranslate="baseApp.perPerson.loginUser" for="field_loginUser">Login User</label>
                     </div>
-                    <div class="ui-g-8">
+                    <div class="ui-g-7">
                         <input type="text" class="form-control" id="field_loginUser" name="loginUser"
                                [(ngModel)]="perPerson.loginUser.login" readonly />
                     </div>
@@ -29,10 +19,10 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="ui-g-2">
+                    <div class="ui-g-3">
                         <label class="form-control-label" jhiTranslate="baseApp.perPerson.name" for="field_name">Name</label>
                     </div>
-                    <div class="ui-g-10">
+                    <div class="ui-g-9">
                         <input type="text" class="form-control" name="name" id="field_name"
                             [(ngModel)]="perPerson.name" required maxlength="100"/>
                         <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
@@ -49,30 +39,30 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="ui-g-2">
+                    <div class="ui-g-3">
                         <label class="form-control-label" jhiTranslate="baseApp.perPerson.email" for="field_email">Email</label>
                     </div>
-                    <div class="ui-g-10">
+                    <div class="ui-g-9">
                         <input type="text" class="form-control" name="email" id="field_email"
                         [(ngModel)]="perPerson.email" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="ui-g-2">
+                    <div class="ui-g-3">
                         <label class="form-control-label" jhiTranslate="baseApp.perPerson.phone" for="field_phone">Phone</label>
                     </div>
-                    <div class="ui-g-10">
+                    <div class="ui-g-9">
                         <input type="text" class="form-control" name="phone" id="field_phone"
                                [(ngModel)]="perPerson.phone" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="ui-g-2">
+                    <div class="ui-g-3">
                         <label class="form-control-label" jhiTranslate="baseApp.perPerson.shift1" for="field_shift1">Shift 1</label>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-1">
                         <input type="number" class="form-control" name="shift1" id="field_shift1"
                                [(ngModel)]="perPerson.shift1" max="8" jhiMax="8"/>
                         <div [hidden]="!(editForm.controls.shift1?.dirty && editForm.controls.shift1?.invalid)">
@@ -86,10 +76,10 @@
                             </small>
                         </div>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-3">
                         <label class="form-control-label" jhiTranslate="baseApp.perPerson.shift2" for="field_shift2">Shift 2</label>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-1">
                         <input type="number" class="form-control" name="shift2" id="field_shift2"
                                [(ngModel)]="perPerson.shift2" max="8" jhiMax="8"/>
                         <div [hidden]="!(editForm.controls.shift2?.dirty && editForm.controls.shift2?.invalid)">
@@ -104,10 +94,10 @@
                         </div>
                     </div>
 
-                    <div class="ui-g-2">
+                    <div class="ui-g-3">
                         <label class="form-control-label" jhiTranslate="baseApp.perPerson.shift3" for="field_shift3">Shift 3</label>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-1">
                         <input type="number" class="form-control" name="shift3" id="field_shift3"
                                [(ngModel)]="perPerson.shift3" max="8" jhiMax="8"/>
                         <div [hidden]="!(editForm.controls.shift3?.dirty && editForm.controls.shift3?.invalid)">
@@ -170,10 +160,10 @@
             <p-dialog header="" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="600">
                 <div class="ui-g ui-fluid" *ngIf="selectedVal">
                     <div class="ui-g-12">
-                        <div class="ui-g-2">
+                        <div class="ui-g-3">
                             <label for="field_item">{{selectedVal.caption}}</label>
                         </div>
-                        <div class="ui-g-10">
+                        <div class="ui-g-9">
                             <select class="form-control" id="field_item" name="item" [(ngModel)]="selectedVal.valItem">
                                 <option [ngValue]="nullItem"></option>
                                 <option [ngValue]="defItemOption.id === selectedVal.valItem?.id ? selectedVal.valItem : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption?.label}}</option>

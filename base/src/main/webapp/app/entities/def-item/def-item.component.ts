@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Principal } from 'app/core';
 import { MenuItem, Message } from 'primeng/components/common/api';
-import {TreeNode} from 'primeng/api';
+import { TreeNode } from 'primeng/api';
 
 import { SessionStorageService } from 'ngx-webstorage';
 
@@ -38,7 +38,7 @@ export class DefItemComponent implements OnInit, OnDestroy {
     currentSearch: string;
 
     constructor(
-        private defItemService: DefItemService,
+        public defItemService: DefItemService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private activatedRoute: ActivatedRoute,

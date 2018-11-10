@@ -32,10 +32,10 @@ export class FiscalPeriodUpdateComponent implements OnInit {
     dateFinishDp: any;
 
     constructor(
+        public defItemService: DefItemService,
         private jhiAlertService: JhiAlertService,
         private fiscalPeriodService: FiscalPeriodService,
         private fiscalYearService: FiscalYearService,
-        private defItemService: DefItemService,
         private activatedRoute: ActivatedRoute,
         private commonService: CommonService
     ) {}

@@ -5,14 +5,23 @@
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!defItem.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="defItem.id" readonly />
+                    <div class="ui-g-3">
+                        <label for="id" jhiTranslate="global.field.id">ID</label>
+                    </div>
+                    <div class="ui-g-9">
+                        <input type="text" class="form-control" id="id" name="id"
+                               [(ngModel)]="defItem.id" readonly />
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.defItem.code" for="field_code">Code</label>
-                    <input type="text" class="form-control" name="code" id="field_code"
-                        [(ngModel)]="defItem.code" required maxlength="20"/>
+                    <div class="ui-g-3">
+                        <label class="form-control-label" jhiTranslate="baseApp.defItem.code" for="field_code">Code</label>
+                    </div>
+                    <div class="ui-g-9">
+                        <input type="text" class="form-control" name="code" id="field_code"
+                               [(ngModel)]="defItem.code" required maxlength="20"/>
+                    </div>
                     <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
                         <small class="form-text text-danger"
                         [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
@@ -24,10 +33,15 @@
                         </small>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.defItem.name" for="field_name">Name</label>
-                    <input type="text" class="form-control" name="name" id="field_name"
-                        [(ngModel)]="defItem.name" required maxlength="100"/>
+                    <div class="ui-g-3">
+                        <label class="form-control-label" jhiTranslate="baseApp.defItem.name" for="field_name">Name</label>
+                    </div>
+                    <div class="ui-g-9">
+                        <input type="text" class="form-control" name="name" id="field_name"
+                               [(ngModel)]="defItem.name" required maxlength="100"/>
+                    </div>
                     <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
                         <small class="form-text text-danger"
                         [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
@@ -39,10 +53,15 @@
                         </small>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.defItem.isSelect" for="field_isSelect">Is Select</label>
-                    <input type="checkbox" class="form-control" name="isSelect" id="field_isSelect"
-                        [(ngModel)]="defItem.isSelect" />
+                    <div class="ui-g-3">
+                        <label class="form-control-label" jhiTranslate="baseApp.defItem.isSelect" for="field_isSelect">Is Select</label>
+                    </div>
+                    <div class="ui-g-9">
+                        <input type="checkbox" class="form-control" name="isSelect" id="field_isSelect"
+                               [(ngModel)]="defItem.isSelect" />
+                    </div>
                     <div [hidden]="!(editForm.controls.isSelect?.dirty && editForm.controls.isSelect?.invalid)">
                         <small class="form-text text-danger"
                         [hidden]="!editForm.controls.isSelect?.errors?.required" jhiTranslate="entity.validation.required">
@@ -50,10 +69,16 @@
                         </small>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.defItem.isConst" for="field_isConst">Is Const</label>
-                    <input type="checkbox" class="form-control" name="isConst" id="field_isConst"
-                        [(ngModel)]="defItem.isConst" />
+                    <div class="ui-g-3">
+                        <label class="form-control-label" jhiTranslate="baseApp.defItem.isConst" for="field_isConst">Is Const</label>
+                    </div>
+                    <div class="ui-g-9">
+                        <input type="checkbox" class="form-control" name="isConst" id="field_isConst"
+                               [(ngModel)]="defItem.isConst" />
+                    </div>
+
                     <div [hidden]="!(editForm.controls.isConst?.dirty && editForm.controls.isConst?.invalid)">
                         <small class="form-text text-danger"
                         [hidden]="!editForm.controls.isConst?.errors?.required" jhiTranslate="entity.validation.required">
@@ -61,14 +86,18 @@
                         </small>
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="baseApp.defItem.parent" for="field_parent">Parent</label>
-                    <select class="form-control" id="field_parent" name="parent" [(ngModel)]="defItem.parent" [disabled]="true">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="defItemOption.id === defItem.parent?.id ? defItem.parent : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.label}}</option>
-                    </select>
+                    <div class="ui-g-3">
+                        <label class="form-control-label" jhiTranslate="baseApp.defItem.parent" for="field_parent">Parent</label>
+                    </div>
+                    <div class="ui-g-9">
+                        <select class="form-control" id="field_parent" name="parent" [(ngModel)]="defItem.parent" [disabled]="true">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="defItemOption.id === defItem.parent?.id ? defItem.parent : defItemOption" *ngFor="let defItemOption of defitems; trackBy: trackDefItemById">{{defItemOption.label}}</option>
+                        </select>
+                    </div>
                 </div>
+
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

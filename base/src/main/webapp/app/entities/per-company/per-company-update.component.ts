@@ -25,9 +25,9 @@ export class PerCompanyUpdateComponent implements OnInit {
     // defitems: IDefItem[];
 
     constructor(
+        public defItemService: DefItemService,
         private jhiAlertService: JhiAlertService,
         private perCompanyService: PerCompanyService,
-        private defItemService: DefItemService,
         private activatedRoute: ActivatedRoute,
         private commonService: CommonService
     ) {}

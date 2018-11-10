@@ -25,7 +25,6 @@ import { Schedule } from 'primeng/components/schedule/schedule';
     templateUrl: './per-scheduler.component.html'
 })
 export class PerSchedulerComponent implements OnInit, OnDestroy {
-
     // @ViewChild('fc') fc: FullCalendar;
     msgs: Message[] = [];
     event: SubmitEvent;
@@ -48,11 +47,11 @@ export class PerSchedulerComponent implements OnInit, OnDestroy {
     options: any;
 
     constructor(
+        public defItemService: DefItemService,
         private perSchedulerService: PerSchedulerService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private activatedRoute: ActivatedRoute,
-        private defItemService: DefItemService,
         private principal: Principal,
         private commonService: CommonService,
         private eventService: EventService
@@ -102,7 +101,7 @@ export class PerSchedulerComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-/*
+        /*
         this.eventService.getEvents().then(events => {
             this.events = events;
         });
@@ -115,7 +114,7 @@ export class PerSchedulerComponent implements OnInit, OnDestroy {
                 center: 'title',
                 right: 'agendaWeek'
             },
-            editable: true,
+            editable: true
             /*
             dateClick(e) => {
                 console.log('dateClick:' + e);

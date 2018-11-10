@@ -24,9 +24,9 @@ export class DefItemResolve implements Resolve<IDefItem> {
         }
         const type = route.params['type'] ? route.params['type'] : null;
         if (type) {
-            var newType = new DefType();
+            const newType = new DefType();
             newType.code = type;
-            var newItem = new DefItem();
+            const newItem = new DefItem();
             newItem.type = newType;
             return newItem;
         }

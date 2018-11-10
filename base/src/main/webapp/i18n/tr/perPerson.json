@@ -20,9 +20,9 @@
             "name": "Ad Soyad",
             "email": "Email",
             "phone": "Telefon",
-            "shift1": "Öğleden Önce",
-            "shift2": "Öğleden Sonra",
-            "shift3": "Gece",
+            "shift1": "Öğle Öncesi Saat",
+            "shift2": "Öğle Sonrası Saat",
+            "shift3": "Gece Saat",
             "valList": "Val List",
             "dailyList": "Daily List",
             "loginUser": "Kullanıcı"
