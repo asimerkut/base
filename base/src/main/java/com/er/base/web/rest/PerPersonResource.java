@@ -1,12 +1,8 @@
 package com.er.base.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.er.base.domain.DefItem;
-import com.er.base.domain.DefType;
 import com.er.base.domain.PerPerson;
 import com.er.base.domain.PerValue;
-import com.er.base.domain.enumeration.EnmType;
-import com.er.base.service.DefTypeService;
 import com.er.base.service.PerPersonService;
 import com.er.base.service.PerValueService;
 import com.er.base.web.rest.errors.BadRequestAlertException;
@@ -15,7 +11,6 @@ import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.support.SimpleTriggerContext;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,9 +18,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import java.util.*;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
 
 /**
  * REST controller for managing PerPerson.

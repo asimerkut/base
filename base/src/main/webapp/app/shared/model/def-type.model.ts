@@ -22,11 +22,11 @@ export const enum EnmType {
 
 export interface IDefType {
     id?: number;
-    code?: EnmType;
+    code?: string;
     name?: string;
     label?: string;
 }
 
 export class DefType implements IDefType {
-    constructor(public id?: number, public code?: EnmType, public name?: string, public label?: string) {}
+    constructor(public id?: number, public code?: string, public name?: string, public label?: string) {}
 }

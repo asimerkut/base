@@ -76,6 +76,8 @@ public class PerExcuseResource {
     @PutMapping("/per-excuses")
     @Timed
     public ResponseEntity<PerExcuse> updatePerExcuse(@Valid @RequestBody PerExcuse perExcuse) throws URISyntaxException {
+        PerPerson per = commonService.getLoginPerson();
+        perExcuse.setPerson(per);
         log.debug("REST request to update PerExcuse : {}", perExcuse);
         if (perExcuse.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

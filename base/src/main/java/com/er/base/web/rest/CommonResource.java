@@ -5,7 +5,6 @@ import com.er.base.domain.*;
 import com.er.base.domain.enumeration.*;
 import com.er.base.service.*;
 import com.er.base.service.custom.ScheduleUtilService;
-import com.er.base.web.rest.errors.InternalServerErrorException;
 import com.er.fin.domain.*;
 import com.er.fin.dto.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -116,14 +115,14 @@ public class CommonResource {
 
     @GetMapping("/common/def-enum")
     @Timed
-    public List<EnmBase> findAllByType(@RequestParam String query) {
+    public List<EnmBase> findEnumByTypeId(@RequestParam String query) {
         log.debug("REST request to get all DefItems");
         JsonNode json = JsonUtil.getJsonObject(query);
         String enumId = JsonUtil.getValueString(json, "selId");
         IEnum[] enmList = null;
         switch (enumId) {
             case "EnmType":
-                enmList = EnmType.values();
+                enmList = EnmXType.values();
                 break;
             case "EnmCins":
                 enmList = EnmCins.values();

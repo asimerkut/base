@@ -1,6 +1,6 @@
 package com.er.base.domain;
 
-import com.er.base.domain.enumeration.EnmType;
+import com.er.base.domain.enumeration.EnmXType;
 import com.er.fin.domain.CheckDefType;
 import com.er.fin.domain.IEntity;
 import com.er.fin.dto.PerScheduleDTO;
@@ -67,7 +67,7 @@ public class PerPlan implements IEntity, PerScheduleDTO {
     @ManyToOne(optional = false)
     //@NotNull
     @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.DERS)
+    @CheckDefType(EnmXType.DERS)
     private DefItem ders;
 
     @Transient

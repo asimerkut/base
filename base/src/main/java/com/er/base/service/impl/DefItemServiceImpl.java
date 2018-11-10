@@ -1,6 +1,5 @@
 package com.er.base.service.impl;
 
-import com.er.base.domain.enumeration.EnmType;
 import com.er.base.service.DefItemService;
 import com.er.base.domain.DefItem;
 import com.er.base.repository.DefItemRepository;

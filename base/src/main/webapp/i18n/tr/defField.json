@@ -8,11 +8,11 @@
                 "createOrEditLabel": "Ekle/Değiştir Def Field",
                 "search": "Ara"
             },
-            "created": "A new Def Field is created with identifier {{ param }}",
-            "updated": "A Def Field is updated with identifier {{ param }}",
-            "deleted": "A Def Field is deleted with identifier {{ param }}",
+            "created": "Oluşturuldu {{ param }}",
+            "updated": "Değiştirildi {{ param }}",
+            "deleted": "Silindi {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Def Field {{ id }}?"
+                "question": "Silmek istiyor musunuz {{ id }}?"
             },
             "detail": {
                 "title": "Def Field"

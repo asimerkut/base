@@ -1,25 +1,21 @@
 package com.er.base.domain;
 
-import com.er.base.domain.enumeration.EnmType;
+import com.er.base.domain.enumeration.EnmDersGrup;
+import com.er.base.domain.enumeration.EnmXType;
 import com.er.fin.domain.CheckDefType;
 import com.er.fin.domain.IEntity;
 import com.er.fin.dto.PerScheduleDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
-
-import org.springframework.data.elasticsearch.annotations.Document;
-import java.io.Serializable;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Objects;
-
-import com.er.base.domain.enumeration.EnmDersGrup;
-
-import com.er.base.domain.enumeration.EnmDay;
 
 /**
  * A PerSubmit.
@@ -69,7 +65,7 @@ public class PerSubmit implements IEntity, PerScheduleDTO {
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.DERS)
+    @CheckDefType(EnmXType.DERS)
     private DefItem ders;
 
     @ManyToOne
@@ -254,7 +250,7 @@ public class PerSubmit implements IEntity, PerScheduleDTO {
 
     @Override
     public String getLabel() {
-        return this.ders.getName()+(this.getDersSira()==0 || this.dersAdet.intValue()>1?" ("+this.dersAdet+")":"");
+        return this.ders.getName() + (this.getDersSira() == 0 || this.dersAdet.intValue() > 1 ? " (" + this.dersAdet + ")" : "");
     }
 
 }

@@ -1,13 +1,10 @@
 package com.er.base.service.impl;
 
 import com.er.base.domain.*;
-import com.er.base.domain.enumeration.EnmType;
 import com.er.base.repository.PerExcuseRepository;
 import com.er.base.repository.PerPersonRepository;
-import com.er.base.repository.search.PerPersonSearchRepository;
 import com.er.base.service.CommonService;
 import com.er.base.service.DefTypeService;
-import com.er.base.service.PerPersonService;
 import com.er.base.service.PerValueService;
 import com.er.fin.domain.FinUtil;
 import org.slf4j.Logger;
@@ -16,10 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
 /**
  * Service Implementation for managing PerPerson.

@@ -1,7 +1,6 @@
 package com.er.base.repository;
 
 import com.er.base.domain.DefType;
-import com.er.base.domain.enumeration.EnmType;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,6 @@
 package com.er.base.service;
 
 import com.er.base.domain.DefItem;
-import com.er.base.domain.enumeration.EnmType;
 
 import java.util.List;
 import java.util.Optional;

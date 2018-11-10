@@ -1,6 +1,6 @@
 package com.er.base.domain;
 
-import com.er.base.domain.enumeration.EnmType;
+import com.er.base.domain.enumeration.EnmXType;
 import com.er.fin.domain.CheckDefType;
 import com.er.fin.domain.IEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
-import java.io.Serializable;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -61,7 +61,7 @@ public class FiscalPeriod implements IEntity {
 
     @ManyToOne
     @JsonIgnoreProperties("")
-    @CheckDefType(EnmType.DONEM)
+    @CheckDefType(EnmXType.DONEM)
     private DefItem donem;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

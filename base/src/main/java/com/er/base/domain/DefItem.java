@@ -16,7 +16,9 @@ import java.util.Objects;
  * A DefItem.
  */
 @Entity
-@Table(name = "def_item")
+@Table(name = "def_item",
+    uniqueConstraints = {@UniqueConstraint(columnNames = {"type_id","code"})}
+)
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "defitem")
 public class DefItem implements IEntity {

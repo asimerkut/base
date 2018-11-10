@@ -1,13 +1,11 @@
 package com.er.base.service.impl;
 
 import com.er.base.domain.*;
-import com.er.base.domain.enumeration.EnmType;
 import com.er.base.service.DefFieldService;
 import com.er.base.service.DefTypeService;
 import com.er.base.service.PerValueService;
 import com.er.base.repository.PerValueRepository;
 import com.er.base.repository.search.PerValueSearchRepository;
-import com.er.base.web.rest.DefFieldResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

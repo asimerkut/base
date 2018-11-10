@@ -1,6 +1,6 @@
 package com.er.fin.domain;
 
-import com.er.base.domain.enumeration.EnmType;
+import com.er.base.domain.enumeration.EnmXType;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -14,7 +14,7 @@ import java.lang.annotation.*;
 )
 public @interface CheckDefType {
 
-    EnmType value();
+    EnmXType value();
 
     String message() default "{CheckDefType}";
 
@@ -26,7 +26,7 @@ public @interface CheckDefType {
     @Retention(RetentionPolicy.RUNTIME)
     @Documented
     public @interface List {
-        EnmType value();
+        EnmXType value();
     }
 }
 

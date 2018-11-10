@@ -1,7 +1,5 @@
 package com.er.base.domain;
 
-import com.er.base.domain.enumeration.EnmType;
-import com.er.fin.domain.CheckDefType;
 import com.er.fin.domain.IEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
@@ -11,7 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
-import java.io.Serializable;
+
 import java.util.Objects;
 
 /**
