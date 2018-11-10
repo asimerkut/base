@@ -37,13 +37,18 @@ public class DefField implements Serializable {
     private String tabName;
 
     @NotNull
-    @Column(name = "order_no", nullable = false)
-    private Integer orderNo;
+    @Column(name = "ord_no", nullable = false)
+    private Integer ordNo;
 
     @NotNull
     @Size(max = 20)
-    @Column(name = "group_name", length = 20, nullable = false)
-    private String groupName;
+    @Column(name = "grp_name", length = 20, nullable = false)
+    private String grpName;
+
+    @NotNull
+    @Size(max = 20)
+    @Column(name = "fld_caption", length = 20, nullable = false)
+    private String fldCaption;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -76,30 +81,43 @@ public class DefField implements Serializable {
         this.tabName = tabName;
     }
 
-    public Integer getOrderNo() {
-        return orderNo;
+    public Integer getOrdNo() {
+        return ordNo;
     }
 
-    public DefField orderNo(Integer orderNo) {
-        this.orderNo = orderNo;
+    public DefField ordNo(Integer ordNo) {
+        this.ordNo = ordNo;
         return this;
     }
 
-    public void setOrderNo(Integer orderNo) {
-        this.orderNo = orderNo;
+    public void setOrdNo(Integer ordNo) {
+        this.ordNo = ordNo;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public String getGrpName() {
+        return grpName;
     }
 
-    public DefField groupName(String groupName) {
-        this.groupName = groupName;
+    public DefField grpName(String grpName) {
+        this.grpName = grpName;
         return this;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setGrpName(String grpName) {
+        this.grpName = grpName;
+    }
+
+    public String getFldCaption() {
+        return fldCaption;
+    }
+
+    public DefField fldCaption(String fldCaption) {
+        this.fldCaption = fldCaption;
+        return this;
+    }
+
+    public void setFldCaption(String fldCaption) {
+        this.fldCaption = fldCaption;
     }
 
     public EnmSelect getSelSelect() {
@@ -154,8 +172,9 @@ public class DefField implements Serializable {
         return "DefField{" +
             "id=" + getId() +
             ", tabName='" + getTabName() + "'" +
-            ", orderNo=" + getOrderNo() +
-            ", groupName='" + getGroupName() + "'" +
+            ", ordNo=" + getOrdNo() +
+            ", grpName='" + getGrpName() + "'" +
+            ", fldCaption='" + getFldCaption() + "'" +
             ", selSelect='" + getSelSelect() + "'" +
             ", selType='" + getSelType() + "'" +
             "}";

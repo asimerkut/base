@@ -10,14 +10,23 @@
             "fieldValidateRulesMaxlength": 20
         },
         {
-            "fieldName": "orderNo",
+            "fieldName": "ordNo",
             "fieldType": "Integer",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "groupName",
+            "fieldName": "grpName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "fldCaption",
             "fieldType": "String",
             "fieldValidateRules": [
                 "maxlength",

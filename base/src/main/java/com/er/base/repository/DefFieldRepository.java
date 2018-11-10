@@ -14,6 +14,6 @@ import java.util.List;
 @Repository
 public interface DefFieldRepository extends JpaRepository<DefField, Long> {
 
-    List<DefField> findAllByTabNameOrderByOrderNo(String tabName);
+    List<DefField> findAllByTabNameOrderByOrdNo(String tabName);
 
 }

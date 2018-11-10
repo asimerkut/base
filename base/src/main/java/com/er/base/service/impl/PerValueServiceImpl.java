@@ -121,12 +121,12 @@ public class PerValueServiceImpl implements PerValueService {
         List<DefField> fieldList = defFieldService.findAllByTabName(DefField.TAB_NAME);
         LinkedHashSet<PerValue> newSet = new LinkedHashSet<>();
         for (DefField fld : fieldList){
-            addToList(newSet, valSet, fld.getSelType(),fld.getGroupName());
+            addToList(newSet, valSet, fld.getSelType(),fld.getGrpName(), fld.getFldCaption());
         }
         return newSet;
     }
 
-    private void addToList(LinkedHashSet<PerValue> list, Set<PerValue> valSet, EnmType enmType, String grp){
+    private void addToList(LinkedHashSet<PerValue> list, Set<PerValue> valSet, EnmType enmType, String grp, String cap){
         PerValue val = null;
         for (PerValue value : valSet){
             if (value.getValType().getCode().getId().equals(enmType.getId())){
@@ -142,6 +142,7 @@ public class PerValueServiceImpl implements PerValueService {
             val.setValItem(new DefItem());
         }
         val.setGrp(grp);
+        val.setCap(cap);
         list.add(val);
     }
 

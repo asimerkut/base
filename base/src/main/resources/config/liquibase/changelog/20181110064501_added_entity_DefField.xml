@@ -25,11 +25,15 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="order_no" type="integer">
+            <column name="ord_no" type="integer">
                 <constraints nullable="false" />
             </column>
 
-            <column name="group_name" type="varchar(20)">
+            <column name="grp_name" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="fld_caption" type="varchar(20)">
                 <constraints nullable="false" />
             </column>
 

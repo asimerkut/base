@@ -64,7 +64,7 @@ export class PerPersonUpdateComponent implements OnInit {
             (res: HttpErrorResponse) => this.onError(res.message)
         );
         */
-        this.valCols = [{ field: 'valType', subfield: 'label', header: 'Tanım' }, { field: 'valItem', subfield: 'label', header: 'Değer' }];
+        this.valCols = [{ field: 'caption', header: '' }, { field: 'valItem', subfield: 'label', header: '' }];
     }
 
     previousState() {

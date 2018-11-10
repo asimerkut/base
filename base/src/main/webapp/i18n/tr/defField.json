@@ -18,8 +18,9 @@
                 "title": "Def Field"
             },
             "tabName": "Tab Name",
-            "orderNo": "Sıra No",
-            "groupName": "Grup Adı",
+            "ordNo": "Sıra No",
+            "grpName": "Grup Adı",
+            "fldCaption": "Başlık",
             "selSelect": "Giriş Tipi",
             "selType": "Seçenek"
         }

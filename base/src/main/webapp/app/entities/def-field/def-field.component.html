@@ -30,8 +30,9 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="baseApp.defField.orderNo">Order No</span></th>
-            <th><span jhiTranslate="baseApp.defField.groupName">Group Name</span></th>
+            <th><span jhiTranslate="baseApp.defField.ordNo">Ord No</span></th>
+            <th><span jhiTranslate="baseApp.defField.grpName">Grp Name</span></th>
+            <th><span jhiTranslate="baseApp.defField.fldCaption">Fld Caption</span></th>
             <th><span jhiTranslate="baseApp.defField.selSelect">Sel Select</span></th>
             <th><span jhiTranslate="baseApp.defField.selType">Sel Type</span></th>
             <th></th>
@@ -40,8 +41,9 @@
             <tbody>
             <tr *ngFor="let defField of defFields ;trackBy: trackId">
                 <td><a [routerLink]="['/def-field', defField.id, 'view' ]">{{defField.id}}</a></td>
-                <td>{{defField.orderNo}}</td>
-                <td>{{defField.groupName}}</td>
+                <td>{{defField.ordNo}}</td>
+                <td>{{defField.grpName}}</td>
+                <td>{{defField.fldCaption}}</td>
                 <td jhiTranslate="{{'baseApp.EnmSelect.' + defField.selSelect}}">{{defField.selSelect}}</td>
                 <td jhiTranslate="{{'baseApp.EnmType.' + defField.selType}}">{{defField.selType}}</td>
                 <td class="text-right">

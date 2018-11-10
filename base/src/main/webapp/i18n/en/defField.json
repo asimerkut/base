@@ -18,8 +18,9 @@
                 "title": "Def Field"
             },
             "tabName": "Tab Name",
-            "orderNo": "Order No",
-            "groupName": "Group Name",
+            "ordNo": "Ord No",
+            "grpName": "Grp Name",
+            "fldCaption": "Fld Caption",
             "selSelect": "Sel Select",
             "selType": "Sel Type"
         }

@@ -30,8 +30,9 @@ export const enum EnmType {
 export interface IDefField {
     id?: number;
     tabName?: string;
-    orderNo?: number;
-    groupName?: string;
+    ordNo?: number;
+    grpName?: string;
+    fldCaption?: string;
     selSelect?: EnmSelect;
     selType?: EnmType;
 }
@@ -40,8 +41,9 @@ export class DefField implements IDefField {
     constructor(
         public id?: number,
         public tabName?: string,
-        public orderNo?: number,
-        public groupName?: string,
+        public ordNo?: number,
+        public grpName?: string,
+        public fldCaption?: string,
         public selSelect?: EnmSelect,
         public selType?: EnmType
     ) {}

@@ -105,7 +105,7 @@ public class DefFieldServiceImpl implements DefFieldService {
     @Override
     @Transactional(readOnly = true)
     public List<DefField> findAllByTabName(String tabName){
-        return defFieldRepository.findAllByTabNameOrderByOrderNo(tabName);
+        return defFieldRepository.findAllByTabNameOrderByOrdNo(tabName);
     }
 
 }

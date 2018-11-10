@@ -224,7 +224,8 @@
             "edit": "Düzenle",
             "open": "Aç",
             "save": "Kaydet",
-            "view": "Görüntüle"
+            "view": "Görüntüle",
+            "approve": "Onay"
         },
         "detail": {
             "field": "Alan",

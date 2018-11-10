@@ -38,6 +38,9 @@ public class PerValue implements IEntity {
     @Transient
     private String grp;
 
+    @Transient
+    private String cap;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -119,11 +122,23 @@ public class PerValue implements IEntity {
         return (this.grp);
     }
 
+    public String getCaption() {
+        return (this.cap);
+    }
+
     public String getGrp() {
         return grp;
     }
 
     public void setGrp(String grp) {
         this.grp = grp;
+    }
+
+    public String getCap() {
+        return cap;
+    }
+
+    public void setCap(String cap) {
+        this.cap = cap;
     }
 }

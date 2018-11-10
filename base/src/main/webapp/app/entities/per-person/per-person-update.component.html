@@ -128,8 +128,10 @@
 
             <div>
             <p-table [columns]="valCols" [value]="personValLists" selectionMode="single" [(selection)]="selectedVal" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+                <!--
                 <ng-template pTemplate="caption">
                 </ng-template>
+                -->
                 <ng-template pTemplate="header" let-columns>
                     <tr>
                         <th *ngFor="let col of columns" [pSortableColumn]="col.field">
@@ -165,11 +167,11 @@
                 </ng-template>
             </p-table>
 
-            <p-dialog header="Seçim" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="600">
+            <p-dialog header="" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="600">
                 <div class="ui-g ui-fluid" *ngIf="selectedVal">
                     <div class="ui-g-12">
                         <div class="ui-g-2">
-                            <label for="field_item">Değer</label>
+                            <label for="field_item">{{selectedVal.caption}}</label>
                         </div>
                         <div class="ui-g-10">
                             <select class="form-control" id="field_item" name="item" [(ngModel)]="selectedVal.valItem">
@@ -181,8 +183,8 @@
                 </div>
                 <p-footer>
                     <div class="ui-dialog-buttonpane ui-helper-clearfix">
-                        <button type="button" pButton icon="fa fa-arrow-left" (click)="deleteVal()" label="Iptal"></button>
-                        <button type="button" pButton icon="fa fa-check" (click)="saveVal()" label="Kaydet"></button>
+                        <button type="button" pButton icon="fa fa-arrow-left" (click)="deleteVal()" label="Geri"></button>
+                        <button type="button" pButton icon="fa fa-check" (click)="saveVal()" label="Onayla"></button>
                     </div>
                 </p-footer>
             </p-dialog>

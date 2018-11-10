@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(DefFieldService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new DefField(0, 'AAAAAAA', 0, 'AAAAAAA', EnmSelect.FLDTYPE, EnmType.BANKA);
+            elemDefault = new DefField(0, 'AAAAAAA', 0, 'AAAAAAA', 'AAAAAAA', EnmSelect.FLDTYPE, EnmType.BANKA);
         });
 
         describe('Service methods', async () => {
@@ -56,8 +56,9 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         tabName: 'BBBBBB',
-                        orderNo: 1,
-                        groupName: 'BBBBBB',
+                        ordNo: 1,
+                        grpName: 'BBBBBB',
+                        fldCaption: 'BBBBBB',
                         selSelect: 'BBBBBB',
                         selType: 'BBBBBB'
                     },
@@ -77,8 +78,9 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         tabName: 'BBBBBB',
-                        orderNo: 1,
-                        groupName: 'BBBBBB',
+                        ordNo: 1,
+                        grpName: 'BBBBBB',
+                        fldCaption: 'BBBBBB',
                         selSelect: 'BBBBBB',
                         selType: 'BBBBBB'
                     },
@@ -87,10 +89,7 @@ describe('Service Tests', () => {
                 const expected = Object.assign({}, returnedFromService);
                 service
                     .query(expected)
-                    .pipe(
-                        take(1),
-                        map(resp => resp.body)
-                    )
+                    .pipe(take(1), map(resp => resp.body))
                     .subscribe(body => expect(body).toContainEqual(expected));
                 const req = httpMock.expectOne({ method: 'GET' });
                 req.flush(JSON.stringify([returnedFromService]));
