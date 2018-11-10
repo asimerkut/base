@@ -28,7 +28,7 @@
                 <dt><span jhiTranslate="baseApp.perPlan.person">Person</span></dt>
                 <dd>
                     <div *ngIf="perPlan.person">
-                        <a [routerLink]="['/per-person', perPlan.person?.id, 'view']">{{perPlan.person?.code}}</a>
+                        <a [routerLink]="['/per-person', perPlan.person?.id, 'view']">{{perPlan.person?.name}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perPlan.ders">Ders</span></dt>

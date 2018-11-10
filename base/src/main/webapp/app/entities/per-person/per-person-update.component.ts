@@ -118,17 +118,16 @@ export class PerPersonUpdateComponent implements OnInit {
         const rowGroupMetadata = {};
         if (this.personValLists) {
             for (let i = 0; i < this.personValLists.length; i++) {
-                const rowData = this.personValLists[i];
-                const label = rowData.label;
+                const rowData: IPerValue = this.personValLists[i];
                 if (i === 0) {
-                    rowGroupMetadata[label] = { index: 0, size: 1 };
+                    rowGroupMetadata[rowData.label] = { index: 0, size: 1 };
                 } else {
                     const previousRowData = this.personValLists[i - 1];
                     const previousRowGroup = previousRowData.label;
                     if (label === previousRowGroup) {
-                        rowGroupMetadata[label].size++;
+                        rowGroupMetadata[rowData.label].size++;
                     } else {
-                        rowGroupMetadata[label] = { index: i, size: 1 };
+                        rowGroupMetadata[rowData.label] = { index: i, size: 1 };
                     }
                 }
             }
@@ -154,7 +153,8 @@ export class PerPersonUpdateComponent implements OnInit {
 
     cloneVal(oldObj: IPerValue): IPerValue {
         const newObj = {};
-        for (const prop in oldObj) {
+        // for (const prop in oldObj) {
+        for (const prop of Object.keys(oldObj)) {
             newObj[prop] = oldObj[prop];
         }
         return newObj;

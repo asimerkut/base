@@ -15,6 +15,8 @@ npm install fullcalendar
 
 global.css eklemesi
 
+sudo nohup ./base-0.0.1-SNAPSHOT.war &
+
 package.json ->
   "dependencies": {
         "jquery": "^1.12.1",
@@ -52,3 +54,6 @@ WHERE id=1151;
 alter table def_pivot add pvt_val varchar2(255);
 alter table def_pivot add pvt_col varchar2(255);
 alter table def_pivot add pvt_row varchar2(255);
+
+sudo /etc/init.d/postgresql stop
+sudo /etc/init.d/postgresql start

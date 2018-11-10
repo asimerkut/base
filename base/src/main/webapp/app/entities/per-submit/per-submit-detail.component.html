@@ -28,7 +28,7 @@
                 <dt><span jhiTranslate="baseApp.perSubmit.person">Person</span></dt>
                 <dd>
                     <div *ngIf="perSubmit.person">
-                        <a [routerLink]="['/per-person', perSubmit.person?.id, 'view']">{{perSubmit.person?.code}}</a>
+                        <a [routerLink]="['/per-person', perSubmit.person?.id, 'view']">{{perSubmit.person?.name}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perSubmit.ders">Ders</span></dt>
@@ -40,7 +40,7 @@
                 <dt><span jhiTranslate="baseApp.perSubmit.excuse">Excuse</span></dt>
                 <dd>
                     <div *ngIf="perSubmit.excuse">
-                        <a [routerLink]="['/per-excuse', perSubmit.excuse?.id, 'view']">{{perSubmit.excuse?.code}}</a>
+                        <a [routerLink]="['/per-excuse', perSubmit.excuse?.id, 'view']">{{perSubmit.excuse?.label}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="baseApp.perSubmit.periodState">Period State</span></dt>

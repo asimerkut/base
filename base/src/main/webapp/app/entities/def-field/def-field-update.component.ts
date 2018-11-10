@@ -8,6 +8,7 @@ import { DefFieldService } from './def-field.service';
 import { IDefType } from 'app/shared/model/def-type.model';
 import { DefTypeService } from 'app/entities/def-type';
 import { JhiAlertService } from 'ng-jhipster';
+import { IDefItem } from 'app/shared/model/def-item.model';
 
 @Component({
     selector: 'jhi-def-field-update',
@@ -66,5 +67,13 @@ export class DefFieldUpdateComponent implements OnInit {
 
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackDefTypeById(index: number, item: IDefType) {
+        return item.id;
+    }
+
+    trackDefItemById(index: number, item: IDefItem) {
+        return item.id;
     }
 }

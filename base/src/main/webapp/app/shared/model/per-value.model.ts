@@ -8,6 +8,7 @@ export interface IPerValue {
     valItem?: IDefItem;
     person?: IPerPerson;
     label?: string;
+    caption?: string;
 }
 
 export class PerValue implements IPerValue {
@@ -16,6 +17,7 @@ export class PerValue implements IPerValue {
         public valType?: IDefType,
         public valItem?: IDefItem,
         public person?: IPerPerson,
-        public label?: string
+        public label?: string,
+        public caption?: string
     ) {}
 }

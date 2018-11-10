@@ -18,7 +18,7 @@
                 <dt><span jhiTranslate="baseApp.perPeriodState.person">Person</span></dt>
                 <dd>
                     <div *ngIf="perPeriodState.person">
-                        <a [routerLink]="['/per-person', perPeriodState.person?.id, 'view']">{{perPeriodState.person?.code}}</a>
+                        <a [routerLink]="['/per-person', perPeriodState.person?.id, 'view']">{{perPeriodState.person?.name}}</a>
                     </div>
                 </dd>
             </dl>

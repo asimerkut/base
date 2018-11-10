@@ -24,8 +24,9 @@ export interface IDefType {
     id?: number;
     code?: EnmType;
     name?: string;
+    label?: string;
 }
 
 export class DefType implements IDefType {
-    constructor(public id?: number, public code?: EnmType, public name?: string) {}
+    constructor(public id?: number, public code?: EnmType, public name?: string, public label?: string) {}
 }
