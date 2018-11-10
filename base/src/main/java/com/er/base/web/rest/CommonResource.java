@@ -87,7 +87,7 @@ public class CommonResource {
             data.setCode(val.getCode());
             data.setName(val.getName());
             data.setTypeId(val.getType().getId());
-            data.setTypeCode(val.getType().getCode().name());
+            data.setTypeCode(val.getType().getCode());
             DefTreeItemDTO item = new DefTreeItemDTO();
             item.setData(data);
             itemMap.put(val.getId(), item);

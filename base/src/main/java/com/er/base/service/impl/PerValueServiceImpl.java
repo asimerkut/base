@@ -129,7 +129,7 @@ public class PerValueServiceImpl implements PerValueService {
     private void addToList(LinkedHashSet<PerValue> list, Set<PerValue> valSet, EnmType enmType, String grp, String cap){
         PerValue val = null;
         for (PerValue value : valSet){
-            if (value.getValType().getCode().getId().equals(enmType.getId())){
+            if (value.getValType().getCode().equals(enmType.getId())){
                 val = value;
                 break;
             }

@@ -38,7 +38,7 @@
             <tbody>
             <tr *ngFor="let defType of defTypes ;trackBy: trackId">
                 <td><a [routerLink]="['/def-type', defType.id, 'view' ]">{{defType.id}}</a></td>
-                <td jhiTranslate="{{'baseApp.EnmType.' + defType.code}}">{{defType.code}}</td>
+                <td>{{defType.code}}</td>
                 <td>{{defType.name}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

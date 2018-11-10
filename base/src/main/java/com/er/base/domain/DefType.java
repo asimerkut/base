@@ -3,15 +3,12 @@ package com.er.base.domain;
 import com.er.fin.domain.IEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
-
-import org.springframework.data.elasticsearch.annotations.Document;
-import java.io.Serializable;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
-
-import com.er.base.domain.enumeration.EnmType;
 
 /**
  * A DefType.
@@ -30,9 +27,8 @@ public class DefType implements IEntity {
     private Long id;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
     @Column(name = "code", nullable = false)
-    private EnmType code;
+    private String code;
 
     @NotNull
     @Size(max = 100)
@@ -48,16 +44,16 @@ public class DefType implements IEntity {
         this.id = id;
     }
 
-    public EnmType getCode() {
+    public String getCode() {
         return code;
     }
 
-    public DefType code(EnmType code) {
+    public DefType code(String code) {
         this.code = code;
         return this;
     }
 
-    public void setCode(EnmType code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

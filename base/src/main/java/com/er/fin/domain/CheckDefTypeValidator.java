@@ -21,7 +21,7 @@ public class CheckDefTypeValidator implements ConstraintValidator<CheckDefType, 
         if (item==null || item.getType()==null){
             return true;
         } else {
-            boolean isValid = item.getType().getCode().name().equals(value.value().name());
+            boolean isValid = item.getType().getCode().equals(value.value().name());
             return isValid;
         }
     }
