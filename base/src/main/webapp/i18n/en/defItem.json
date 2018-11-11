@@ -5,6 +5,7 @@
             "home": {
                 "title": "Def Items",
                 "createLabel": "Create a new Def Item",
+                "createLabelLeaf": "Create a new Def Item Leaf",
                 "createOrEditLabel": "Create or edit a Def Item",
                 "search": "Search for Def Item"
             },

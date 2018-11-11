@@ -20,7 +20,16 @@
 
     <div>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-def-item" [routerLink]="['/def-item',defItemService.comboSelModel.comboSel.code,'new']">
+        <button id="jh-create-entity_leaf" class="btn btn-primary float-right jh-create-entity create-def-item"
+                [routerLink]="['/def-item', defItemService.comboSelModel.comboSel.code, defItemService.selectedTreePlace==null?0:defItemService.selectedTreePlace.data.id, 'new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="baseApp.defItem.home.createLabelLeaf">
+            Create new Def Item Leaf
+            </span>
+        </button>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-def-item"
+                [routerLink]="['/def-item', defItemService.comboSelModel.comboSel.code, 0,'new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span class="hidden-sm-down"  jhiTranslate="baseApp.defItem.home.createLabel">
             Create new Def Item

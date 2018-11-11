@@ -4,8 +4,9 @@
         "defItem" : {
             "home": {
                 "title": "Tanımlar",
-                "createLabel": "Yeni",
-                "createOrEditLabel": "Ekle/Değiştir",
+                "createLabel": "Yeni Üst Kod",
+                "createLabelLeaf": "Seçim Alt Kod",
+                "createOrEditLabel": "Kod Ekle/Değiştir",
                 "search": "Ara"
             },
             "created": "Tanım Oluştu {{ param }}",

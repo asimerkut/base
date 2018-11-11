@@ -59,8 +59,13 @@ public class DefItemResource {
             defItem.setItemLevel(1);
         } else {
             DefItem parent = defItemService.findOne(defItem.getParent().getId()).get();
-            defItem.setParent(parent);
-            defItem.setItemLevel(parent.getItemLevel()+1);
+            if (parent.getType().getId().equals(defItem.getType().getId())){
+                defItem.setParent(parent);
+                defItem.setItemLevel(parent.getItemLevel()+1);
+            } else {
+                defItem.setParent(null);
+                defItem.setItemLevel(1);
+            }
         }
         log.debug("REST request to save DefItem : {}", defItem);
         if (defItem.getId() != null) {
@@ -84,6 +89,10 @@ public class DefItemResource {
     @PutMapping("/def-items")
     @Timed
     public ResponseEntity<DefItem> updateDefItem(@Valid @RequestBody DefItem defItem) throws URISyntaxException {
+        if (defItem.getParent()!=null && defItem.getParent().getId().equals(defItem.getId())){
+            defItem.setParent(null);
+            defItem.setItemLevel(1);
+        }
         log.debug("REST request to update DefItem : {}", defItem);
         if (defItem.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

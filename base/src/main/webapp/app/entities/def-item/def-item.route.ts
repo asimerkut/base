@@ -23,11 +23,16 @@ export class DefItemResolve implements Resolve<IDefItem> {
             return this.service.find(id).pipe(map((defItem: HttpResponse<DefItem>) => defItem.body));
         }
         const type = route.params['type'] ? route.params['type'] : null;
-        if (type) {
+        const parid = route.params['parid'] ? route.params['parid'] : null;
+        if (type && parid) {
             const newType = new DefType();
             newType.code = type;
             const newItem = new DefItem();
             newItem.type = newType;
+            if (parid > 0) {
+                newItem.parent = new DefItem();
+                newItem.parent.id = parid;
+            }
             return newItem;
         }
         return of(new DefItem());
@@ -57,7 +62,7 @@ export const defItemRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'def-item/:type/new',
+        path: 'def-item/:type/:parid/new',
         component: DefItemUpdateComponent,
         resolve: {
             defItem: DefItemResolve
