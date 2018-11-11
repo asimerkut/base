@@ -39,13 +39,15 @@
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 
 
-    <include file="config/liquibase/custom/99999999999999_LoadData_01.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/custom/99999999999999_LoadData_02.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/custom/99999999999999_LoadData_03.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/custom/99999999999999_LoadData_04.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/custom/99999999999999_LoadData_05.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/custom/99999999999999_LoadData_06.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/custom/99999999999999_LoadData_07.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/L_3001.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/L_3002.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/L_3003.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/L_3004.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/L_3005.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/L_3006.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/L_3007.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/L_3008.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/custom/L_3009.xml" relativeToChangelogFile="false"/>
 
 
 </databaseChangeLog>

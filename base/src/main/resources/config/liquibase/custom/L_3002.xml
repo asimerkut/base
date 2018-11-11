@@ -9,16 +9,12 @@
     <property name="now" value="now()" dbms="h2"/>
     <property name="now" value="current_timestamp" dbms="postgresql"/>
 
-    <!--
-        JHipster core tables.
-        The initial schema has the '00000000000001' id, so that it is over-written if we re-generate it.
-    -->
-    <changeSet id="99999999999999-3" author="jhipster">
+    <changeSet id="3002" author="jhipster">
 
         <loadData encoding="UTF-8"
-                  file="config/liquibase/custom/03_defRelation.csv"
+                  file="config/liquibase/custom/3002_defItem.csv"
                   separator=";"
-                  tableName="def_relation">
+                  tableName="def_item">
         </loadData>
 
     </changeSet>
