@@ -29,7 +29,8 @@ public class DefType implements IEntity {
     private Long id;
 
     @NotNull
-    @Column(name = "code", nullable = false)
+    @Size(max = 5)
+    @Column(name = "code", length = 5, nullable = false)
     private String code;
 
     @NotNull

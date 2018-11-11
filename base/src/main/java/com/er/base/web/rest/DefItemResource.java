@@ -43,6 +43,18 @@ public class DefItemResource {
         this.defTypeService = defTypeService;
     }
 
+
+    private void fixDesc(DefItem defItem){
+        defItem.setCode(defItem.getCode().toUpperCase().replace(" ",""));
+        if (defItem.getCode().length()==0){
+            defItem.setCode("?");
+        }
+        defItem.setName(defItem.getName().trim());
+        if (defItem.getName().length()==0){
+            defItem.setName("?");
+        }
+    }
+
     /**
      * POST  /def-items : Create a new defItem.
      *
@@ -71,6 +83,7 @@ public class DefItemResource {
         if (defItem.getId() != null) {
             throw new BadRequestAlertException("A new defItem cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        fixDesc(defItem);
         DefItem result = defItemService.save(defItem);
         return ResponseEntity.created(new URI("/api/def-items/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -89,14 +102,11 @@ public class DefItemResource {
     @PutMapping("/def-items")
     @Timed
     public ResponseEntity<DefItem> updateDefItem(@Valid @RequestBody DefItem defItem) throws URISyntaxException {
-        if (defItem.getParent()!=null && defItem.getParent().getId().equals(defItem.getId())){
-            defItem.setParent(null);
-            defItem.setItemLevel(1);
-        }
         log.debug("REST request to update DefItem : {}", defItem);
         if (defItem.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
+        fixDesc(defItem);
         DefItem result = defItemService.save(defItem);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, defItem.getId().toString()))

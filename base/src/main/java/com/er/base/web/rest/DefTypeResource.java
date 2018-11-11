@@ -38,6 +38,17 @@ public class DefTypeResource {
         this.defTypeService = defTypeService;
     }
 
+    private void fixDesc(DefType defType){
+        defType.setCode(defType.getCode().toUpperCase().replace(" ",""));
+        if (defType.getCode().length()==0){
+            defType.setCode("?");
+        }
+        defType.setName(defType.getName().trim());
+        if (defType.getName().length()==0){
+            defType.setName(defType.getCode().substring(0, 1).toUpperCase() + defType.getCode().substring(1).toLowerCase());
+        }
+    }
+
     /**
      * POST  /def-types : Create a new defType.
      *
@@ -52,6 +63,7 @@ public class DefTypeResource {
         if (defType.getId() != null) {
             throw new BadRequestAlertException("A new defType cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        fixDesc(defType);
         DefType result = defTypeService.save(defType);
         return ResponseEntity.created(new URI("/api/def-types/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -74,6 +86,7 @@ public class DefTypeResource {
         if (defType.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
+        fixDesc(defType);
         DefType result = defTypeService.save(defType);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, defType.getId().toString()))
